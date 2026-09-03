@@ -1,0 +1,13 @@
+task_id,status,health,progress,next_action,updated
+fall-workshop-registration-closes,Verify,gray,0,Confirm every attendee is registered and retain confirmation,2026-09-03
+rev-1-releases-re-baseline,Ready,gray,0,Assign one lead per document and log every changed requirement,2026-09-03
+name-all-fourteen-required-roles,In progress,yellow,50,Close open roles and obtain faculty confirmation,2026-09-03
+signed-good-faith-agreements,Not started,gray,0,Confirm signers and routing path,2026-09-03
+student-leadership-council-applications,Not started,gray,0,Identify candidates and application owner,2026-09-03
+case-study-reflection,Not started,gray,0,Reserve the three-person workshop response team,2026-09-03
+integrated-year-1-workplan,In progress,yellow,20,Validate owners dependencies academic conflicts and top five risks with leads,2026-09-03
+university-it-ticket-teamcenter-nx-licence,Verify,yellow,0,Record ticket owner number response date and fallback decision trigger,2026-09-03
+cad-workflow-diagram-8-required-steps,Not started,gray,0,Choose Teamcenter or interim controlled workflow and draft eight-step diagram,2026-09-03
+off-road-benchmarking-spreadsheet,Not started,gray,0,Assign one production vehicle per contributor using public sources,2026-09-03
+pcm-onboarding-guide,Not started,gray,0,Create install Git and first-simulation acceptance checklist,2026-09-03
+marcom-manager-named,Blocked,red,0,Appoint interim MarCom owner until permanent manager is confirmed,2026-09-03

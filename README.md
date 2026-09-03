@@ -1,111 +1,91 @@
-# Cal State LA EcoCAR — Year 1 Taskline
+# Cal State LA EcoCAR - Year 1 Execution Hub
 
-The public schedule for the EcoCAR Innovation Challenge, Stellantis track.
-Live at **https://<org>.github.io/taskline/**
+This repository generates a public, read-only execution hub for the Cal State LA EcoCAR Innovation Challenge team. It connects the Year 1 baseline to accountable owners, official deliverable summaries, internal review gates, onboarding work, roles, and public-safe project controls.
 
-Anyone can read it without an account. Click any row for the full submission
-requirements — file names, formats, size limits, required content, and the
-Argonne organizer for that deliverable.
+Live site: https://geoffchavez.github.io/taskline/
 
----
+## What this system is
 
-## To change a date
+- **GitHub repository:** version-controlled team baseline and public-safe status.
+- **GitHub Pages:** easy-to-read navigation and accountability view.
+- **Planner or equivalent:** daily checklists, comments, and personal reminders.
+- **Box or Teams:** controlled official requirements, scorecards, OEM-sensitive data, drafts, contact details, and final submissions.
 
-1. Open `data/schedule.csv` in Excel.
-2. Change the date. Dates are `YYYY-MM-DD`, always.
-3. **Save as CSV** (Excel will warn you about "features not compatible" — say yes, keep CSV).
-4. Run `python build.py`
-5. Commit and push. The site updates in about a minute.
+Do not upload organizer source documents or submission artifacts to this public repository. The source documents include use restrictions, and several technical submissions permit OEM-sensitive information.
 
-That is the whole workflow. You never edit HTML.
+## Source-of-truth order
 
----
+1. Latest EcoCAR revision and scorecard.
+2. EIC Team Dashboard for official dates.
+3. Approved team baseline in this repository.
+4. Weekly execution status.
 
-## The three data files
+When a higher source changes, update affected cards and tasks, rebuild, and record the revision in the commit message.
 
-| File | What it holds | How often it changes |
-|---|---|---|
-| `data/schedule.csv` | Every task: dates, owners, which lane | **Weekly.** This is the one you'll touch. |
-| `data/people.csv` | Names, roles, avatar colours | When someone joins or a role is named |
-| `data/details.json` | Submission requirements per deliverable | Twice a year, when a Rev drops |
+## Normal update
 
-### schedule.csv columns
+1. In GitHub Desktop, **Fetch origin**, then **Pull origin** if offered.
+2. Edit the smallest relevant file in `data/`.
+3. Open **Repository -> Open in Command Prompt**.
+4. Run `python build.py`.
+5. Open `docs/index.html` and check the changed page.
+6. Commit with a specific message and **Push origin**.
 
-| Column | Meaning |
+GitHub Pages updates after the pushed commit is processed.
+
+## Data map
+
+| Need to change | File |
 |---|---|
-| `id` | Unique, lowercase, no spaces. Links a row to its entry in `details.json`. Don't reuse. |
-| `group` | The section heading it appears under. Rows are grouped in file order — keep rows of the same group together. |
-| `lane` | Colour band: `vse` `vhi` `pcm` `hvb` `pgm` `biz` |
-| `task` | What shows in bold |
-| `label` | The small grey line underneath |
-| `type` | `bar` = work over time · `milestone` = a single date · `freeze` = our T−5 review window · `tbd` = dashed, date not published |
-| `start` / `end` | `YYYY-MM-DD`. Milestones only need `start`. |
-| `owners` | Space-separated keys from `people.csv`, e.g. `fra dor jef` |
+| Baseline task, date, lane, or owner | `data/schedule.csv` |
+| Weekly status, health, progress, or next action | `data/task_status.csv` |
+| Official artifact summary and definition of done | `data/deliverables.json` |
+| People | `data/people.csv` |
+| Required and delivery-critical roles | `data/roles.csv` |
+| Strategic drivers | `data/strategic_drivers.csv` |
+| New-member first wins | `data/onboarding.csv` |
+| Public-safe risks and decisions | `data/risks.csv`, `data/decisions.csv` |
+| Controlled-system links | `data/links.json` |
+| Site identity and source dates | `data/site.json` |
+| Supporting task detail | `data/details.json` |
 
-### Adding a person
+The first key in the `owners` field of `schedule.csv` is the accountable owner. Additional keys are contributors. Every key must exist in `data/people.csv`.
 
-Add a row to `data/people.csv` with a short `key` (3 letters), their name, their
-role, and a hex colour. Then use that key in the `owners` column.
+## Built-in quality controls
 
----
+`python build.py` stops when it finds:
 
-## Build checks
+- duplicate IDs;
+- invalid or reversed dates;
+- unknown or missing owners;
+- invalid task status, health, role, risk, or decision values;
+- deliverable deadlines that disagree with the matching schedule milestone;
+- missing deliverable artifacts or completion checks;
+- local file paths in published links; or
+- common sensitive file formats inside `docs/`.
 
-`build.py` refuses to build and tells you the Excel row number if:
+It also calculates five deliverable gates: content complete at T-15 business days, peer review at T-10, freeze/red team at T-5, submission ready at T-2, and official due at T-0.
 
-- a date isn't `YYYY-MM-DD` (catches Excel silently writing `15/10/2026`)
-- an `end` date is before its `start`
-- a `bar`, `freeze` or `tbd` row has no end date
-- `type` isn't one of the four valid values
-- an owner key isn't in `people.csv`
-- two rows share an `id`
+## Operating rules
 
-If it builds, the site is correct. That's the point of the check.
+- One accountable owner per result; contributors support the owner.
+- No more than two active priority items per person without an explicit leadership tradeoff.
+- A task is not done until its acceptance checks and evidence are complete.
+- Yellow means a credible recovery plan exists. Red means intervention is needed. Neither is punished for being honest.
+- New members receive a bounded first win within seven days.
+- Any Senior Design overlap receives a one-page, faculty-approved boundary covering scope, ownership, evidence reuse, and acceptance criteria.
+- Decisions, changed dates, and owners are recorded within 24 hours.
 
----
+## Initial leadership decisions
 
-## When a Rev drops
+Before expanding the task inventory, the team should:
 
-The competition republishes requirements a few times a year. When that happens:
+1. confirm every required role and backup;
+2. approve the five strategic drivers;
+3. validate the draft risks and decisions;
+4. add the approved controlled-system links;
+5. confirm every lead's dates, dependencies, academic conflicts, and capacity;
+6. define the Senior Design boundary for each overlapping work package; and
+7. re-baseline within two business days of every new official revision.
 
-1. Update the dates in `schedule.csv` from the **Team Dashboard** — that is the
-   official source for due dates, not the requirement PDFs.
-2. Update the changed submission requirements in `details.json`.
-3. Rebuild, commit, push.
-4. Send the team the link and say what moved.
-
-Re-baseline **once**, the week the Rev lands. Editing twice is how a schedule
-loses its authority.
-
----
-
-## Repo layout
-
-```
-data/schedule.csv     the timeline           <- edit this
-data/people.csv       who's who              <- edit this
-data/details.json     submission specs       <- edit when a Rev drops
-template.html         the renderer           <- don't edit unless changing design
-build.py              the build              <- run this
-docs/index.html       the generated site     <- never edit by hand, it gets overwritten
-```
-
-GitHub Pages is set to serve from the `docs/` folder on `main`.
-
----
-
-## Two rules that keep this alive after we graduate
-
-**This repo belongs to the organization, not to a person.** The next PM gets
-added as an owner, not handed a password. That is the whole reason it's here
-and not on somebody's laptop.
-
-**`docs/index.html` is generated.** If you edit it directly, your change
-disappears the next time anyone runs `build.py`. Change the CSV instead.
-
----
-
-*Dates and organizer leads come from the EIC Team Dashboard. Submission
-requirements come from the STLA Technical Deliverable Requirements and the
-General Deliverable Requirements. Every deliverable is submitted to EcoCAR
-Box — nothing goes by email, and ZIP files are prohibited on every submission.*
+See [SETUP.md](SETUP.md) for first-time setup and [CONTRIBUTING.md](CONTRIBUTING.md) for the change workflow.

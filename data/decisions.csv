@@ -1,0 +1,6 @@
+decision_id,status,decision,owner_key,needed_by,options,next_action,source
+D-001,Open,CAD data platform and controlled fallback,fra,2026-09-11,Teamcenter or documented alternative,Bring IT evidence constraints and a recommended fallback to the leadership review,STLA B-1 and B-3
+D-002,Open,Senior Design and EcoCAR scope boundaries,geo,2026-09-11,Shared evidence with separate ownership or independent scopes,Obtain faculty-approved one-page boundary for every overlapping work package,Integrated Workplan C-2.4.3
+D-003,Open,Interim MarCom ownership,geo,2026-09-10,Appoint interim owner or complete recruitment,Name an accountable owner before Gate 1 work begins,Team Dashboard and Webpage Requirement
+D-004,Open,Facilities and Safety Coordinator,geo,2026-09-17,Appoint qualified owner and backup,Confirm role with faculty and begin binder inventory,STLA H-1
+D-005,Proposed,ITEC digest topic and author team,ant,2026-09-25,Review paper prior research or architecture-selection study,Shortlist topics and verify conference fit before drafting,STLA G-3

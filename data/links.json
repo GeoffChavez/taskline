@@ -1,0 +1,8 @@
+{
+  "team_dashboard": {"label": "Official Team Dashboard", "url": "", "owner": "geo", "note": "Add the approved team-access link; official source for dates."},
+  "requirements_library": {"label": "Requirements library", "url": "", "owner": "geo", "note": "Add the controlled Box or Teams folder containing current revisions and scorecards."},
+  "submission_folder": {"label": "Submission workspace", "url": "", "owner": "geo", "note": "Add the controlled draft/review/final folder. Do not use the public repository for submissions."},
+  "planner_board": {"label": "Weekly execution board", "url": "", "owner": "geo", "note": "Add the Planner board used for daily checklists and comments."},
+  "senior_design_scopes": {"label": "Approved Senior Design scopes", "url": "", "owner": "geo", "note": "Add the faculty-controlled scope folder to prevent duplicate ownership."},
+  "onboarding_home": {"label": "New member start-here folder", "url": "", "owner": "geo", "note": "Add the approved onboarding folder with access requests and training guides."}
+}

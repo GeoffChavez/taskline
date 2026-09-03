@@ -1,372 +1,150 @@
-<title>EcoCAR Year 1 Taskline</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
-
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Cal State LA EcoCAR Year 1 execution hub">
+<title>EcoCAR Year 1 Execution Hub</title>
 <style>
-:root{
-  --bg:#F5F7F4; --surf:#FFFFFF; --surf2:#EEF2EC; --surf3:#E4EBE2; --line:#DBE3DA; --line2:#C3CFC1; --gridw:#E7EDE5;
-  --ink:#16211C; --mut:#59685F; --dim:#7C8B82;
-  --vse:#0B6273; --vhi:#3F6E0F; --pcm:#5B3E8C; --hvb:#A8500B; --pgm:#25554A; --biz:#8A2B4E;
-  --amb:#8A5A05; --red:#95261C; --today:#95261C; --barbg:#E9EFE7; --scrim:rgba(20,30,25,.34);
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0F1613; --surf:#17211D; --surf2:#1E2A25; --surf3:#25322C; --line:#2C3A34; --line2:#3D4C45; --gridw:#212D28;
-    --ink:#EDF3EF; --mut:#9AAAA1; --dim:#788780;
-    --vse:#3FD8F0; --vhi:#B5FF3B; --pcm:#C3A0FF; --hvb:#FFB13B; --pgm:#6FD6B4; --biz:#FF8FB1;
-    --amb:#FFB13B; --red:#FF7C6E; --today:#FF7C6E; --barbg:#1E2A25; --scrim:rgba(0,0,0,.55);
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0F1613; --surf:#17211D; --surf2:#1E2A25; --surf3:#25322C; --line:#2C3A34; --line2:#3D4C45; --gridw:#212D28;
-  --ink:#EDF3EF; --mut:#9AAAA1; --dim:#788780;
-  --vse:#3FD8F0; --vhi:#B5FF3B; --pcm:#C3A0FF; --hvb:#FFB13B; --pgm:#6FD6B4; --biz:#FF8FB1;
-  --amb:#FFB13B; --red:#FF7C6E; --today:#FF7C6E; --barbg:#1E2A25; --scrim:rgba(0,0,0,.55);
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.55}
-.wrap{max-width:1500px;margin:0 auto;padding:0 20px 90px}
-h1,h2,h3,h4{font-family:Archivo,system-ui,sans-serif;margin:0;text-wrap:balance}
-a{color:var(--vse)}
-button{font:inherit}
-:focus-visible{outline:2px solid var(--vse);outline-offset:2px}
-.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
-
-header{padding:42px 0 0}
-.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.19em;text-transform:uppercase;color:var(--vhi);font-weight:600}
-h1{font-size:clamp(1.9rem,4.4vw,2.8rem);font-weight:700;letter-spacing:-.028em;line-height:1.05;margin:12px 0 0}
-.lede{font-size:1.05rem;color:var(--mut);max-width:72ch;margin:14px 0 0}
-.stamp{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--dim);margin-top:14px}
-
-/* controls */
-.controls{margin:26px 0 0;padding:16px 0 14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.ctitle{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{display:inline-flex;align-items:center;gap:7px;background:var(--surf);border:1px solid var(--line2);
-  border-radius:999px;padding:5px 13px 5px 6px;cursor:pointer;color:var(--ink);
-  font-family:Archivo,sans-serif;font-size:12.5px;transition:border-color .12s,background .12s}
-.chip:hover{border-color:var(--ink)}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.chip .av{width:21px;height:21px;border-radius:50%;display:grid;place-items:center;flex:none;
-  font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;color:#fff;letter-spacing:.02em}
-.chip .n{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--dim)}
-.chip[aria-pressed="true"] .n{color:var(--bg);opacity:.75}
-.chip.all .av{background:var(--mut)}
-.legend{display:flex;flex-wrap:wrap;gap:7px 20px;margin-top:14px}
-.lg{display:flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:10px;
-  letter-spacing:.07em;text-transform:uppercase;color:var(--mut)}
-.sw{width:24px;height:10px;border-radius:2px;flex:none}
-.sw.dash{background:repeating-linear-gradient(90deg,var(--mut) 0 4px,transparent 4px 8px);height:8px}
-.sw.dia{position:static;top:auto;width:11px;height:11px;border-radius:1.5px;background:var(--ink);transform:rotate(45deg);margin:0 6px;z-index:auto}
-.sw.frz{background:var(--barbg);border:1.5px solid var(--red)}
-.hint{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--dim);margin-top:12px}
-
-/* chart — its own scroll box so header and names stay pinned */
-.chartbox{margin-top:22px;border:1px solid var(--line2);border-radius:4px;background:var(--surf);
-  max-height:74vh;overflow:auto;position:relative}
-.chart{min-width:1560px;position:relative}
-.hdr{display:grid;grid-template-columns:280px 1fr;position:sticky;top:0;z-index:8;
-  background:var(--surf3);border-bottom:1.5px solid var(--line2)}
-.hdr .lbl{padding:9px 12px;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--mut);border-right:1.5px solid var(--line2);display:flex;align-items:flex-end;
-  position:sticky;left:0;z-index:9;background:var(--surf3)}
-.months{position:relative;height:54px}
-.mo{position:absolute;top:0;bottom:0;border-left:1px solid var(--line2);padding:23px 0 0 7px}
-.mo b{font-family:Archivo,sans-serif;font-size:11.5px;font-weight:600;display:block;letter-spacing:.02em}
-.mo i{font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--dim);font-style:normal}
-.wk{position:absolute;top:37px;bottom:0;border-left:1px solid var(--gridw)}
-
-.grp{display:grid;grid-template-columns:280px 1fr;background:var(--surf2);
-  border-top:1px solid var(--line2);border-bottom:1px solid var(--line)}
-.grp .g1{padding:7px 12px;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;
-  text-transform:uppercase;font-weight:600;border-right:1.5px solid var(--line2);
-  position:sticky;left:0;z-index:6;background:var(--surf2)}
-.grp .g2{position:relative}
-
-.row{display:grid;grid-template-columns:280px 1fr;border-bottom:1px solid var(--gridw);cursor:pointer;
-  background:var(--surf);text-align:left;width:100%;padding:0;border-left:0;border-right:0;border-top:0;color:inherit;font:inherit}
-.row:hover{background:var(--surf2)}
-.row:hover .name{background:var(--surf2)}
-.row.sel,.row.sel .name{background:var(--barbg)}
-.row .name{padding:7px 12px;font-family:Archivo,system-ui,sans-serif;font-size:12px;line-height:1.3;
-  border-right:1.5px solid var(--line2);display:flex;flex-direction:column;justify-content:center;min-height:36px;
-  position:sticky;left:0;z-index:5;background:var(--surf)}
-.row .name b{font-weight:600;display:block}
-.row .nmeta{display:flex;align-items:center;gap:6px;margin-top:3px}
-.row .nmeta em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--dim);
-  letter-spacing:.07em;text-transform:uppercase}
-.avs{display:flex;gap:-2px;flex:none}
-.av{width:17px;height:17px;border-radius:50%;display:grid;place-items:center;flex:none;margin-right:-4px;
-  font-family:"IBM Plex Mono",monospace;font-size:8px;font-weight:600;color:#fff;
-  border:1.5px solid var(--surf);letter-spacing:.01em}
-.track{position:relative;min-height:36px}
-.gl{position:absolute;top:0;bottom:0;border-left:1px solid var(--gridw)}
-.gl.mo{border-left:1px solid var(--line)}
-
-.bar{position:absolute;top:50%;transform:translateY(-50%);height:15px;border-radius:2px}
-.bar.ghost{background:transparent!important;border:1.5px dashed currentColor;height:13px}
-.bar.freeze{background:transparent;border:1.5px solid var(--red);height:19px;border-radius:2px}
-.dia{position:absolute;top:50%;width:11px;height:11px;transform:translate(-50%,-50%) rotate(45deg);border-radius:1.5px;z-index:3}
-.dlab{position:absolute;top:50%;transform:translateY(-50%);font-family:"IBM Plex Mono",monospace;
-  font-size:9px;color:var(--ink);white-space:nowrap;z-index:3;font-weight:600}
-.today{position:absolute;top:0;bottom:0;width:0;border-left:2px solid var(--today);z-index:4}
-.todaycap{position:absolute;top:2px;font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--today);
-  font-weight:600;background:var(--surf3);padding:1px 5px;border-radius:2px;z-index:7}
-.empty{padding:26px 16px;color:var(--mut);font-size:.95rem;text-align:center}
-
-/* drawer */
-.scrim{position:fixed;inset:0;background:var(--scrim);z-index:49;opacity:0;pointer-events:none;transition:opacity .18s}
-.scrim.on{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(580px,94vw);background:var(--surf);
-  border-left:1px solid var(--line2);z-index:50;overflow-y:auto;transform:translateX(101%);
-  transition:transform .2s ease;box-shadow:-14px 0 40px rgba(0,0,0,.13)}
-.drawer.open{transform:translateX(0)}
-@media (prefers-reduced-motion:reduce){.drawer,.scrim{transition:none}}
-.dhead{position:sticky;top:0;background:var(--surf);border-bottom:1px solid var(--line);padding:22px 26px 16px;z-index:2}
-.dclose{position:absolute;top:18px;right:20px;background:none;border:1px solid var(--line2);border-radius:3px;
-  color:var(--mut);cursor:pointer;padding:4px 10px;font-family:"IBM Plex Mono",monospace;font-size:11px}
-.dclose:hover{color:var(--ink);border-color:var(--ink)}
-.dgrp{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600}
-.dtitle{font-size:1.42rem;font-weight:700;letter-spacing:-.02em;margin:8px 44px 0 0;line-height:1.15}
-.dwhen{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--mut);margin-top:9px}
-.dbody{padding:20px 26px 60px}
-.dsec{margin-top:24px}
-.dsec:first-child{margin-top:4px}
-.dlabel{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--mut);font-weight:600;padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:11px}
-.dsec p{margin:0 0 10px;font-size:.97rem}
-.dsec p:last-child{margin-bottom:0}
-.dsec ul{margin:0;padding-left:19px}
-.dsec li{font-size:.94rem;margin:5px 0}
-.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.9rem;font-family:Archivo,sans-serif}
-.kv dt{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--dim);padding-top:3px;white-space:nowrap}
-.kv dd{margin:0}
-.sub{border:1px solid var(--line2);border-radius:3px;padding:13px 15px;margin-bottom:9px;background:var(--surf2)}
-.sub h4{font-size:.98rem;font-weight:600;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
-.sub h4 span{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--vhi);font-weight:600;flex:none}
-.sub .fn{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--vse);word-break:break-all;margin-top:7px;
-  background:var(--surf);border:1px solid var(--line);border-radius:2px;padding:5px 7px;display:block}
-.sub .lim{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--mut);margin-top:6px}
-.pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.1em;
-  text-transform:uppercase;padding:2px 7px;border-radius:2px;font-weight:600;border:1px solid currentColor}
-.pill.abs{color:var(--red)} .pill.rel{color:var(--amb)} .pill.own{color:var(--vse)}
-.owners{display:flex;flex-wrap:wrap;gap:7px}
-.ochip{display:inline-flex;align-items:center;gap:7px;background:var(--surf2);border:1px solid var(--line2);
-  border-radius:999px;padding:4px 12px 4px 5px;font-size:12.5px;font-family:Archivo,sans-serif}
-.warn{background:var(--barbg);border:1px solid var(--amb);border-radius:3px;padding:12px 14px;font-size:.92rem}
-
-section{margin-top:52px}
-.sh{border-top:2px solid var(--ink);padding-top:12px}
-h2{font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:700;letter-spacing:-.02em}
-.note{color:var(--mut);font-size:.95rem;margin:9px 0 0;max-width:78ch}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:13px;margin-top:20px}
-.card{background:var(--surf);border:1px solid var(--line);border-radius:3px;padding:16px 18px}
-.card .t{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--vse)}
-.card h3{font-size:1.02rem;font-weight:600;margin:7px 0 0}
-.card p{margin:7px 0 0;font-size:.92rem;color:var(--mut)}
-.tw{overflow-x:auto;margin-top:18px;border:1px solid var(--line);border-radius:3px;background:var(--surf)}
-table{border-collapse:collapse;width:100%;font-family:Archivo,system-ui,sans-serif;font-size:.87rem;min-width:620px}
-th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mut);font-weight:500;background:var(--surf2)}
-tbody tr:last-child td{border-bottom:0}
-td.k{font-weight:600;white-space:nowrap}
-td.d{font-family:"IBM Plex Mono",monospace;white-space:nowrap;font-size:.8rem}
-footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:.86rem}
+:root{--ink:#162521;--muted:#5e6b67;--paper:#f7f5ef;--card:#fff;--line:#d9ddd8;--gold:#ffce00;--green:#25554a;--vse:#0b6273;--vhi:#3f6e0f;--pcm:#5b3e8c;--hvb:#a8500b;--pgm:#25554a;--biz:#8a2b4e;--red:#a62c2c;--yellow:#b26b00;--soft:#eef2ef;--shadow:0 10px 28px rgba(20,42,35,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,select{font:inherit}a{color:var(--green)}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:12px;z-index:50;background:#fff;padding:10px}
+.hero{background:linear-gradient(125deg,#173d35 0%,#25554a 65%,#32695c 100%);color:#fff;padding:48px 24px 38px;border-bottom:6px solid var(--gold)}
+.hero-inner,.shell{max-width:1280px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.73rem;font-weight:800;color:#ffe37b}.hero h1{font-size:clamp(2rem,5vw,4.2rem);line-height:1;margin:.45rem 0 .8rem;max-width:920px}.hero p{max-width:820px;font-size:1.05rem;color:#e5f0ec;margin:0}.hero-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.hero-meta span{border:1px solid #ffffff42;border-radius:999px;padding:6px 10px;font-size:.78rem;background:#ffffff0d}
+.privacy{background:#fff4c7;border-bottom:1px solid #dfcd76;padding:10px 24px;text-align:center;font-weight:650;color:#594a00}
+.nav-wrap{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 12px #1625210c}.nav{max-width:1280px;margin:auto;display:flex;gap:4px;overflow:auto;padding:8px 16px}.nav button{white-space:nowrap;border:0;background:transparent;padding:10px 13px;border-radius:8px;color:var(--muted);font-weight:750;cursor:pointer}.nav button:hover,.nav button.active{background:var(--green);color:#fff}
+.shell{padding:28px 20px 80px}.page{display:none}.page.active{display:block}.page-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.page-head h2{margin:0;font-size:clamp(1.65rem,3vw,2.4rem);line-height:1.1}.page-head p{margin:6px 0 0;color:var(--muted);max-width:760px}.asof{font-size:.75rem;color:var(--muted);white-space:nowrap}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:var(--shadow)}.kpi b{display:block;font-size:2rem;line-height:1}.kpi span{display:block;color:var(--muted);font-size:.82rem;margin-top:6px}.kpi.warn{border-top:4px solid var(--yellow)}.kpi.bad{border-top:4px solid var(--red)}.kpi.good{border-top:4px solid var(--green)}
+.grid-2{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr);gap:18px}.grid-2>*,.control-grid>*,.panel{min-width:0}.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow);margin-bottom:18px}.panel h3{margin:0 0 4px;font-size:1.12rem}.panel-note{color:var(--muted);font-size:.82rem;margin:0 0 14px}.callout{border-left:4px solid var(--gold);background:#fff8d8;padding:14px 16px;border-radius:0 12px 12px 0;margin:16px 0}.callout strong{display:block;margin-bottom:3px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:720px;background:#fff}th,td{padding:11px 12px;border-bottom:1px solid #e7e9e6;text-align:left;vertical-align:top}th{font-size:.71rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);background:#f3f5f3;position:sticky;top:0}tr:last-child td{border-bottom:0}.compact td{padding:9px 10px;font-size:.86rem}.task-title{font-weight:750}.subtle{color:var(--muted);font-size:.78rem}.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 8px;font-size:.72rem;font-weight:800;background:#edf1ef;color:#42504c;white-space:nowrap}.pill.green{background:#dcefe8;color:#155542}.pill.yellow{background:#fff0c7;color:#7c4a00}.pill.red{background:#f8dddd;color:#842424}.pill.gray{background:#e9eceb;color:#59635f}.pill.open{background:#f8dddd;color:#842424}.pill.confirm{background:#fff0c7;color:#7c4a00}.pill.filled{background:#dcefe8;color:#155542}
+.avatar{display:inline-grid;place-items:center;width:29px;height:29px;border-radius:50%;color:#fff;font-weight:850;font-size:.67rem;margin-right:6px;flex:0 0 auto}.person{display:flex;align-items:center;min-width:150px}.owner-name{font-weight:700}.owner-role{font-size:.72rem;color:var(--muted)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}.filters label{display:flex;gap:7px;align-items:center;font-size:.78rem;color:var(--muted);font-weight:700}.filters select{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px}
+.deliverable-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.dcard{border:1px solid var(--line);background:#fff;border-radius:15px;padding:16px;box-shadow:var(--shadow);cursor:pointer;text-align:left;width:100%;position:relative;overflow:hidden}.dcard:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--lane)}.dcard:hover{transform:translateY(-2px);border-color:#99a6a1}.dcard .due{color:var(--muted);font-size:.76rem}.dcard h3{font-size:1rem;margin:7px 0}.dcard .purpose{font-size:.82rem;color:var(--muted);min-height:3.6em}.dcard .meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px}.dcard .meta span{font-size:.72rem}.dcard .owner-mini{font-weight:750;color:var(--ink)}
+.timeline-shell{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:auto;max-height:720px;box-shadow:var(--shadow)}.timeline{min-width:1150px}.tl-head,.tl-row,.tl-group{display:grid;grid-template-columns:310px 1fr}.tl-head{position:sticky;top:0;z-index:8;background:#f3f5f3;border-bottom:1px solid var(--line)}.tl-head>div{padding:12px;font-size:.75rem;font-weight:800}.tl-months,.tl-track{position:relative;min-height:42px;background-image:linear-gradient(to right,#e7e9e6 1px,transparent 1px);background-size:calc(100% / 10) 100%}.tl-month{position:absolute;top:0;height:100%;padding:11px 6px;border-left:1px solid #d6dad7;font-size:.7rem}.tl-group{position:sticky;top:43px;z-index:6;background:#edf1ef;border-bottom:1px solid var(--line);font-weight:850}.tl-group>div{padding:8px 12px}.tl-row{border-bottom:1px solid #edf0ee;background:#fff;cursor:pointer}.tl-row:hover{background:#fffbe8}.tl-label{padding:9px 12px;position:sticky;left:0;background:inherit;z-index:4}.tl-label b{display:block;font-size:.82rem}.tl-label span{font-size:.7rem;color:var(--muted)}.tl-track{height:54px}.tl-bar{position:absolute;top:18px;height:17px;border-radius:8px;min-width:4px}.tl-bar.freeze{background:repeating-linear-gradient(135deg,#b26b00 0 5px,#f4bf58 5px 10px)}.tl-bar.tbd{background:transparent;border:2px dashed currentColor}.tl-diamond{position:absolute;top:18px;width:16px;height:16px;transform:rotate(45deg);border:2px solid #fff;box-shadow:0 0 0 1px #59706a}.today-line{position:absolute;top:0;bottom:0;width:2px;background:#cf3d3d;z-index:3}.today-label{position:absolute;top:0;transform:translateX(-50%);background:#cf3d3d;color:#fff;padding:2px 5px;font-size:.6rem;border-radius:0 0 4px 4px;z-index:4}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.role-card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px}.role-card h3{font-size:.9rem;margin:0 0 8px}.role-card p{margin:7px 0 0;color:var(--muted);font-size:.78rem}.role-card .rowline{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.step{background:#fff;border:1px solid var(--line);border-top:4px solid var(--green);padding:15px;border-radius:13px}.step b{display:block;font-size:.72rem;text-transform:uppercase;color:var(--green);letter-spacing:.07em}.step h3{margin:4px 0;font-size:1rem}.step p{font-size:.8rem;color:var(--muted);margin:0}.firstwins{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.win{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px;display:grid;grid-template-columns:1fr auto;gap:10px}.win h3{font-size:.93rem;margin:0}.win p{font-size:.8rem;color:var(--muted);margin:5px 0}.timebox{font-size:.69rem;font-weight:800;border-radius:999px;background:#eef2ef;padding:5px 8px;white-space:nowrap;height:max-content}.checklist{list-style:none;padding:0;margin:12px 0}.checklist li{padding:7px 0 7px 28px;position:relative}.checklist li:before{content:"";position:absolute;left:0;top:10px;width:14px;height:14px;border:2px solid var(--green);border-radius:3px}.guardrails{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.guardrail{padding:13px;border-radius:11px;background:#f2f5f3;border:1px solid #dde4df}.guardrail b{display:block;font-size:.82rem}.guardrail span{font-size:.76rem;color:var(--muted)}
+.control-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.driver{border-left:4px solid var(--green);padding:10px 12px;background:#f3f7f5;margin:8px 0;border-radius:0 8px 8px 0}.driver b{font-size:.85rem}.driver p{font-size:.77rem;color:var(--muted);margin:3px 0}
+.update-steps{counter-reset:update;display:grid;gap:10px}.update-step{counter-increment:update;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 14px 14px 56px;position:relative}.update-step:before{content:counter(update);position:absolute;left:14px;top:14px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-weight:850}.update-step h3{margin:0;font-size:.94rem}.update-step p{margin:4px 0 0;color:var(--muted);font-size:.8rem}.code{font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;background:#17211e;color:#e9f4f0;border-radius:10px;padding:12px;overflow:auto}.link-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.link-card{border:1px solid var(--line);border-radius:11px;padding:12px}.link-card b{display:block}.link-card p{font-size:.76rem;color:var(--muted);margin:5px 0}.missing{color:var(--red);font-weight:750;font-size:.73rem}
+dialog{border:0;border-radius:18px;padding:0;width:min(840px,calc(100vw - 28px));max-height:88vh;box-shadow:0 28px 80px #0006}dialog::backdrop{background:#10201caa}.modal-head{padding:22px 24px;background:var(--green);color:#fff}.modal-head .close{float:right;border:1px solid #ffffff66;border-radius:8px;background:transparent;color:#fff;padding:6px 9px;cursor:pointer}.modal-head h2{margin:8px 48px 3px 0;font-size:1.45rem}.modal-head p{margin:0;color:#dbe9e4}.modal-body{padding:22px 24px;overflow:auto}.modal-section{margin-bottom:20px}.modal-section h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 9px}.artifact{border:1px solid var(--line);border-radius:10px;padding:10px;margin:7px 0}.artifact b{display:block}.artifact code{display:block;margin-top:5px;font-size:.72rem;white-space:normal}.gates{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.gate{padding:9px;background:#f1f4f2;border-radius:8px;text-align:center}.gate b{display:block;font-size:.69rem}.gate span{font-size:.68rem;color:var(--muted)}
+.footer{border-top:1px solid var(--line);padding:28px 20px;color:var(--muted);font-size:.78rem;text-align:center;background:#fff}
+@media(max-width:900px){.kpis,.deliverable-grid,.role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-2,.control-grid{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.gates{grid-template-columns:1fr 1fr}.page-head{align-items:start;flex-direction:column}.asof{white-space:normal}}
+@media(max-width:620px){.hero{padding:36px 18px 28px}.shell{padding:22px 12px 60px}.kpis,.deliverable-grid,.role-grid,.firstwins,.steps,.guardrails,.link-list{grid-template-columns:1fr}.panel{padding:15px}.nav{padding-left:8px}.tl-head,.tl-row,.tl-group{grid-template-columns:250px 1fr}.timeline{min-width:1050px}.gates{grid-template-columns:1fr}.win{grid-template-columns:1fr}.timebox{width:max-content}}
 </style>
-
-<div class="wrap">
-<header>
-  <div class="eyebrow">Cal State LA &middot; EcoCAR Innovation Challenge &middot; Stellantis Track</div>
-  <h1>Year 1 taskline.</h1>
-  <p class="lede">Every deliverable and task from September 2026 to June 2027, with a name on it. <b>Click any row</b> for the full submission requirements &mdash; file names, formats, size limits, required content and the Argonne organizer. Filter by person to see one desk at a time.</p>
-  <p class="stamp">Baselined 1 Sept 2026 &middot; dates from the EIC Team Dashboard (28 Aug) &middot; <b>Rev 1 supersedes Rev 0</b> &middot; team dates are competition dates minus five working days</p>
-</header>
-
-<div class="controls">
-  <div class="ctitle">Filter by person</div>
-  <div class="chips" id="chips"></div>
-  <div class="legend">
-    <div class="lg"><i class="sw" style="background:var(--vse)"></i>VSE</div>
-    <div class="lg"><i class="sw" style="background:var(--vhi)"></i>VHI</div>
-    <div class="lg"><i class="sw" style="background:var(--pcm)"></i>PCM</div>
-    <div class="lg"><i class="sw" style="background:var(--hvb)"></i>HVB</div>
-    <div class="lg"><i class="sw" style="background:var(--pgm)"></i>Program / PM</div>
-    <div class="lg"><i class="sw" style="background:var(--biz)"></i>PIT &middot; MarCom &middot; Business</div>
-    <div class="lg"><i class="sw dia"></i>Graded submission</div>
-    <div class="lg"><i class="sw frz"></i>Freeze &amp; red team</div>
-    <div class="lg"><i class="sw dash"></i>Date not published</div>
-  </div>
-  <p class="hint">The chart scrolls inside its own frame &mdash; month headers and task names stay pinned. Press <b>Esc</b> to close the detail panel.</p>
-</div>
-
-<div class="chartbox"><div class="chart" id="chart"></div></div>
-<div class="empty" id="empty" style="display:none"></div>
-
-<section>
-  <div class="sh"><h2>Reading the chart</h2></div>
-  <div class="cards">
-    <div class="card"><div class="t">The clear runway</div><h3>1 September &ndash; 15 October</h3>
-      <p>Six weeks with no graded technical submission due. The only stretch of the year like it. Everything that needs no vehicle, no pack and no test data should be finished inside it.</p></div>
-    <div class="card"><div class="t">The pile-up</div><h3>15 October &ndash; 19 November</h3>
-      <p>Counting MarCom, PM and PIT, something is due almost every week: 1, 8, 15, 22, 29 Oct, then 5, 12, 19 Nov. Check every one for owner collisions.</p></div>
-    <div class="card"><div class="t">The quiet risk</div><h3>Spring &mdash; the two biggest</h3>
-      <p>Architecture Selection (1 Apr, X-Large) and Baseline Vehicle Testing (6 May) are the largest deliverables of the year and the furthest from anyone&rsquo;s attention today.</p></div>
-    <div class="card"><div class="t">The external clock</div><h3>Sponsored cell specifications</h3>
-      <p>The 19 November battery workbook cannot start without them and their ship date is unknown. The dependency most likely to move a date we do not control.</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="sh"><h2>Critical path &mdash; three chains</h2></div>
-  <p class="note">Everything on the chart resolves into three dependency chains. Where they cross is where the schedule actually breaks.</p>
-  <div class="tw"><table>
-    <thead><tr><th>Chain</th><th>Sequence</th><th>What breaks it</th></tr></thead>
-    <tbody>
-      <tr><td class="k">Energy<br><span class="mono" style="font-size:.72rem;color:var(--mut)">most fragile</span></td>
-        <td>Model proficiency &rarr; power demand analysis &rarr; per-cell C-rate check &rarr; pack configuration matrix &rarr; battery design section &times;3 &rarr; down-select</td>
-        <td>Sponsored cell specs arriving late. The C-rate answer then lands after the architectures are drawn, which is backwards.</td></tr>
-      <tr><td class="k">Capability</td>
-        <td>Off-road benchmarking &rarr; our targets &rarr; VTS values &rarr; three architecture definitions &rarr; integration assessment &times;3 &rarr; selection</td>
-        <td>The 29 October targets feed the VTS template directly. A weak targets report weakens every architecture argument that cites it.</td></tr>
-      <tr><td class="k">Evidence</td>
-        <td>Virtual model &rarr; EPA cycles (10 Dec) &rarr; baseline testing (spring) &rarr; model-vs-measured &rarr; architecture modeling &times;3</td>
-        <td>Losing baseline testing does not stop the package &mdash; it strips the evidence reviewers probe hardest.</td></tr>
-    </tbody>
-  </table></div>
-</section>
-
-<footer>
-  <p>Dates and organizer leads from the EIC Team Dashboard (28 Aug 2026). Submission requirements from STLA Technical Deliverable Requirements Rev 0 (7 Aug 2026) and General Deliverable Requirements Rev 2 (28 Aug 2026). Team-set dates are marked as such. Every deliverable is submitted to <b>EcoCAR Box</b> &mdash; nothing goes by email, and ZIP files are prohibited on every submission.</p>
-</footer>
-</div>
-
-<div class="scrim" id="scrim"></div>
-<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dtitle" tabindex="-1"></aside>
-
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hero"><div class="hero-inner">
+  <div class="eyebrow">Cal State LA · EcoCAR Innovation Challenge · Stellantis Track</div>
+  <h1>Year 1 execution hub.</h1>
+  <p>See what matters now, who owns the outcome, what “done” means, and how a new member can contribute this week.</p>
+  <div class="hero-meta"><span id="baseline"></span><span id="official"></span><span>Generated from version-controlled data</span></div>
+</div></header>
+<div class="privacy" id="privacy"></div>
+<div class="nav-wrap"><nav class="nav" aria-label="Execution hub sections">
+  <button class="active" data-page="now">Now</button>
+  <button data-page="deliverables">Deliverables</button>
+  <button data-page="timeline">Timeline</button>
+  <button data-page="team">Team &amp; roles</button>
+  <button data-page="onboarding">Onboarding</button>
+  <button data-page="controls">Controls</button>
+  <button data-page="update">How to update</button>
+</nav></div>
+<main id="main" class="shell">
+  <section class="page active" id="page-now"></section>
+  <section class="page" id="page-deliverables"></section>
+  <section class="page" id="page-timeline"></section>
+  <section class="page" id="page-team"></section>
+  <section class="page" id="page-onboarding"></section>
+  <section class="page" id="page-controls"></section>
+  <section class="page" id="page-update"></section>
+</main>
+<dialog id="detail"><div id="detail-content"></div></dialog>
+<footer class="footer">Public-safe planning view · Official deadlines come from the EIC Team Dashboard · Confirm all draft assignments with the named leads.</footer>
 <script>
 /*__DATA__*/
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=v=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+const date=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const fmt=s=>date(s).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+const days=(a,b)=>Math.ceil((date(b)-date(a))/86400000);
+const initials=name=>name.split(/\s+/).map(x=>x[0]).join('').slice(0,2).toUpperCase();
+const person=k=>DATA.people[k]||{name:k||'Unassigned',role:'',color:'#68736f'};
+const personHTML=k=>{const p=person(k);return `<span class="person"><i class="avatar" style="background:${esc(p.color)}">${esc(initials(p.name))}</i><span><span class="owner-name">${esc(p.name)}</span><br><span class="owner-role">${esc(p.role)}</span></span></span>`};
+const pill=(text,kind='gray')=>`<span class="pill ${esc(kind.toLowerCase())}">${esc(text)}</span>`;
+const laneName={vse:'VSE',vhi:'VHI',pcm:'PCM',hvb:'HVB',pgm:'Program / PM',biz:'PIT / MarCom'};
+const laneColor=lane=>`var(--${lane})`;
+const heading=(title,copy)=>`<div class="page-head"><div><h2>${esc(title)}</h2><p>${copy}</p></div><div class="asof">Plan baseline ${fmt(DATA.site.baseline_date)}<br>Official dates as of ${fmt(DATA.site.official_schedule_as_of)}</div></div>`;
 
-const START=new Date(2026,8,1), END=new Date(2027,5,30);
-const TODAY=new Date(DATA.today);
-const SPAN=(END-START)/86400000;
-const d=s=>{const p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]);};
-const pct=dt=>((dt-START)/86400000)/SPAN*100;
-const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const fmt=dt=>dt.getDate()+' '+MN[dt.getMonth()]+' '+dt.getFullYear();
-const PEOPLE=DATA.people, DET=DATA.details;
-const ini=k=>{const p=PEOPLE[k];if(!p)return'?';const w=p.n.replace(/[^A-Za-z ]/g,'').trim().split(/\s+/);
-  return (w[0][0]+(w[1]?w[1][0]:'')).toUpperCase();};
-const BOX='All deliverables are submitted to EcoCAR Box. ZIP files are prohibited.';
+function taskStatus(task){return DATA.statuses[task.id]||{status:'Not reported',health:'gray',progress:'',next_action:'Status owner has not reported an update',updated:''}}
 
-/* group rows, preserving CSV order */
-const G=[]; let last=null;
-DATA.tasks.forEach(t=>{ if(!last||last.name!==t.group){last={name:t.group,lane:t.lane,rows:[]};G.push(last);} last.rows.push(t); });
-
-const months=[]; let cur=new Date(START);
-while(cur<END){const nxt=new Date(cur.getFullYear(),cur.getMonth()+1,1);
-  months.push({s:new Date(cur),e:nxt>END?new Date(END):nxt}); cur=nxt;}
-const weeks=[]; let w=new Date(2026,8,7);
-while(w<END){weeks.push(new Date(w)); w=new Date(w.getFullYear(),w.getMonth(),w.getDate()+7);}
-const CUT=new Date(2027,1,1);
-function grid(){let h='';
-  months.forEach(m=>h+='<div class="gl mo" style="left:'+pct(m.s)+'%"></div>');
-  weeks.forEach(x=>{if(x<CUT)h+='<div class="gl" style="left:'+pct(x)+'%"></div>';});
-  return h;}
-
-const ROWS=[];
-let html='<div class="hdr"><div class="lbl">Workstream</div><div class="months">';
-months.forEach(m=>{html+='<div class="mo" style="left:'+pct(m.s)+'%;width:'+(pct(m.e)-pct(m.s))+'%"><b>'+MN[m.s.getMonth()]+'</b><i>'+(m.s.getMonth()===0?m.s.getFullYear():'&nbsp;')+'</i></div>';});
-weeks.forEach(x=>{if(x<CUT)html+='<div class="wk" style="left:'+pct(x)+'%"></div>';});
-html+='<div class="todaycap" style="left:'+pct(TODAY)+'%">TODAY</div></div></div>';
-
-let idx=0;
-G.forEach(g=>{
-  html+='<div class="grp"><div class="g1" style="color:var(--'+g.lane+')">'+g.name+'</div><div class="g2">'+grid()+'</div></div>';
-  g.rows.forEach(t=>{
-    const id=idx++, a=d(t.start), b=t.end?d(t.end):null, own=t.owners?t.owners.split(' ').filter(Boolean):[];
-    ROWS.push({t,a,b,own,lane:g.lane,group:g.name,id});
-    html+='<button class="row" data-id="'+id+'" data-own="'+own.join(' ')+'">'
-      +'<span class="name"><b>'+t.task+'</b><span class="nmeta"><span class="avs">'
-      +own.map(k=>'<i class="av" style="background:'+((PEOPLE[k]||{}).c||'#777')+'" title="'+((PEOPLE[k]||{}).n||k)+'">'+ini(k)+'</i>').join('')
-      +'</span><em>'+(t.label||'')+'</em></span></span><span class="track">'+grid();
-    if(t.type==='milestone'){const L=pct(a),right=L>78;
-      html+='<span class="dia" style="left:'+L+'%;background:var(--'+g.lane+')"></span>'
-        +'<span class="dlab" style="'+(right?('right:'+(100-L)+'%;padding-right:12px'):('left:'+L+'%;padding-left:12px'))+'">'+a.getDate()+' '+MN[a.getMonth()]+'</span>';
-    } else if(t.type==='freeze'){
-      html+='<span class="bar freeze" style="left:'+pct(a)+'%;width:'+Math.max(pct(b)-pct(a),.8)+'%"></span>';
-    } else if(t.type==='tbd'){
-      html+='<span class="bar ghost" style="left:'+pct(a)+'%;width:'+(pct(b)-pct(a))+'%;color:var(--'+g.lane+')"></span>';
-    } else {
-      html+='<span class="bar" style="left:'+pct(a)+'%;width:'+(pct(b)-pct(a))+'%;background:var(--'+g.lane+')"></span>';
-    }
-    html+='<span class="today" style="left:'+pct(TODAY)+'%"></span></span></button>';
-  });
-});
-document.getElementById('chart').innerHTML=html;
-
-const counts={}; ROWS.forEach(r=>r.own.forEach(k=>counts[k]=(counts[k]||0)+1));
-let ch='<button class="chip all" aria-pressed="true" data-p="*"><i class="av">ALL</i>Everyone <span class="n">'+ROWS.length+'</span></button>';
-Object.keys(PEOPLE).forEach(k=>{if(!counts[k])return;
-  ch+='<button class="chip" aria-pressed="false" data-p="'+k+'"><i class="av" style="background:'+PEOPLE[k].c+'">'+ini(k)+'</i>'+PEOPLE[k].n+' <span class="n">'+counts[k]+'</span></button>';});
-document.getElementById('chips').innerHTML=ch;
-
-let filter='*';
-function applyFilter(){
-  const chart=document.getElementById('chart'); let shown=0;
-  chart.querySelectorAll('.row').forEach(el=>{
-    const ok=filter==='*'||(' '+el.dataset.own+' ').indexOf(' '+filter+' ')>-1;
-    el.style.display=ok?'':'none'; if(ok)shown++;});
-  chart.querySelectorAll('.grp').forEach(g=>{let n=0,el=g.nextElementSibling;
-    while(el&&el.classList.contains('row')){if(el.style.display!=='none')n++;el=el.nextElementSibling;}
-    g.style.display=n?'':'none';});
-  const emp=document.getElementById('empty');
-  emp.style.display=shown?'none':'block';
-  emp.textContent=shown?'':'Nothing assigned to this person yet.';
-  document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.p===filter));
+function renderNow(){
+  const today=DATA.today, horizon=new Date(date(today)); horizon.setDate(horizon.getDate()+45); const horizonISO=horizon.toISOString().slice(0,10);
+  const upcoming=DATA.tasks.filter(t=>t.start>=today&&t.start<=horizonISO).sort((a,b)=>a.start.localeCompare(b.start));
+  const due30=DATA.deliverables.filter(d=>days(today,d.due)>=0&&days(today,d.due)<=30).length;
+  const openRoles=DATA.roles.filter(r=>r.status!=='Filled').length;
+  const red=Object.values(DATA.statuses).filter(s=>s.health==='red').length;
+  const missingLinks=Object.values(DATA.links).filter(l=>!l.url).length;
+  const urgent=DATA.tasks.filter(t=>DATA.statuses[t.id]).sort((a,b)=>a.start.localeCompare(b.start)).slice(0,12);
+  const nextD=DATA.deliverables.filter(d=>d.due>=today).sort((a,b)=>a.due.localeCompare(b.due))[0];
+  $('#page-now').innerHTML=heading('What needs attention now','This page is the meeting agenda: deadlines, ownership gaps, health, and the next concrete action.')+`
+  <div class="kpis"><div class="kpi good"><b>${due30}</b><span>official deliverables due in 30 days</span></div><div class="kpi warn"><b>${openRoles}</b><span>required roles open or awaiting confirmation</span></div><div class="kpi bad"><b>${red}</b><span>reported red work items</span></div><div class="kpi warn"><b>${missingLinks}</b><span>controlled-system links still to add</span></div></div>
+  <div class="callout"><strong>Next official deliverable: ${esc(nextD.title)} · ${fmt(nextD.due)}</strong>Accountable owner: ${esc(person(nextD.owner).name)}. Content-complete gate: ${fmt(nextD.gates[0].date)}. Open the Deliverables page for artifacts and acceptance checks.</div>
+  <div class="grid-2"><div class="panel"><h3>Leadership action list</h3><p class="panel-note">These statuses are starter entries and must be confirmed in the first weekly review.</p><div class="table-wrap"><table class="compact"><thead><tr><th>Work</th><th>Owner</th><th>Health</th><th>Next action</th></tr></thead><tbody>${urgent.map(t=>{const s=taskStatus(t),owners=t.owners.split(' ');return `<tr><td><span class="task-title">${esc(t.task)}</span><div class="subtle">${fmt(t.start)} · ${esc(s.status)}</div></td><td>${personHTML(owners[0])}</td><td>${pill(s.health,s.health)}</td><td>${esc(s.next_action)}</td></tr>`}).join('')}</tbody></table></div></div>
+  <div><div class="panel"><h3>Next 45 days</h3><p class="panel-note">Official milestones and planned work starting soon.</p>${upcoming.slice(0,10).map(t=>`<div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #eee"><b style="min-width:62px">${fmt(t.start).replace(', 2026','')}</b><span><strong>${esc(t.task)}</strong><br><span class="subtle">${esc(t.group)}</span></span></div>`).join('')}</div>
+  <div class="panel"><h3>Meeting rule</h3><ul class="checklist"><li>Review only Yellow, Red, blocked, or due-soon work.</li><li>End every item with one owner, one next action, and one date.</li><li>Move deep technical problem-solving to a named work session.</li><li>Publish decisions and changed dates within 24 hours.</li></ul></div></div></div>`;
 }
-document.getElementById('chips').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;filter=c.dataset.p;applyFilter();});
 
-const drawer=document.getElementById('drawer'), scrim=document.getElementById('scrim');
-let lastFocus=null;
-function openRow(i){
-  const r=ROWS[i], det=DET[r.t.id]||{}, own=r.own;
-  const when=r.t.type==='milestone'?fmt(r.a):(r.b?fmt(r.a)+' &rarr; '+fmt(r.b):fmt(r.a));
-  let h='<div class="dhead"><button class="dclose" id="dclose">Close &times;</button>'
-   +'<div class="dgrp" style="color:var(--'+r.lane+')">'+r.group+'</div>'
-   +'<h3 class="dtitle" id="dtitle">'+r.t.task+'</h3>'
-   +'<div class="dwhen">'+when+(r.t.label?' &nbsp;&middot;&nbsp; '+r.t.label:'')+'</div></div><div class="dbody">';
-  if(det.dl||det.org||det.size||det.time){h+='<div class="dsec"><dl class="kv">';
-    if(det.dl)h+='<dt>Deadline</dt><dd><span class="pill '+(det.dl==='Absolute'?'abs':'rel')+'">'+det.dl+'</span>'+(det.time?' &nbsp;'+det.time:'')+'</dd>';
-    if(det.size)h+='<dt>Size</dt><dd>'+det.size+'</dd>';
-    if(det.org)h+='<dt>Argonne lead</dt><dd>'+det.org+'</dd>';
-    h+='</dl></div>';}
-  if(own.length){h+='<div class="dsec"><div class="dlabel">Assigned to</div><div class="owners">'
-    +own.map(k=>{const p=PEOPLE[k]||{n:k,r:'',c:'#777'};
-      return '<span class="ochip"><i class="av" style="background:'+p.c+'">'+ini(k)+'</i><span>'+p.n+(p.r?' <span style="color:var(--dim);font-size:11px">&middot; '+p.r+'</span>':'')+'</span></span>';}).join('')+'</div></div>';}
-  if(det.what)h+='<div class="dsec"><div class="dlabel">What this is</div><p>'+det.what+'</p></div>';
-  if(det.role)h+='<div class="dsec"><div class="dlabel">Named role required</div><div class="warn">'+det.role+'</div></div>';
-  if(det.subs){h+='<div class="dsec"><div class="dlabel">Submission requirements</div>';
-    det.subs.forEach(x=>{h+='<div class="sub"><h4>'+x.a+(x.w?'<span>'+x.w+'</span>':'')+'</h4><div class="lim">'+x.f+' &nbsp;&middot;&nbsp; '+x.l+' &nbsp;&middot;&nbsp; OEM data: '+x.oem+'</div><code class="fn">'+x.fn+'</code></div>';});
-    h+='<p style="font-size:.86rem;color:var(--dim);margin-top:10px">'+BOX+'</p></div>';}
-  if(det.content)h+='<div class="dsec"><div class="dlabel">Required content</div><ul>'+det.content.map(c=>'<li>'+c+'</li>').join('')+'</ul></div>';
-  if(det.note)h+='<div class="dsec"><div class="dlabel">Why it matters</div><p>'+det.note+'</p></div>';
-  if(!det.what&&!det.subs&&!det.note)h+='<div class="dsec"><p style="color:var(--mut)">No extra detail recorded for this row yet.</p></div>';
-  h+='</div>';
-  drawer.innerHTML=h; drawer.classList.add('open'); scrim.classList.add('on');
-  document.querySelectorAll('.row').forEach(x=>x.classList.toggle('sel',+x.dataset.id===i));
-  document.getElementById('dclose').onclick=close; lastFocus=document.activeElement; drawer.focus();
+function renderDeliverables(){
+  $('#page-deliverables').innerHTML=heading('Deliverable compliance matrix','Dates come from the Team Dashboard; content summaries point back to controlled source sections. Internal gates are calculated in business days.')+`
+  <div class="filters"><label>Workstream <select id="d-lane"><option value="*">All</option>${Object.entries(laneName).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select></label><label>Owner <select id="d-owner"><option value="*">All</option>${Object.entries(DATA.people).map(([k,p])=>`<option value="${k}">${esc(p.name)}</option>`).join('')}</select></label></div><div class="deliverable-grid" id="deliverable-grid"></div>`;
+  const draw=()=>{const lane=$('#d-lane').value,owner=$('#d-owner').value;const list=DATA.deliverables.filter(d=>(lane==='*'||d.lane===lane)&&(owner==='*'||d.owner===owner||d.contributors.includes(owner)));$('#deliverable-grid').innerHTML=list.sort((a,b)=>a.due.localeCompare(b.due)).map(d=>`<button class="dcard" style="--lane:${laneColor(d.lane)}" data-deliverable="${esc(d.id)}"><div class="due">${fmt(d.due)} · ${esc(d.due_time)}</div><h3>${esc(d.title)}</h3><div class="purpose">${esc(d.purpose)}</div><div class="meta"><span>${pill(laneName[d.lane]||d.lane)}</span><span class="owner-mini">${esc(person(d.owner).name)}</span></div></button>`).join('')||'<p>No deliverables match.</p>'};
+  $('#d-lane').addEventListener('change',draw);$('#d-owner').addEventListener('change',draw);draw();
 }
-function close(){drawer.classList.remove('open');scrim.classList.remove('on');
-  document.querySelectorAll('.row.sel').forEach(x=>x.classList.remove('sel'));
-  if(lastFocus&&lastFocus.focus)lastFocus.focus();}
-document.getElementById('chart').addEventListener('click',e=>{const r=e.target.closest('.row');if(r)openRow(+r.dataset.id);});
-scrim.addEventListener('click',close);
-document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
-document.querySelectorAll('[data-built]').forEach(el=>el.textContent=DATA.built);
-applyFilter();
+
+function openDeliverable(id){const d=DATA.deliverables.find(x=>x.id===id);if(!d)return;const contributors=d.contributors.map(k=>person(k).name).join(', ');$('#detail-content').innerHTML=`<div class="modal-head"><button class="close" data-close>Close</button><span class="pill">${esc(laneName[d.lane])}</span><h2>${esc(d.title)}</h2><p>${fmt(d.due)} · ${esc(d.due_time)} · ${esc(d.scoring)}</p></div><div class="modal-body"><div class="modal-section"><h3>Accountability</h3>${personHTML(d.owner)}<p class="subtle">Contributors: ${esc(contributors||'None named')}</p></div><div class="modal-section"><h3>Internal quality gates</h3><div class="gates">${d.gates.map(g=>`<div class="gate"><b>${esc(g.label)}</b><span>${fmt(g.date)}</span></div>`).join('')}</div></div><div class="modal-section"><h3>Required artifacts</h3>${d.artifacts.map(a=>`<div class="artifact"><b>${esc(a.name)} · ${esc(a.format)}</b><span class="subtle">${esc(a.limit)} · OEM data: ${esc(a.oem)}</span><code>${esc(a.filename)}</code></div>`).join('')}</div><div class="modal-section"><h3>Definition of done</h3><ul class="checklist">${d.done.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="modal-section"><h3>Controlled source reference</h3><p>${esc(d.source)}</p><p class="subtle">This is a public-safe summary. Re-open the latest controlled source and scorecard before work begins and before final submission.</p></div></div>`;$('#detail').showModal()}
+
+function renderTimeline(){
+  const start=date('2026-09-01'),end=date('2027-06-30'),span=(end-start)/86400000,pct=s=>Math.max(0,Math.min(100,(date(s)-start)/86400000/span*100));
+  const months=[];let c=new Date(start);while(c<=end){const next=new Date(c.getFullYear(),c.getMonth()+1,1);months.push({s:new Date(c),e:next,n:c.toLocaleDateString('en-US',{month:'short'})});c=next}
+  const groups=[];DATA.tasks.forEach(t=>{let g=groups.find(x=>x.name===t.group);if(!g){g={name:t.group,lane:t.lane,tasks:[]};groups.push(g)}g.tasks.push(t)});
+  const monthHtml=months.map(m=>`<span class="tl-month" style="left:${(m.s-start)/86400000/span*100}%;width:${(m.e-m.s)/86400000/span*100}%">${m.n}</span>`).join('');
+  const today=pct(DATA.today);
+  $('#page-timeline').innerHTML=heading('Integrated taskline','The baseline through Year 1 Competition. Filter by owner, then click a task for its status and recorded detail.')+`<div class="filters"><label>Owner <select id="tl-owner"><option value="*">Everyone</option>${Object.entries(DATA.people).map(([k,p])=>`<option value="${k}">${esc(p.name)}</option>`).join('')}</select></label></div><div class="timeline-shell"><div class="timeline" id="timeline"><div class="tl-head"><div>Work package / task</div><div class="tl-months">${monthHtml}<i class="today-line" style="left:${today}%"></i><i class="today-label" style="left:${today}%">TODAY</i></div></div>${groups.map(g=>`<div class="tl-block"><div class="tl-group"><div style="color:${laneColor(g.lane)}">${esc(g.name)}</div><div></div></div>${g.tasks.map(t=>{const s=taskStatus(t),owners=t.owners.split(' '),left=pct(t.start),right=t.end?pct(t.end):left,width=Math.max(.5,right-left);let mark=t.type==='milestone'?`<i class="tl-diamond" style="left:${left}%;background:${laneColor(g.lane)}"></i>`:`<i class="tl-bar ${esc(t.type)}" style="left:${left}%;width:${width}%;background:${t.type==='bar'?laneColor(g.lane):''};color:${laneColor(g.lane)}"></i>`;return `<div class="tl-row" data-task="${esc(t.id)}" data-owners="${esc(t.owners)}"><div class="tl-label"><b>${esc(t.task)}</b><span>${esc(t.label)} · ${esc(person(owners[0]).name)} · ${esc(s.status)}</span></div><div class="tl-track">${mark}<i class="today-line" style="left:${today}%"></i></div></div>`}).join('')}</div>`).join('')}</div></div>`;
+  const filter=()=>{const key=$('#tl-owner').value;$$('.tl-row').forEach(r=>r.style.display=key==='*'||r.dataset.owners.split(' ').includes(key)?'grid':'none');$$('.tl-block').forEach(b=>b.style.display=[...b.querySelectorAll('.tl-row')].some(r=>r.style.display!=='none')?'block':'none')};$('#tl-owner').addEventListener('change',filter);
+}
+
+function openTask(id){const t=DATA.tasks.find(x=>x.id===id),s=taskStatus(t),d=DATA.details[id]||{},owners=t.owners.split(' ');$('#detail-content').innerHTML=`<div class="modal-head"><button class="close" data-close>Close</button><span class="pill">${esc(laneName[t.lane]||t.lane)}</span><h2>${esc(t.task)}</h2><p>${fmt(t.start)}${t.end?' to '+fmt(t.end):''} · ${esc(t.label)}</p></div><div class="modal-body"><div class="modal-section"><h3>Status</h3>${pill(s.status,s.health)} ${pill(s.health,s.health)}${s.updated?`<p class="subtle">Updated ${fmt(s.updated)} · ${esc(s.progress)}% reported complete</p>`:''}<p><strong>Next:</strong> ${esc(s.next_action)}</p></div><div class="modal-section"><h3>Accountable owner and contributors</h3>${owners.map(personHTML).join('')}</div>${d.what?`<div class="modal-section"><h3>What this is</h3><p>${d.what}</p></div>`:''}${d.content?`<div class="modal-section"><h3>Recorded requirements</h3><ul class="checklist">${d.content.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}<div class="modal-section"><h3>Update location</h3><p><code>data/task_status.csv</code> for status, health, progress, next action, and update date. <code>data/schedule.csv</code> for baseline dates and ownership.</p></div></div>`;$('#detail').showModal()}
+
+function renderTeam(){
+  const roles=DATA.roles.map(r=>{const p=r.owner_key?person(r.owner_key):null;return `<div class="role-card"><div class="rowline"><h3>${esc(r.role)}</h3>${pill(r.status,r.status)}</div>${p?personHTML(r.owner_key):'<span class="missing">ACCOUNTABLE OWNER NEEDED</span>'}<p>${esc(r.notes)}${r.backup_key?`<br>Backup: ${esc(person(r.backup_key).name)}`:''}</p></div>`}).join('');
+  const rows=Object.entries(DATA.people).sort((a,b)=>(DATA.task_counts[b[0]]||0)-(DATA.task_counts[a[0]]||0)).map(([k,p])=>`<tr><td>${personHTML(k)}</td><td>${DATA.task_counts[k]||0}</td><td>${DATA.roles.filter(r=>r.owner_key===k).map(r=>r.role).join(', ')||'No formal role mapped'}</td></tr>`).join('');
+  $('#page-team').innerHTML=heading('Team, authority, and ownership','A name on a task means accountability for the next outcome. Open and Confirm roles must be resolved by leadership, not silently assumed.')+`<div class="panel"><h3>Required and delivery-critical roles</h3><p class="panel-note">Draft mapping based on the current people file and requirement language. Confirm titles, authority, and backups with faculty.</p><div class="role-grid">${roles}</div></div><div class="panel"><h3>Plan ownership footprint</h3><p class="panel-note">This is the count of baseline tasks across the whole year, not hours or current workload. Use it to spot concentration, then verify actual capacity in the weekly review.</p><div class="table-wrap"><table><thead><tr><th>Person / role</th><th>Baseline tasks</th><th>Formal roles mapped</th></tr></thead><tbody>${rows}</tbody></table></div></div><div class="callout"><strong>WIP rule: no more than two active priority items per person.</strong>If someone receives a third, leadership must defer, reassign, or split work before the meeting ends. Contributors can support many work packages; each outcome still has only one accountable owner.</div>`;
+}
+
+function renderOnboarding(){
+  const steps=[['1. Observe','See the system','Attend one team meeting and choose a swimlane.'],['2. First win','Ship in seven days','Complete a 45-120 minute artifact with a mentor.'],['3. Contribute','Own a small result','Take a one-week task with acceptance criteria.'],['4. Own','Lead a work package','Plan, coordinate, review, and archive an outcome.']];
+  $('#page-onboarding').innerHTML=heading('Onboarding that produces real work','New members should not spend a month watching meetings. Give them a small useful artifact, fast feedback, and a visible path to ownership.')+`<div class="steps">${steps.map(s=>`<div class="step"><b>${s[0]}</b><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('')}</div><div class="grid-2"><div class="panel"><h3>First-win choice board</h3><p class="panel-note">Each task is deliberately bounded and produces evidence the team can reuse.</p><div class="firstwins">${DATA.onboarding.map(w=>`<div class="win"><div><h3>${esc(w.title)}</h3><p><strong>Artifact:</strong> ${esc(w.artifact)}</p><p><strong>Accepted when:</strong> ${esc(w.acceptance)}</p><p><strong>Mentor:</strong> ${esc(person(w.mentor_key).name)} · ${esc(laneName[w.lane]||w.lane)}</p></div><span class="timebox">${esc(w.timebox)}</span></div>`).join('')}</div></div><div><div class="panel"><h3>Day 1 to Day 30</h3><ul class="checklist"><li><strong>Day 1:</strong> purpose, safety boundaries, systems access, mentor, first win.</li><li><strong>Day 3:</strong> confirm access and unblock the first artifact.</li><li><strong>Day 7:</strong> review and celebrate the artifact; choose the next task.</li><li><strong>Day 14:</strong> join one technical or PM work package.</li><li><strong>Day 30:</strong> feedback, skills map, and ownership path.</li></ul></div><div class="panel"><h3>Senior Design guardrails</h3><div class="guardrails"><div class="guardrail"><b>One-page boundary</b><span>State what is shared, who owns the academic deliverable, and who approves scope changes.</span></div><div class="guardrail"><b>Reuse evidence, not credit</b><span>Data and requirements can feed both efforts; do not duplicate authorship or claim the same owned result twice.</span></div><div class="guardrail"><b>Separate acceptance</b><span>EcoCAR “done” follows competition needs; Senior Design “done” follows faculty and course rubrics.</span></div><div class="guardrail"><b>Escalate collisions early</b><span>Record exam, review, and build conflicts before accepting dates or assigning extra work.</span></div></div></div></div></div>`;
+}
+
+function renderControls(){
+  const riskRows=DATA.risks.map(r=>`<tr><td><b>${esc(r.risk_id)}</b><br>${pill(r.state)}</td><td><span class="task-title">${esc(r.risk)}</span><div class="subtle">Cause: ${esc(r.cause)}<br>Effect: ${esc(r.effect)}</div></td><td>${pill(r.priority,r.priority==='High'?'red':'yellow')}</td><td>${esc(person(r.owner_key).name)}<div class="subtle">Review ${fmt(r.next_review)}</div></td><td>${esc(r.response)}</td></tr>`).join('');
+  const decisionRows=DATA.decisions.map(d=>`<tr><td><b>${esc(d.decision_id)}</b><br>${pill(d.status)}</td><td><span class="task-title">${esc(d.decision)}</span><div class="subtle">${esc(d.options)}</div></td><td>${esc(person(d.owner_key).name)}</td><td>${fmt(d.needed_by)}</td><td>${esc(d.next_action)}</td></tr>`).join('');
+  $('#page-controls').innerHTML=heading('Project controls','These draft registers create a professional starting point. Confirm them in leadership review and keep sensitive detail in the controlled team workspace.')+`<div class="control-grid"><div class="panel"><h3>Strategic drivers</h3><p class="panel-note">Approve these before decomposing more work; they are the tradeoff rules.</p>${DATA.drivers.map(d=>`<div class="driver"><b>${esc(d.id)} · ${esc(d.driver)}</b><p>${esc(d.intent)}</p><p><strong>Success:</strong> ${esc(d.success_measure)}</p></div>`).join('')}</div><div class="panel"><h3>RYG status definitions</h3><div class="driver" style="border-color:#2f7a5f"><b>Green · on track</b><p>Objective is achieved or on track; no recovery plan is needed.</p></div><div class="driver" style="border-color:#b26b00"><b>Yellow · recovery exists</b><p>Behind or at risk, but a credible recovery plan works without extraordinary measures.</p></div><div class="driver" style="border-color:#a62c2c"><b>Red · intervention needed</b><p>Not on track, with no credible recovery plan or a need for extraordinary support.</p></div><div class="callout"><strong>Honesty beats green.</strong>A supported Yellow or Red status is useful management information, not failure.</div></div></div><div class="panel"><h3>Draft public-safe risk register</h3><p class="panel-note">Move OEM-sensitive, personal, financial, facility-security, and detailed failure information to the controlled register.</p><div class="table-wrap"><table class="compact"><thead><tr><th>ID / state</th><th>Risk</th><th>Priority</th><th>Owner / review</th><th>Response</th></tr></thead><tbody>${riskRows}</tbody></table></div></div><div class="panel"><h3>Decision log</h3><div class="table-wrap"><table class="compact"><thead><tr><th>ID / status</th><th>Decision</th><th>Owner</th><th>Needed by</th><th>Next action</th></tr></thead><tbody>${decisionRows}</tbody></table></div></div>`;
+}
+
+function renderUpdate(){
+  const linkCards=Object.values(DATA.links).map(l=>`<div class="link-card"><b>${esc(l.label)}</b><p>${esc(l.note)}</p>${l.url?`<a href="${esc(l.url)}">Open controlled resource</a>`:'<span class="missing">LINK NOT ADDED</span>'}</div>`).join('');
+  $('#page-update').innerHTML=heading('Maintain the system in under ten minutes','The repository is the version-controlled baseline. Planner can hold daily checklists; Box or Teams holds controlled requirements and submissions.')+`<div class="grid-2"><div><div class="panel"><h3>Normal weekly update</h3><div class="update-steps"><div class="update-step"><h3>Pull the latest repository</h3><p>In GitHub Desktop, click Fetch origin, then Pull origin if offered.</p></div><div class="update-step"><h3>Edit the smallest source file</h3><p>Use <code>data/task_status.csv</code> for status; <code>schedule.csv</code> for dates and owners; <code>deliverables.json</code> only when official requirements change.</p></div><div class="update-step"><h3>Build and validate</h3><p>From Repository → Open in Command Prompt, run the build. It stops on unknown owners, bad dates, mismatched deadlines, and unsafe public files.</p><div class="code">python build.py</div></div><div class="update-step"><h3>Preview the site</h3><p>Open <code>docs/index.html</code>. Check Now, the changed card, the owner filter, and the mobile layout.</p></div><div class="update-step"><h3>Commit and push</h3><p>Use a specific summary such as “Update PCM tool-check owner and status.” Push origin and wait about a minute for Pages.</p></div></div></div><div class="panel"><h3>Controlled-system links to add</h3><p class="panel-note">Add approved URLs in <code>data/links.json</code>. Never add local file paths or public links to sensitive material.</p><div class="link-list">${linkCards}</div></div></div><div><div class="panel"><h3>Which file do I edit?</h3><div class="table-wrap"><table class="compact"><thead><tr><th>Change</th><th>File</th></tr></thead><tbody><tr><td>Status, health, percent, next action</td><td><code>data/task_status.csv</code></td></tr><tr><td>Task date, label, accountable owner</td><td><code>data/schedule.csv</code></td></tr><tr><td>Official artifacts and completion checklist</td><td><code>data/deliverables.json</code></td></tr><tr><td>Names and team roles</td><td><code>data/people.csv</code> and <code>data/roles.csv</code></td></tr><tr><td>First-win choices</td><td><code>data/onboarding.csv</code></td></tr><tr><td>Public-safe risks and decisions</td><td><code>data/risks.csv</code> and <code>data/decisions.csv</code></td></tr></tbody></table></div></div><div class="panel"><h3>Weekly operating cadence</h3><ul class="checklist"><li><strong>Before meeting:</strong> owners update only exceptions and next actions.</li><li><strong>Leadership review, 30 min:</strong> due-soon, Yellow/Red, decisions, role gaps, capacity.</li><li><strong>Work sessions:</strong> solve the technical problem with the needed people only.</li><li><strong>Friday onboarding:</strong> first wins, tool access, show-and-tell.</li><li><strong>Within 24 hours:</strong> record decisions, date changes, and owners.</li></ul></div><div class="panel"><h3>Change-control rule</h3><p>When a new revision or scorecard arrives, log the revision, compare it with the current card, identify affected tasks, obtain lead approval, update the baseline, rebuild, and commit with the source revision in the message.</p></div></div></div>`;
+}
+
+function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('active',p.id===`page-${name}`));$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(push)history.replaceState(null,'',`#${name}`);window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'})}
+
+$('#baseline').textContent=`Baseline ${fmt(DATA.site.baseline_date)}`;$('#official').textContent=`Official schedule ${fmt(DATA.site.official_schedule_as_of)}`;$('#privacy').textContent=DATA.site.privacy_notice;
+renderNow();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
+$('.nav').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b)showPage(b.dataset.page)});
+document.addEventListener('click',e=>{const d=e.target.closest('[data-deliverable]');if(d)openDeliverable(d.dataset.deliverable);const t=e.target.closest('[data-task]');if(t)openTask(t.dataset.task);if(e.target.closest('[data-close]'))$('#detail').close()});
+$('#detail').addEventListener('click',e=>{if(e.target===$('#detail'))$('#detail').close()});
+const initial=location.hash.slice(1);if(['now','deliverables','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
 </script>
 </body>
 </html>

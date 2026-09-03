@@ -1,0 +1,16 @@
+role_id,role,owner_key,status,backup_key,decision_due,notes
+faculty,Lead Faculty Advisor,,Open,,2026-09-17,Confirm faculty ownership and approval path
+student_lead,Student Team Lead,,Confirm,,2026-09-17,Required for Fall Workshop presentation team
+pm,Project Manager,geo,Filled,,2026-09-17,Owns integrated view and operating cadence
+marcom,Marketing and Communications Manager,,Open,,2026-09-17,Blocks webpage and promotion gates if left open
+pit,Product Innovation Track Lead,aya,Filled,,2026-09-17,Owns PIT workstream
+vse,Vehicle Systems Engineering Lead,ant,Filled,,2026-09-17,Owns integrated vehicle engineering
+vhi,Vehicle Hardware Integration Lead,fra,Confirm,,2026-09-17,Confirm title and authority
+pcm,Propulsion Controls and Modeling Lead,ron,Filled,,2026-09-17,Owns PCM toolchain and simulation
+hvb,High Voltage Battery Lead,dav,Filled,,2026-09-17,Also proposed Battery Systems Lead
+cad_custodian,CAD Custodian,fra,Filled,jef,2026-09-17,Required by CAD readiness deliverable
+offroad_lead,Off-Road Systems Lead,ant,Confirm,ron,2026-09-17,Required by off-road target deliverable
+battery_systems_lead,Battery Systems Lead,dav,Confirm,,2026-09-17,Required by battery target deliverable
+facilities_safety,Facilities and Safety Coordinator,,Open,,2026-09-17,Required by facilities readiness deliverable
+systems_architecture,Systems Architecture Lead,ant,Confirm,ron,2026-09-17,Preferably VSE Lead per requirement
+vehicle_test,Vehicle Test Lead,min,Confirm,,2026-09-17,Required by baseline testing deliverable

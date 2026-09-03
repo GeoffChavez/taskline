@@ -1,0 +1,363 @@
+[
+  {
+    "id": "pm-case-reflection",
+    "title": "Fall Workshop Case Study Reflection",
+    "lane": "pgm",
+    "due": "2026-10-08",
+    "due_time": "4:00 PM local",
+    "scoring": "Small - Relative",
+    "owner": "geo",
+    "contributors": ["ant", "aya"],
+    "schedule_id": "fall-workshop-case-study-reflection",
+    "source": "General Deliverables Rev 2, C-1; Team Dashboard 2026-08-28",
+    "purpose": "Apply workshop learning to the team's real Year 1 operating practices.",
+    "artifacts": [
+      {"name": "Reflection", "format": "PDF or MP4", "limit": "6 pages or 30 minutes; 50 MB PDF or 1 GB MP4", "filename": "EIC Y1 - Fall Workshop Case Study Reflection - TEAM Acronym.[pdf or mp4]", "oem": "No"}
+    ],
+    "done": [
+      "Explain how the response changed when scenario risks became issues",
+      "Describe prioritization, delegation, contingency, escalation, communication, and tradeoffs",
+      "Connect the learning to Vehicle Track, PIT, staffing, resources, and dependencies",
+      "Name project-management gaps, adjustments, owners, and timing",
+      "Complete independent compliance and quality review"
+    ]
+  },
+  {
+    "id": "stla-cad-readiness",
+    "title": "CAD Data Management Readiness",
+    "lane": "vhi",
+    "due": "2026-10-15",
+    "due_time": "4:00 PM local",
+    "scoring": "Medium - Absolute",
+    "owner": "fra",
+    "contributors": ["jef", "dor", "ant"],
+    "schedule_id": "cad-data-management-readiness-2",
+    "source": "STLA Technical Deliverables Rev 0, B; Team Dashboard 2026-08-28",
+    "purpose": "Demonstrate controlled CAD storage, change tracking, release, archive, and onboarding.",
+    "artifacts": [
+      {"name": "Workflow diagram", "format": "PDF", "limit": "1 page; 20 MB", "filename": "EICY1_STLA_TeamName_CADWorkflow.pdf", "oem": "No"},
+      {"name": "Onboarding guide", "format": "PDF", "limit": "2 pages; 20 MB", "filename": "EICY1_STLA_TeamName_CADOnboard.pdf", "oem": "No"},
+      {"name": "Demonstration video", "format": "MP4", "limit": "5 minutes; 250 MB", "filename": "EICY1_STLA_TeamName_CADDemo.mp4", "oem": "Yes"}
+    ],
+    "done": [
+      "Identify the CAD Custodian and platform or documented alternative",
+      "Show receive, store, protect, create, modify, change, release, and archive steps",
+      "Give a new member access, file-management, change, release, and contact instructions",
+      "Demonstrate the working environment, OEM protection, tracking, and release archive",
+      "Keep OEM-sensitive video and source data outside the public repository"
+    ]
+  },
+  {
+    "id": "stla-offroad-targets",
+    "title": "Off-Road Performance Target Development",
+    "lane": "vse",
+    "due": "2026-10-29",
+    "due_time": "4:00 PM local",
+    "scoring": "Large - Absolute",
+    "owner": "ant",
+    "contributors": ["ron", "dav", "fra"],
+    "schedule_id": "off-road-performance-target-development",
+    "source": "STLA Technical Deliverables Rev 0, C; Team Dashboard 2026-08-28",
+    "purpose": "Set quantitative, traceable off-road targets before architecture selection.",
+    "artifacts": [
+      {"name": "Performance target report", "format": "PDF", "limit": "10 pages; 25 MB", "filename": "EICY1_STLA_TeamName_OffRoadTargets.pdf", "oem": "No"},
+      {"name": "Benchmarking summary", "format": "XLSX", "limit": "No page limit; 25 MB", "filename": "EICY1_STLA_TeamName_ORBenchmark.xlsx", "oem": "No"}
+    ],
+    "done": [
+      "Benchmark at least three production vehicles against the required attributes",
+      "Describe intended user, environments, use cases, priorities, and tradeoffs",
+      "Set measurable targets for geometry, gearing, tires, mass, tractive capability, travel, and chosen metrics",
+      "Explain downstream effects on propulsion, battery, suspension, steering, packaging, and feasibility",
+      "Record sources and identify the Off-Road Systems Lead"
+    ]
+  },
+  {
+    "id": "pm-workplan",
+    "title": "Integrated Year 1 Workplan",
+    "lane": "pgm",
+    "due": "2026-11-12",
+    "due_time": "4:00 PM local",
+    "scoring": "Medium - Relative",
+    "owner": "geo",
+    "contributors": ["nat", "ant", "fra", "ron", "dav", "aya", "mar"],
+    "schedule_id": "integrated-year-1-workplan-2",
+    "source": "General Deliverables Rev 2, C-2; Team Dashboard 2026-08-28",
+    "purpose": "Provide the credible cross-functional baseline the team actually uses.",
+    "artifacts": [
+      {"name": "Integrated Year 1 Workplan", "format": "XLSX or PDF", "limit": "Concise and reviewable; 50 MB", "filename": "EIC Y1 - Integrated Year 1 Workplan - TEAM Acronym.[xlsx or pdf]", "oem": "No"}
+    ],
+    "done": [
+      "Approve strategic drivers with observable success measures",
+      "Show work packages, milestones, one accountable owner, contributors, and completion criteria",
+      "Show sequencing, dependencies, long-lead work, approvals, training, testing, academic conflicts, and capacity",
+      "Include the four or five highest-priority risks and issues with owners, responses, and triggers or dates",
+      "Include priority university stakeholders, engagement timing, owner, and next request",
+      "State maintenance location, data steward, and review cadence"
+    ]
+  },
+  {
+    "id": "stla-pcm-tool-check",
+    "title": "PCM Tool Check",
+    "lane": "pcm",
+    "due": "2026-11-05",
+    "due_time": "4:00 PM local",
+    "scoring": "Medium - Absolute",
+    "owner": "ron",
+    "contributors": ["dav"],
+    "schedule_id": "pcm-tool-check",
+    "source": "STLA Technical Deliverables Rev 0, D; Team Dashboard 2026-08-28",
+    "purpose": "Prove the team can onboard a new PCM member and reproduce the software workflow.",
+    "artifacts": [
+      {"name": "PCM onboarding guide", "format": "PDF", "limit": "50 MB", "filename": "EICY1_TeamName_PCMOnboardingGuide.pdf", "oem": "No"},
+      {"name": "Meeting availability", "format": "PDF", "limit": "50 MB", "filename": "EICY1_TeamName_PCMToolCheck.pdf", "oem": "No"}
+    ],
+    "done": [
+      "Introduce the swimlane and required software",
+      "Document download and installation steps",
+      "Explain the Git repository and version-control workflow",
+      "Show how to install, run, and reproduce a virtual-vehicle simulation",
+      "Provide multiple walkthrough time slots and approved attendee contacts in the private submission"
+    ]
+  },
+  {
+    "id": "stla-battery-targets",
+    "title": "Battery Performance Target Development",
+    "lane": "hvb",
+    "due": "2026-11-19",
+    "due_time": "4:00 PM local",
+    "scoring": "Large - Absolute",
+    "owner": "dav",
+    "contributors": ["ron", "ant"],
+    "schedule_id": "battery-performance-target-development",
+    "source": "STLA Technical Deliverables Rev 0, E; Team Dashboard 2026-08-28",
+    "purpose": "Translate vehicle demand into battery requirements and evaluate viable pack configurations.",
+    "artifacts": [
+      {"name": "Battery performance targets report", "format": "PDF", "limit": "10 pages; 25 MB", "filename": "EICY1_STLA_TeamName_BattPerfTargs.pdf", "oem": "Yes"},
+      {"name": "Pack configuration analysis", "format": "XLSX", "limit": "25 MB", "filename": "EICY1_STLA_TeamName_PackConfigAnalysis.xlsx", "oem": "Yes"}
+    ],
+    "done": [
+      "Characterize the stock HV system with schematic, specifications, checks, BMS, and BDU roles",
+      "Calculate front, rear, and combined peak and continuous power and current demand",
+      "Assess C-rate, voltage sag, energy duration, thermal, and operating constraints",
+      "Build a formula-driven configuration matrix with traceable cell inputs and visible constraint flags",
+      "Identify the Battery Systems Lead and protect OEM-sensitive inputs and outputs"
+    ]
+  },
+  {
+    "id": "stla-simulation",
+    "title": "Virtual Vehicle Simulation",
+    "lane": "pcm",
+    "due": "2026-12-10",
+    "due_time": "4:00 PM local",
+    "scoring": "Medium - Absolute",
+    "owner": "ron",
+    "contributors": ["min"],
+    "schedule_id": "virtual-vehicle-simulation",
+    "source": "STLA Technical Deliverables Rev 0, F; Team Dashboard 2026-08-28",
+    "purpose": "Run and interpret the standard EPA cycles in the provided virtual vehicle model.",
+    "artifacts": [
+      {"name": "EPA cycle simulation data", "format": "MAT", "limit": "500 MB", "filename": "EICY1_TeamName_EPACycles.mat", "oem": "No"},
+      {"name": "Simulation results report", "format": "PDF", "limit": "5 pages; 50 MB", "filename": "SimulationReport_TeamName.pdf", "oem": "No"}
+    ],
+    "done": [
+      "Run UDDS, HWFET, and US06 with reproducible model settings",
+      "Overlay target and simulated speed traces for each cycle",
+      "Report energy consumption and torque-split or control behavior",
+      "Compare results with published Cherokee EPA information",
+      "Explain assumptions, limitations, and differences from real-world testing"
+    ]
+  },
+  {
+    "id": "stla-final-technical-report",
+    "title": "Final Technical Report - ITEC Digest",
+    "lane": "vse",
+    "due": "2026-12-19",
+    "due_time": "4:00 PM local",
+    "scoring": "Small - Absolute",
+    "owner": "ant",
+    "contributors": ["ron", "dav", "fra"],
+    "schedule_id": "final-technical-report",
+    "source": "STLA Technical Deliverables Rev 0, G; Team Dashboard 2026-08-28",
+    "purpose": "Submit a relevant engineering digest to IEEE ITEC and retain proof.",
+    "artifacts": [
+      {"name": "ITEC digest and proof", "format": "PDF", "limit": "6 pages excluding references; 50 MB", "filename": "EICY1_TeamName_ITEC Digest Submission.pdf", "oem": "No"}
+    ],
+    "done": [
+      "Select a topic relevant to EcoCAR work and suitable for the conference",
+      "Use the conference template and follow current author instructions",
+      "Explain engineering method, evidence, and relationship to prior work",
+      "Submit to ITEC under the organizer-confirmed track",
+      "Include confirmation evidence in the EcoCAR submission"
+    ]
+  },
+  {
+    "id": "stla-facilities",
+    "title": "Facilities and Safety Readiness",
+    "lane": "vse",
+    "due": "2027-01-21",
+    "due_time": "4:00 PM local",
+    "scoring": "Medium - Absolute",
+    "owner": "ant",
+    "contributors": ["dav"],
+    "schedule_id": "facilities-safety-readiness-2",
+    "source": "STLA Technical Deliverables Rev 0, H; Team Dashboard 2026-08-28",
+    "purpose": "Establish the living safety binder, facilities readiness, and onboarding connection.",
+    "artifacts": [
+      {"name": "Facilities and Safety Binder", "format": "PDF", "limit": "50 MB", "filename": "EICY1_STLA_TeamName_FacilitiesBinder.pdf", "oem": "No"},
+      {"name": "Facilities readiness walkthrough", "format": "MP4", "limit": "10 minutes; 500 MB", "filename": "EICY1_STLA_TeamName_FacilitiesDemo.mp4", "oem": "No"}
+    ],
+    "done": [
+      "Appoint the Facilities and Safety Coordinator",
+      "Maintain digital and accessible printed binders",
+      "Include required procedures, training records, emergency information, and revision history",
+      "Show workspace, storage, HV area, lifting and safety equipment, and binder location",
+      "Explain maintenance ownership and how onboarding uses the binder"
+    ]
+  },
+  {
+    "id": "pm-stakeholder-prep",
+    "title": "University Stakeholder Executive Meeting - Preparation",
+    "lane": "pgm",
+    "due": "2027-01-28",
+    "due_time": "4:00 PM local",
+    "scoring": "Medium - Relative",
+    "owner": "geo",
+    "contributors": ["mar", "aya"],
+    "schedule_id": "university-stakeholder-meeting-preparation",
+    "source": "General Deliverables Rev 2, C-3; Team Dashboard 2026-08-28",
+    "purpose": "Secure an executive relationship and a concrete university support path.",
+    "artifacts": [
+      {"name": "Executive outreach package", "format": "PDF", "limit": "3 pages; 50 MB", "filename": "EIC Y1 - University Stakeholder Outreach - TEAM Acronym.pdf", "oem": "No"},
+      {"name": "University value brief", "format": "PPTX", "limit": "5 slides; 100 MB", "filename": "EIC Y1 - University Stakeholder Value Brief - TEAM Acronym.pptx", "oem": "No"}
+    ],
+    "done": [
+      "Select a university champion outside the normal faculty reporting line",
+      "Define meeting objective, specific ask, stakeholder priorities, and desired feedback",
+      "Prepare a one-page executive letter or email",
+      "Prepare a stand-alone five-slide value brief",
+      "Plan at least two approved public communications with responsibilities and timing"
+    ]
+  },
+  {
+    "id": "pm-stakeholder-proof",
+    "title": "University Stakeholder Executive Meeting - Proof of Execution",
+    "lane": "pgm",
+    "due": "2027-03-18",
+    "due_time": "4:00 PM local",
+    "scoring": "Small - Absolute",
+    "owner": "geo",
+    "contributors": ["mar", "aya"],
+    "schedule_id": "stakeholder-meeting-proof-of-execution",
+    "source": "General Deliverables Rev 2, C-3; Team Dashboard 2026-08-28",
+    "purpose": "Document the executive meeting, commitments, actions, and communication evidence.",
+    "artifacts": [
+      {"name": "Meeting evidence and outcomes", "format": "PDF", "limit": "3 pages; 50 MB", "filename": "EIC Y1 - University Stakeholder Outcomes - TEAM Acronym.pdf", "oem": "No"}
+    ],
+    "done": [
+      "Record meeting date, format, attendee roles, and appropriate evidence",
+      "Capture feedback, decisions, commitments, and requested follow-up",
+      "Assign resulting actions, owners, and target dates",
+      "Provide approved communication evidence or documented future publication plan",
+      "Schedule the next engagement"
+    ]
+  },
+  {
+    "id": "stla-architecture",
+    "title": "Integrated Vehicle Architecture Selection",
+    "lane": "vse",
+    "due": "2027-04-01",
+    "due_time": "4:00 PM local",
+    "scoring": "X-Large - Mixed",
+    "owner": "ant",
+    "contributors": ["ron", "dav", "fra", "min", "geo"],
+    "schedule_id": "integrated-vehicle-architecture-selection",
+    "source": "STLA Technical Deliverables Rev 0, I; Team Dashboard 2026-08-28",
+    "purpose": "Compare three genuinely distinct, feasible integrated vehicle architectures and recommend one.",
+    "artifacts": [
+      {"name": "Executive summary", "format": "PDF", "limit": "2 slides; 25 MB", "filename": "EICY1_STLA_TeamName_ExecSum.pdf", "oem": "Yes"},
+      {"name": "Architecture proposal", "format": "PPTX", "limit": "25 content slides; 150 MB", "filename": "EICY1_STLA_TeamName_VehicleArch.pptx", "oem": "Yes"},
+      {"name": "Preliminary Hazard Analysis", "format": "XLSX", "limit": "25 MB", "filename": "EICY1_STLA_TeamName_PHA.xlsx", "oem": "Yes"}
+    ],
+    "done": [
+      "Develop three materially distinct compliant architectures",
+      "Use a weighted selection matrix tied to VTS, targets, performance, integration, cost, schedule, and risk",
+      "Show modeling assumptions, results, battery concepts, power flow, and integration tradeoffs",
+      "Assess facilities, expertise, staffing, procurement, implementation, and validation feasibility",
+      "Complete one PHA per architecture and prepare evidence for the live review"
+    ]
+  },
+  {
+    "id": "pm-status-review",
+    "title": "Project Status Update and Assurance Review",
+    "lane": "pgm",
+    "due": "2027-04-08",
+    "due_time": "4:00 PM local",
+    "scoring": "Small - Relative",
+    "owner": "geo",
+    "contributors": ["ant", "aya", "mar"],
+    "schedule_id": "project-status-update-assurance-review",
+    "source": "General Deliverables Rev 2, C-4; Team Dashboard 2026-08-28",
+    "purpose": "Turn live project controls into an evidence-based executive status briefing.",
+    "artifacts": [
+      {"name": "Recorded briefing", "format": "MP4", "limit": "15 minutes; 250 MB", "filename": "EIC Y1 - Project Status Update - TEAM Acronym.mp4", "oem": "No"},
+      {"name": "Dashboard and reusable template", "format": "PPTX or XLSX", "limit": "1 slide or 1 sheet; 50 MB", "filename": "EIC Y1 - Project Status Dashboard - TEAM Acronym.[pptx or xlsx]", "oem": "No"}
+    ],
+    "done": [
+      "Apply Green, Yellow, and Red definitions consistently",
+      "Show overall and workstream status, accomplishments, milestones, variance, and recovery",
+      "Show next 30-day priorities and credible path to competition",
+      "Present priority risks and issues with owners and actions",
+      "State decisions, resource concerns, stakeholder asks, and required-by dates"
+    ]
+  },
+  {
+    "id": "stla-baseline-testing",
+    "title": "Baseline Vehicle Testing and Characterization",
+    "lane": "vhi",
+    "due": "2027-05-06",
+    "due_time": "4:00 PM local",
+    "scoring": "Medium - Absolute",
+    "owner": "min",
+    "contributors": ["ron", "ant", "dav"],
+    "schedule_id": "baseline-vehicle-testing-characterization-2",
+    "source": "STLA Technical Deliverables Rev 0, J; Team Dashboard 2026-08-28",
+    "purpose": "Create repeatable test plans and durable baseline data before vehicle modification.",
+    "artifacts": [
+      {"name": "Team Testing Matrix", "format": "XLSX or equivalent", "limit": "25 MB", "filename": "EICY1_STLA_TeamName_TestMatrix.xlsx", "oem": "Yes"},
+      {"name": "Baseline test plans and analysis", "format": "PDF", "limit": "50 MB", "filename": "EICY1_STLA_TeamName_TestPlansCombined.pdf", "oem": "Yes"},
+      {"name": "Raw data files", "format": "MF4", "limit": "No stated size limit", "filename": "EICY1_STLA_TeamName_TestName.mf4", "oem": "Yes"}
+    ],
+    "done": [
+      "Maintain a testing matrix with IDs, objectives, status, location, date, support, risks, contact, and raw files",
+      "Write repeatable procedures with instrumentation, conditions, results, and safety controls",
+      "Document acquisition settings, storage, processing, data quality, and problems",
+      "Collect required communications and vibration baselines as current guidance allows",
+      "Retain raw data for the full competition and keep it outside the public repository"
+    ]
+  },
+  {
+    "id": "marcom-webpage",
+    "title": "Team Webpage Content",
+    "lane": "biz",
+    "due": "2026-10-15",
+    "due_time": "End of day",
+    "scoring": "Team leadership requirement",
+    "owner": "mar",
+    "contributors": ["geo"],
+    "schedule_id": "team-webpage-content",
+    "source": "MARCOM Team Webpage Requirements; Team Dashboard 2026-08-28",
+    "purpose": "Provide approved public team description, leadership profiles, media, contact, and social links.",
+    "artifacts": [
+      {"name": "Written webpage content", "format": "DOCX", "limit": "Use organizer template", "filename": "Follow current Box request convention", "oem": "No"},
+      {"name": "Team photo and headshots", "format": "JPG or PNG", "limit": "Team photo at least 1024 x 768; headshots 1080 x 1080", "filename": "Follow organizer naming conventions", "oem": "No"},
+      {"name": "Team video", "format": "Horizontal video", "limit": "About 10 seconds; at least 1080p", "filename": "Follow organizer naming conventions", "oem": "No"}
+    ],
+    "done": [
+      "Write a third-person About section of at least 250 words with faculty alignment",
+      "Collect a recent high-resolution team photo and consistent leadership headshots",
+      "Record the short horizontal team video",
+      "Provide professional bios and LinkedIn URLs for required leadership roles",
+      "Provide approved get-involved, contact, meeting, and social information"
+    ]
+  }
+]

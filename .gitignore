@@ -4,3 +4,10 @@ __pycache__/
 *.pyc
 ~$*
 *.tmp
+.venv/
+tmp/
+raw_sources/
+submissions/
+private/
+*.mf4
+*.mat

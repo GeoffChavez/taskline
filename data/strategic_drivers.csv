@@ -1,0 +1,6 @@
+id,driver,intent,success_measure,owner_key,status
+SD-01,Meet every official commitment,Submit compliant review-ready artifacts by the Team Dashboard deadline,Zero missed deadlines and zero preventable format rejections,geo,Draft
+SD-02,Make engineering decisions traceable,Connect requirements evidence models and decisions,Every major architecture claim links to evidence and an owner,ant,Draft
+SD-03,Protect people and academic success,Plan around classes Senior Design facilities and realistic capacity,Academic conflicts visible and no owner carries more than two active priority items,geo,Draft
+SD-04,Build capability while delivering,Turn onboarding into useful low-risk project output,Every new member completes a first win in seven days and joins a scoped work package,ant,Draft
+SD-05,Preserve configuration and institutional memory,Use controlled storage naming review and change history,Current approved artifacts are identifiable and recoverable,fra,Draft

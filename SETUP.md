@@ -1,115 +1,37 @@
-# First-time setup — publishing this to the web
+# First-time setup
 
-You do this once. About 30 minutes. After that, updating the site is
-"edit CSV → run build.py → push."
+## 1. Get the repository
 
----
+In GitHub Desktop, choose **File -> Clone repository**, select `GeoffChavez/taskline`, and choose a local folder. If this repository is already open and shows the `main` branch, skip this step.
 
-## 1. Make a GitHub Organization, not a personal repo
+## 2. Confirm Python
 
-Go to github.com → your avatar → **Your organizations** → **New organization** →
-Free plan.
+Choose **Repository -> Open in Command Prompt**, then run:
 
-Name it something the team will recognize: `calstatela-ecocar`.
-
-**Why an organization and not your own account:** repos under a personal account
-belong to that person forever. When you graduate, the next PM either gets your
-password or loses the site. An organization has owners, and you add the next PM
-as an owner. This is the single decision that determines whether this thing
-survives you.
-
-Add at least one faculty advisor as an owner on day one. Not later.
-
----
-
-## 2. Create the repo
-
-Inside the organization → **New repository**
-
-- Name: `taskline`
-- **Public** (this matters — GitHub Pages on private repos requires a paid plan)
-- Don't add a README, we have one
-
----
-
-## 3. Push what's in this folder
-
-Install [GitHub Desktop](https://desktop.github.com) if you don't already use
-git from the command line. It is genuinely easier for this and the team can use
-it too.
-
-**GitHub Desktop:** File → Add local repository → pick this folder → Publish.
-
-**Command line:**
-
-```
-git init
-git add .
-git commit -m "Year 1 taskline"
-git branch -M main
-git remote add origin https://github.com/calstatela-ecocar/taskline.git
-git push -u origin main
+```text
+python --version
 ```
 
----
+Python 3.10 or newer is recommended. The build uses only Python's standard library.
 
-## 4. Turn on Pages
+## 3. Build the site
 
-Repo → **Settings** → **Pages**
+In the same window, run:
 
-- Source: **Deploy from a branch**
-- Branch: `main`
-- Folder: **`/docs`**  ← not root
-- Save
-
-Wait about a minute. Your URL is:
-
-```
-https://calstatela-ecocar.github.io/taskline/
+```text
+python build.py
 ```
 
-That link is public, needs no account, and works on a phone. Put it in the
-Discord channel topic, in your email signature, and on the team webpage.
+A successful build writes `docs/index.html` and reports the number of tasks, deliverables, roles, and onboarding choices. Warnings are intentional review items; errors must be fixed before publishing.
 
----
+## 4. Preview
 
-## 5. Check it
+In File Explorer, open the repository folder, then open `docs/index.html`. Test the section tabs, owner filters, a deliverable card, and a timeline task.
 
-Open the URL on your phone. Scroll down — the month headers should stay pinned.
-Tap a deliverable — the drawer should open with the submission requirements.
-Tap a person's chip — their rows should highlight.
+## 5. Publish an update
 
-If it looks right, you're done.
+Return to GitHub Desktop. Review the changed files, enter a specific summary, click **Commit to main**, then click **Push origin**.
 
----
+## 6. Keep private material private
 
-## Updating from then on
-
-```
-1. Open data/schedule.csv in Excel
-2. Change what changed
-3. Save as CSV
-4. python build.py
-5. Commit and push (GitHub Desktop: "Commit to main" then "Push origin")
-```
-
-Roughly two minutes. Do it once a week, right after the leadership meeting,
-so the site is never more than seven days behind reality.
-
----
-
-## If you get stuck
-
-**"python: command not found"** — install Python from python.org, check the
-"Add Python to PATH" box during install.
-
-**Build stops with errors** — that's the point. It tells you the Excel row
-number and what's wrong. Fix that row, save, run again.
-
-**Site didn't update** — GitHub takes 30–60 seconds. Then hard-refresh
-(Ctrl+Shift+R). Check repo → Actions for a failed deploy.
-
-**Excel mangled the dates** — Excel likes to rewrite `2026-10-15` as
-`10/15/2026`. Format the start/end columns as **Text** before typing dates, or
-use Google Sheets, which doesn't do this. `build.py` catches it either way and
-refuses to build, so it can never reach the site.
+Never copy official PDFs, Word requirements, scorecards, OEM data, raw vehicle logs, submission drafts, contact lists, or private links into this public repository. Store those in the approved Box or Teams location and add only a safe label or controlled link in `data/links.json`.
