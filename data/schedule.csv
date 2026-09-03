@@ -1,0 +1,87 @@
+id,group,lane,task,label,type,start,end,owners
+general-meeting-all-members,Standing meetings,pgm,General meeting — all members,Fridays 12–1 pm,bar,2026-09-04,2026-12-12,geo
+senior-design-block-a,Standing meetings,pgm,Senior design — block A,2–3 pm,bar,2026-09-04,2026-12-12,ant
+ee-senior-design,Standing meetings,pgm,EE senior design,Thursdays 11 am–12 pm,bar,2026-09-03,2026-12-10,ron min
+me-senior-design-2,Standing meetings,pgm,ME senior design #2,time as posted,bar,2026-09-04,2026-12-12,fra
+advisor-sync-dr-wang,Standing meetings,pgm,Advisor sync — Dr. Wang,time to confirm,tbd,2026-09-08,2026-12-12,geo
+off-road-targets-read-the-requirement,Deliverable research — report back 11 Sept,vse,Off-Road Targets — read the requirement,report specifics,bar,2026-09-02,2026-09-11,ron
+off-road-targets-battery-and-mass-angle,Deliverable research — report back 11 Sept,vse,Off-Road Targets — battery and mass angle,report specifics,bar,2026-09-02,2026-09-11,dav
+off-road-targets-packaging-and-geometry,Deliverable research — report back 11 Sept,vse,Off-Road Targets — packaging and geometry,report specifics,bar,2026-09-02,2026-09-11,fra
+baseline-vehicle-testing-read-the-requirement,Deliverable research — report back 11 Sept,vse,Baseline Vehicle Testing — read the requirement,report specifics,bar,2026-09-02,2026-09-11,min
+pit-requirements-read-all-seven-components,Deliverable research — report back 11 Sept,vse,PIT requirements — read all seven components,report specifics + dates,bar,2026-09-02,2026-09-11,aya
+read-vdr-rev-0-end-to-end,Deliverable research — report back 11 Sept,vse,Read VDR Rev 0 end to end,one page of what binds us,bar,2026-09-01,2026-09-11,ant
+questions-to-the-organizers,Deliverable research — report back 11 Sept,vse,Questions to the organizers,"section, request, our understanding",bar,2026-09-01,2026-09-08,ant
+oversee-all-stla-deliverables,Deliverable research — report back 11 Sept,vse,Oversee all STLA deliverables,all year,bar,2026-09-01,2027-06-30,ant
+name-all-fourteen-required-roles,Program & project management,pgm,Name all fourteen required roles,four track leads first,bar,2026-09-01,2026-09-17,geo
+email-dr-wang-siemens-licence-and-training,Program & project management,pgm,Email Dr. Wang — Siemens licence and training,this week,milestone,2026-09-04,,geo
+fall-workshop-registration-closes,Program & project management,pgm,Fall Workshop registration closes,end of day,milestone,2026-09-04,,geo
+rev-1-releases-re-baseline,Program & project management,pgm,Rev 1 releases — re-baseline,major documentation update,bar,2026-09-04,2026-09-09,geo
+team-structure-funded-position-applications,Program & project management,pgm,Team structure + funded position applications,end of day,milestone,2026-09-17,,geo
+signed-good-faith-agreements,Program & project management,pgm,Signed Good Faith Agreements,end of day,milestone,2026-09-18,,geo
+student-leadership-council-applications,Program & project management,pgm,Student Leadership Council applications,end of day,milestone,2026-09-18,,new
+fall-workshop-atlanta,Program & project management,pgm,"Fall Workshop, Atlanta",24–26 September,bar,2026-09-24,2026-09-26,geo ant
+case-study-reflection,Program & project management,pgm,Case study → reflection,case 10 Sept · update 20 Sept,bar,2026-09-10,2026-10-08,geo
+fall-workshop-case-study-reflection,Program & project management,pgm,Fall Workshop Case Study Reflection,graded · 8 Oct,milestone,2026-10-08,,geo
+integrated-year-1-workplan,Program & project management,pgm,Integrated Year 1 Workplan,build,bar,2026-09-15,2026-11-05,geo nat
+integrated-year-1-workplan-2,Program & project management,pgm,Integrated Year 1 Workplan,graded · 12 Nov,milestone,2026-11-12,,geo
+integrated-master-schedule,Program & project management,pgm,Integrated Master Schedule,"PM materials, dependencies, dates",bar,2026-09-08,2026-11-12,nat
+university-stakeholder-meeting-preparation,Program & project management,pgm,University stakeholder meeting — preparation,graded · 28 Jan,milestone,2027-01-28,,geo
+stakeholder-meeting-proof-of-execution,Program & project management,pgm,Stakeholder meeting — proof of execution,graded · 18 Mar,milestone,2027-03-18,,geo
+project-status-update-assurance-review,Program & project management,pgm,Project Status Update & Assurance Review,graded · 8 Apr,milestone,2027-04-08,,geo
+friday-workshops-matlab-track,Onboarding & workshops,vhi,Friday workshops — MATLAB track,"12–1, weekly",bar,2026-09-04,2026-10-30,ron geo
+friday-workshops-nx-track,Onboarding & workshops,vhi,Friday workshops — NX track,"12–1, weekly",bar,2026-09-04,2026-10-30,fra jef
+nx-onboarding-documents-materials,Onboarding & workshops,vhi,NX onboarding documents & materials,is the deliverable,bar,2026-09-08,2026-10-10,jef dor fra ant
+senior-design-scope-lock,Onboarding & workshops,vhi,Senior design scope lock,"3 sessions, Fridays 1–2",bar,2026-09-04,2026-09-18,geo
+photo-video-and-headshots,Onboarding & workshops,vhi,"Photo, video and headshots","one session, everyone",milestone,2026-09-11,,geo
+fall-workshop-teach-backs,Onboarding & workshops,vhi,Fall Workshop teach-backs,15 min from every attendee,milestone,2026-10-02,,ant geo
+off-road-benchmarking-spreadsheet,VSE — vehicle systems engineering,vse,Off-road benchmarking spreadsheet,one vehicle per new member,bar,2026-09-08,2026-10-10,ant new
+off-road-performance-targets,VSE — vehicle systems engineering,vse,Off-Road Performance Targets,build,bar,2026-09-15,2026-10-23,ant ron dav fra
+freeze-red-team,VSE — vehicle systems engineering,vse,Freeze & red team,T−5 working days,freeze,2026-10-23,2026-10-29,ant
+off-road-performance-target-development,VSE — vehicle systems engineering,vse,Off-Road Performance Target Development,graded · LARGE · 29 Oct,milestone,2026-10-29,,ant
+three-architecture-matrix,VSE — vehicle systems engineering,vse,Three-architecture matrix,build &times;3,bar,2026-10-02,2027-03-15,ant ron
+final-technical-report-itec-digest,VSE — vehicle systems engineering,vse,Final Technical Report — ITEC digest,build,bar,2026-10-15,2026-12-12,ant
+final-technical-report,VSE — vehicle systems engineering,vse,Final Technical Report,graded · 19 Dec,milestone,2026-12-19,,ant
+facilities-safety-readiness,VSE — vehicle systems engineering,vse,Facilities & Safety Readiness,build,bar,2026-11-15,2027-01-14,ant dav
+facilities-safety-readiness-2,VSE — vehicle systems engineering,vse,Facilities & Safety Readiness,graded · 21 Jan,milestone,2027-01-21,,ant
+integrated-vehicle-architecture-selection,VSE — vehicle systems engineering,vse,Integrated Vehicle Architecture Selection,graded · X-LARGE · 1 Apr,milestone,2027-04-01,,ant
+university-it-ticket-teamcenter-nx-licence,VHI — CAD readiness and hardware,vhi,University IT ticket — Teamcenter / NX licence,external clock,tbd,2026-09-03,2026-10-10,fra
+cad-workflow-diagram-8-required-steps,VHI — CAD readiness and hardware,vhi,CAD workflow diagram — 8 required steps,40% of the deliverable,bar,2026-09-08,2026-09-18,fra
+cad-onboarding-guide-2-pages,VHI — CAD readiness and hardware,vhi,CAD onboarding guide — 2 pages,40% of the deliverable,bar,2026-09-08,2026-09-20,dor jef
+cad-demonstration-video-5-min,VHI — CAD readiness and hardware,vhi,CAD demonstration video — 5 min,20% of the deliverable,bar,2026-09-15,2026-09-22,fra ant
+freeze-red-team-2,VHI — CAD readiness and hardware,vhi,Freeze & red team,before Atlanta,freeze,2026-09-22,2026-09-26,ant
+cad-data-management-readiness,VHI — CAD readiness and hardware,vhi,CAD Data Management Readiness,submit early · 26 Sept,milestone,2026-09-26,,fra
+cad-data-management-readiness-2,VHI — CAD readiness and hardware,vhi,CAD Data Management Readiness,graded · ABSOLUTE · 15 Oct 4 pm,milestone,2026-10-15,,fra
+mass-budget-v1,VHI — CAD readiness and hardware,vhi,Mass budget v1,three named owners,bar,2026-09-08,2026-09-18,fra dav min
+rear-eaxle-benchmark-packaging,VHI — CAD readiness and hardware,vhi,Rear eAxle benchmark & packaging,feeds all three architectures,bar,2026-09-15,2026-12-18,fra
+baseline-vehicle-testing-characterization,VHI — CAD readiness and hardware,vhi,Baseline Vehicle Testing & Characterization,spring campaign,tbd,2027-01-15,2027-05-06,min
+baseline-vehicle-testing-characterization-2,VHI — CAD readiness and hardware,vhi,Baseline Vehicle Testing & Characterization,graded · 6 May,milestone,2027-05-06,,min
+matlab-simulink-onramp-cohort,PCM — propulsion controls & modeling,pcm,MATLAB & Simulink Onramp cohort,team-set,bar,2026-09-04,2026-09-18,ron
+two-controller-compliance-check,PCM — propulsion controls & modeling,pcm,Two-controller compliance check,rule C-3.1,bar,2026-09-11,2026-09-18,ron dav
+pcm-onboarding-guide,PCM — propulsion controls & modeling,pcm,PCM onboarding guide,IS the deliverable,bar,2026-09-20,2026-10-15,ron
+onboard-training-runs-from-the-guide,PCM — propulsion controls & modeling,pcm,Onboard training runs from the guide,after 15 Oct,bar,2026-10-16,2026-11-04,ron
+pcm-tool-check,PCM — propulsion controls & modeling,pcm,PCM Tool Check,graded · 5 Nov,milestone,2026-11-05,,ron
+organizer-walkthrough-window,PCM — propulsion controls & modeling,pcm,Organizer walkthrough window,"9–20 Nov, published",bar,2026-11-09,2026-11-20,ron
+virtual-vehicle-simulation-epa-cycles,PCM — propulsion controls & modeling,pcm,Virtual Vehicle Simulation — EPA cycles,"UDDS, HWFET, US06",bar,2026-10-15,2026-12-04,ron min
+freeze-red-team-3,PCM — propulsion controls & modeling,pcm,Freeze & red team,T−5,freeze,2026-12-04,2026-12-10,ron
+virtual-vehicle-simulation,PCM — propulsion controls & modeling,pcm,Virtual Vehicle Simulation,graded · 10 Dec,milestone,2026-12-10,,ron
+nx-cohort-cell-module-modeling,HVB — high voltage battery,hvb,NX cohort & cell / module modeling,team-set,bar,2026-09-04,2026-10-15,dav
+sponsored-cell-specs-module-options,HVB — high voltage battery,hvb,Sponsored cell specs & module options,ship date unknown,tbd,2026-09-15,2026-11-01,dav
+per-cell-c-rate-check,HVB — high voltage battery,hvb,Per-cell C-rate check,before Atlanta,milestone,2026-09-23,,dav
+battery-performance-targets,HVB — high voltage battery,hvb,Battery Performance Targets,build,bar,2026-10-01,2026-11-13,dav
+freeze-red-team-4,HVB — high voltage battery,hvb,Freeze & red team,T−5,freeze,2026-11-13,2026-11-19,dav
+battery-performance-target-development,HVB — high voltage battery,hvb,Battery Performance Target Development,graded · LARGE · 19 Nov,milestone,2026-11-19,,dav
+hv-work-permit-battery-build-book,HVB — high voltage battery,hvb,HV work permit + Battery Build Book,rule H-7.3 requires it in writing,bar,2026-10-01,2026-12-15,dav dor
+marcom-manager-named,"PIT, MarCom & business",biz,MarCom Manager named,target,milestone,2026-09-17,,geo mar
+gate-1-team-program-identity,"PIT, MarCom & business",biz,Gate 1: Team Program Identity,graded · 1 Oct (suggested),milestone,2026-10-01,,mar
+green-garage-blog-1,"PIT, MarCom & business",biz,Green Garage Blog 1,graded · ABSOLUTE · 8 Oct,milestone,2026-10-08,,mar
+team-webpage-content,"PIT, MarCom & business",biz,Team Webpage Content,end of day · 15 Oct,milestone,2026-10-15,,mar geo
+gate-2-visual-identity,"PIT, MarCom & business",biz,Gate 2: Visual Identity,graded · 22 Oct (suggested),milestone,2026-10-22,,mar
+social-media-video-1,"PIT, MarCom & business",biz,Social Media Video 1,graded · 5 Nov,milestone,2026-11-05,,mar
+gate-3-brand-assets,"PIT, MarCom & business",biz,Gate 3: Brand Assets,graded · 12 Nov (suggested),milestone,2026-11-12,,mar
+studio-1-check-in-business-portfolio-review,"PIT, MarCom & business",biz,Studio 1 Check-In: Business Portfolio Review,graded · 12 Nov,milestone,2026-11-12,,aya
+gate-4-external-promotion-strategy,"PIT, MarCom & business",biz,Gate 4: External Promotion Strategy,graded · 3 Dec (suggested),milestone,2026-12-03,,mar
+studio-1-sdv-business-understanding,"PIT, MarCom & business",biz,Studio 1: SDV Business Understanding,graded · 3 Dec,milestone,2026-12-03,,aya
+social-media-data-collection,"PIT, MarCom & business",biz,Social media data collection,cannot be back-filled,bar,2026-09-05,2027-04-30,mar geo
+outreach-data-collection,"PIT, MarCom & business",biz,Outreach data collection,logged the same day,bar,2026-09-15,2027-04-30,mar
+pit-customer-discovery-gate-1,"PIT, MarCom & business",biz,PIT: customer discovery & Gate 1,"Studio 2 · 15 Apr, X-Large",tbd,2026-12-04,2027-04-15,aya
+budget-purchase-log,"PIT, MarCom & business",biz,Budget & purchase log,held all year,bar,2026-09-25,2027-06-30,mar
