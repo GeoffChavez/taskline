@@ -186,9 +186,55 @@ def validate(bundle):
         parse_date(row.get("needed_by", ""), f"{where} needed_by", problems)
 
     unique_ids(bundle["onboarding"], "id", "onboarding.csv", problems)
+    onboarding_ids = {row.get("id") for row in bundle["onboarding"]}
     for index, row in enumerate(bundle["onboarding"], start=2):
         if row.get("mentor_key") not in person_keys:
             problems.append(f"onboarding.csv row {index}: unknown mentor '{row.get('mentor_key')}'")
+
+    detail_ids = set(bundle["onboarding_details"])
+    if detail_ids != onboarding_ids:
+        missing = onboarding_ids - detail_ids
+        extra = detail_ids - onboarding_ids
+        if missing:
+            problems.append("onboarding_details.json missing IDs: " + ", ".join(sorted(missing)))
+        if extra:
+            problems.append("onboarding_details.json contains unknown IDs: " + ", ".join(sorted(extra)))
+    for item_id, item in bundle["onboarding_details"].items():
+        if not item.get("steps") or not item.get("prerequisites") or not item.get("handoff"):
+            problems.append(f"onboarding_details.json {item_id}: prerequisites, steps, and handoff are required")
+
+    guide_ids = set()
+    for index, guide in enumerate(bundle["onboarding_guides"], start=1):
+        where = f"onboarding_guides.json item {index}"
+        guide_id = guide.get("id", "")
+        if not guide_id:
+            problems.append(f"{where}: missing id")
+        elif guide_id in guide_ids:
+            problems.append(f"{where}: duplicate id '{guide_id}'")
+        guide_ids.add(guide_id)
+        if not guide.get("steps") or not guide.get("prerequisites") or not guide.get("proof"):
+            problems.append(f"{where}: prerequisites, steps, and proof are required")
+        for link in guide.get("links", []):
+            url = link.get("url", "")
+            if not url.startswith("https://"):
+                problems.append(f"{where}: guide links must use public HTTPS URLs")
+
+    project_ids = set()
+    for index, project in enumerate(bundle["projects"], start=1):
+        where = f"projects.json item {index}"
+        project_id = project.get("id", "")
+        if not project_id:
+            problems.append(f"{where}: missing id")
+        elif project_id in project_ids:
+            problems.append(f"{where}: duplicate id '{project_id}'")
+        project_ids.add(project_id)
+        if project.get("owner_key") not in person_keys:
+            problems.append(f"{where}: unknown owner '{project.get('owner_key')}'")
+        for task_id in project.get("task_ids", []):
+            if task_id not in task_ids:
+                problems.append(f"{where}: unknown task_id '{task_id}'")
+        if not project.get("outcome") or not project.get("contribution"):
+            problems.append(f"{where}: outcome and contribution are required")
 
     unique_ids(bundle["drivers"], "id", "strategic_drivers.csv", problems)
     for index, row in enumerate(bundle["drivers"], start=2):
@@ -231,6 +277,9 @@ def load_bundle():
         "statuses": read_csv("task_status.csv"),
         "roles": read_csv("roles.csv"),
         "onboarding": read_csv("onboarding.csv"),
+        "onboarding_details": read_json("onboarding_details.json"),
+        "onboarding_guides": read_json("onboarding_guides.json"),
+        "projects": read_json("projects.json"),
         "drivers": read_csv("strategic_drivers.csv"),
         "risks": read_csv("risks.csv"),
         "decisions": read_csv("decisions.csv"),
@@ -335,6 +384,9 @@ def build_payload(bundle):
         "statuses": status_map,
         "roles": bundle["roles"],
         "onboarding": bundle["onboarding"],
+        "onboarding_details": bundle["onboarding_details"],
+        "onboarding_guides": bundle["onboarding_guides"],
+        "projects": bundle["projects"],
         "drivers": bundle["drivers"],
         "risks": bundle["risks"],
         "decisions": bundle["decisions"],
@@ -361,7 +413,8 @@ def main():
     if args.check:
         print(
             f"Validation passed: {len(bundle['tasks'])} tasks, "
-            f"{len(bundle['deliverables'])} deliverables, {len(bundle['roles'])} roles."
+            f"{len(bundle['deliverables'])} deliverables, {len(bundle['roles'])} roles, "
+            f"{len(bundle['onboarding_guides'])} tool guides, {len(bundle['projects'])} projects."
         )
         return
 
@@ -379,7 +432,8 @@ def main():
     print(
         f"Built {OUT.relative_to(ROOT)}: {len(bundle['tasks'])} tasks, "
         f"{len(payload['deliverables'])} deliverables/commitments, {len(bundle['roles'])} roles, "
-        f"{len(bundle['onboarding'])} first wins."
+        f"{len(bundle['onboarding'])} first wins, {len(bundle['onboarding_guides'])} tool guides, "
+        f"{len(bundle['projects'])} projects."
     )
     if warnings:
         print(f"Review {len(warnings)} warning(s) above before publishing.")

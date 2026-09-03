@@ -1,0 +1,89 @@
+[
+  {
+    "id": "guide-matlab",
+    "title": "MATLAB Onramp",
+    "category": "Learn",
+    "timebox": "About 2 hours",
+    "summary": "Learn the MATLAB workspace, arrays, scripts, calculations, plots, and basic troubleshooting before touching the team model.",
+    "source": "MathWorks official Onramp resources",
+    "source_note": "Onramp courses are free with a MathWorks Account. Confirm the team-approved MATLAB release and campus-license path before installing desktop software.",
+    "prerequisites": [
+      "Laptop or desktop computer",
+      "MathWorks Account",
+      "Confirmed team MATLAB release and license method"
+    ],
+    "steps": [
+      "Ask the PCM lead which MATLAB release the team is using; do not upgrade a shared model by opening and saving it in a newer release.",
+      "Sign in to your MathWorks Account and open the official MATLAB Onramp course.",
+      "Complete the introductory lessons on commands, variables, arrays, indexing, plots, and scripts.",
+      "Create a personal practice script named onboarding_<initials>.m; load or define a small data vector, calculate a mean, and produce a labeled plot.",
+      "Add a title, axis labels, units, and one comment explaining the calculation.",
+      "Save a completion screenshot and your practice script in the approved onboarding location, then ask the PCM mentor for a five-minute review."
+    ],
+    "proof": "Onramp completion screenshot plus one readable MATLAB script and labeled plot.",
+    "links": [
+      {"label": "MATLAB tutorials and Onramp", "url": "https://www.mathworks.com/support/learn-with-matlab-tutorials.html"},
+      {"label": "MATLAB downloads", "url": "https://www.mathworks.com/downloads/"}
+    ]
+  },
+  {
+    "id": "guide-c2000",
+    "title": "Simulink + TI C2000 F280039C",
+    "category": "Set up",
+    "timebox": "2-4 hours plus downloads",
+    "summary": "Install and validate the model-based embedded controls toolchain used with the TI F280039C LaunchPad.",
+    "source": "Team TI C2000 MATLAB/Simulink setup guide, supported by MathWorks and TI documentation",
+    "source_note": "The attached screenshots show a specific Windows setup and older tool versions. Use the versions selected by the PCM lead or recommended by the current c2000setup wizard; do not mix versions on a shared project without approval.",
+    "prerequisites": [
+      "Completed MATLAB Onramp",
+      "Team-approved MATLAB release and license",
+      "Permission to install software",
+      "TI F280039C LaunchPad access for the final hardware check"
+    ],
+    "steps": [
+      "Install the approved MATLAB release and the project-required products, including Simulink and C2000 Microcontroller Blockset; confirm with the PCM lead before adding optional products.",
+      "In the MATLAB Command Window, enter c2000setup and select the F28003x processor family.",
+      "Allow the hardware setup workflow to install or locate the required code-generation support, Code Composer Studio, and C2000Ware. Use the wizard-recommended or team-pinned versions.",
+      "Keep TI tools in their standard C:\\ti folders unless the team has documented a different location.",
+      "Use each Validate button in the hardware setup workflow and resolve every failed path before continuing.",
+      "Open Simulink, open the Library Browser, and confirm that C2000 Microcontroller Blockset contains F28003x blocks.",
+      "In Model Settings > Hardware Implementation, select TI F280039C LaunchPad and confirm Texas Instruments / C2000 device settings.",
+      "Run a software-only practice model first. Perform code generation, flashing, or energized hardware work only with the PCM mentor and the team's safety procedure."
+    ],
+    "proof": "Screenshots of successful tool validation, the F28003x block library, and the selected F280039C hardware board; add tool versions to the run log.",
+    "links": [
+      {"label": "Simulink Onramp", "url": "https://www.mathworks.com/products/simulink/getting-started.html"},
+      {"label": "TI F280039C LaunchPad", "url": "https://www.ti.com/tool/LAUNCHXL-F280039C"},
+      {"label": "TI C2000Ware", "url": "https://www.ti.com/tool/C2000WARE"}
+    ]
+  },
+  {
+    "id": "guide-nx",
+    "title": "Siemens NX",
+    "category": "Set up",
+    "timebox": "1-2 hours",
+    "summary": "Install NX through the approved university package, connect to the campus license, and release one practice part.",
+    "source": "Team Siemens NX download and installation guide",
+    "source_note": "The attached guide names SiemensNX-2206.9200_wntx64 but does not provide a public installer link. Obtain the approved installer and current license-server value from the VHI/NX lead or controlled team storage.",
+    "prerequisites": [
+      "Windows computer with installation permission and sufficient disk space",
+      "MyCalStateLA account and GlobalProtect VPN",
+      "Approved NX installer and controlled license-server value"
+    ],
+    "steps": [
+      "Obtain the team-approved NX installer from the VHI/NX lead; confirm the release before downloading.",
+      "Extract the full installer folder, open it, and run Launch.exe.",
+      "Choose Install NX, proceed through the setup wizard, and keep the approved feature set and installation location.",
+      "Install and connect GlobalProtect to the MyStudent VPN using your own university credentials.",
+      "At the NX Licensing screen, enter the license-server value from the controlled setup guide. Do not publish that value in GitHub or screenshots.",
+      "Select the team language setting, review the summary, and install NX.",
+      "Launch NX while connected to VPN. If licensing fails, capture the exact error and send it to the NX lead; do not repeatedly change server settings.",
+      "Create a simple practice part, save it with the team's naming convention, and complete the practice release/check-in steps provided by the CAD custodian."
+    ],
+    "proof": "NX launch screenshot plus one named practice part and release/check-in screenshot reviewed by the CAD custodian.",
+    "links": [
+      {"label": "Cal State LA VPN instructions", "url": "https://www.calstatela.edu/its/network/vpn"},
+      {"label": "MyStudent VPN portal", "url": "https://mystudentvpn.calstatela.edu/"}
+    ]
+  }
+]

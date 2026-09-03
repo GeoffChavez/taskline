@@ -1,0 +1,80 @@
+[
+  {
+    "id": "project-vse-targets",
+    "title": "Vehicle benchmarking and performance targets",
+    "lane": "vse",
+    "owner_key": "ant",
+    "status": "Active",
+    "outcome": "A defensible set of off-road targets and architecture tradeoffs supported by benchmark evidence.",
+    "now": "Build the off-road benchmark set and convert evidence into measurable targets.",
+    "contribution": "Research one comparison vehicle, document a source, or improve one measurable requirement.",
+    "skills": ["requirements", "benchmarking", "systems engineering"],
+    "task_ids": ["off-road-benchmarking-spreadsheet", "off-road-performance-targets", "three-architecture-matrix", "integrated-vehicle-architecture-selection"],
+    "senior_design_boundary": "EcoCAR owns competition targets and architecture decisions; shared academic analysis keeps its separate faculty-approved scope and acceptance."
+  },
+  {
+    "id": "project-vhi-cad",
+    "title": "CAD workflow and rear eAxle packaging",
+    "lane": "vhi",
+    "owner_key": "fra",
+    "status": "Active",
+    "outcome": "A controlled NX workflow, usable mass budget, and packaging evidence that can support all candidate architectures.",
+    "now": "Validate NX access, document the eight-step CAD workflow, and benchmark rear eAxle packaging.",
+    "contribution": "Complete the NX setup, release a practice part, or write and cold-test one workflow check.",
+    "skills": ["Siemens NX", "CAD data management", "packaging"],
+    "task_ids": ["university-it-ticket-teamcenter-nx-licence", "cad-workflow-diagram-8-required-steps", "cad-onboarding-guide-2-pages", "rear-eaxle-benchmark-packaging", "mass-budget-v1"],
+    "senior_design_boundary": "Training parts and shared packaging evidence are reusable; ownership of a Senior Design component remains with its academic team."
+  },
+  {
+    "id": "project-pcm-model",
+    "title": "Virtual vehicle and embedded controls toolchain",
+    "lane": "pcm",
+    "owner_key": "ron",
+    "status": "Active",
+    "outcome": "A reproducible virtual-vehicle workflow and validated MATLAB/Simulink + TI C2000 development environment.",
+    "now": "Complete the onramp cohort, confirm the toolchain, and prepare repeatable training runs.",
+    "contribution": "Finish an Onramp, validate a tool installation, reproduce one model run, or improve one instruction.",
+    "skills": ["MATLAB", "Simulink", "TI C2000", "model-based design"],
+    "task_ids": ["matlab-simulink-onramp-cohort", "pcm-tool-check", "pcm-onboarding-guide", "virtual-vehicle-simulation-epa-cycles", "virtual-vehicle-simulation"],
+    "senior_design_boundary": "Tool training and reproducibility evidence may be shared; control-design decisions follow the approved EcoCAR and academic ownership boundaries."
+  },
+  {
+    "id": "project-hvb-pack",
+    "title": "Battery targets and module packaging",
+    "lane": "hvb",
+    "owner_key": "dav",
+    "status": "Active",
+    "outcome": "Traceable battery performance targets and a safe, evidence-based cell/module packaging concept.",
+    "now": "Establish the NX cohort, review sponsored cell information, and prepare calculation checks.",
+    "contribution": "Audit one calculation chain, organize a cell-spec reference, or create a training-only packaging model.",
+    "skills": ["battery systems", "engineering calculations", "NX packaging"],
+    "task_ids": ["nx-cohort-cell-module-modeling", "sponsored-cell-specs-module-options", "per-cell-c-rate-check", "battery-performance-targets", "battery-performance-target-development"],
+    "senior_design_boundary": "New members verify inputs and evidence; battery architecture and energized work remain with authorized owners and safety controls."
+  },
+  {
+    "id": "project-program",
+    "title": "Integrated plan, deliverables, and team operations",
+    "lane": "pgm",
+    "owner_key": "geo",
+    "status": "Active",
+    "outcome": "One trustworthy execution system connecting official requirements, owners, dates, decisions, risks, and evidence.",
+    "now": "Confirm role ownership, maintain the integrated schedule, and prepare upcoming deliverable gates.",
+    "contribution": "Validate one deliverable card, update one status, log one decision, or improve onboarding documentation.",
+    "skills": ["project management", "requirements traceability", "GitHub"],
+    "task_ids": ["name-all-fourteen-required-roles", "integrated-master-schedule", "integrated-year-1-workplan", "project-status-update-assurance-review"],
+    "senior_design_boundary": "The system coordinates interfaces and evidence; it does not replace Senior Design schedules, grading, or faculty acceptance."
+  },
+  {
+    "id": "project-pit-marcom",
+    "title": "Team identity, outreach, and customer discovery",
+    "lane": "biz",
+    "owner_key": "aya",
+    "status": "Needs MarCom owner",
+    "outcome": "A consistent public identity and evidence-based customer/business portfolio that meets program commitments.",
+    "now": "Name a MarCom owner, complete identity gates, prepare website content, and begin customer-discovery work.",
+    "contribution": "Draft a consented spotlight, organize approved assets, summarize one interview, or verify a public deliverable.",
+    "skills": ["communications", "customer discovery", "content operations"],
+    "task_ids": ["marcom-manager-named", "gate-1-team-program-identity", "team-webpage-content", "pit-customer-discovery-gate-1"],
+    "senior_design_boundary": "Public storytelling and discovery can feature academic work only with owner consent, accurate credit, and approved public-safe information."
+  }
+]

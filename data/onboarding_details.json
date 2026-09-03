@@ -1,0 +1,62 @@
+{
+  "ON-01": {
+    "why": "Builds the evidence base for vehicle targets without assigning a new member an entire requirements workstream.",
+    "prerequisites": ["Choose a vehicle with the VSE mentor", "Get the current benchmark-row template", "Use public, citable sources only"],
+    "steps": ["Duplicate one blank benchmark row", "Record the vehicle, trim, model year, and source date", "Enter each requested metric with units", "Link the public source beside each value", "Mark unavailable values as a gap rather than guessing", "Ask the VSE mentor to review the completed row"],
+    "handoff": "Commit or upload the reviewed row in the approved benchmark location and tell the owner which values remain unresolved."
+  },
+  "ON-02": {
+    "why": "Proves NX access and the team's basic naming/release workflow before a member touches production CAD.",
+    "prerequisites": ["Complete the Siemens NX setup guide", "Confirm the practice-part naming convention", "Know where training files are stored"],
+    "steps": ["Create a simple bracket or block as a training-only part", "Apply the required file name and revision", "Add one dimensioned feature", "Save to the approved training location", "Follow the practice check-in/review/release sequence", "Capture the final status and ask the CAD custodian to review it"],
+    "handoff": "Submit the part and release screenshot; never place controlled CAD or license information in the public repository."
+  },
+  "ON-03": {
+    "why": "Demonstrates that the virtual-vehicle environment opens and produces a reproducible result.",
+    "prerequisites": ["Complete MATLAB and Simulink Onramps", "Confirm the required MATLAB release", "Receive the approved training model from the PCM mentor"],
+    "steps": ["Record MATLAB, Simulink, and add-on versions", "Open a fresh copy of the training model", "Read its run instructions and expected inputs", "Run the model once without changing parameters", "Export one labeled result plot", "Repeat the run and confirm the result is reproducible", "Record warnings or errors exactly"],
+    "handoff": "Provide the run log, version list, and labeled plot to the PCM mentor."
+  },
+  "ON-04": {
+    "why": "Adds an independent quality check to battery work while preserving battery-design authority.",
+    "prerequisites": ["Select one calculation chain with the battery lead", "Use the controlled calculation, not a public copy", "Understand the units used"],
+    "steps": ["List every input, value, unit, and source", "Trace each equation in order", "Repeat the arithmetic independently", "Check unit conversions and significant figures", "Record assumptions and unresolved questions", "Compare the result with the controlled calculation"],
+    "handoff": "Send a short checked-calculation note to the battery lead; do not edit the source calculation until the lead approves."
+  },
+  "ON-05": {
+    "why": "Turns tribal CAD knowledge into a test that future members can follow without verbal rescue.",
+    "prerequisites": ["Choose one CAD workflow step with the NX lead", "Read the current instruction", "Know the expected end state"],
+    "steps": ["Write the action in plain language", "State the required input and exact expected result", "Add one common failure and recovery step", "Include the evidence a reviewer should see", "Ask someone unfamiliar with the step to try it", "Revise once based on their result"],
+    "handoff": "Submit one reviewed acceptance-check entry for inclusion in the CAD onboarding guide."
+  },
+  "ON-06": {
+    "why": "Improves compliance while teaching a member how the dashboard relates to controlled requirements.",
+    "prerequisites": ["Choose one deliverable with the PM", "Open the latest controlled requirement and scorecard", "Open the matching dashboard card"],
+    "steps": ["Compare the official date and time", "Compare artifact names and formats", "Check page, size, naming, and OEM-data limits", "Compare the definition-of-done checks", "Record every mismatch with the source section", "Update only after the accountable owner confirms the correction"],
+    "handoff": "Commit one corrected public-safe card or send a no-change verification note with source revision and date."
+  },
+  "ON-07": {
+    "why": "Produces visible team storytelling while protecting consent and sensitive information.",
+    "prerequisites": ["Obtain a named MarCom reviewer", "Choose a consenting team member", "Use approved public-safe facts and images"],
+    "steps": ["Ask for written participation and image consent", "Collect the approved role and a short quote", "Draft concise spotlight copy", "Check image dimensions and accessibility text", "Remove private, OEM-sensitive, and unapproved claims", "Send the complete package for MarCom review"],
+    "handoff": "Deliver draft copy, consent record, image specification, and alt text; publication requires named approval."
+  },
+  "ON-08": {
+    "why": "Connects research to a verifiable engineering target without assigning architecture authority prematurely.",
+    "prerequisites": ["Choose one vehicle goal with the VSE lead", "Collect at least one credible source", "Know the target format"],
+    "steps": ["Rewrite the goal as one measurable statement", "Specify value, unit, operating condition, and boundary", "Cite the rationale and source", "State how the target will be verified", "Identify one uncertainty or tradeoff", "Review wording with the VSE lead"],
+    "handoff": "Add the approved requirement statement and rationale to the controlled target-development workspace."
+  },
+  "ON-09": {
+    "why": "Makes onboarding continuously better and gives a new member a safe first version-controlled change.",
+    "prerequisites": ["Choose an instruction you actually attempted", "Reproduce the confusing step", "Agree on the smallest useful correction"],
+    "steps": ["Describe the user goal", "Rewrite the step with an action verb", "Add the expected result", "Add one likely error and recovery", "Test the revision from a clean starting point", "Ask a mentor to review before merging"],
+    "handoff": "Commit one focused documentation change with a message explaining what confusion it removes."
+  },
+  "ON-10": {
+    "why": "Turns an unspoken blocker into an owned, dated coordination item.",
+    "prerequisites": ["Choose a real dependency or pending decision with the PM", "Identify the people affected", "Find the date when the answer is needed"],
+    "steps": ["Write the decision or dependency as one sentence", "Record its owner", "Record the needed-by date and source", "List realistic options or upstream input", "State impact if late", "Write one next action with a date"],
+    "handoff": "Add the reviewed row to the decision or dependency register and notify the affected owner."
+  }
+}
