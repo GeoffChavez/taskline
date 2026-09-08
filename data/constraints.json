@@ -1,0 +1,119 @@
+{
+  "as_of": "2026-09-08",
+  "intro": "Every value below is quoted from a controlled competition document, not estimated. These close design options before any team starts work: a pack above 400 V, above 5.0 kWh, or mounted outside the rear hatch is not a design this team can submit.",
+  "groups": [
+    {
+      "id": "battery",
+      "title": "HV battery pack — team built",
+      "headline": "200-400 V",
+      "headline_note": "Greater than 200 V minimum, not to exceed 400 V maximum.",
+      "source": "Kickoff Competition Technical Slides, Propulsion Workstream Scope; STLA Technical Deliverable Requirements Rev 0; STLA Vehicle Design Rules Rev 0 section E-4.6",
+      "rows": [
+        {"spec": "Pack voltage", "req": "> 200 V min, <= 400 V max", "ref": "", "tol": "", "note": "New build. Stock pack is replaced."},
+        {"spec": "Total pack energy", "req": "<= 5.0 kWh", "ref": "", "tol": "", "note": "Hard ceiling on the analysis and the build."},
+        {"spec": "Design sweep range", "req": "1.0 - 5.0 kWh", "ref": "", "tol": "", "note": "Vary parallel count across this range and report vehicle power in kW."},
+        {"spec": "Module voltage", "req": "<= 50 V", "ref": "", "tol": "", "note": "Pack constructed from modules interconnected in 50 V or less increments."},
+        {"spec": "Energy vs stock pack", "req": "must be higher", "ref": "", "tol": "", "note": "The team pack has to beat the stock pack on energy capacity."},
+        {"spec": "Packaging location", "req": "rear hatch only", "ref": "", "tol": "", "note": "Battery integration outside the defined rear-hatch area is prohibited."}
+      ]
+    },
+    {
+      "id": "mass",
+      "title": "Mass budget",
+      "headline": "182 kg",
+      "headline_note": "Everything the team adds has to fit inside this. Requirement 2,154 kg minus the 1,972 kg Cherokee reference.",
+      "source": "STLA Vehicle Design Rules Rev 0, Vehicle Technical Specifications table",
+      "rows": [
+        {"spec": "Max curb weight", "req": "2,154 kg", "ref": "1,972 kg", "tol": "+/- 25 kg", "note": "Defined as GVWR minus one 91 kg occupant."},
+        {"spec": "Available headroom", "req": "approx 182 kg", "ref": "", "tol": "", "note": "Pack, enclosure, rear drive unit, mounts, wiring, cooling and instrumentation all come out of this."}
+      ]
+    },
+    {
+      "id": "cargo",
+      "title": "Cargo and occupants",
+      "headline": "300 L",
+      "headline_note": "Minimum cargo capacity with the rear seats up. The Cherokee reference is 951 L, so the pack may consume up to about 651 L of trunk volume before this becomes a penalty.",
+      "source": "STLA Vehicle Design Rules Rev 0, Vehicle Technical Specifications table",
+      "rows": [
+        {"spec": "Min cargo capacity, rear seats up", "req": "300 L", "ref": "951 L", "tol": "N/A", "note": "Cargo capacity below the requirement results in a yearly points penalty. See the Admin and Scoring document."},
+        {"spec": "Min occupant capacity", "req": "5", "ref": "5", "tol": "N/A", "note": "Seats and seatbelts."}
+      ],
+      "callout": "The pack must live in the rear hatch and cargo volume is measured with the rear seats up. That makes trunk space a direct trade against pack packaging, and it is a scored trade rather than a preference. Quantify the volume the enclosure consumes before freezing the concept, not after."
+    },
+    {
+      "id": "geometry",
+      "title": "Off-road geometry — gates event eligibility",
+      "headline": "8.1 in",
+      "headline_note": "Minimum ground clearance. Approach and departure angles and the traction items must also be met to qualify for off-road testing events.",
+      "source": "STLA Vehicle Design Rules Rev 0, Vehicle Technical Specifications table",
+      "rows": [
+        {"spec": "Min approach / departure angle", "req": "20.1 deg / 29.9 deg", "ref": "19.6 / 29.4", "tol": "+/- 0.5", "note": "Must be met to qualify for off-road testing events."},
+        {"spec": "Min ground clearance", "req": "8.1 in", "ref": "8 in", "tol": "+/- 0.1", "note": "Must be met to qualify for off-road testing events."},
+        {"spec": "Min 32% grade launch, drive and reverse", "req": "5 MPH / 0.05 g", "ref": "", "tol": "N/A", "note": "Must be met to qualify for off-road testing events."},
+        {"spec": "Front/rear step mu, drive and reverse", "req": "<= 10 s / >= 0.1 g", "ref": "", "tol": "N/A", "note": "Must be met to qualify for off-road testing events."},
+        {"spec": "Left/right split mu, drive and reverse", "req": "<= 10 s / >= 0.1 g", "ref": "", "tol": "N/A", "note": "Must be met to qualify for off-road testing events."},
+        {"spec": "Max braking distance 60-0 MPH", "req": "52 m", "ref": "44 m", "tol": "N/A", "note": ""}
+      ]
+    },
+    {
+      "id": "envelope",
+      "title": "Vehicle envelope",
+      "headline": "2,032 mm",
+      "headline_note": "Maximum width. Envelope is width / height / length with a tolerance of +/- 5 mm.",
+      "source": "STLA Vehicle Design Rules Rev 0, Vehicle Technical Specifications table",
+      "rows": [
+        {"spec": "Max envelope width / height / length", "req": "2,032 / 1,981 / 5,032 mm", "ref": "1,897 / 1,715 / 4,778", "tol": "+/- 5", "note": "Width does not include side mirrors. Stock side mirrors must be kept."},
+        {"spec": "Vehicle wheelbase", "req": "113 in", "ref": "113 in", "tol": "N/A", "note": ""},
+        {"spec": "Vehicle track width", "req": ">= 64.3 in, <= 80 in", "ref": "64.3 in", "tol": "N/A", "note": ""}
+      ]
+    }
+  ],
+  "architecture": {
+    "title": "The P4 architecture",
+    "summary": "A through-the-road P4. The stock front powerpack stays exactly as delivered, and the team replaces the rear mechanical differential with a team-designed electric drive unit fed by a team-built pack in the rear hatch. There is no mechanical connection between the two axles - the road is the coupling. Every constraint below follows from that one sentence.",
+    "source": "Kickoff Competition Technical Slides, VHI high-level program constraints",
+    "in_scope": [
+      "Collect baseline data with the stock vehicle",
+      "Designing and integrating the P4 drive unit - motor, inverter, gearbox - to replace the stock rear mechanical differential",
+      "Integrating the team-built battery pack",
+      "Static linear finite element analysis on any structural modification",
+      "Integrating a team-added display",
+      "Vehicle-level controls calibration",
+      "Designing for off-road capability",
+      "Balancing efficiency and performance attributes, off-road included"
+    ],
+    "permitted": [
+      "Rear cradle modifications - waiver required",
+      "Floor modifications - waiver required",
+      "Different springs and dampers, including active suspension",
+      "Different wheel packages",
+      "Enhanced thermal or electrical modelling and simulation",
+      "Declared use of hardware from previous university projects",
+      "Driving on public roads with university approval",
+      "A standalone thermal system for the team EDU or battery pack"
+    ],
+    "prohibited": [
+      "Modifying the stock front powerpack",
+      "Off-board energy systems",
+      "Stock thermal or refrigerant system changes",
+      "Major vehicle body modifications",
+      "Battery integration outside the defined area in the rear hatch",
+      "Non-integrated EDUs"
+    ],
+    "callout": "Declared use of hardware from previous university projects sits in the permitted, likely not scored column. Prior Battery Workforce Challenge hardware is therefore usable only if it is declared, it earns no points, and it must never appear in a submission as new EcoCAR work."
+  },
+  "program_constraints": [
+    {"name": "Connective tissue", "text": "Systems engineering is the glue connecting all swimlanes, aligning the team on requirements, safety and testing."},
+    {"name": "Waivers", "text": "Structural modifications and rule challenges require a submitted report or analysis for approval."},
+    {"name": "Change control", "text": "The team stands up and manages its own change control processes for both hardware and software."},
+    {"name": "Design reviews", "text": "Held frequently, using university experts to vet design changes."}
+  ],
+  "stock": [
+    {"item": "Engine - EP6 1.6 L Gen 3", "spec": "170 hp | 300 Nm"},
+    {"item": "Transmission - eVT 313", "spec": "4000 Nm | 4.158:1 | park capability"},
+    {"item": "DMPI - Dual Motor Power Inverter", "spec": "APM current 2.1 kW DC/DC output; inverter module and transmission control module included"},
+    {"item": "Rear Drive Module", "spec": "Connected to rear drive motors"},
+    {"item": "HV wiring", "spec": "HV to rear drive motor(s); HV DMPI to eAC compressor; HV direct DMPI"},
+    {"item": "Controllers", "spec": "Engine controller connected to EVCU2; Master Hybrid Controller"}
+  ]
+}

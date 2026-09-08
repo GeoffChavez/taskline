@@ -78,6 +78,13 @@ def unique_ids(rows, field, where, problems):
     return seen
 
 
+def person_name(people, key):
+    for row in people:
+        if row["key"] == key:
+            return row["name"]
+    return key
+
+
 def validate(bundle):
     problems, warnings = [], []
     tasks = bundle["tasks"]
@@ -249,6 +256,47 @@ def validate(bundle):
         if owner and owner not in person_keys:
             problems.append(f"links.json {key}: unknown owner '{owner}'")
 
+    constraints = bundle["constraints"]
+    if not constraints.get("groups"):
+        problems.append("constraints.json: at least one constraint group is required")
+    seen_groups = set()
+    for index, group in enumerate(constraints.get("groups", []), start=1):
+        where = f"constraints.json group {index}"
+        gid = group.get("id", "")
+        if not gid:
+            problems.append(f"{where}: missing id")
+        elif gid in seen_groups:
+            problems.append(f"{where}: duplicate id '{gid}'")
+        seen_groups.add(gid)
+        if not group.get("title") or not group.get("source"):
+            problems.append(f"{where}: title and source are required")
+        if not group.get("rows"):
+            problems.append(f"{where}: at least one specification row is required")
+        for row_index, row in enumerate(group.get("rows", []), start=1):
+            if not row.get("spec") or not row.get("req"):
+                problems.append(f"{where} row {row_index}: spec and req are required")
+    arch = constraints.get("architecture", {})
+    for field in ("summary", "source", "in_scope", "permitted", "prohibited"):
+        if not arch.get(field):
+            problems.append(f"constraints.json architecture: '{field}' is required")
+
+    for index, row in enumerate(bundle["lead_status"], start=2):
+        where = f"lead_status.csv row {index}"
+        if row.get("lead_key") not in person_keys:
+            problems.append(f"{where}: unknown lead_key '{row.get('lead_key')}'")
+        for field in ("accountable_for", "this_week", "evidence_to_show"):
+            if not (row.get(field) or "").strip():
+                problems.append(f"{where}: '{field}' is required")
+        parse_date(row.get("due", ""), f"{where} due", problems, required=False)
+        parse_date(row.get("last_reported", ""), f"{where} last_reported", problems)
+    reporting = {row.get("lead_key") for row in bundle["lead_status"]}
+    for role in bundle["roles"]:
+        owner = (role.get("owner_key") or "").strip()
+        if owner and owner not in reporting:
+            warnings.append(
+                f"{person_name(people, owner)} holds {role.get('role')} but files no lead_status.csv check-in"
+            )
+
     for path in (ROOT / "docs").rglob("*"):
         if path.is_file() and path.suffix.lower() in SENSITIVE_EXTENSIONS:
             problems.append(f"docs/{path.relative_to(ROOT / 'docs')}: source/submission files cannot be published")
@@ -284,6 +332,8 @@ def load_bundle():
         "risks": read_csv("risks.csv"),
         "decisions": read_csv("decisions.csv"),
         "links": read_json("links.json"),
+        "constraints": read_json("constraints.json"),
+        "lead_status": read_csv("lead_status.csv"),
     }
 
 
@@ -391,6 +441,8 @@ def build_payload(bundle):
         "risks": bundle["risks"],
         "decisions": bundle["decisions"],
         "links": bundle["links"],
+        "constraints": bundle["constraints"],
+        "lead_status": bundle["lead_status"],
         "task_counts": dict(task_counts),
     }
 
@@ -414,7 +466,8 @@ def main():
         print(
             f"Validation passed: {len(bundle['tasks'])} tasks, "
             f"{len(bundle['deliverables'])} deliverables, {len(bundle['roles'])} roles, "
-            f"{len(bundle['onboarding_guides'])} tool guides, {len(bundle['projects'])} projects."
+            f"{len(bundle['onboarding_guides'])} tool guides, {len(bundle['projects'])} projects, "
+            f"{len(bundle['constraints']['groups'])} constraint groups, {len(bundle['lead_status'])} lead check-ins."
         )
         return
 
@@ -433,7 +486,8 @@ def main():
         f"Built {OUT.relative_to(ROOT)}: {len(bundle['tasks'])} tasks, "
         f"{len(payload['deliverables'])} deliverables/commitments, {len(bundle['roles'])} roles, "
         f"{len(bundle['onboarding'])} first wins, {len(bundle['onboarding_guides'])} tool guides, "
-        f"{len(bundle['projects'])} projects."
+        f"{len(bundle['projects'])} projects, {len(bundle['constraints']['groups'])} constraint groups, "
+        f"{len(bundle['lead_status'])} lead check-ins."
     )
     if warnings:
         print(f"Review {len(warnings)} warning(s) above before publishing.")

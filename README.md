@@ -92,3 +92,24 @@ Before expanding the task inventory, the team should:
 7. re-baseline within two business days of every new official revision.
 
 See [SETUP.md](SETUP.md) for first-time setup and [CONTRIBUTING.md](CONTRIBUTING.md) for the change workflow.
+### data/constraints.json — the design rules
+
+The competition's hard limits: pack voltage and energy, mass budget, cargo
+volume, off-road geometry, vehicle envelope, the P4 scope boundaries, and the
+stock hardware specs. Every value is quoted from a controlled document and each
+group names its source. Update it only when a Vehicle Design Rules or Technical
+Deliverable Requirements revision changes a number — and change the `as_of`
+date when you do.
+
+### data/lead_status.csv — the weekly lead check-in
+
+One row per accountable item per lead. Columns: `lead_key` (from people.csv),
+`lane`, `accountable_for`, `due`, `this_week`, `evidence_to_show`, `blocked_on`
+(leave empty when nothing blocks it — a filled cell puts a red bar on the card),
+`last_reported`.
+
+This is the file you edit after every leadership meeting. `build.py` warns if
+someone holds a role in `roles.csv` but files no check-in here.
+
+---
+

@@ -50,7 +50,7 @@ h1,h2{font-family:var(--display);font-weight:600;letter-spacing:-.025em}
 .nav{padding:10px 16px;gap:5px}.nav button{padding:8px 12px;border-radius:999px;font-size:.8rem;font-weight:700;color:#65706d}
 .nav button:hover{background:#ecebe4;color:var(--ink)}.nav button.active{background:var(--green);color:#fff}
 .shell{padding:30px 18px 90px}.page.active{display:block;padding:32px;border:1px solid rgba(42,62,58,.07);border-radius:26px;box-shadow:0 18px 50px rgba(31,46,45,.035)}
-#page-now{background:#faf8f1}#page-deliverables{background:#f1f5f0}#page-timeline{background:#eef4f5}#page-team{background:#f7f2ea}#page-onboarding{background:#f4f6ec}#page-controls{background:#f5f0ec}#page-update{background:#eef3f2}
+#page-now{background:#faf8f1}#page-deliverables{background:#f1f5f0}#page-timeline{background:#eef4f5}#page-team{background:#f7f2ea}#page-onboarding{background:#f4f6ec}#page-rules{background:#f3f0f6}#page-controls{background:#f5f0ec}#page-update{background:#eef3f2}
 .page-head{align-items:start;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid rgba(40,60,55,.13)}
 .page-head h2{font-size:clamp(2rem,3.5vw,3rem);color:#20342f}.page-head p{margin-top:8px;max-width:670px;font-size:.94rem;line-height:1.6}
 .asof{padding-top:6px;line-height:1.6;text-align:right;color:#77817e}
@@ -73,6 +73,26 @@ h1,h2{font-family:var(--display);font-weight:600;letter-spacing:-.025em}
 dialog{border-radius:20px;box-shadow:0 30px 90px #0c1d1866}.modal-head{background:#19352f}.modal-head h2{font-family:var(--display);font-size:1.8rem;font-weight:600}.modal-body{background:#fffefa}
 @media(max-width:900px){.page.active{padding:25px}.asof{text-align:left}.grid-2{grid-template-columns:1fr}.deliverable-grid,.role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid var(--line)}.action-item{grid-template-columns:minmax(0,1fr) 165px 80px}.action-next{grid-column:1/-1;padding:0 0 3px}.tool-grid,.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.hero{padding:28px 18px 24px}.hero h1{font-size:2.45rem}.hero-meta{gap:5px}.hero-meta span:last-child{display:none}.privacy{text-align:left;padding:8px 18px}.nav{padding:8px}.nav button{padding:8px 11px}.shell{padding:14px 8px 56px}.page.active{padding:20px 15px;border-radius:18px}.page-head{margin-bottom:20px}.page-head h2{font-size:2.05rem}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px}.kpi:nth-child(2n){border-right:0}.kpi:nth-last-child(-n+2){border-bottom:0}.deliverable-grid,.role-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.step,.step:nth-child(2){border-right:0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.panel{padding:16px}.grid-2{gap:0}.firstwins{grid-template-columns:1fr}.action-item{grid-template-columns:1fr auto;gap:6px 10px;padding:13px 0}.action-item .person{grid-column:1/2}.action-item>.pill{grid-column:2/3;grid-row:1}.action-next{grid-column:1/-1}.tool-grid,.project-grid{grid-template-columns:1fr}.onboard-section-head{align-items:start;flex-direction:column;gap:3px}}
+
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-bottom:18px}
+.spec-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--green);border-radius:12px;padding:16px 18px}
+.spec-card .big{font-size:2rem;font-weight:800;line-height:1.05;letter-spacing:-.02em;margin:4px 0 6px;color:var(--green)}
+.spec-card p{font-size:.86rem;color:var(--muted);line-height:1.45;margin:0}
+.scope-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.scope-col{padding:15px 17px;border-right:1px solid var(--line);background:#fff}
+.scope-col:last-child{border-right:0}
+.scope-col h4{margin:0 0 2px;font-size:1rem}
+.scope-col .sc-note{font-size:.75rem;color:var(--muted);margin-bottom:9px}
+.scope-col ul{margin:0;padding-left:17px;display:flex;flex-direction:column;gap:6px;font-size:.87rem;line-height:1.42}
+.scope-col.in{border-top:4px solid #2f7a5f}.scope-col.perm{border-top:4px solid #b26b00}.scope-col.no{border-top:4px solid #a62c2c}
+.lead-card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px 16px;margin-bottom:10px}
+.lead-card .lc-top{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-bottom:8px}
+.lead-card .lc-owns{font-weight:750;font-size:.98rem;flex:1;min-width:200px}
+.lead-card dl{margin:0;display:grid;grid-template-columns:120px 1fr;gap:6px 14px;font-size:.87rem;line-height:1.45}
+.lead-card dt{font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.lead-card dd{margin:0}
+.lead-card.blocked{border-left:4px solid #a62c2c}
+@media(max-width:620px){.spec-grid,.scope-grid{grid-template-columns:1fr}.scope-col{border-right:0;border-bottom:1px solid var(--line)}.lead-card dl{grid-template-columns:1fr}.lead-card dt{padding-top:6px}}
 </style>
 </head>
 <body>
@@ -86,6 +106,7 @@ dialog{border-radius:20px;box-shadow:0 30px 90px #0c1d1866}.modal-head{backgroun
 <div class="privacy" id="privacy"></div>
 <div class="nav-wrap"><nav class="nav" aria-label="Execution hub sections">
   <button class="active" data-page="now">Now</button>
+  <button data-page="rules">Rules</button>
   <button data-page="deliverables">Deliverables</button>
   <button data-page="timeline">Timeline</button>
   <button data-page="team">Team</button>
@@ -99,6 +120,7 @@ dialog{border-radius:20px;box-shadow:0 30px 90px #0c1d1866}.modal-head{backgroun
   <section class="page" id="page-timeline"></section>
   <section class="page" id="page-team"></section>
   <section class="page" id="page-onboarding"></section>
+  <section class="page" id="page-rules"></section>
   <section class="page" id="page-controls"></section>
   <section class="page" id="page-update"></section>
 </main>
@@ -162,7 +184,7 @@ function openTask(id){const t=DATA.tasks.find(x=>x.id===id),s=taskStatus(t),d=DA
 function renderTeam(){
   const roles=DATA.roles.map(r=>{const p=r.owner_key?person(r.owner_key):null;return `<div class="role-card"><div class="rowline"><h3>${esc(r.role)}</h3>${pill(r.status,r.status)}</div>${p?personHTML(r.owner_key):'<span class="missing">ACCOUNTABLE OWNER NEEDED</span>'}<p>${esc(r.notes)}${r.backup_key?`<br>Backup: ${esc(person(r.backup_key).name)}`:''}</p></div>`}).join('');
   const rows=Object.entries(DATA.people).sort((a,b)=>(DATA.task_counts[b[0]]||0)-(DATA.task_counts[a[0]]||0)).map(([k,p])=>`<tr><td>${personHTML(k)}</td><td>${DATA.task_counts[k]||0}</td><td>${DATA.roles.filter(r=>r.owner_key===k).map(r=>r.role).join(', ')||'No formal role mapped'}</td></tr>`).join('');
-  $('#page-team').innerHTML=heading('Team, authority, and ownership','A name on a task means accountability for the next outcome. Open and Confirm roles must be resolved by leadership, not silently assumed.')+`<div class="panel"><h3>Required and delivery-critical roles</h3><p class="panel-note">Draft mapping based on the current people file and requirement language. Confirm titles, authority, and backups with faculty.</p><div class="role-grid">${roles}</div></div><div class="panel"><h3>Plan ownership footprint</h3><p class="panel-note">This is the count of baseline tasks across the whole year, not hours or current workload. Use it to spot concentration, then verify actual capacity in the weekly review.</p><div class="table-wrap"><table><thead><tr><th>Person / role</th><th>Baseline tasks</th><th>Formal roles mapped</th></tr></thead><tbody>${rows}</tbody></table></div></div><div class="callout"><strong>WIP rule: no more than two active priority items per person.</strong>If someone receives a third, leadership must defer, reassign, or split work before the meeting ends. Contributors can support many work packages; each outcome still has only one accountable owner.</div>`;
+  $('#page-team').innerHTML=heading('Team, authority, and ownership','A name on a task means accountability for the next outcome. Open and Confirm roles must be resolved by leadership, not silently assumed.')+leadCheckIns()+`<div class="panel"><h3>Required and delivery-critical roles</h3><p class="panel-note">Draft mapping based on the current people file and requirement language. Confirm titles, authority, and backups with faculty.</p><div class="role-grid">${roles}</div></div><div class="panel"><h3>Plan ownership footprint</h3><p class="panel-note">This is the count of baseline tasks across the whole year, not hours or current workload. Use it to spot concentration, then verify actual capacity in the weekly review.</p><div class="table-wrap"><table><thead><tr><th>Person / role</th><th>Baseline tasks</th><th>Formal roles mapped</th></tr></thead><tbody>${rows}</tbody></table></div></div><div class="callout"><strong>WIP rule: no more than two active priority items per person.</strong>If someone receives a third, leadership must defer, reassign, or split work before the meeting ends. Contributors can support many work packages; each outcome still has only one accountable owner.</div>`;
 }
 
 function renderOnboarding(){
@@ -183,6 +205,24 @@ function openOnboardingJob(id){const w=DATA.onboarding.find(x=>x.id===id),d=DATA
 
 function openProject(id){const p=DATA.projects.find(x=>x.id===id);if(!p)return;const tasks=p.task_ids.map(taskId=>DATA.tasks.find(t=>t.id===taskId)).filter(Boolean).sort((a,b)=>a.start.localeCompare(b.start));$('#detail-content').innerHTML=`<div class="modal-head"><button class="close" data-close>Close</button><span class="pill">${esc(laneName[p.lane])}</span><h2>${esc(p.title)}</h2><p>${esc(p.status)} · Accountable owner: ${esc(person(p.owner_key).name)}</p></div><div class="modal-body"><div class="modal-section"><h3>Outcome</h3><p>${esc(p.outcome)}</p></div><div class="modal-section"><h3>What we are doing now</h3><p>${esc(p.now)}</p></div><div class="modal-section"><h3>How a new member can help</h3><p>${esc(p.contribution)}</p><div class="skill-tags">${p.skills.map(x=>pill(x)).join('')}</div></div><div class="modal-section"><h3>Mapped taskline</h3><div class="date-list">${tasks.map(t=>`<div class="date-item"><time>${fmt(t.start).replace(', 2026','')}</time><span><strong>${esc(t.task)}</strong><span class="subtle">${t.end?`Through ${fmt(t.end)}`:esc(t.label)}</span></span></div>`).join('')}</div></div><div class="source-note"><strong>Senior Design boundary:</strong> ${esc(p.senior_design_boundary)}</div></div>`;$('#detail').showModal()}
 
+
+function renderRules(){
+  const C=DATA.constraints;
+  const cards=C.groups.map(g=>`<div class="spec-card"><span class="eyebrow" style="color:var(--muted)">${esc(g.title)}</span><div class="big">${esc(g.headline||'')}</div><p>${esc(g.headline_note||'')}</p></div>`).join('');
+  const tables=C.groups.map(g=>`<div class="panel"><h3>${esc(g.title)}</h3><p class="panel-note">Source: ${esc(g.source)}</p><div class="table-wrap"><table class="compact"><thead><tr><th>Specification</th><th>Requirement</th><th>Cherokee reference</th><th>Tolerance</th><th>Note</th></tr></thead><tbody>${g.rows.map(r=>`<tr><td><b>${esc(r.spec)}</b></td><td>${esc(r.req)}</td><td>${r.ref?esc(r.ref):'\u2014'}</td><td>${r.tol?esc(r.tol):'\u2014'}</td><td>${esc(r.note||'')}</td></tr>`).join('')}</tbody></table></div>${g.callout?`<div class="callout"><strong>Read this one carefully.</strong>${esc(g.callout)}</div>`:''}</div>`).join('');
+  const A=C.architecture;
+  const scope=`<div class="panel"><h3>${esc(A.title)}</h3><p class="panel-note">Source: ${esc(A.source)}</p><p style="margin-bottom:14px">${esc(A.summary)}</p><div class="scope-grid"><div class="scope-col in"><h4>In scope</h4><div class="sc-note">Likely scored &mdash; this is where points live</div><ul>${A.in_scope.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="scope-col perm"><h4>Permitted</h4><div class="sc-note">Likely not scored, and likely carries extra constraints</div><ul>${A.permitted.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="scope-col no"><h4>Prohibited</h4><div class="sc-note">Not a tradeoff &mdash; a wall</div><ul>${A.prohibited.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>${A.callout?`<div class="callout"><strong>One line that applies directly to this team.</strong>${esc(A.callout)}</div>`:''}</div>`;
+  const prog=`<div class="panel"><h3>Four VSE program constraints</h3><p class="panel-note">These sit above every technical decision below.</p><div class="table-wrap"><table class="compact"><tbody>${C.program_constraints.map(x=>`<tr><td style="width:170px"><b>${esc(x.name)}</b></td><td>${esc(x.text)}</td></tr>`).join('')}</tbody></table></div></div>`;
+  const stock=`<div class="panel"><h3>Stock hardware the team inherits</h3><p class="panel-note">The front powerpack is untouched. These are the specifications to design the rear unit against.</p><div class="table-wrap"><table class="compact"><thead><tr><th>Item</th><th>Specification as published</th></tr></thead><tbody>${C.stock.map(x=>`<tr><td><b>${esc(x.item)}</b></td><td>${esc(x.spec)}</td></tr>`).join('')}</tbody></table></div></div>`;
+  $('#page-rules').innerHTML=heading('Restrictions and requirements','Read these before designing anything. They close options, and a design that misses one is not a design this team can submit.')+`<p class="panel-note" style="margin-bottom:16px">${esc(C.intro)} Values current as of ${esc(C.as_of)}.</p><div class="spec-grid">${cards}</div>${scope}${tables}${prog}${stock}`;
+}
+function leadCheckIns(){
+  const rows=DATA.lead_status.map(r=>{
+    const blocked=(r.blocked_on||'').trim();
+    return `<div class="lead-card${blocked?' blocked':''}"><div class="lc-top"><span class="lc-owns">${esc(r.accountable_for)}</span>${r.due?pill(r.due,'gray'):''}${r.lane?`<span class="pill">${esc(r.lane)}</span>`:''}</div><dl><dt>Lead</dt><dd>${personHTML(r.lead_key)}</dd><dt>This week</dt><dd>${esc(r.this_week)}</dd><dt>Shows up with</dt><dd>${esc(r.evidence_to_show)}</dd>${blocked?`<dt>Blocked on</dt><dd><strong>${esc(blocked)}</strong></dd>`:''}<dt>Last reported</dt><dd>${esc(r.last_reported)}</dd></dl></div>`;
+  }).join('');
+  return `<div class="panel"><h3>Lead check-in &mdash; what each lead owes the next meeting</h3><p class="panel-note">Ninety seconds each, in this order: <strong>done since last meeting</strong>, <strong>in flight now</strong>, <strong>blocked on what and by whom</strong>, <strong>next commitment and its date</strong>. A lane that cannot produce the fourth sentence is the finding. No problem-solving in the round &mdash; park it and pick it up after. Edit <code>data/lead_status.csv</code> to change any row.</p>${rows}<div class="callout"><strong>Leadership acts on the blocked line and records the rest.</strong>A blocker that sits in this list for two consecutive weeks stops being the lead's problem and becomes the project manager's.</div></div>`;
+}
 function renderControls(){
   const riskRows=DATA.risks.map(r=>`<tr><td><b>${esc(r.risk_id)}</b><br>${pill(r.state)}</td><td><span class="task-title">${esc(r.risk)}</span><div class="subtle">Cause: ${esc(r.cause)}<br>Effect: ${esc(r.effect)}</div></td><td>${pill(r.priority,r.priority==='High'?'red':'yellow')}</td><td>${esc(person(r.owner_key).name)}<div class="subtle">Review ${fmt(r.next_review)}</div></td><td>${esc(r.response)}</td></tr>`).join('');
   const decisionRows=DATA.decisions.map(d=>`<tr><td><b>${esc(d.decision_id)}</b><br>${pill(d.status)}</td><td><span class="task-title">${esc(d.decision)}</span><div class="subtle">${esc(d.options)}</div></td><td>${esc(person(d.owner_key).name)}</td><td>${fmt(d.needed_by)}</td><td>${esc(d.next_action)}</td></tr>`).join('');
@@ -197,7 +237,7 @@ function renderUpdate(){
 function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('active',p.id===`page-${name}`));$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(push)history.replaceState(null,'',`#${name}`);window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'})}
 
 $('#baseline').textContent=`Baseline ${fmt(DATA.site.baseline_date)}`;$('#official').textContent=`Official schedule ${fmt(DATA.site.official_schedule_as_of)}`;$('#privacy').textContent=DATA.site.privacy_notice;
-renderNow();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
+renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
 $('.nav').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b)showPage(b.dataset.page)});
 document.addEventListener('click',e=>{const d=e.target.closest('[data-deliverable]');if(d)openDeliverable(d.dataset.deliverable);const t=e.target.closest('[data-task]');if(t)openTask(t.dataset.task);const g=e.target.closest('[data-guide]');if(g)openGuide(g.dataset.guide);const w=e.target.closest('[data-onboarding]');if(w)openOnboardingJob(w.dataset.onboarding);const p=e.target.closest('[data-project]');if(p)openProject(p.dataset.project);if(e.target.closest('[data-close]'))$('#detail').close()});
 $('#detail').addEventListener('click',e=>{if(e.target===$('#detail'))$('#detail').close()});
