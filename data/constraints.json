@@ -9,12 +9,48 @@
       "headline_note": "Greater than 200 V minimum, not to exceed 400 V maximum.",
       "source": "Kickoff Competition Technical Slides, Propulsion Workstream Scope; STLA Technical Deliverable Requirements Rev 0; STLA Vehicle Design Rules Rev 0 section E-4.6",
       "rows": [
-        {"spec": "Pack voltage", "req": "> 200 V min, <= 400 V max", "ref": "", "tol": "", "note": "New build. Stock pack is replaced."},
-        {"spec": "Total pack energy", "req": "<= 5.0 kWh", "ref": "", "tol": "", "note": "Hard ceiling on the analysis and the build."},
-        {"spec": "Design sweep range", "req": "1.0 - 5.0 kWh", "ref": "", "tol": "", "note": "Vary parallel count across this range and report vehicle power in kW."},
-        {"spec": "Module voltage", "req": "<= 50 V", "ref": "", "tol": "", "note": "Pack constructed from modules interconnected in 50 V or less increments."},
-        {"spec": "Energy vs stock pack", "req": "must be higher", "ref": "", "tol": "", "note": "The team pack has to beat the stock pack on energy capacity."},
-        {"spec": "Packaging location", "req": "rear hatch only", "ref": "", "tol": "", "note": "Battery integration outside the defined rear-hatch area is prohibited."}
+        {
+          "spec": "Pack voltage",
+          "req": "> 200 V min, <= 400 V max",
+          "ref": "",
+          "tol": "",
+          "note": "New build. Stock pack is replaced."
+        },
+        {
+          "spec": "Total pack energy",
+          "req": "<= 5.0 kWh",
+          "ref": "",
+          "tol": "",
+          "note": "Hard ceiling on the analysis and the build."
+        },
+        {
+          "spec": "Design sweep range",
+          "req": "1.0 - 5.0 kWh",
+          "ref": "",
+          "tol": "",
+          "note": "Vary parallel count across this range and report vehicle power in kW."
+        },
+        {
+          "spec": "Module voltage",
+          "req": "<= 50 V",
+          "ref": "",
+          "tol": "",
+          "note": "Pack constructed from modules interconnected in 50 V or less increments."
+        },
+        {
+          "spec": "Energy vs stock pack",
+          "req": "must be higher",
+          "ref": "",
+          "tol": "",
+          "note": "The team pack has to beat the stock pack on energy capacity."
+        },
+        {
+          "spec": "Packaging location",
+          "req": "rear hatch only",
+          "ref": "",
+          "tol": "",
+          "note": "Battery integration outside the defined rear-hatch area is prohibited."
+        }
       ]
     },
     {
@@ -24,8 +60,20 @@
       "headline_note": "Everything the team adds has to fit inside this. Requirement 2,154 kg minus the 1,972 kg Cherokee reference.",
       "source": "STLA Vehicle Design Rules Rev 0, Vehicle Technical Specifications table",
       "rows": [
-        {"spec": "Max curb weight", "req": "2,154 kg", "ref": "1,972 kg", "tol": "+/- 25 kg", "note": "Defined as GVWR minus one 91 kg occupant."},
-        {"spec": "Available headroom", "req": "approx 182 kg", "ref": "", "tol": "", "note": "Pack, enclosure, rear drive unit, mounts, wiring, cooling and instrumentation all come out of this."}
+        {
+          "spec": "Max curb weight",
+          "req": "2,154 kg",
+          "ref": "1,972 kg",
+          "tol": "+/- 25 kg",
+          "note": "Defined as GVWR minus one 91 kg occupant."
+        },
+        {
+          "spec": "Available headroom",
+          "req": "approx 182 kg",
+          "ref": "",
+          "tol": "",
+          "note": "Pack, enclosure, rear drive unit, mounts, wiring, cooling and instrumentation all come out of this."
+        }
       ]
     },
     {
@@ -35,8 +83,20 @@
       "headline_note": "Minimum cargo capacity with the rear seats up. The Cherokee reference is 951 L, so the pack may consume up to about 651 L of trunk volume before this becomes a penalty.",
       "source": "STLA Vehicle Design Rules Rev 0, Vehicle Technical Specifications table",
       "rows": [
-        {"spec": "Min cargo capacity, rear seats up", "req": "300 L", "ref": "951 L", "tol": "N/A", "note": "Cargo capacity below the requirement results in a yearly points penalty. See the Admin and Scoring document."},
-        {"spec": "Min occupant capacity", "req": "5", "ref": "5", "tol": "N/A", "note": "Seats and seatbelts."}
+        {
+          "spec": "Min cargo capacity, rear seats up",
+          "req": "300 L",
+          "ref": "951 L",
+          "tol": "N/A",
+          "note": "Cargo capacity below the requirement results in a yearly points penalty. See the Admin and Scoring document."
+        },
+        {
+          "spec": "Min occupant capacity",
+          "req": "5",
+          "ref": "5",
+          "tol": "N/A",
+          "note": "Seats and seatbelts."
+        }
       ],
       "callout": "The pack must live in the rear hatch and cargo volume is measured with the rear seats up. That makes trunk space a direct trade against pack packaging, and it is a scored trade rather than a preference. Quantify the volume the enclosure consumes before freezing the concept, not after."
     },
@@ -47,12 +107,48 @@
       "headline_note": "Minimum ground clearance. Approach and departure angles and the traction items must also be met to qualify for off-road testing events.",
       "source": "STLA Vehicle Design Rules Rev 0, Vehicle Technical Specifications table",
       "rows": [
-        {"spec": "Min approach / departure angle", "req": "20.1 deg / 29.9 deg", "ref": "19.6 / 29.4", "tol": "+/- 0.5", "note": "Must be met to qualify for off-road testing events."},
-        {"spec": "Min ground clearance", "req": "8.1 in", "ref": "8 in", "tol": "+/- 0.1", "note": "Must be met to qualify for off-road testing events."},
-        {"spec": "Min 32% grade launch, drive and reverse", "req": "5 MPH / 0.05 g", "ref": "", "tol": "N/A", "note": "Must be met to qualify for off-road testing events."},
-        {"spec": "Front/rear step mu, drive and reverse", "req": "<= 10 s / >= 0.1 g", "ref": "", "tol": "N/A", "note": "Must be met to qualify for off-road testing events."},
-        {"spec": "Left/right split mu, drive and reverse", "req": "<= 10 s / >= 0.1 g", "ref": "", "tol": "N/A", "note": "Must be met to qualify for off-road testing events."},
-        {"spec": "Max braking distance 60-0 MPH", "req": "52 m", "ref": "44 m", "tol": "N/A", "note": ""}
+        {
+          "spec": "Min approach / departure angle",
+          "req": "20.1 deg / 29.9 deg",
+          "ref": "19.6 / 29.4",
+          "tol": "+/- 0.5",
+          "note": "Must be met to qualify for off-road testing events."
+        },
+        {
+          "spec": "Min ground clearance",
+          "req": "8.1 in",
+          "ref": "8 in",
+          "tol": "+/- 0.1",
+          "note": "Must be met to qualify for off-road testing events."
+        },
+        {
+          "spec": "Min 32% grade launch, drive and reverse",
+          "req": "5 MPH / 0.05 g",
+          "ref": "",
+          "tol": "N/A",
+          "note": "Must be met to qualify for off-road testing events."
+        },
+        {
+          "spec": "Front/rear step mu, drive and reverse",
+          "req": "<= 10 s / >= 0.1 g",
+          "ref": "",
+          "tol": "N/A",
+          "note": "Must be met to qualify for off-road testing events."
+        },
+        {
+          "spec": "Left/right split mu, drive and reverse",
+          "req": "<= 10 s / >= 0.1 g",
+          "ref": "",
+          "tol": "N/A",
+          "note": "Must be met to qualify for off-road testing events."
+        },
+        {
+          "spec": "Max braking distance 60-0 MPH",
+          "req": "52 m",
+          "ref": "44 m",
+          "tol": "N/A",
+          "note": ""
+        }
       ]
     },
     {
@@ -62,9 +158,27 @@
       "headline_note": "Maximum width. Envelope is width / height / length with a tolerance of +/- 5 mm.",
       "source": "STLA Vehicle Design Rules Rev 0, Vehicle Technical Specifications table",
       "rows": [
-        {"spec": "Max envelope width / height / length", "req": "2,032 / 1,981 / 5,032 mm", "ref": "1,897 / 1,715 / 4,778", "tol": "+/- 5", "note": "Width does not include side mirrors. Stock side mirrors must be kept."},
-        {"spec": "Vehicle wheelbase", "req": "113 in", "ref": "113 in", "tol": "N/A", "note": ""},
-        {"spec": "Vehicle track width", "req": ">= 64.3 in, <= 80 in", "ref": "64.3 in", "tol": "N/A", "note": ""}
+        {
+          "spec": "Max envelope width / height / length",
+          "req": "2,032 / 1,981 / 5,032 mm",
+          "ref": "1,897 / 1,715 / 4,778",
+          "tol": "+/- 5",
+          "note": "Width does not include side mirrors. Stock side mirrors must be kept."
+        },
+        {
+          "spec": "Vehicle wheelbase",
+          "req": "113 in",
+          "ref": "113 in",
+          "tol": "N/A",
+          "note": ""
+        },
+        {
+          "spec": "Vehicle track width",
+          "req": ">= 64.3 in, <= 80 in",
+          "ref": "64.3 in",
+          "tol": "N/A",
+          "note": ""
+        }
       ]
     }
   ],
@@ -103,17 +217,96 @@
     "callout": "Declared use of hardware from previous university projects sits in the permitted, likely not scored column. Prior Battery Workforce Challenge hardware is therefore usable only if it is declared, it earns no points, and it must never appear in a submission as new EcoCAR work."
   },
   "program_constraints": [
-    {"name": "Connective tissue", "text": "Systems engineering is the glue connecting all swimlanes, aligning the team on requirements, safety and testing."},
-    {"name": "Waivers", "text": "Structural modifications and rule challenges require a submitted report or analysis for approval."},
-    {"name": "Change control", "text": "The team stands up and manages its own change control processes for both hardware and software."},
-    {"name": "Design reviews", "text": "Held frequently, using university experts to vet design changes."}
+    {
+      "name": "Connective tissue",
+      "text": "Systems engineering is the glue connecting all swimlanes, aligning the team on requirements, safety and testing."
+    },
+    {
+      "name": "Waivers",
+      "text": "Structural modifications and rule challenges require a submitted report or analysis for approval."
+    },
+    {
+      "name": "Change control",
+      "text": "The team stands up and manages its own change control processes for both hardware and software."
+    },
+    {
+      "name": "Design reviews",
+      "text": "Held frequently, using university experts to vet design changes."
+    }
   ],
   "stock": [
-    {"item": "Engine - EP6 1.6 L Gen 3", "spec": "170 hp | 300 Nm"},
-    {"item": "Transmission - eVT 313", "spec": "4000 Nm | 4.158:1 | park capability"},
-    {"item": "DMPI - Dual Motor Power Inverter", "spec": "APM current 2.1 kW DC/DC output; inverter module and transmission control module included"},
-    {"item": "Rear Drive Module", "spec": "Connected to rear drive motors"},
-    {"item": "HV wiring", "spec": "HV to rear drive motor(s); HV DMPI to eAC compressor; HV direct DMPI"},
-    {"item": "Controllers", "spec": "Engine controller connected to EVCU2; Master Hybrid Controller"}
-  ]
+    {
+      "item": "Engine - EP6 1.6 L Gen 3",
+      "spec": "170 hp | 300 Nm"
+    },
+    {
+      "item": "Transmission - eVT 313",
+      "spec": "4000 Nm | 4.158:1 | park capability"
+    },
+    {
+      "item": "DMPI - Dual Motor Power Inverter",
+      "spec": "APM current 2.1 kW DC/DC output; inverter module and transmission control module included"
+    },
+    {
+      "item": "Rear Drive Module",
+      "spec": "Connected to rear drive motors"
+    },
+    {
+      "item": "HV wiring",
+      "spec": "HV to rear drive motor(s); HV DMPI to eAC compressor; HV direct DMPI"
+    },
+    {
+      "item": "Controllers",
+      "spec": "Engine controller connected to EVCU2; Master Hybrid Controller"
+    }
+  ],
+  "front_page": {
+    "title": "What binds every design decision",
+    "note": "The competition's hard limits, on the front page so nobody designs past them. Full tables, tolerances and sources are on the Rules tab.",
+    "tiles": [
+      {
+        "id": "battery",
+        "label": "Battery",
+        "value": "200-400 V",
+        "second": "<= 5.0 kWh",
+        "meaning": "Team-built pack. Modules stay at or below 50 V and the pack is built in 50 V increments. It must carry more energy than the stock pack."
+      },
+      {
+        "id": "weight",
+        "label": "Weight",
+        "value": "2,154 kg",
+        "second": "182 kg to spend",
+        "meaning": "Max curb weight, tolerance +/- 25 kg. The Cherokee is 1,972 kg, so 182 kg covers the pack, enclosure, rear drive unit, mounts, wiring, cooling and instrumentation together."
+      },
+      {
+        "id": "capacity",
+        "label": "Cargo capacity",
+        "value": "300 L minimum",
+        "second": "951 L stock",
+        "meaning": "Measured with the rear seats up. The pack may consume roughly 651 L of trunk volume before this becomes a yearly points penalty."
+      },
+      {
+        "id": "packaging",
+        "label": "Packaging",
+        "value": "Rear hatch only",
+        "second": "8.1 in clearance",
+        "meaning": "Battery integration outside the defined rear-hatch area is prohibited. Ground clearance 8.1 in and departure angle 29.9 deg must both still be met with it installed."
+      },
+      {
+        "id": "hardware",
+        "label": "Hardware",
+        "value": "Front powerpack untouched",
+        "second": "Rear diff replaced",
+        "meaning": "Through-the-road P4. Modifying the stock front powerpack is prohibited; the team designs and integrates the rear drive unit that replaces the mechanical differential."
+      },
+      {
+        "id": "cad",
+        "label": "CAD and data",
+        "value": "NX + Teamcenter",
+        "second": "Named custodian",
+        "meaning": "A CAD Custodian must be designated and identified inside the 15 October submission. Teams using an alternative to Teamcenter must document the process and explain the primary barriers."
+      }
+    ],
+    "callout": "The geometry numbers are not a lift job. Ground clearance moves from 8 in to 8.1 in and the approach and departure angles by half a degree - small increases over stock. The hard part is holding them while adding 182 kg and packaging a battery in the rear overhang, which pushes clearance and departure angle the wrong way. Treat them as constraints to defend, not targets to reach."
+  }
 }

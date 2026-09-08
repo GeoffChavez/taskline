@@ -93,6 +93,23 @@ dialog{border-radius:20px;box-shadow:0 30px 90px #0c1d1866}.modal-head{backgroun
 .lead-card dd{margin:0}
 .lead-card.blocked{border-left:4px solid #a62c2c}
 @media(max-width:620px){.spec-grid,.scope-grid{grid-template-columns:1fr}.scope-col{border-right:0;border-bottom:1px solid var(--line)}.lead-card dl{grid-template-columns:1fr}.lead-card dt{padding-top:6px}}
+
+.reqband{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin-bottom:18px}
+.reqband-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:14px 18px 11px;border-bottom:1px solid var(--line);background:#fbfaf5}
+.reqband-head h3{margin:0;font-size:1.05rem}
+.reqband-head .rb-note{font-size:.8rem;color:var(--muted);flex:1;min-width:220px}
+.reqband-head a{font-size:.78rem;font-weight:750;color:var(--green);text-decoration:none;white-space:nowrap}
+.reqband-head a:hover{text-decoration:underline}
+.reqgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.reqtile{padding:14px 17px 15px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.reqtile:nth-child(3n){border-right:0}
+.reqtile:nth-last-child(-n+3){border-bottom:0}
+.reqtile .rt-label{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:750}
+.reqtile .rt-value{font-size:1.22rem;font-weight:800;letter-spacing:-.015em;line-height:1.2;margin-top:4px;color:var(--ink)}
+.reqtile .rt-second{font-size:.85rem;font-weight:700;color:var(--green);margin-top:1px}
+.reqtile .rt-meaning{font-size:.8rem;color:var(--muted);line-height:1.45;margin-top:7px}
+@media(max-width:900px){.reqgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.reqtile:nth-child(3n){border-right:1px solid var(--line)}.reqtile:nth-child(2n){border-right:0}.reqtile:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.reqtile:nth-last-child(-n+2){border-bottom:0}}
+@media(max-width:620px){.reqgrid{grid-template-columns:1fr}.reqtile{border-right:0!important;border-bottom:1px solid var(--line)!important}.reqtile:last-child{border-bottom:0!important}}
 </style>
 </head>
 <body>
@@ -143,6 +160,12 @@ const heading=(title,copy)=>`<div class="page-head"><div><h2>${esc(title)}</h2><
 
 function taskStatus(task){return DATA.statuses[task.id]||{status:'Not reported',health:'gray',progress:'',next_action:'Status owner has not reported an update',updated:''}}
 
+
+function requirementBand(){
+  const F=DATA.constraints.front_page; if(!F) return '';
+  const tiles=F.tiles.map(t=>`<div class="reqtile"><div class="rt-label">${esc(t.label)}</div><div class="rt-value">${esc(t.value)}</div>${t.second?`<div class="rt-second">${esc(t.second)}</div>`:''}<div class="rt-meaning">${esc(t.meaning)}</div></div>`).join('');
+  return `<div class="reqband"><div class="reqband-head"><h3>${esc(F.title)}</h3><span class="rb-note">${esc(F.note)}</span><a href="#rules" data-page="rules">Full rules and tolerances &rsaquo;</a></div><div class="reqgrid">${tiles}</div></div>${F.callout?`<div class="callout"><strong>Read the geometry numbers correctly.</strong>${esc(F.callout)}</div>`:''}`;
+}
 function renderNow(){
   const today=DATA.today, horizon=new Date(date(today)); horizon.setDate(horizon.getDate()+45); const horizonISO=horizon.toISOString().slice(0,10);
   const upcoming=DATA.tasks.filter(t=>t.start>=today&&t.start<=horizonISO).sort((a,b)=>a.start.localeCompare(b.start));
@@ -152,7 +175,7 @@ function renderNow(){
   const missingLinks=Object.values(DATA.links).filter(l=>!l.url).length;
   const urgent=DATA.tasks.filter(t=>DATA.statuses[t.id]).sort((a,b)=>a.start.localeCompare(b.start)).slice(0,12);
   const nextD=DATA.deliverables.filter(d=>d.due>=today).sort((a,b)=>a.due.localeCompare(b.due))[0];
-  $('#page-now').innerHTML=heading('What needs attention now','Start here. This is the short meeting agenda: deadlines, ownership gaps, health, and the next concrete action.')+`
+  $('#page-now').innerHTML=heading('What needs attention now','Start here. This is the short meeting agenda: the rules that bind every design, then deadlines, ownership gaps, health, and the next concrete action.')+requirementBand()+`
   <div class="kpis"><div class="kpi good"><b>${due30}</b><span>official deliverables due in 30 days</span></div><div class="kpi warn"><b>${openRoles}</b><span>required roles open or awaiting confirmation</span></div><div class="kpi bad"><b>${red}</b><span>reported red work items</span></div><div class="kpi warn"><b>${missingLinks}</b><span>controlled-system links still to add</span></div></div>
   <div class="callout"><strong>Next official deliverable: ${esc(nextD.title)} · ${fmt(nextD.due)}</strong>Accountable owner: ${esc(person(nextD.owner).name)}. Content-complete gate: ${fmt(nextD.gates[0].date)}. Open the Deliverables page for artifacts and acceptance checks.</div>
   <div class="grid-2"><div class="panel"><span class="section-kicker">Start here</span><h3>Leadership action list</h3><p class="panel-note">Only the decision-ready facts: work, owner, health, and the one next action.</p><div class="action-list">${urgent.slice(0,8).map(t=>{const s=taskStatus(t),owners=t.owners.split(' ');return `<div class="action-item"><div><span class="task-title">${esc(t.task)}</span><div class="subtle">${fmt(t.start)} · ${esc(s.status)}</div></div>${personHTML(owners[0])}${pill(s.health,s.health)}<div class="action-next">${esc(s.next_action)}</div></div>`}).join('')}</div></div>
@@ -238,7 +261,7 @@ function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('act
 
 $('#baseline').textContent=`Baseline ${fmt(DATA.site.baseline_date)}`;$('#official').textContent=`Official schedule ${fmt(DATA.site.official_schedule_as_of)}`;$('#privacy').textContent=DATA.site.privacy_notice;
 renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
-$('.nav').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b)showPage(b.dataset.page)});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b){e.preventDefault();showPage(b.dataset.page)}});
 document.addEventListener('click',e=>{const d=e.target.closest('[data-deliverable]');if(d)openDeliverable(d.dataset.deliverable);const t=e.target.closest('[data-task]');if(t)openTask(t.dataset.task);const g=e.target.closest('[data-guide]');if(g)openGuide(g.dataset.guide);const w=e.target.closest('[data-onboarding]');if(w)openOnboardingJob(w.dataset.onboarding);const p=e.target.closest('[data-project]');if(p)openProject(p.dataset.project);if(e.target.closest('[data-close]'))$('#detail').close()});
 $('#detail').addEventListener('click',e=>{if(e.target===$('#detail'))$('#detail').close()});
 const initial=location.hash.slice(1);if(['now','deliverables','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
