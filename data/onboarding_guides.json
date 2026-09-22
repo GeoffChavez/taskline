@@ -22,8 +22,14 @@
     ],
     "proof": "Onramp completion screenshot plus one readable MATLAB script and labeled plot.",
     "links": [
-      {"label": "MATLAB tutorials and Onramp", "url": "https://www.mathworks.com/support/learn-with-matlab-tutorials.html"},
-      {"label": "MATLAB downloads", "url": "https://www.mathworks.com/downloads/"}
+      {
+        "label": "MATLAB tutorials and Onramp",
+        "url": "https://www.mathworks.com/support/learn-with-matlab-tutorials.html"
+      },
+      {
+        "label": "MATLAB downloads",
+        "url": "https://www.mathworks.com/downloads/"
+      }
     ]
   },
   {
@@ -52,38 +58,62 @@
     ],
     "proof": "Screenshots of successful tool validation, the F28003x block library, and the selected F280039C hardware board; add tool versions to the run log.",
     "links": [
-      {"label": "Simulink Onramp", "url": "https://www.mathworks.com/products/simulink/getting-started.html"},
-      {"label": "TI F280039C LaunchPad", "url": "https://www.ti.com/tool/LAUNCHXL-F280039C"},
-      {"label": "TI C2000Ware", "url": "https://www.ti.com/tool/C2000WARE"}
+      {
+        "label": "Simulink Onramp",
+        "url": "https://www.mathworks.com/products/simulink/getting-started.html"
+      },
+      {
+        "label": "TI F280039C LaunchPad",
+        "url": "https://www.ti.com/tool/LAUNCHXL-F280039C"
+      },
+      {
+        "label": "TI C2000Ware",
+        "url": "https://www.ti.com/tool/C2000WARE"
+      }
     ]
   },
   {
     "id": "guide-nx",
     "title": "Siemens NX",
     "category": "Set up",
-    "timebox": "1-2 hours",
-    "summary": "Install NX through the approved university package, connect to the campus license, and release one practice part.",
+    "timebox": "1-2 hours, mostly unattended",
+    "summary": "Install NX 2206 through the university package, point it at the campus licence server, and prove it launches. Every setup screen is pictured in the illustrated walkthrough linked below.",
     "source": "Team Siemens NX download and installation guide",
-    "source_note": "The attached guide names SiemensNX-2206.9200_wntx64 but does not provide a public installer link. Obtain the approved installer and current license-server value from the VHI/NX lead or controlled team storage.",
+    "source_note": "Release SiemensNX-2206.9200_wntx64 is the Windows 64-bit build; there is no public installer link. Get the installer from the VHI/NX lead. The macOS route is not yet defined - confirm before downloading anything.",
     "prerequisites": [
-      "Windows computer with installation permission and sufficient disk space",
-      "MyCalStateLA account and GlobalProtect VPN",
-      "Approved NX installer and controlled license-server value"
+      "Windows computer with permission to install software",
+      "About 8 GB free disk space, plus room to extract the archive",
+      "MyCalStateLA ID account",
+      "GlobalProtect VPN installed and connected before you start",
+      "The NX installer from the VHI/NX lead"
     ],
     "steps": [
-      "Obtain the team-approved NX installer from the VHI/NX lead; confirm the release before downloading.",
-      "Extract the full installer folder, open it, and run Launch.exe.",
-      "Choose Install NX, proceed through the setup wizard, and keep the approved feature set and installation location.",
-      "Install and connect GlobalProtect to the MyStudent VPN using your own university credentials.",
-      "At the NX Licensing screen, enter the license-server value from the controlled setup guide. Do not publish that value in GitHub or screenshots.",
-      "Select the team language setting, review the summary, and install NX.",
-      "Launch NX while connected to VPN. If licensing fails, capture the exact error and send it to the NX lead; do not repeatedly change server settings.",
-      "Create a simple practice part, save it with the team's naming convention, and complete the practice release/check-in steps provided by the CAD custodian."
+      "Connect to the campus VPN FIRST. Install GlobalProtect from the MyStudent VPN portal, set the Portal to mystudentvpn.calstatela.edu, and confirm it reads Connected. The licence server only exists inside the campus network, so installing before connecting produces an install that looks fine and will not launch.",
+      "Extract the full installer archive to a real folder. Do not run anything from inside the zip.",
+      "Open the folder and double-click Launch.exe - the 138 KB Application, not Launch.hta and not the Launch subfolder.",
+      "In the Siemens launcher, choose Install NX. Skip NX Launcher and Mapped Drive Installation.",
+      "Setup Wizard welcome screen: click Next.",
+      "Custom Setup: change nothing. Confirm the location reads C:\\Program Files\\Siemens\\NX2206\\ and note the 8095 MB disk requirement, then click Next.",
+      "Licensing: enter the licence server value exactly as given in the illustrated walkthrough. Copy and paste it rather than retyping - one wrong character here is the most common cause of a failed install. Do not use Browse.",
+      "Language Selection: leave Runtime Language on English so menus match when members screen-share.",
+      "Read back all three lines on the Ready to install summary, then click Install and leave it alone.",
+      "With the VPN still connected, launch NX. It should open with no licence error. Then disconnect the VPN and launch again, so you know what the normal off-campus failure looks like.",
+      "Create a simple practice part, save it with the team naming convention, and complete the release and check-in steps from the CAD custodian."
     ],
-    "proof": "NX launch screenshot plus one named practice part and release/check-in screenshot reviewed by the CAD custodian.",
+    "proof": "Screenshot of NX open on your own machine, plus one named practice part and a release/check-in screenshot reviewed by the CAD custodian.",
     "links": [
-      {"label": "Cal State LA VPN instructions", "url": "https://www.calstatela.edu/its/network/vpn"},
-      {"label": "MyStudent VPN portal", "url": "https://mystudentvpn.calstatela.edu/"}
+      {
+        "label": "Illustrated walkthrough - every screen, in order",
+        "url": "https://geoffchavez.github.io/taskline/nx-install.html"
+      },
+      {
+        "label": "MyStudent VPN portal",
+        "url": "https://mystudentvpn.calstatela.edu/"
+      },
+      {
+        "label": "Cal State LA VPN instructions",
+        "url": "https://www.calstatela.edu/its/network/vpn"
+      }
     ]
   }
 ]
