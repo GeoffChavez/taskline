@@ -43,12 +43,13 @@ GitHub Pages updates after the pushed commit is processed.
 | People | `data/people.csv` |
 | Required and delivery-critical roles | `data/roles.csv` |
 | Leadership organization chart: seats, names, and standing responsibilities | `data/org_chart.json` |
+| Claimable starter tasks for new members (set `status` to Claimed and fill `claimed_by` when someone takes one) | `data/starter_tasks.csv` |
 | Strategic drivers | `data/strategic_drivers.csv` |
 | New-member first wins | `data/onboarding.csv` |
 | Step-by-step instructions for each first win | `data/onboarding_details.json` |
 | MATLAB, Simulink/TI C2000, and Siemens NX setup guides | `data/onboarding_guides.json` |
 | Active project cards, contribution paths, and mapped task IDs | `data/projects.json` |
-| Public-safe risks and decisions | `data/risks.csv`, `data/decisions.csv` |
+| Public-safe risks (with Low/Medium/High `likelihood` and `impact`) and decisions | `data/risks.csv`, `data/decisions.csv` |
 | Controlled-system links | `data/links.json` |
 | Site identity and source dates | `data/site.json` |
 | Supporting task detail | `data/details.json` |

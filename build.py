@@ -31,6 +31,9 @@ VALID_HEALTH = {"green", "yellow", "red", "gray"}
 VALID_ROLE_STATUS = {"Filled", "Confirm", "Open"}
 VALID_DECISION_STATUS = {"Open", "Proposed", "Closed"}
 VALID_RISK_STATES = {"Draft", "Open", "Monitoring", "Mitigated", "Closed"}
+VALID_LEVELS = {"Low", "Medium", "High"}
+VALID_STARTER_STATUS = {"Open", "Claimed", "Done"}
+VALID_LANES = {"vse", "vhi", "pcm", "hvb", "pgm", "biz"}
 SENSITIVE_EXTENSIONS = {".docx", ".xlsx", ".xls", ".pdf", ".pptx", ".mat", ".mf4", ".mp4"}
 
 
@@ -182,6 +185,9 @@ def validate(bundle):
         if row.get("owner_key") not in person_keys:
             problems.append(f"{where}: unknown owner '{row.get('owner_key')}'")
         parse_date(row.get("next_review", ""), f"{where} next_review", problems)
+        for field in ("likelihood", "impact"):
+            if row.get(field) not in VALID_LEVELS:
+                problems.append(f"{where}: {field} must be Low, Medium or High")
 
     unique_ids(bundle["decisions"], "decision_id", "decisions.csv", problems)
     for index, row in enumerate(bundle["decisions"], start=2):
@@ -297,6 +303,24 @@ def validate(bundle):
                 f"{person_name(people, owner)} holds {role.get('role')} but files no lead_status.csv check-in"
             )
 
+    unique_ids(bundle["starter_tasks"], "id", "starter_tasks.csv", problems)
+    for index, row in enumerate(bundle["starter_tasks"], start=2):
+        where = f"starter_tasks.csv row {index}"
+        if row.get("lane") not in VALID_LANES:
+            problems.append(f"{where}: unknown lane '{row.get('lane')}'")
+        if row.get("mentor_key") not in person_keys:
+            problems.append(f"{where}: unknown mentor '{row.get('mentor_key')}'")
+        if row.get("status") not in VALID_STARTER_STATUS:
+            problems.append(f"{where}: invalid status '{row.get('status')}'")
+        if row.get("status") != "Open" and not (row.get("claimed_by") or "").strip():
+            problems.append(f"{where}: a Claimed or Done task needs a name in claimed_by")
+        feeds = (row.get("feeds") or "").strip()
+        if feeds and feeds not in deliverable_ids:
+            problems.append(f"{where}: feeds '{feeds}' is not a deliverable id")
+        for field in ("title", "why", "output", "done_when"):
+            if not (row.get(field) or "").strip():
+                problems.append(f"{where}: '{field}' is required")
+
     org = bundle["org_chart"]
     tier_ids = {tier.get("id") for tier in org.get("tiers", [])}
     seat_ids = set()
@@ -367,6 +391,7 @@ def load_bundle():
         "constraints": read_json("constraints.json"),
         "lead_status": read_csv("lead_status.csv"),
         "org_chart": read_json("org_chart.json"),
+        "starter_tasks": read_csv("starter_tasks.csv"),
     }
 
 
@@ -398,6 +423,10 @@ def build_payload(bundle):
             continue
         owner_keys = task.get("owners", "").split()
         due = task["start"]
+        # A schedule milestone that repeats a curated deliverable (same accountable
+        # owner, same due date) would show the same commitment twice.
+        if any(item["owner"] == owner_keys[0] and item["due"] == due for item in bundle["deliverables"]):
+            continue
         artifacts = []
         for artifact in detail.get("subs", []):
             artifacts.append(
@@ -477,6 +506,7 @@ def build_payload(bundle):
         "constraints": bundle["constraints"],
         "lead_status": bundle["lead_status"],
         "org_chart": bundle["org_chart"],
+        "starter_tasks": bundle["starter_tasks"],
         "task_counts": dict(task_counts),
     }
 
@@ -502,7 +532,8 @@ def main():
             f"{len(bundle['deliverables'])} deliverables, {len(bundle['roles'])} roles, "
             f"{len(bundle['onboarding_guides'])} tool guides, {len(bundle['projects'])} projects, "
             f"{len(bundle['constraints']['groups'])} constraint groups, {len(bundle['lead_status'])} lead check-ins, "
-            f"{len(bundle['org_chart']['seats'])} org chart seats."
+            f"{len(bundle['org_chart']['seats'])} org chart seats, "
+            f"{len(bundle['starter_tasks'])} starter tasks, {len(bundle['risks'])} risks."
         )
         return
 

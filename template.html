@@ -136,6 +136,118 @@ dialog{border-radius:20px;box-shadow:0 30px 90px #0c1d1866}.modal-head{backgroun
 .seat-checkin{border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin:7px 0;background:#fff}.seat-checkin.blocked{border-left:4px solid var(--red)}.seat-checkin b{display:block;margin-bottom:3px}.seat-checkin p{margin:3px 0;font-size:.84rem}
 .seat-confirm{border-left:3px solid var(--gold);background:#f7efd2;padding:10px 13px;border-radius:3px 10px 10px 3px;color:#473f2e;font-size:.84rem}
 @media(max-width:560px){.org-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.org-title{letter-spacing:.02em;min-height:0}.seat-row{grid-template-columns:1fr}}
+
+/* ---------- Navigation groups ---------- */
+.nav{align-items:center}.nav-group{font-size:.6rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#8d9793;white-space:nowrap;padding:0 4px 0 6px}
+.nav-sep{flex:none;width:1px;height:22px;background:#d5d4cb;margin:0 8px}
+#page-start{background:#faf8f1}
+
+/* ---------- Past items: grey, kept for the record ---------- */
+.past-group{margin-top:16px;border:1px dashed #c3cac5;border-radius:13px;background:rgba(240,241,236,.55)}
+.past-group>summary{cursor:pointer;padding:12px 16px;font-size:.82rem;font-weight:700;color:#66716d;list-style-position:inside}
+.past-group>summary:hover{color:var(--ink)}.past-group[open]>summary{border-bottom:1px dashed #c3cac5}
+.past-group>:not(summary){margin:14px}
+.is-past,.dcard.past,.lead-card.past,.action-item.past,.starter-card.past{filter:grayscale(1);opacity:.6}
+.dcard.past:hover,.starter-card.past:hover{opacity:.9}
+.tl-row.past .tl-bar,.tl-row.past .tl-diamond{filter:grayscale(1);opacity:.38}.tl-row.past .tl-label b{color:#7d8884;font-weight:600}
+.done-tick{color:#2f7a5f;font-weight:800}
+.stale-note{display:inline-block;margin:0 0 14px;padding:6px 11px;border-radius:999px;background:#f7efd2;color:#5a4a16;font-size:.76rem;font-weight:700}
+
+/* ---------- Year progress strip ---------- */
+.ms-strip{background:rgba(255,254,250,.87);border:1px solid rgba(53,72,67,.14);border-radius:17px;padding:16px 20px 12px;margin-bottom:18px}
+.ms-head{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;margin-bottom:18px}.ms-head strong{font-family:var(--display);font-size:1.05rem}.ms-head span{font-size:.8rem;color:var(--muted)}
+.ms-track{position:relative;height:8px;border-radius:99px;background:#e3e6e0;margin:0 7px}
+.ms-fill{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:#a9b3ae}
+.ms-dot{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;padding:0;border-radius:50%;border:2px solid #fffefa;background:var(--lane);cursor:pointer}
+.ms-dot.past{background:#8f9a95}.ms-dot.next{width:18px;height:18px;margin:-9px 0 0 -9px;box-shadow:0 0 0 3px rgba(231,183,46,.55)}
+.ms-dot:hover,.ms-dot:focus-visible{transform:scale(1.25);outline:0;z-index:2}
+.ms-today{position:absolute;top:-9px;bottom:-9px;width:2px;margin-left:-1px;background:var(--ink)}.ms-today b{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;font-style:normal;white-space:nowrap;color:var(--ink)}
+.ms-months{position:relative;height:18px;margin:8px 7px 0;font-size:.64rem;color:#7b8581;text-transform:uppercase;letter-spacing:.08em}.ms-months span{position:absolute}
+
+/* ---------- Start here ---------- */
+.can-reveal .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;transition-delay:calc(var(--i,0)*70ms)}
+.can-reveal .reveal.in{opacity:1;transform:none}
+.start-intro{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px;align-items:center;padding-bottom:26px;border-bottom:1px solid rgba(40,60,55,.13)}
+.start-intro h2{margin:2px 0 10px;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.08;color:#20342f}.start-intro p{margin:0;max-width:560px;color:var(--muted);font-size:1rem;line-height:1.6}
+.start-jumps{display:grid;gap:9px}.start-jumps button{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:center;text-align:left;padding:12px 15px;border:1px solid rgba(53,72,67,.16);border-radius:13px;background:var(--card);color:var(--ink);cursor:pointer;transition:transform .15s,border-color .15s}
+.start-jumps button:hover,.start-jumps button:focus-visible{transform:translateX(4px);border-color:var(--green);outline:0}
+.start-jumps b{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;font-family:var(--display);font-size:1.1rem}
+.start-jumps span{font-weight:700;font-size:.95rem}.start-jumps small{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+.start-section{margin-top:54px}.start-head{max-width:720px;margin-bottom:20px}.start-head h3{margin:0 0 6px;font-family:var(--display);font-size:clamp(1.45rem,2.6vw,2rem);font-weight:600;color:#20342f;line-height:1.15}.start-head p{margin:0;color:var(--muted);line-height:1.6}
+
+.pp-wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:22px;align-items:center;background:var(--card);border:1px solid rgba(53,72,67,.14);border-radius:17px;padding:20px}
+.pp-svg{width:100%;height:auto;display:block}.pp-svg text{font-family:var(--ui);text-anchor:middle}
+.pp-box{fill:#e6ebe7;stroke:#5e6b67;stroke-width:1.5}.pp-lbl{font-size:13px;font-weight:700;fill:var(--ink)}.pp-cap{font-size:11.5px;fill:#66716d}
+.pp-shaft{stroke:#5e6b67;stroke-width:5;stroke-linecap:round}.pp-none{stroke:#a9b3ae;stroke-width:2;stroke-dasharray:3 7}.pp-clutch{stroke:#5e6b67;stroke-width:3}
+.pp-axle{stroke:#5e6b67;stroke-width:4}.pp-wheel{fill:#2b3a36}
+.pp-node circle{fill:#fffefa;stroke:#5e6b67;stroke-width:2}.pp-node text{font-size:11.5px;font-weight:800;fill:var(--ink)}
+.pp-node.hot circle{fill:var(--gold);stroke:#8a6a0c;stroke-width:2.5}.pp-node.hot text{font-size:13px}
+.pp-list{list-style:none;margin:0;padding:0;display:grid;gap:5px}.pp-list li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:baseline;padding:6px 9px;border-radius:9px;font-size:.86rem;color:#495956}
+.pp-list b{font-size:.8rem;color:var(--ink)}.pp-list li.hot{background:#f7efd2;color:var(--ink);font-weight:700}
+
+.p4-story{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:34px;align-items:start}
+.p4-fig{position:sticky;top:78px;margin:0;background:var(--card);border:1px solid rgba(53,72,67,.14);border-radius:17px;padding:16px 16px 12px}
+.p4-fig figcaption{display:grid;gap:8px;margin-top:8px}.p4-dots{display:flex;gap:7px}
+.p4-dots button{width:30px;height:30px;border-radius:50%;border:1.5px solid #b9c2bd;background:transparent;color:#66716d;font-weight:800;font-size:.8rem;cursor:pointer}
+.p4-dots button.active{background:var(--green);border-color:var(--green);color:#fff}
+.p4-step{min-height:56vh;display:flex;flex-direction:column;justify-content:center;padding:10px 0 10px 20px;border-left:3px solid #dfe3dd;opacity:.45;transition:opacity .35s,border-color .35s}
+.p4-step.active{opacity:1;border-left-color:var(--gold)}.p4-step:last-child{min-height:44vh}
+.p4-num{font-size:.65rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#80671f}
+.p4-step h4{margin:5px 0 8px;font-family:var(--display);font-size:1.45rem;font-weight:600;color:#20342f;line-height:1.2}.p4-step p{margin:0;font-size:.98rem;line-height:1.62;color:#3d4c48}
+.p4-svg{width:100%;height:auto;display:block}.p4-svg text{font-family:var(--ui);text-anchor:middle}
+.c-body{fill:#fffefa;stroke:#aab5b0;stroke-width:2}.c-wheel{fill:#2b3a36}.c-axle{stroke:#8b9792;stroke-width:5;stroke-linecap:round}
+.c-cap{font-size:11px;font-weight:800;letter-spacing:.12em;fill:#7b8581}
+.c-stock{fill:#dfe5e1;stroke:#5e6b67;stroke-width:2}.c-lbl{font-size:13.5px;font-weight:700;fill:var(--ink)}.c-note{font-size:12px;fill:#55625e}
+.c-shaft{stroke:#5e6b67;stroke-width:9;stroke-linecap:round}.c-diff{fill:#dfe5e1;stroke:#5e6b67;stroke-width:2}
+.g-cut path{stroke:#a62c2c;stroke-width:4.5;stroke-linecap:round;fill:none}
+.c-edu{fill:var(--gold);stroke:#8a6a0c;stroke-width:2}.c-pack{fill:#f8e6a4;stroke:#8a6a0c;stroke-width:2}.c-hv{stroke:#d9730d;stroke-width:6;fill:none;stroke-linecap:round}
+.z-front{fill:rgba(11,98,115,.11)}.z-rear{fill:rgba(231,183,46,.2)}.c-zone{font-size:12.5px;font-weight:700;fill:#20342f}
+.c-road{stroke:#2b3a36;stroke-width:4;stroke-linecap:round}.c-arrow{stroke:#2b3a36;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.p4-svg .g-old,.p4-svg .g-cut,.p4-svg .g-new,.p4-svg .g-zones{transition:opacity .55s ease,transform .55s ease}
+.p4-svg .g-cut,.p4-svg .g-new,.p4-svg .g-zones{opacity:0}.p4-svg .g-new{transform:translateY(10px)}
+.p4-fig[data-step="2"] .g-cut{opacity:1}.p4-fig[data-step="2"] .g-old{opacity:.38}.p4-fig[data-step="2"] .c-shaft{stroke-dasharray:10 9}
+.p4-fig[data-step="3"] .g-old,.p4-fig[data-step="4"] .g-old{opacity:0}
+.p4-fig[data-step="3"] .g-new,.p4-fig[data-step="4"] .g-new{opacity:1;transform:none}
+.p4-fig[data-step="4"] .g-zones{opacity:1}
+
+.sys-root{width:max-content;max-width:100%;margin:0 auto;padding:11px 22px;border-radius:999px;background:var(--green);color:#fff;text-align:center}.sys-root b{font-family:var(--display);font-size:1.05rem;margin-right:8px}.sys-root span{font-size:.82rem;color:#dbe6e1}
+.sys-rail{width:2px;height:30px;margin:0 auto;background:#9aa8a2;transform-origin:top}.can-reveal .sys-rail.reveal{transform:scaleY(0)}.can-reveal .sys-rail.reveal.in{transform:none}
+.sys-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;padding-top:18px;border-top:2px solid #9aa8a2}
+.sys-card{display:flex;flex-direction:column;gap:7px;text-align:left;padding:16px 16px 14px;background:var(--card);border:1px solid rgba(53,72,67,.16);border-top:4px solid var(--lane);border-radius:13px;color:var(--ink);cursor:pointer}
+.sys-card:hover,.sys-card:focus-visible{box-shadow:var(--shadow);outline:2px solid var(--lane);outline-offset:1px}
+.sys-tag{font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lane)}.sys-card h4{margin:0;font-family:var(--display);font-size:1.12rem;font-weight:600}.sys-card p{margin:0;font-size:.85rem;line-height:1.5;color:#495956}
+.sys-card dl{margin:4px 0 0;display:grid;grid-template-columns:64px 1fr;gap:3px 10px;font-size:.78rem}.sys-card dt{color:var(--muted)}.sys-card dd{margin:0}
+.sys-open{margin-top:auto;padding-top:6px;font-size:.78rem;font-weight:800;color:var(--lane)}
+
+.claim-steps{list-style:none;counter-reset:claim;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.claim-steps li{counter-increment:claim;position:relative;padding:13px 14px 13px 52px;background:#f7efd2;border-radius:12px;font-size:.84rem;line-height:1.45;color:#473f2e}
+.claim-steps li:before{content:counter(claim);position:absolute;left:13px;top:13px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#473f2e;color:#fff;font-weight:800;font-size:.8rem}.claim-steps b{display:block;color:#2e2917}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}.chip{border:1px solid #cfd5d0;background:transparent;border-radius:999px;padding:6px 12px;font-size:.78rem;font-weight:700;color:#55625e;cursor:pointer}.chip i{font-style:normal;opacity:.6;margin-left:3px}
+.chip.active{background:var(--green);border-color:var(--green);color:#fff}
+.starter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.starter-card{display:flex;flex-direction:column;gap:8px;text-align:left;padding:15px 16px 14px 19px;position:relative;background:var(--card);border:1px solid rgba(53,72,67,.16);border-radius:13px;color:var(--ink);cursor:pointer;overflow:hidden;transition:transform .15s}
+.starter-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--lane)}.starter-card:hover,.starter-card:focus-visible{transform:translateY(-2px);box-shadow:var(--shadow);outline:0}
+.starter-top{display:flex;flex-wrap:wrap;gap:6px}.starter-card h4{margin:0;font-family:var(--display);font-size:1.05rem;font-weight:600;line-height:1.25}.starter-card p{margin:0;font-size:.82rem;line-height:1.5;color:#495956}
+.starter-meta{margin-top:auto;padding-top:6px;font-size:.74rem;line-height:1.5;color:var(--muted)}
+
+/* ---------- Risk register ---------- */
+.risk-layout{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:end;margin-bottom:18px}.risk-matrix-wrap{flex:1 1 440px}
+.risk-matrix{min-width:440px;table-layout:fixed}.risk-matrix caption{caption-side:bottom;padding:8px;font-size:.72rem;color:var(--muted)}
+.risk-matrix th{position:static;font-size:.66rem;text-align:center}.risk-matrix th[scope=row]{width:108px;text-align:left}
+.rm-cell{height:58px;text-align:center;vertical-align:middle}.rm-cell.red{background:#f6dcd6}.rm-cell.yellow{background:#f8ecc4}.rm-cell.green{background:#dfeee4}
+.rm-chip{margin:2px;padding:4px 8px;border:1px solid rgba(22,37,33,.35);border-radius:999px;background:#fffefa;font-size:.72rem;font-weight:800;color:var(--ink);cursor:pointer}.rm-chip:hover{background:var(--ink);color:#fff}
+.risk-key{display:grid;grid-template-columns:18px auto;gap:6px 8px;align-items:center;font-size:.76rem;color:#495956}.risk-key .rm-cell{display:block;width:18px;height:18px;border-radius:4px}
+.risk-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.risk-card{border:1px solid var(--line);border-left:5px solid #9aa39f;border-radius:12px;background:#fffefa;padding:14px 16px;scroll-margin-top:80px}.risk-card.red{border-left-color:#a62c2c}.risk-card.yellow{border-left-color:#b26b00}.risk-card.green{border-left-color:#2f7a5f}
+.risk-card:target,.risk-card.flash{box-shadow:0 0 0 3px rgba(231,183,46,.7)}
+.risk-card header{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.risk-rating{margin-left:auto;font-size:.72rem;font-weight:700;color:#55625e}
+.risk-card h4{margin:9px 0 9px;font-family:var(--display);font-size:1.06rem;font-weight:600;line-height:1.3}
+.risk-card dl{margin:0;display:grid;grid-template-columns:70px 1fr;gap:5px 12px;font-size:.83rem;line-height:1.45}.risk-card dt{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}.risk-card dd{margin:0}
+
+@media(max-width:900px){.start-intro,.pp-wrap{grid-template-columns:1fr}.sys-grid,.starter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.risk-list{grid-template-columns:1fr}
+  .p4-story{grid-template-columns:1fr;gap:10px}.p4-fig{top:58px;z-index:5;box-shadow:0 10px 24px rgba(31,46,45,.12)}.p4-fig figcaption .subtle{display:none}.p4-step{min-height:52vh}}
+@media(max-width:620px){.start-section{margin-top:40px}.sys-grid,.starter-grid,.claim-steps{grid-template-columns:1fr}.nav-group{display:none}.ms-months span:nth-child(even){display:none}.risk-card dl{grid-template-columns:1fr}.risk-card dt{padding-top:6px}}
+@media(prefers-reduced-motion:reduce){.can-reveal .reveal,.can-reveal .sys-rail.reveal{opacity:1;transform:none;transition:none}.p4-svg g{transition:none!important}}
 </style>
 </head>
 <body>
@@ -143,22 +255,26 @@ dialog{border-radius:20px;box-shadow:0 30px 90px #0c1d1866}.modal-head{backgroun
 <header class="hero"><div class="hero-inner">
   <div class="eyebrow">Cal State LA · EcoCAR Innovation Challenge · Stellantis Track</div>
   <h1>Year 1, organized.</h1>
-  <p>A calmer view of what matters now—who owns the outcome, what “done” means, and where every teammate can make a useful contribution.</p>
+  <p>One place to learn the vehicle, see who owns what, and find a piece of the work that can be yours.</p>
   <div class="hero-meta"><span id="baseline"></span><span id="official"></span><span>Generated from version-controlled data</span></div>
 </div></header>
 <div class="privacy" id="privacy"></div>
 <div class="nav-wrap"><nav class="nav" aria-label="Execution hub sections">
-  <button class="active" data-page="now">Now</button>
+  <span class="nav-group">New members</span>
+  <button class="active" data-page="start">Start here</button>
+  <button data-page="onboarding">Onboarding</button>
+  <button data-page="team">Team</button>
   <button data-page="rules">Rules</button>
+  <span class="nav-sep" aria-hidden="true"></span><span class="nav-group">Running the team</span>
+  <button data-page="now">This week</button>
   <button data-page="deliverables">Deliverables</button>
   <button data-page="timeline">Timeline</button>
-  <button data-page="team">Team</button>
-  <button data-page="onboarding">Onboarding</button>
-  <button data-page="controls">Controls</button>
+  <button data-page="controls">Risks</button>
   <button data-page="update">Update guide</button>
 </nav></div>
 <main id="main" class="shell">
-  <section class="page active" id="page-now"></section>
+  <section class="page active" id="page-start"></section>
+  <section class="page" id="page-now"></section>
   <section class="page" id="page-deliverables"></section>
   <section class="page" id="page-timeline"></section>
   <section class="page" id="page-team"></section>
@@ -192,27 +308,175 @@ function requirementBand(){
   const tiles=F.tiles.map(t=>`<div class="reqtile"><div class="rt-label">${esc(t.label)}</div><div class="rt-value">${esc(t.value)}</div>${t.second?`<div class="rt-second">${esc(t.second)}</div>`:''}<div class="rt-meaning">${esc(t.meaning)}</div></div>`).join('');
   return `<div class="reqband"><div class="reqband-head"><h3>${esc(F.title)}</h3><span class="rb-note">${esc(F.note)}</span><a href="#rules" data-page="rules">Full rules and tolerances &rsaquo;</a></div><div class="reqgrid">${tiles}</div></div>${F.callout?`<div class="callout"><strong>Read the geometry numbers correctly.</strong>${esc(F.callout)}</div>`:''}`;
 }
+
+/* ---------- Shared helpers: progress and "past" handling ---------- */
+const isPast=d=>!!d&&d<DATA.today;
+const taskEnd=t=>t.end||t.start;
+const isDone=id=>(DATA.statuses[id]||{}).status==='Done';
+const pastGroup=(summary,inner)=>inner?`<details class="past-group"><summary>${summary}</summary>${inner}</details>`:'';
+const latest=(rows,field)=>rows.map(r=>r[field]).filter(Boolean).sort().pop();
+// One dot per deliverable across the year: grey once its date has passed.
+function milestoneStrip(){
+  const start=date('2026-09-01'),end=date('2027-06-30'),span=end-start,pct=s=>Math.max(0,Math.min(100,(date(s)-start)/span*100));
+  const list=[...DATA.deliverables].sort((a,b)=>a.due.localeCompare(b.due)),past=list.filter(d=>isPast(d.due)),next=list.find(d=>!isPast(d.due));
+  const dots=list.map(d=>`<button type="button" class="ms-dot${isPast(d.due)?' past':''}${next&&d.id===next.id?' next':''}" style="left:${pct(d.due)}%;--lane:${laneColor(d.lane)}" data-deliverable="${esc(d.id)}" title="${esc(d.title)} · ${fmt(d.due)}" aria-label="${esc(d.title)}, ${fmt(d.due)}"></button>`).join('');
+  const months=['Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'].map((m,i)=>`<span style="left:${pct(new Date(2026,8+i,1).toISOString().slice(0,10))}%">${m}</span>`).join('');
+  return `<div class="ms-strip"><div class="ms-head"><strong>Year 1 progress</strong><span>${past.length} of ${list.length} deliverable dates passed${next?` · next: ${esc(next.title)}, ${fmt(next.due)}`:''}</span></div><div class="ms-track"><i class="ms-fill" style="width:${pct(DATA.today)}%"></i>${dots}<i class="ms-today" style="left:${pct(DATA.today)}%"><b>Today</b></i></div><div class="ms-months">${months}</div></div>`;
+}
+
+/* ---------- Start here: the new-member portal ---------- */
+const LANES=[
+  {k:'vse',name:'Vehicle Systems Engineering',what:'Requirements, safety and testing: the glue that keeps every other lane designing the same vehicle.'},
+  {k:'vhi',name:'Vehicle Hardware and Integration',what:'The rear electric drive unit, its mounts and packaging, the CAD, and the instrumentation and CAN that measure the car.'},
+  {k:'pcm',name:'Propulsion Controls and Modeling',what:'The virtual vehicle model, and the control software that decides how much torque each axle delivers.'},
+  {k:'hvb',name:'High Voltage Battery',what:'The team-built pack in the rear hatch: 200-400 V, at most 5.0 kWh, built from modules at or below 50 V.'},
+  {k:'pgm',name:'Program management',what:'The plan, the schedule, the deliverables and the way the team runs.'},
+  {k:'biz',name:'Innovation track and MarCom',what:'The product innovation studio work, and the team’s public identity.'}
+];
+const P_POSITIONS=[['P0','On the engine’s accessory belt'],['P1','On the engine’s crankshaft'],['P2','Between the engine and the transmission'],['P3','On the transmission’s output'],['P4','On the axle the engine does not drive']];
+const P4_STEPS=[
+  ['Start with the stock Cherokee','The car arrives as a hybrid already. Its front powerpack is a 1.6 L engine with an electrically variable transmission, and a mechanical link carries drive back to a differential on the rear axle.'],
+  ['Cut the link between the axles','The driveshaft and the rear mechanical differential come out. The front powerpack is not touched: modifying it is prohibited by the competition rules.'],
+  ['Add an electric rear axle','In their place goes a team-designed electric drive unit (motor, inverter and gearbox in one housing), fed by a team-built battery pack in the rear hatch.'],
+  ['Two systems, one road','The engine drives the front wheels and the motor drives the rear wheels, with no shaft between them. The road is the only thing connecting the two axles, so this layout is also called through-the-road. Software decides how much torque each axle delivers.']
+];
+function pPositionsSVG(){
+  const node=(x,y,l,hot)=>`<g class="pp-node${hot?' hot':''}"><circle cx="${x}" cy="${y}" r="${hot?19:15}"/><text x="${x}" y="${y+4.5}">${l}</text></g>`;
+  const axle=(x,l)=>`<line class="pp-axle" x1="${x}" y1="38" x2="${x}" y2="132"/><rect class="pp-wheel" x="${x-13}" y="26" width="26" height="13" rx="4"/><rect class="pp-wheel" x="${x-13}" y="131" width="26" height="13" rx="4"/><text class="pp-cap" x="${x}" y="164">${l}</text>`;
+  return `<svg class="pp-svg" viewBox="0 0 600 172" role="img" aria-label="Driveline diagram showing motor positions P0 to P4. P4 sits on the rear axle, which has no shaft to the engine."><line class="pp-shaft" x1="110" y1="85" x2="395" y2="85"/><line class="pp-none" x1="412" y1="85" x2="500" y2="85"/><text class="pp-cap" x="456" y="72">no shaft</text><line class="pp-shaft" x1="40" y1="52" x2="40" y2="62"/><rect class="pp-box" x="20" y="60" width="90" height="50" rx="8"/><text class="pp-lbl" x="65" y="90">Engine</text><line class="pp-clutch" x1="165" y1="70" x2="165" y2="100"/><line class="pp-clutch" x1="172" y1="70" x2="172" y2="100"/><rect class="pp-box" x="226" y="60" width="100" height="50" rx="8"/><text class="pp-lbl" x="276" y="90">Transmission</text>${axle(395,'Front axle')}${axle(520,'Rear axle')}${node(40,36,'P0')}${node(137,85,'P1')}${node(199,85,'P2')}${node(352,85,'P3')}${node(520,85,'P4',true)}</svg>`;
+}
+function p4CarSVG(){
+  const wheel=(x,y)=>`<rect class="c-wheel" x="${x}" y="${y}" width="60" height="24" rx="8"/>`;
+  const cut=(x)=>`<path d="M${x-9} 146L${x+9} 164M${x+9} 146L${x-9} 164"/>`;
+  return `<svg class="p4-svg" viewBox="0 0 560 330" role="img" aria-label="Top view of the vehicle. The stock driveshaft and rear differential are removed and replaced with an electric drive unit and a battery pack at the rear, leaving no mechanical connection between the axles.">
+  <rect class="c-body" x="30" y="60" width="500" height="190" rx="62"/>
+  <g class="g-zones"><rect class="z-front" x="40" y="68" width="215" height="174" rx="46"/><rect class="z-rear" x="305" y="68" width="215" height="174" rx="46"/></g>
+  <text class="c-cap" x="130" y="26">FRONT AXLE</text><text class="c-cap" x="420" y="26">REAR AXLE</text>
+  <line class="c-axle" x1="130" y1="62" x2="130" y2="248"/><line class="c-axle" x1="420" y1="62" x2="420" y2="248"/>
+  ${wheel(100,40)}${wheel(100,246)}${wheel(390,40)}${wheel(390,246)}
+  <rect class="c-stock" x="84" y="108" width="96" height="94" rx="10"/><text class="c-lbl" x="132" y="151">Engine</text><text class="c-lbl" x="132" y="169">+ eVT</text>
+  <g class="g-old"><line class="c-shaft" x1="180" y1="155" x2="400" y2="155"/><circle class="c-diff" cx="420" cy="155" r="21"/><text class="c-note" x="290" y="140">Driveshaft</text><text class="c-note" x="345" y="187">Rear differential</text></g>
+  <g class="g-cut">${cut(238)}${cut(342)}</g>
+  <g class="g-new"><path class="c-hv" d="M472 155H452"/><rect class="c-edu" x="386" y="118" width="68" height="74" rx="10"/><text class="c-lbl" x="420" y="151">Electric</text><text class="c-lbl" x="420" y="168">drive unit</text><rect class="c-pack" x="472" y="104" width="44" height="102" rx="8"/><text class="c-lbl" x="494" y="160" transform="rotate(-90 494 155)">Battery pack</text></g>
+  <g class="g-zones"><text class="c-zone" x="132" y="93">Engine drives the front</text><text class="c-zone" x="420" y="93">Motor drives the rear</text><text class="c-note" x="280" y="159" transform="rotate(-90 280 155)">no shaft</text>
+    <line class="c-road" x1="40" y1="298" x2="520" y2="298"/><path class="c-arrow" d="M130 273V292M124 286l6 7 6-7M420 273V292M414 286l6 7 6-7"/><text class="c-zone" x="280" y="320">The road is the only connection</text></g>
+  </svg>`;
+}
+function laneSystem(){
+  const cards=LANES.map((l,i)=>{
+    const leads=DATA.org_chart.seats.filter(s=>s.lane===l.k&&!s.open).map(s=>s.name),open=DATA.starter_tasks.filter(t=>t.lane===l.k&&t.status==='Open').length;
+    const next=DATA.deliverables.filter(d=>d.lane===l.k&&!isPast(d.due)).sort((a,b)=>a.due.localeCompare(b.due))[0];
+    return `<button type="button" class="sys-card reveal" style="--lane:${laneColor(l.k)};--i:${i}" data-lane-jump="${l.k}"><span class="sys-tag">${esc(laneName[l.k])}</span><h4>${esc(l.name)}</h4><p>${esc(l.what)}</p><dl><dt>Led by</dt><dd>${esc(leads.join(', ')||'Open seat')}</dd>${next?`<dt>Next due</dt><dd>${esc(next.title)} · ${fmt(next.due)}</dd>`:''}</dl><span class="sys-open">${open?`${open} task${open===1?'':'s'} open to claim &rsaquo;`:'No open tasks listed yet'}</span></button>`}).join('');
+  return `<section class="start-section" id="start-system"><div class="start-head reveal"><span class="section-kicker">One level deeper</span><h3>One vehicle, six lanes of work</h3><p>Every part of the conversion belongs to a lane, and every lane has a lead. Pick the lane closest to what you want to learn; its open tasks are one click away.</p></div><div class="sys-root reveal"><b>The vehicle</b><span>P4 through-the-road hybrid Jeep Cherokee</span></div><div class="sys-rail reveal" aria-hidden="true"></div><div class="sys-grid">${cards}</div></section>`;
+}
+function starterTasks(){
+  const count=k=>DATA.starter_tasks.filter(t=>k==='*'||t.lane===k).length;
+  const chips=[['*','All lanes'],...LANES.map(l=>[l.k,laneName[l.k]])].filter(([k])=>count(k)).map(([k,n])=>`<button type="button" class="chip${k==='*'?' active':''}" data-starter-lane="${k}">${esc(n)} <i>${count(k)}</i></button>`).join('');
+  return `<section class="start-section" id="start-tasks"><div class="start-head reveal"><span class="section-kicker">Take ownership</span><h3>Claim a task that is yours</h3><p>Each task below is a real piece of a graded deliverable, small enough to own. You get a named mentor, a clear definition of done, and your name on the task once you claim it.</p></div>
+  <ol class="claim-steps reveal"><li><b>Pick one</b>Open a card to see why it matters and what done looks like.</li><li><b>Tell the mentor</b>Message the mentor named on the card, or say so at the Friday general meeting.</li><li><b>Show the result</b>Your name goes on the task. When it is done, you show it at a Friday meeting.</li></ol>
+  <div class="chips" role="group" aria-label="Filter tasks by lane">${chips}</div><div class="starter-grid" id="starter-grid"></div>
+  <p class="subtle">New to the tools? Do a <a href="#onboarding" data-page="onboarding">45 to 120 minute first win</a> before claiming a task; the software setup guides are on the same page.</p></section>`;
+}
+function drawStarters(lane='*'){
+  const grid=$('#starter-grid');if(!grid)return;
+  $$('[data-starter-lane]').forEach(b=>b.classList.toggle('active',b.dataset.starterLane===lane));
+  const order={Open:0,Claimed:1,Done:2};
+  grid.innerHTML=DATA.starter_tasks.filter(t=>lane==='*'||t.lane===lane).sort((a,b)=>order[a.status]-order[b.status]).map(t=>{
+    const d=DATA.deliverables.find(x=>x.id===t.feeds);
+    const state=t.status==='Open'?pill('Open to claim','green'):t.status==='Claimed'?pill('Claimed · '+t.claimed_by,'yellow'):pill('Done · '+t.claimed_by,'gray');
+    return `<button type="button" class="starter-card${t.status==='Done'?' past':''}" style="--lane:${laneColor(t.lane)}" data-starter="${esc(t.id)}"><span class="starter-top"><span class="pill">${esc(laneName[t.lane])}</span>${state}</span><h4>${esc(t.title)}</h4><p>${esc(t.output)}</p><span class="starter-meta">Mentor: ${esc(person(t.mentor_key).name)}${d?`<br>Feeds: ${esc(d.title)} · ${fmt(d.due)}`:''}</span></button>`}).join('')||'<p>No tasks listed for this lane yet.</p>';
+}
+function openStarter(id){
+  const t=DATA.starter_tasks.find(x=>x.id===id);if(!t)return;const d=DATA.deliverables.find(x=>x.id===t.feeds);
+  const section=(title,body)=>`<div class="modal-section"><h3>${title}</h3>${body}</div>`;
+  $('#detail-content').innerHTML=`<div class="modal-head"><button class="close" data-close>Close</button><span class="pill">${esc(laneName[t.lane])} · ${esc(t.id)}</span><h2>${esc(t.title)}</h2><p>${t.status==='Open'?'Open to claim':esc(t.status+' by '+t.claimed_by)} · ${esc(t.capacity)}</p></div><div class="modal-body">`
+    +section('Why it matters',`<p>${esc(t.why)}</p>`)
+    +section('What you produce',`<p>${esc(t.output)}</p>`)
+    +section('Done when',`<ul class="checklist"><li>${esc(t.done_when)}</li></ul>`)
+    +section('Your mentor',personHTML(t.mentor_key))
+    +(d?section('The deliverable this feeds',`<ul class="seat-list"><li><button type="button" class="seat-row${isPast(d.due)?' past':''}" data-deliverable="${esc(d.id)}"><time>${fmt(d.due)}</time><span>${esc(d.title)}<small>${esc(d.scoring||'')}</small></span></button></li></ul>`):'')
+    +section('How to claim it',`<ul class="checklist"><li>Tell ${esc(person(t.mentor_key).name)} you want this task, by message or at the Friday general meeting.</li><li>The mentor adds your name in <code>data/starter_tasks.csv</code>, and it appears on this card.</li><li>Show the result at a Friday meeting when it meets the definition of done.</li></ul>`)
+    +`<div class="modal-section"><p class="subtle">Source: ${esc(t.source)}</p></div></div>`;
+  $('#detail').showModal();
+}
+function renderStart(){
+  const A=DATA.constraints.architecture,openCount=DATA.starter_tasks.filter(t=>t.status==='Open').length;
+  const pp=P_POSITIONS.map(([k,v])=>`<li class="${k==='P4'?'hot':''}"><b>${k}</b><span>${esc(v)}${k==='P4'?' (this is ours)':''}</span></li>`).join('');
+  const steps=P4_STEPS.map(([h,p],i)=>`<article class="p4-step" data-step="${i+1}"><span class="p4-num">Step ${i+1} of ${P4_STEPS.length}</span><h4>${esc(h)}</h4><p>${esc(p)}</p></article>`).join('');
+  const dots=P4_STEPS.map(([h],i)=>`<button type="button" data-p4-go="${i+1}" aria-label="Step ${i+1}: ${esc(h)}">${i+1}</button>`).join('');
+  $('#page-start').innerHTML=`
+  <section class="start-intro"><div><span class="section-kicker">New here? Start on this page</span><h2>We are turning a hybrid Jeep Cherokee into a P4.</h2><p>Scroll down to see what that means, who leads each part of the work, and which piece you can take ownership of this week.</p></div>
+    <div class="start-jumps"><button type="button" data-jump="start-p4"><b>1</b><span>Understand the car<small>What P4 means, in four steps</small></span></button><button type="button" data-jump="start-team"><b>2</b><span>Meet the leads<small>Who owns what</small></span></button><button type="button" data-jump="start-tasks"><b>3</b><span>Claim a task<small>${openCount} open right now</small></span></button></div></section>
+  <section class="start-section" id="start-p4"><div class="start-head reveal"><span class="section-kicker">The idea</span><h3>What does P4 mean?</h3><p>Hybrid layouts are named by where the electric motor sits along the driveline. The P stands for position, and the number counts outward from the engine.</p></div>
+    <div class="pp-wrap reveal">${pPositionsSVG()}<ul class="pp-list">${pp}</ul></div></section>
+  <section class="start-section"><div class="start-head reveal"><span class="section-kicker">The conversion</span><h3>From stock Cherokee to P4, in four steps</h3><p>Keep scrolling: the drawing changes as each step comes into view.</p></div>
+    <div class="p4-story"><figure class="p4-fig" data-step="1">${p4CarSVG()}<figcaption><span class="p4-dots">${dots}</span><span class="subtle">Simplified top view, front of the vehicle on the left. Part names follow the competition's program constraints [confirm the exact removal list against the delivered vehicle].</span></figcaption></figure><div class="p4-steps">${steps}</div></div>
+    <div class="callout reveal"><strong>Why it matters for your work.</strong>${esc(A.summary)}</div></section>
+  ${laneSystem()}
+  <section class="start-section"><div class="start-head reveal"><span class="section-kicker">The limits</span><h3>The numbers every design has to respect</h3><p>These come from the competition's controlled documents. A design that breaks one cannot be submitted.</p></div><div class="reveal">${requirementBand()}</div></section>
+  <section class="start-section" id="start-team"><div class="reveal">${orgChart()}</div></section>
+  ${starterTasks()}`;
+  drawStarters();
+}
+// Scroll behaviour for the Start page: reveal sections, and step the P4 drawing.
+function initScroll(){
+  const fig=$('.p4-fig');if(!fig)return;
+  const setStep=n=>{fig.dataset.step=n;$$('[data-p4-go]').forEach(b=>b.classList.toggle('active',b.dataset.p4Go===String(n)));$$('.p4-step').forEach(s=>s.classList.toggle('active',s.dataset.step===String(n)))};
+  setStep(1);
+  document.addEventListener('click',e=>{
+    const go=e.target.closest('[data-p4-go]');if(go){const el=$(`.p4-step[data-step="${go.dataset.p4Go}"]`);setStep(go.dataset.p4Go);el.scrollIntoView({behavior:'smooth',block:'center'})}
+    const jump=e.target.closest('[data-jump]');if(jump){const el=document.getElementById(jump.dataset.jump);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-70,behavior:'smooth'})}
+    const lane=e.target.closest('[data-lane-jump]');if(lane){drawStarters(lane.dataset.laneJump);const el=$('#start-tasks');window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-70,behavior:'smooth'})}
+    const chip=e.target.closest('[data-starter-lane]');if(chip)drawStarters(chip.dataset.starterLane);
+    const st=e.target.closest('[data-starter]');if(st)openStarter(st.dataset.starter);
+    const rk=e.target.closest('[data-risk]');if(rk){const el=document.getElementById('risk-'+rk.dataset.risk);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),1800)}}
+  });
+  if(!('IntersectionObserver' in window))return;
+  document.documentElement.classList.add('can-reveal');
+  const reveal=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');reveal.unobserve(en.target)}}),{threshold:.12});
+  $$('.reveal').forEach(el=>reveal.observe(el));
+  const stepper=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)setStep(en.target.dataset.step)}),{rootMargin:'-45% 0px -45% 0px'});
+  $$('.p4-step').forEach(el=>stepper.observe(el));
+}
+
+/* ---------- Risk register ---------- */
+const LEVEL={Low:1,Medium:2,High:3};
+const riskScore=r=>(LEVEL[r.likelihood]||0)*(LEVEL[r.impact]||0);
+const riskBand=s=>s>=6?'red':s>=3?'yellow':'green';
+function riskRegister(){
+  const risks=[...DATA.risks].sort((a,b)=>riskScore(b)-riskScore(a)||a.risk_id.localeCompare(b.risk_id)),levels=['High','Medium','Low'];
+  const cell=(imp,lik)=>{const s=LEVEL[imp]*LEVEL[lik],hits=risks.filter(r=>r.impact===imp&&r.likelihood===lik);return `<td class="rm-cell ${riskBand(s)}">${hits.map(r=>`<button type="button" class="rm-chip" data-risk="${esc(r.risk_id)}" title="${esc(r.risk)}">${esc(r.risk_id)}</button>`).join('')}</td>`};
+  const matrix=`<table class="risk-matrix"><caption>Impact (rows) against likelihood (columns)</caption><thead><tr><th></th>${['Low','Medium','High'].map(l=>`<th scope="col">${l} likelihood</th>`).join('')}</tr></thead><tbody>${levels.map(imp=>`<tr><th scope="row">${imp} impact</th>${['Low','Medium','High'].map(lik=>cell(imp,lik)).join('')}</tr>`).join('')}</tbody></table>`;
+  const cards=risks.map(r=>{const s=riskScore(r),late=isPast(r.next_review);return `<article class="risk-card ${riskBand(s)}" id="risk-${esc(r.risk_id)}"><header><b>${esc(r.risk_id)}</b>${pill(r.category)}${pill(r.state)}${late?pill('Review overdue','red'):''}<span class="risk-rating">Likelihood ${esc(r.likelihood)} · Impact ${esc(r.impact)}</span></header><h4>${esc(r.risk)}</h4><dl><dt>Cause</dt><dd>${esc(r.cause)}</dd><dt>Effect</dt><dd>${esc(r.effect)}</dd><dt>Trigger</dt><dd>${esc(r.trigger)}</dd><dt>Response</dt><dd><strong>${esc(r.response)}</strong></dd><dt>Owner</dt><dd>${esc(person(r.owner_key).name)} · next review ${fmt(r.next_review)}</dd></dl></article>`}).join('');
+  return `<div class="panel"><h3>Risk register</h3><p class="panel-note">Draft ratings for leadership to confirm. Each risk has one owner, a trigger that tells the team it is happening, and a response. Keep OEM-sensitive, personal, financial and facility-security detail in the controlled register. Edit <code>data/risks.csv</code> to change a row.</p><div class="risk-layout"><div class="table-wrap risk-matrix-wrap">${matrix}</div><div class="risk-key"><span class="rm-cell red"></span>Act now<span class="rm-cell yellow"></span>Manage and review<span class="rm-cell green"></span>Watch</div></div><div class="risk-list">${cards}</div></div>`;
+}
+
 function renderNow(){
   const today=DATA.today, horizon=new Date(date(today)); horizon.setDate(horizon.getDate()+45); const horizonISO=horizon.toISOString().slice(0,10);
-  const upcoming=DATA.tasks.filter(t=>t.start>=today&&t.start<=horizonISO).sort((a,b)=>a.start.localeCompare(b.start));
+  const seen=new Set(),upcoming=DATA.tasks.filter(t=>t.start>=today&&t.start<=horizonISO).sort((a,b)=>a.start.localeCompare(b.start)).filter(t=>{const k=t.start+'|'+t.task;return seen.has(k)?false:seen.add(k)});
   const due30=DATA.deliverables.filter(d=>days(today,d.due)>=0&&days(today,d.due)<=30).length;
   const openRoles=DATA.roles.filter(r=>r.status!=='Filled').length;
   const red=Object.values(DATA.statuses).filter(s=>s.health==='red').length;
   const missingLinks=Object.values(DATA.links).filter(l=>!l.url).length;
   const urgent=DATA.tasks.filter(t=>DATA.statuses[t.id]).sort((a,b)=>a.start.localeCompare(b.start)).slice(0,12);
   const nextD=DATA.deliverables.filter(d=>d.due>=today).sort((a,b)=>a.due.localeCompare(b.due))[0];
-  $('#page-now').innerHTML=heading('What needs attention now','Start here. This is the short meeting agenda: the rules that bind every design, then deadlines, ownership gaps, health, and the next concrete action.')+orgChart()+requirementBand()+`
+  const item=t=>{const s=taskStatus(t),owners=t.owners.split(' '),past=isPast(taskEnd(t));return `<div class="action-item${past?' past':''}"><div><span class="task-title">${esc(t.task)}</span><div class="subtle">${fmt(t.start)} · ${isDone(t.id)?'<span class="done-tick">&#10003; Done</span>':esc(s.status)+(past?' · date passed':'')}</div></div>${personHTML(owners[0])}${pill(s.health,s.health)}<div class="action-next">${esc(s.next_action)}</div></div>`};
+  const live=urgent.filter(t=>!isPast(taskEnd(t))),old=urgent.filter(t=>isPast(taskEnd(t))),statusDate=latest(Object.values(DATA.statuses),'updated');
+  const actionList=`<div class="action-list">${live.slice(0,8).map(item).join('')||'<p class="subtle">No reported work item is dated today or later. Add current work to <code>data/task_status.csv</code>.</p>'}</div>`+pastGroup(`Past · ${old.length} item${old.length===1?'':'s'} whose date has passed (${old.filter(t=>isDone(t.id)).length} marked done)`,old.length?`<div class="action-list">${old.map(item).join('')}</div>`:'');
+  const stale=statusDate&&days(statusDate,today)>14?`<span class="stale-note">Status file last updated ${fmt(statusDate)}</span>`:'';
+  $('#page-now').innerHTML=heading('This week for leads','The short meeting agenda: progress through the year, deadlines, ownership gaps, health, and the next concrete action.')+milestoneStrip()+`
   <div class="kpis"><div class="kpi good"><b>${due30}</b><span>official deliverables due in 30 days</span></div><div class="kpi warn"><b>${openRoles}</b><span>required roles open or awaiting confirmation</span></div><div class="kpi bad"><b>${red}</b><span>reported red work items</span></div><div class="kpi warn"><b>${missingLinks}</b><span>controlled-system links still to add</span></div></div>
   <div class="callout"><strong>Next official deliverable: ${esc(nextD.title)} · ${fmt(nextD.due)}</strong>Accountable owner: ${esc(person(nextD.owner).name)}. Content-complete gate: ${fmt(nextD.gates[0].date)}. Open the Deliverables page for artifacts and acceptance checks.</div>
-  <div class="grid-2"><div class="panel"><span class="section-kicker">Start here</span><h3>Leadership action list</h3><p class="panel-note">Only the decision-ready facts: work, owner, health, and the one next action.</p><div class="action-list">${urgent.slice(0,8).map(t=>{const s=taskStatus(t),owners=t.owners.split(' ');return `<div class="action-item"><div><span class="task-title">${esc(t.task)}</span><div class="subtle">${fmt(t.start)} · ${esc(s.status)}</div></div>${personHTML(owners[0])}${pill(s.health,s.health)}<div class="action-next">${esc(s.next_action)}</div></div>`}).join('')}</div></div>
+  <div class="grid-2"><div class="panel"><span class="section-kicker">Reported work</span><h3>Leadership action list</h3><p class="panel-note">Only the decision-ready facts: work, owner, health, and the one next action.</p>${stale}${actionList}</div>
   <div><div class="panel"><span class="section-kicker">Coming up</span><h3>Next 45 days</h3><p class="panel-note">Official milestones and planned work starting soon.</p><div class="date-list">${upcoming.slice(0,8).map(t=>`<div class="date-item"><time>${fmt(t.start).replace(', 2026','')}</time><span><strong>${esc(t.task)}</strong><span class="subtle">${esc(t.group)}</span></span></div>`).join('')}</div></div>
   <div class="panel"><h3>Meeting rule</h3><ul class="checklist"><li>Review only Yellow, Red, blocked, or due-soon work.</li><li>End every item with one owner, one next action, and one date.</li><li>Move deep technical problem-solving to a named work session.</li><li>Publish decisions and changed dates within 24 hours.</li></ul></div></div></div>`;
 }
 
 function renderDeliverables(){
-  $('#page-deliverables').innerHTML=heading('Deliverable compliance matrix','Dates come from the Team Dashboard; content summaries point back to controlled source sections. Internal gates are calculated in business days.')+`
-  <div class="filters"><label>Workstream <select id="d-lane"><option value="*">All</option>${Object.entries(laneName).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select></label><label>Owner <select id="d-owner"><option value="*">All</option>${Object.entries(DATA.people).map(([k,p])=>`<option value="${k}">${esc(p.name)}</option>`).join('')}</select></label></div><div class="deliverable-grid" id="deliverable-grid"></div>`;
-  const draw=()=>{const lane=$('#d-lane').value,owner=$('#d-owner').value;const list=DATA.deliverables.filter(d=>(lane==='*'||d.lane===lane)&&(owner==='*'||d.owner===owner||d.contributors.includes(owner)));$('#deliverable-grid').innerHTML=list.sort((a,b)=>a.due.localeCompare(b.due)).map(d=>`<button class="dcard" style="--lane:${laneColor(d.lane)}" data-deliverable="${esc(d.id)}"><div class="due">${fmt(d.due)} · ${esc(d.due_time)}</div><h3>${esc(d.title)}</h3><div class="purpose">${esc(d.purpose)}</div><div class="meta"><span>${pill(laneName[d.lane]||d.lane)}</span><span class="owner-mini">${esc(person(d.owner).name)}</span></div></button>`).join('')||'<p>No deliverables match.</p>'};
+  $('#page-deliverables').innerHTML=heading('Deliverable compliance matrix','Dates come from the Team Dashboard; content summaries point back to controlled source sections. Internal gates are calculated in business days.')+milestoneStrip()+`
+  <div class="filters"><label>Workstream <select id="d-lane"><option value="*">All</option>${Object.entries(laneName).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select></label><label>Owner <select id="d-owner"><option value="*">All</option>${Object.entries(DATA.people).map(([k,p])=>`<option value="${k}">${esc(p.name)}</option>`).join('')}</select></label></div><div class="deliverable-grid" id="deliverable-grid"></div><div id="deliverable-past"></div>`;
+  const card=d=>{const past=isPast(d.due),done=isDone(d.schedule_id);return `<button class="dcard${past?' past':''}" style="--lane:${laneColor(d.lane)}" data-deliverable="${esc(d.id)}"><div class="due">${fmt(d.due)} · ${esc(d.due_time)}${done?' · <span class="done-tick">&#10003; Done</span>':past?' · date passed':''}</div><h3>${esc(d.title)}</h3><div class="purpose">${esc(d.purpose)}</div><div class="meta"><span>${pill(laneName[d.lane]||d.lane)}</span><span class="owner-mini">${esc(person(d.owner).name)}</span></div></button>`};
+  const draw=()=>{const lane=$('#d-lane').value,owner=$('#d-owner').value;const list=DATA.deliverables.filter(d=>(lane==='*'||d.lane===lane)&&(owner==='*'||d.owner===owner||d.contributors.includes(owner))).sort((a,b)=>a.due.localeCompare(b.due)),up=list.filter(d=>!isPast(d.due)),old=list.filter(d=>isPast(d.due));$('#deliverable-grid').innerHTML=up.map(card).join('')||'<p>No upcoming deliverables match.</p>';$('#deliverable-past').innerHTML=pastGroup(`Past · ${old.length} deliverable${old.length===1?'':'s'} whose date has passed`,old.length?`<div class="deliverable-grid">${old.map(card).join('')}</div>`:'')};
   $('#d-lane').addEventListener('change',draw);$('#d-owner').addEventListener('change',draw);draw();
 }
 
@@ -224,7 +488,7 @@ function renderTimeline(){
   const groups=[];DATA.tasks.forEach(t=>{let g=groups.find(x=>x.name===t.group);if(!g){g={name:t.group,lane:t.lane,tasks:[]};groups.push(g)}g.tasks.push(t)});
   const monthHtml=months.map(m=>`<span class="tl-month" style="left:${(m.s-start)/86400000/span*100}%;width:${(m.e-m.s)/86400000/span*100}%">${m.n}</span>`).join('');
   const today=pct(DATA.today);
-  $('#page-timeline').innerHTML=heading('Integrated taskline','The baseline through Year 1 Competition. Filter by owner, then click a task for its status and recorded detail.')+`<div class="filters"><label>Owner <select id="tl-owner"><option value="*">Everyone</option>${Object.entries(DATA.people).map(([k,p])=>`<option value="${k}">${esc(p.name)}</option>`).join('')}</select></label></div><div class="timeline-shell"><div class="timeline" id="timeline"><div class="tl-head"><div>Work package / task</div><div class="tl-months">${monthHtml}<i class="today-line" style="left:${today}%"></i><i class="today-label" style="left:${today}%">TODAY</i></div></div>${groups.map(g=>`<div class="tl-block"><div class="tl-group"><div style="color:${laneColor(g.lane)}">${esc(g.name)}</div><div></div></div>${g.tasks.map(t=>{const s=taskStatus(t),owners=t.owners.split(' '),left=pct(t.start),right=t.end?pct(t.end):left,width=Math.max(.5,right-left);let mark=t.type==='milestone'?`<i class="tl-diamond" style="left:${left}%;background:${laneColor(g.lane)}"></i>`:`<i class="tl-bar ${esc(t.type)}" style="left:${left}%;width:${width}%;background:${t.type==='bar'?laneColor(g.lane):''};color:${laneColor(g.lane)}"></i>`;return `<div class="tl-row" data-task="${esc(t.id)}" data-owners="${esc(t.owners)}"><div class="tl-label"><b>${esc(t.task)}</b><span>${esc(t.label)} · ${esc(person(owners[0]).name)} · ${esc(s.status)}</span></div><div class="tl-track">${mark}<i class="today-line" style="left:${today}%"></i></div></div>`}).join('')}</div>`).join('')}</div></div>`;
+  $('#page-timeline').innerHTML=heading('Integrated taskline','The baseline through Year 1 Competition. Past tasks are grey. Filter by owner, then click a task for its status and recorded detail.')+`<div class="filters"><label>Owner <select id="tl-owner"><option value="*">Everyone</option>${Object.entries(DATA.people).map(([k,p])=>`<option value="${k}">${esc(p.name)}</option>`).join('')}</select></label></div><div class="timeline-shell"><div class="timeline" id="timeline"><div class="tl-head"><div>Work package / task</div><div class="tl-months">${monthHtml}<i class="today-line" style="left:${today}%"></i><i class="today-label" style="left:${today}%">TODAY</i></div></div>${groups.map(g=>`<div class="tl-block"><div class="tl-group"><div style="color:${laneColor(g.lane)}">${esc(g.name)}</div><div></div></div>${g.tasks.map(t=>{const s=taskStatus(t),owners=t.owners.split(' '),left=pct(t.start),right=t.end?pct(t.end):left,width=Math.max(.5,right-left);let mark=t.type==='milestone'?`<i class="tl-diamond" style="left:${left}%;background:${laneColor(g.lane)}"></i>`:`<i class="tl-bar ${esc(t.type)}" style="left:${left}%;width:${width}%;background:${t.type==='bar'?laneColor(g.lane):''};color:${laneColor(g.lane)}"></i>`;return `<div class="tl-row${isPast(taskEnd(t))?' past':''}" data-task="${esc(t.id)}" data-owners="${esc(t.owners)}"><div class="tl-label"><b>${esc(t.task)}</b><span>${esc(t.label)} · ${esc(person(owners[0]).name)} · ${esc(s.status)}</span></div><div class="tl-track">${mark}<i class="today-line" style="left:${today}%"></i></div></div>`}).join('')}</div>`).join('')}</div></div>`;
   const filter=()=>{const key=$('#tl-owner').value;$$('.tl-row').forEach(r=>r.style.display=key==='*'||r.dataset.owners.split(' ').includes(key)?'grid':'none');$$('.tl-block').forEach(b=>b.style.display=[...b.querySelectorAll('.tl-row')].some(r=>r.style.display!=='none')?'block':'none')};$('#tl-owner').addEventListener('change',filter);
 }
 
@@ -295,8 +559,9 @@ function renderOnboarding(){
   const steps=[['1. Observe','See the system','Attend one team meeting and choose a swimlane.'],['2. First win','Ship in seven days','Complete a 45-120 minute artifact with a mentor.'],['3. Contribute','Own a small result','Take a one-week task with acceptance criteria.'],['4. Own','Lead a work package','Plan, coordinate, review, and archive an outcome.']];
   const guides=DATA.onboarding_guides.map(g=>`<button class="tool-card" data-guide="${esc(g.id)}"><span class="tool-type">${esc(g.category)}</span><h4>${esc(g.title)}</h4><p>${esc(g.summary)}</p><span class="tool-meta"><span>${esc(g.timebox)}</span><span>Open guide →</span></span></button>`).join('');
   const projects=DATA.projects.map(p=>{const linked=p.task_ids.map(id=>DATA.tasks.find(t=>t.id===id)).filter(Boolean).sort((a,b)=>a.start.localeCompare(b.start)),next=linked.find(t=>t.start>=DATA.today)||linked[linked.length-1];return `<button class="project-card" style="--lane:${laneColor(p.lane)}" data-project="${esc(p.id)}"><span class="project-status">${pill(p.status,p.status.includes('Needs')?'yellow':'green')}<span class="subtle">${esc(laneName[p.lane])}</span></span><h4>${esc(p.title)}</h4><p>${esc(p.outcome)}</p><div class="project-now"><b>Now</b>${esc(p.now)}</div>${next?`<div class="subtle" style="margin-top:9px">Next mapped date · ${fmt(next.start)}</div>`:''}</button>`}).join('');
-  $('#page-onboarding').innerHTML=heading('Start here. Contribute this week.','Choose your tools, understand the active projects, and ship one small reviewed result. Every card below opens a practical step-by-step guide.')+`
+  $('#page-onboarding').innerHTML=heading('Get set up, then ship a first win','Choose your tools, understand the active projects, and ship one small reviewed result. Every card below opens a practical step-by-step guide.')+`
   <div class="steps">${steps.map(s=>`<div class="step"><b>${s[0]}</b><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('')}</div>
+  <div class="callout"><strong>Ready for something you own?</strong>After a first win, claim a starter task on the <a href="#start" data-page="start">Start here</a> page. Each one feeds a graded deliverable and comes with a mentor.</div>
   <section class="onboard-section"><div class="onboard-section-head"><div><span class="section-kicker">Tool access</span><h3>Software setup and onramps</h3></div><p>Complete the learning path before using shared production models. Save the listed proof so a mentor can verify your environment quickly.</p></div><div class="tool-grid">${guides}</div></section>
   <section class="onboard-section"><div class="onboard-section-head"><div><span class="section-kicker">Current work</span><h3>Projects we are working on</h3></div><p>Pick the project that matches your interests. The detail view shows its owner, current work, mapped taskline, and a safe contribution path.</p></div><div class="project-grid">${projects}</div></section>
   <section class="onboard-section"><div class="onboard-section-head"><div><span class="section-kicker">Choose one</span><h3>Clickable first-win jobs</h3></div><p>Each job is bounded to 45-120 minutes. Open a card, follow the steps, and hand evidence to the named mentor.</p></div><div class="firstwins">${DATA.onboarding.map(w=>`<button class="win" data-onboarding="${esc(w.id)}"><div><h3>${esc(w.title)}</h3><p><strong>Artifact:</strong> ${esc(w.artifact)}</p><p><strong>Accepted when:</strong> ${esc(w.acceptance)}</p><p><strong>Mentor:</strong> ${esc(person(w.mentor_key).name)} · ${esc(laneName[w.lane]||w.lane)}</p><span class="win-cue">Open step-by-step job →</span></div><span class="timebox">${esc(w.timebox)}</span></button>`).join('')}</div></section>
@@ -321,16 +586,14 @@ function renderRules(){
   $('#page-rules').innerHTML=heading('Restrictions and requirements','Read these before designing anything. They close options, and a design that misses one is not a design this team can submit.')+`<p class="panel-note" style="margin-bottom:16px">${esc(C.intro)} Values current as of ${esc(C.as_of)}.</p><div class="spec-grid">${cards}</div>${scope}${tables}${prog}${stock}`;
 }
 function leadCheckIns(){
-  const rows=DATA.lead_status.map(r=>{
-    const blocked=(r.blocked_on||'').trim();
-    return `<div class="lead-card${blocked?' blocked':''}"><div class="lc-top"><span class="lc-owns">${esc(r.accountable_for)}</span>${r.due?pill(r.due,'gray'):''}${r.lane?`<span class="pill">${esc(r.lane)}</span>`:''}</div><dl><dt>Lead</dt><dd>${personHTML(r.lead_key)}</dd><dt>This week</dt><dd>${esc(r.this_week)}</dd><dt>Shows up with</dt><dd>${esc(r.evidence_to_show)}</dd>${blocked?`<dt>Blocked on</dt><dd><strong>${esc(blocked)}</strong></dd>`:''}<dt>Last reported</dt><dd>${esc(r.last_reported)}</dd></dl></div>`;
-  }).join('');
-  return `<div class="panel"><h3>Lead check-in &mdash; what each lead owes the next meeting</h3><p class="panel-note">Ninety seconds each, in this order: <strong>done since last meeting</strong>, <strong>in flight now</strong>, <strong>blocked on what and by whom</strong>, <strong>next commitment and its date</strong>. A lane that cannot produce the fourth sentence is the finding. No problem-solving in the round &mdash; park it and pick it up after. Edit <code>data/lead_status.csv</code> to change any row.</p>${rows}<div class="callout"><strong>Leadership acts on the blocked line and records the rest.</strong>A blocker that sits in this list for two consecutive weeks stops being the lead's problem and becomes the project manager's.</div></div>`;
+  const card=r=>{const blocked=(r.blocked_on||'').trim(),past=isPast(r.due);
+    return `<div class="lead-card${blocked&&!past?' blocked':''}${past?' past':''}"><div class="lc-top"><span class="lc-owns">${esc(r.accountable_for)}</span>${r.due?pill(r.due+(past?' · passed':''),'gray'):''}${r.lane?`<span class="pill">${esc(r.lane)}</span>`:''}</div><dl><dt>Lead</dt><dd>${personHTML(r.lead_key)}</dd><dt>This week</dt><dd>${esc(r.this_week)}</dd><dt>Shows up with</dt><dd>${esc(r.evidence_to_show)}</dd>${blocked?`<dt>Blocked on</dt><dd><strong>${esc(blocked)}</strong></dd>`:''}<dt>Last reported</dt><dd>${esc(r.last_reported)}</dd></dl></div>`};
+  const live=DATA.lead_status.filter(r=>!isPast(r.due)),old=DATA.lead_status.filter(r=>isPast(r.due)),reported=latest(DATA.lead_status,'last_reported');
+  return `<div class="panel"><h3>Lead check-in &mdash; what each lead owes the next meeting</h3><p class="panel-note">Ninety seconds each, in this order: <strong>done since last meeting</strong>, <strong>in flight now</strong>, <strong>blocked on what and by whom</strong>, <strong>next commitment and its date</strong>. A lane that cannot produce the fourth sentence is the finding. No problem-solving in the round &mdash; park it and pick it up after. Edit <code>data/lead_status.csv</code> to change any row.</p>${reported&&days(reported,DATA.today)>14?`<span class="stale-note">Last check-in recorded ${fmt(reported)}</span>`:''}${live.map(card).join('')}${pastGroup(`Past · ${old.length} check-in${old.length===1?'':'s'} whose due date has passed`,old.map(card).join(''))}<div class="callout"><strong>Leadership acts on the blocked line and records the rest.</strong>A blocker that sits in this list for two consecutive weeks stops being the lead's problem and becomes the project manager's.</div></div>`;
 }
 function renderControls(){
-  const riskRows=DATA.risks.map(r=>`<tr><td><b>${esc(r.risk_id)}</b><br>${pill(r.state)}</td><td><span class="task-title">${esc(r.risk)}</span><div class="subtle">Cause: ${esc(r.cause)}<br>Effect: ${esc(r.effect)}</div></td><td>${pill(r.priority,r.priority==='High'?'red':'yellow')}</td><td>${esc(person(r.owner_key).name)}<div class="subtle">Review ${fmt(r.next_review)}</div></td><td>${esc(r.response)}</td></tr>`).join('');
-  const decisionRows=DATA.decisions.map(d=>`<tr><td><b>${esc(d.decision_id)}</b><br>${pill(d.status)}</td><td><span class="task-title">${esc(d.decision)}</span><div class="subtle">${esc(d.options)}</div></td><td>${esc(person(d.owner_key).name)}</td><td>${fmt(d.needed_by)}</td><td>${esc(d.next_action)}</td></tr>`).join('');
-  $('#page-controls').innerHTML=heading('Project controls','These draft registers create a professional starting point. Confirm them in leadership review and keep sensitive detail in the controlled team workspace.')+`<div class="control-grid"><div class="panel"><h3>Strategic drivers</h3><p class="panel-note">Approve these before decomposing more work; they are the tradeoff rules.</p>${DATA.drivers.map(d=>`<div class="driver"><b>${esc(d.id)} · ${esc(d.driver)}</b><p>${esc(d.intent)}</p><p><strong>Success:</strong> ${esc(d.success_measure)}</p></div>`).join('')}</div><div class="panel"><h3>RYG status definitions</h3><div class="driver" style="border-color:#2f7a5f"><b>Green · on track</b><p>Objective is achieved or on track; no recovery plan is needed.</p></div><div class="driver" style="border-color:#b26b00"><b>Yellow · recovery exists</b><p>Behind or at risk, but a credible recovery plan works without extraordinary measures.</p></div><div class="driver" style="border-color:#a62c2c"><b>Red · intervention needed</b><p>Not on track, with no credible recovery plan or a need for extraordinary support.</p></div><div class="callout"><strong>Honesty beats green.</strong>A supported Yellow or Red status is useful management information, not failure.</div></div></div><div class="panel"><h3>Draft public-safe risk register</h3><p class="panel-note">Move OEM-sensitive, personal, financial, facility-security, and detailed failure information to the controlled register.</p><div class="table-wrap"><table class="compact"><thead><tr><th>ID / state</th><th>Risk</th><th>Priority</th><th>Owner / review</th><th>Response</th></tr></thead><tbody>${riskRows}</tbody></table></div></div><div class="panel"><h3>Decision log</h3><div class="table-wrap"><table class="compact"><thead><tr><th>ID / status</th><th>Decision</th><th>Owner</th><th>Needed by</th><th>Next action</th></tr></thead><tbody>${decisionRows}</tbody></table></div></div>`;
+  const decisionRows=DATA.decisions.map(d=>`<tr><td><b>${esc(d.decision_id)}</b><br>${pill(d.status)}</td><td><span class="task-title">${esc(d.decision)}</span><div class="subtle">${esc(d.options)}</div></td><td>${esc(person(d.owner_key).name)}</td><td>${fmt(d.needed_by)}${d.status!=='Closed'&&isPast(d.needed_by)?'<br>'+pill('Overdue','red'):''}</td><td>${esc(d.next_action)}</td></tr>`).join('');
+  $('#page-controls').innerHTML=heading('Risks, decisions and controls','What could stop the team, who is watching it, and the decisions still open. Draft entries are for leadership to confirm.')+riskRegister()+`<div class="control-grid"><div class="panel"><h3>Strategic drivers</h3><p class="panel-note">Approve these before decomposing more work; they are the tradeoff rules.</p>${DATA.drivers.map(d=>`<div class="driver"><b>${esc(d.id)} · ${esc(d.driver)}</b><p>${esc(d.intent)}</p><p><strong>Success:</strong> ${esc(d.success_measure)}</p></div>`).join('')}</div><div class="panel"><h3>RYG status definitions</h3><div class="driver" style="border-color:#2f7a5f"><b>Green · on track</b><p>Objective is achieved or on track; no recovery plan is needed.</p></div><div class="driver" style="border-color:#b26b00"><b>Yellow · recovery exists</b><p>Behind or at risk, but a credible recovery plan works without extraordinary measures.</p></div><div class="driver" style="border-color:#a62c2c"><b>Red · intervention needed</b><p>Not on track, with no credible recovery plan or a need for extraordinary support.</p></div><div class="callout"><strong>Honesty beats green.</strong>A supported Yellow or Red status is useful management information, not failure.</div></div></div><div class="panel"><h3>Decision log</h3><div class="table-wrap"><table class="compact"><thead><tr><th>ID / status</th><th>Decision</th><th>Owner</th><th>Needed by</th><th>Next action</th></tr></thead><tbody>${decisionRows}</tbody></table></div></div>`;
 }
 
 function renderUpdate(){
@@ -341,12 +604,12 @@ function renderUpdate(){
 function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('active',p.id===`page-${name}`));requestAnimationFrame(drawOrgLines);$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(push)history.replaceState(null,'',`#${name}`);window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'})}
 
 $('#baseline').textContent=`Baseline ${fmt(DATA.site.baseline_date)}`;$('#official').textContent=`Official schedule ${fmt(DATA.site.official_schedule_as_of)}`;$('#privacy').textContent=DATA.site.privacy_notice;
-renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
+renderStart();renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
 document.addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b){e.preventDefault();showPage(b.dataset.page)}});
 document.addEventListener('click',e=>{const d=e.target.closest('[data-deliverable]');if(d)openDeliverable(d.dataset.deliverable);const t=e.target.closest('[data-task]');if(t)openTask(t.dataset.task);const g=e.target.closest('[data-guide]');if(g)openGuide(g.dataset.guide);const w=e.target.closest('[data-onboarding]');if(w)openOnboardingJob(w.dataset.onboarding);const p=e.target.closest('[data-project]');if(p)openProject(p.dataset.project);const o=e.target.closest('[data-seat]');if(o)openSeat(o.dataset.seat);if(e.target.closest('[data-close]'))$('#detail').close()});
 $('#detail').addEventListener('click',e=>{if(e.target===$('#detail'))$('#detail').close()});
-window.addEventListener('resize',drawOrgLines);window.addEventListener('load',drawOrgLines);requestAnimationFrame(drawOrgLines);
-const initial=location.hash.slice(1);if(['now','deliverables','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
+window.addEventListener('resize',drawOrgLines);window.addEventListener('load',drawOrgLines);requestAnimationFrame(drawOrgLines);initScroll();
+const initial=location.hash.slice(1);if(['start','now','rules','deliverables','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
 </script>
 </body>
 </html>
