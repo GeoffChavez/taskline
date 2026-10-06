@@ -185,31 +185,6 @@ dialog{border-radius:20px;box-shadow:0 30px 90px #0c1d1866}.modal-head{backgroun
 .pp-list{list-style:none;margin:0;padding:0;display:grid;gap:5px}.pp-list li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:baseline;padding:6px 9px;border-radius:9px;font-size:.86rem;color:#495956}
 .pp-list b{font-size:.8rem;color:var(--ink)}.pp-list li.hot{background:#f7efd2;color:var(--ink);font-weight:700}
 
-.p4-story{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:34px;align-items:start}
-.p4-fig{position:sticky;top:78px;margin:0;background:var(--card);border:1px solid rgba(53,72,67,.14);border-radius:17px;padding:16px 16px 12px}
-.p4-fig figcaption{display:grid;gap:8px;margin-top:8px}.p4-dots{display:flex;gap:7px}
-.p4-dots button{width:30px;height:30px;border-radius:50%;border:1.5px solid #b9c2bd;background:transparent;color:#66716d;font-weight:800;font-size:.8rem;cursor:pointer}
-.p4-dots button.active{background:var(--green);border-color:var(--green);color:#fff}
-.p4-step{min-height:56vh;display:flex;flex-direction:column;justify-content:center;padding:10px 0 10px 20px;border-left:3px solid #dfe3dd;opacity:.45;transition:opacity .35s,border-color .35s}
-.p4-step.active{opacity:1;border-left-color:var(--gold)}.p4-step:last-child{min-height:44vh}
-.p4-num{font-size:.65rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#80671f}
-.p4-step h4{margin:5px 0 8px;font-family:var(--display);font-size:1.45rem;font-weight:600;color:#20342f;line-height:1.2}.p4-step p{margin:0;font-size:.98rem;line-height:1.62;color:#3d4c48}
-.p4-svg{width:100%;height:auto;display:block}.p4-svg text{font-family:var(--ui);text-anchor:middle}
-.c-body{fill:#fffefa;stroke:#aab5b0;stroke-width:2}.c-wheel{fill:#2b3a36}.c-axle{stroke:#8b9792;stroke-width:5;stroke-linecap:round}
-.c-cap{font-size:11px;font-weight:800;letter-spacing:.12em;fill:#7b8581}
-.c-stock{fill:#dfe5e1;stroke:#5e6b67;stroke-width:2}.c-lbl{font-size:13.5px;font-weight:700;fill:var(--ink)}.c-note{font-size:12px;fill:#55625e}
-.c-shaft{stroke:#5e6b67;stroke-width:9;stroke-linecap:round}.c-diff{fill:#dfe5e1;stroke:#5e6b67;stroke-width:2}
-.g-cut path{stroke:#a62c2c;stroke-width:4.5;stroke-linecap:round;fill:none}
-.c-edu{fill:var(--gold);stroke:#8a6a0c;stroke-width:2}.c-pack{fill:#f8e6a4;stroke:#8a6a0c;stroke-width:2}.c-hv{stroke:#d9730d;stroke-width:6;fill:none;stroke-linecap:round}
-.z-front{fill:rgba(11,98,115,.11)}.z-rear{fill:rgba(231,183,46,.2)}.c-zone{font-size:12.5px;font-weight:700;fill:#20342f}
-.c-road{stroke:#2b3a36;stroke-width:4;stroke-linecap:round}.c-arrow{stroke:#2b3a36;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.p4-svg .g-old,.p4-svg .g-cut,.p4-svg .g-new,.p4-svg .g-zones{transition:opacity .55s ease,transform .55s ease}
-.p4-svg .g-cut,.p4-svg .g-new,.p4-svg .g-zones{opacity:0}.p4-svg .g-new{transform:translateY(10px)}
-.p4-fig[data-step="2"] .g-cut{opacity:1}.p4-fig[data-step="2"] .g-old{opacity:.38}.p4-fig[data-step="2"] .c-shaft{stroke-dasharray:10 9}
-.p4-fig[data-step="3"] .g-old,.p4-fig[data-step="4"] .g-old{opacity:0}
-.p4-fig[data-step="3"] .g-new,.p4-fig[data-step="4"] .g-new{opacity:1;transform:none}
-.p4-fig[data-step="4"] .g-zones{opacity:1}
-
 .sys-root{width:max-content;max-width:100%;margin:0 auto;padding:11px 22px;border-radius:999px;background:var(--green);color:#fff;text-align:center}.sys-root b{font-family:var(--display);font-size:1.05rem;margin-right:8px}.sys-root span{font-size:.82rem;color:#dbe6e1}
 .sys-rail{width:2px;height:30px;margin:0 auto;background:#9aa8a2;transform-origin:top}.can-reveal .sys-rail.reveal{transform:scaleY(0)}.can-reveal .sys-rail.reveal.in{transform:none}
 .sys-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;padding-top:18px;border-top:2px solid #9aa8a2}
@@ -244,10 +219,56 @@ dialog{border-radius:20px;box-shadow:0 30px 90px #0c1d1866}.modal-head{backgroun
 .risk-card h4{margin:9px 0 9px;font-family:var(--display);font-size:1.06rem;font-weight:600;line-height:1.3}
 .risk-card dl{margin:0;display:grid;grid-template-columns:70px 1fr;gap:5px 12px;font-size:.83rem;line-height:1.45}.risk-card dt{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}.risk-card dd{margin:0}
 
-@media(max-width:900px){.start-intro,.pp-wrap{grid-template-columns:1fr}.sys-grid,.starter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.risk-list{grid-template-columns:1fr}
-  .p4-story{grid-template-columns:1fr;gap:10px}.p4-fig{top:58px;z-index:5;box-shadow:0 10px 24px rgba(31,46,45,.12)}.p4-fig figcaption .subtle{display:none}.p4-step{min-height:52vh}}
+@media(max-width:900px){.start-intro,.pp-wrap{grid-template-columns:1fr}.sys-grid,.starter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.risk-list{grid-template-columns:1fr}}
 @media(max-width:620px){.start-section{margin-top:40px}.sys-grid,.starter-grid,.claim-steps{grid-template-columns:1fr}.nav-group{display:none}.ms-months span:nth-child(even){display:none}.risk-card dl{grid-template-columns:1fr}.risk-card dt{padding-top:6px}}
-@media(prefers-reduced-motion:reduce){.can-reveal .reveal,.can-reveal .sys-rail.reveal{opacity:1;transform:none;transition:none}.p4-svg g{transition:none!important}}
+@media(prefers-reduced-motion:reduce){.can-reveal .reveal,.can-reveal .sys-rail.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- Scroll-driven dissection: stock Cherokee to P4 ---------- */
+.dx{position:relative;height:540vh;margin:44px -32px 0}
+.dx-stage{position:sticky;top:56px;height:calc(100vh - 56px);min-height:460px;display:flex;flex-direction:column;overflow:hidden;color:#e8f1ed;
+  background:radial-gradient(120% 90% at 50% 45%,rgba(60,110,96,.35),transparent 70%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/38px 38px,linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/38px 38px,#12271f}
+.dx-top{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between;padding:18px 30px 0}
+.dx-kicker{font-size:.66rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:#f1cc61}
+.dx-tabs{position:relative;display:flex;gap:4px;padding-bottom:9px}
+.dx-tabs button{border:0;background:transparent;color:#8fa89f;font:inherit;font-size:.74rem;font-weight:700;letter-spacing:.04em;padding:5px 11px;border-radius:999px;cursor:pointer}
+.dx-tabs button:hover{color:#fff}.dx-tabs button.on{background:#e7b72e;color:#1b2b14}
+.dx-bar{position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:3px;background:rgba(255,255,255,.14);overflow:hidden}.dx-bar b{display:block;height:100%;width:0;background:#e7b72e}
+.dx-canvas{position:relative;flex:1;min-height:0;padding:0 10px}
+.dx-svg{display:block;width:100%;height:100%;overflow:hidden}.dx-svg text{font-family:var(--ui)}
+.dx-cam{will-change:transform}
+.dx-old,.dx-edu,.dx-pack,.dx-chip,.dx-shell{transform-box:fill-box;transform-origin:center}
+.dx-label,.dx-new,.dx-final,.dx-badge{opacity:0}
+.dx-perim{fill:rgba(255,255,255,.035);stroke:#6f8f84;stroke-width:2;stroke-dasharray:2 7}
+.dx-rail{fill:#254239}.dx-cradle{fill:none;stroke:#4f7267;stroke-width:3}
+.dx-hatch{fill:rgba(231,183,46,.05);stroke:#b08d1f;stroke-width:2;stroke-dasharray:7 6}
+.dx-half{stroke:#8fb0a5;stroke-width:9;stroke-linecap:round}
+.dx-tire rect{fill:#08130f;stroke:#9fb8ae;stroke-width:2}.dx-tire line{stroke:#34524a;stroke-width:3}
+.dx-stock rect{fill:#2f5148;stroke:#b9d2c9;stroke-width:2.5}.dx-stock circle{fill:#1c352f;stroke:#b9d2c9;stroke-width:2}
+.dx-shaft{fill:none;stroke:#b9d2c9;stroke-width:13;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.dx-joint,.dx-diff{fill:#2f5148;stroke:#b9d2c9;stroke-width:2.5;transition:stroke .3s}.dx-bolt{fill:#b9d2c9}
+.dx-cutting .dx-shaft,.dx-cutting .dx-old .dx-joint,.dx-cutting .dx-diff{stroke:#f08a78}
+.dx-cut path{fill:none;stroke:#ff6b57;stroke-width:6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.dx-gold{fill:#e7b72e;stroke:#fff1bd;stroke-width:2.5}.dx-gold-lt{fill:#f4d977;stroke:#fff1bd;stroke-width:2.5}.dx-gold-in{fill:none;stroke:#7a5d08;stroke-width:3}.dx-fin{stroke:#7a5d08;stroke-width:2.5}.dx-term{fill:#7a5d08}
+.dx-edu,.dx-pack{filter:drop-shadow(0 0 14px rgba(231,183,46,.45))}
+.dx-hv{fill:none;stroke:#ff9d2e;stroke-width:8;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.dx-chip rect{fill:#0e2019;stroke:#7fe0c3;stroke-width:2.5}.dx-chip path{stroke:#7fe0c3;stroke-width:2;fill:none}
+.dx-zone-f{fill:rgba(88,195,214,.12);stroke:#58c3d6;stroke-width:2}.dx-zone-r{fill:rgba(231,183,46,.12);stroke:#e7b72e;stroke-width:2}
+.dx-flow path{fill:none;stroke:#fff;stroke-width:4.5;stroke-linecap:round;stroke-dasharray:9 11}.dx-flow .dx-road{stroke:#f1cc61;stroke-width:3;stroke-dasharray:3 10}
+.dx-live .dx-flow path{animation:dx-flow 1.1s linear infinite}@keyframes dx-flow{to{stroke-dashoffset:-20}}
+.dx-flow text{fill:#f1cc61;font-size:15px;font-weight:800;letter-spacing:.18em;text-anchor:middle}.dx-flow .dx-nolink{fill:#9fb8ae;font-size:14px}
+.dx-shell-body{fill:#22423a;stroke:#cfe0d9;stroke-width:2.5}.dx-shell-line{fill:none;stroke:#3d6258;stroke-width:5;stroke-linecap:round}
+.dx-label text{fill:#e8f1ed;font-size:16px;font-weight:800;letter-spacing:.13em;paint-order:stroke;stroke:#12271f;stroke-width:6px;stroke-linejoin:round}
+.dx-label path{fill:none;stroke:#9fb8ae;stroke-width:1.5}.dx-label circle{fill:#e8f1ed}.dx-l-new text{fill:#f6d874}.dx-l-new circle{fill:#f6d874}
+.dx-badge{position:absolute;right:4%;top:2%;font-family:var(--display);font-size:clamp(3.4rem,9vw,7rem);font-weight:700;line-height:1;color:transparent;-webkit-text-stroke:2px #e7b72e;transform-origin:right top;pointer-events:none}
+.dx-bottom{padding:0 30px 20px}.dx-caps{position:relative;max-width:660px;min-height:136px}
+.dx-cap{position:absolute;inset:0;opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease;pointer-events:none}.dx-cap.on{opacity:1;transform:none}
+.dx-count{font-size:.66rem;font-weight:800;letter-spacing:.16em;color:#8fa89f}
+.dx-cap h4{margin:3px 0 6px;font-family:var(--display);font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:600;line-height:1.15;color:#fff}
+.dx-cap p{margin:0;font-size:.95rem;line-height:1.55;color:#cfdcd6}
+.dx-note{margin:6px 0 0;font-size:.68rem;color:#7f978e}
+@media(max-width:900px){.dx{margin-left:-25px;margin-right:-25px}}
+@media(max-width:620px){.dx{margin-left:-15px;margin-right:-15px}.dx-top{padding:12px 15px 0}.dx-kicker{display:none}.dx-tabs button{padding:5px 8px;font-size:.7rem}.dx-bottom{padding:0 15px 14px}.dx-caps{min-height:190px}.dx-cap p{font-size:.88rem}.dx-canvas{padding:0}}
+@media(prefers-reduced-motion:reduce){.dx-live .dx-flow path{animation:none}.dx-cap{transition:none}}
 </style>
 </head>
 <body>
@@ -334,33 +355,103 @@ const LANES=[
   {k:'biz',name:'Innovation track and MarCom',what:'The product innovation studio work, and the team’s public identity.'}
 ];
 const P_POSITIONS=[['P0','On the engine’s accessory belt'],['P1','On the engine’s crankshaft'],['P2','Between the engine and the transmission'],['P3','On the transmission’s output'],['P4','On the axle the engine does not drive']];
-const P4_STEPS=[
-  ['Start with the stock Cherokee','The car arrives as a hybrid already. Its front powerpack is a 1.6 L engine with an electrically variable transmission, and a mechanical link carries drive back to a differential on the rear axle.'],
-  ['Cut the link between the axles','The driveshaft and the rear mechanical differential come out. The front powerpack is not touched: modifying it is prohibited by the competition rules.'],
-  ['Add an electric rear axle','In their place goes a team-designed electric drive unit (motor, inverter and gearbox in one housing), fed by a team-built battery pack in the rear hatch.'],
-  ['Two systems, one road','The engine drives the front wheels and the motor drives the rear wheels, with no shaft between them. The road is the only thing connecting the two axles, so this layout is also called through-the-road. Software decides how much torque each axle delivers.']
-];
 function pPositionsSVG(){
   const node=(x,y,l,hot)=>`<g class="pp-node${hot?' hot':''}"><circle cx="${x}" cy="${y}" r="${hot?19:15}"/><text x="${x}" y="${y+4.5}">${l}</text></g>`;
   const axle=(x,l)=>`<line class="pp-axle" x1="${x}" y1="38" x2="${x}" y2="132"/><rect class="pp-wheel" x="${x-13}" y="26" width="26" height="13" rx="4"/><rect class="pp-wheel" x="${x-13}" y="131" width="26" height="13" rx="4"/><text class="pp-cap" x="${x}" y="164">${l}</text>`;
   return `<svg class="pp-svg" viewBox="0 0 600 172" role="img" aria-label="Driveline diagram showing motor positions P0 to P4. P4 sits on the rear axle, which has no shaft to the engine."><line class="pp-shaft" x1="110" y1="85" x2="395" y2="85"/><line class="pp-none" x1="412" y1="85" x2="500" y2="85"/><text class="pp-cap" x="456" y="72">no shaft</text><line class="pp-shaft" x1="40" y1="52" x2="40" y2="62"/><rect class="pp-box" x="20" y="60" width="90" height="50" rx="8"/><text class="pp-lbl" x="65" y="90">Engine</text><line class="pp-clutch" x1="165" y1="70" x2="165" y2="100"/><line class="pp-clutch" x1="172" y1="70" x2="172" y2="100"/><rect class="pp-box" x="226" y="60" width="100" height="50" rx="8"/><text class="pp-lbl" x="276" y="90">Transmission</text>${axle(395,'Front axle')}${axle(520,'Rear axle')}${node(40,36,'P0')}${node(137,85,'P1')}${node(199,85,'P2')}${node(352,85,'P3')}${node(520,85,'P4',true)}</svg>`;
 }
-function p4CarSVG(){
-  const wheel=(x,y)=>`<rect class="c-wheel" x="${x}" y="${y}" width="60" height="24" rx="8"/>`;
-  const cut=(x)=>`<path d="M${x-9} 146L${x+9} 164M${x+9} 146L${x-9} 164"/>`;
-  return `<svg class="p4-svg" viewBox="0 0 560 330" role="img" aria-label="Top view of the vehicle. The stock driveshaft and rear differential are removed and replaced with an electric drive unit and a battery pack at the rear, leaving no mechanical connection between the axles.">
-  <rect class="c-body" x="30" y="60" width="500" height="190" rx="62"/>
-  <g class="g-zones"><rect class="z-front" x="40" y="68" width="215" height="174" rx="46"/><rect class="z-rear" x="305" y="68" width="215" height="174" rx="46"/></g>
-  <text class="c-cap" x="130" y="26">FRONT AXLE</text><text class="c-cap" x="420" y="26">REAR AXLE</text>
-  <line class="c-axle" x1="130" y1="62" x2="130" y2="248"/><line class="c-axle" x1="420" y1="62" x2="420" y2="248"/>
-  ${wheel(100,40)}${wheel(100,246)}${wheel(390,40)}${wheel(390,246)}
-  <rect class="c-stock" x="84" y="108" width="96" height="94" rx="10"/><text class="c-lbl" x="132" y="151">Engine</text><text class="c-lbl" x="132" y="169">+ eVT</text>
-  <g class="g-old"><line class="c-shaft" x1="180" y1="155" x2="400" y2="155"/><circle class="c-diff" cx="420" cy="155" r="21"/><text class="c-note" x="290" y="140">Driveshaft</text><text class="c-note" x="345" y="187">Rear differential</text></g>
-  <g class="g-cut">${cut(238)}${cut(342)}</g>
-  <g class="g-new"><path class="c-hv" d="M472 155H452"/><rect class="c-edu" x="386" y="118" width="68" height="74" rx="10"/><text class="c-lbl" x="420" y="151">Electric</text><text class="c-lbl" x="420" y="168">drive unit</text><rect class="c-pack" x="472" y="104" width="44" height="102" rx="8"/><text class="c-lbl" x="494" y="160" transform="rotate(-90 494 155)">Battery pack</text></g>
-  <g class="g-zones"><text class="c-zone" x="132" y="93">Engine drives the front</text><text class="c-zone" x="420" y="93">Motor drives the rear</text><text class="c-note" x="280" y="159" transform="rotate(-90 280 155)">no shaft</text>
-    <line class="c-road" x1="40" y1="298" x2="520" y2="298"/><path class="c-arrow" d="M130 273V292M124 286l6 7 6-7M420 273V292M414 286l6 7 6-7"/><text class="c-zone" x="280" y="320">The road is the only connection</text></g>
-  </svg>`;
+const DX_PHASES=[
+  {at:0,   tab:'Underneath',title:'Look underneath',text:'This is the Jeep Cherokee seen from below, with the front of the vehicle on the left. Keep scrolling to take it apart.'},
+  {at:.14, tab:'Stock',     title:'The stock driveline',text:'A 1.6 L engine and an electrically variable transmission sit across the front. A driveshaft runs down the middle to a differential on the rear axle, so one powerpack can turn all four wheels.'},
+  {at:.36, tab:'Cut',       title:'Cut the link',text:'The driveshaft and the rear mechanical differential come out. The front powerpack is not modified: the competition rules prohibit it.'},
+  {at:.62, tab:'Build',     title:'Build the electric rear',text:'A team-designed electric drive unit (motor, inverter and gearbox in one housing) takes the differential’s place. A team-built battery pack sits in the rear hatch zone, and propulsion and battery controls run on separate controllers.'},
+  {at:.84, tab:'P4',        title:'P4: two systems, one road',text:'The engine drives the front wheels and the motor drives the rear. Nothing mechanical joins the two axles, so they are coupled only through the road. Software decides how much torque each one delivers.'}
+];
+function dissectSVG(){
+  const tire=(x,y)=>`<g class="dx-tire"><rect x="${x}" y="${y}" width="120" height="46" rx="14"/>${[18,36,54,72,90,108].map(d=>`<line x1="${x+d}" y1="${y+5}" x2="${x+d-8}" y2="${y+41}"/>`).join('')}</g>`;
+  const label=(cls,x,y,text,x2,y2,anchor='middle',lx=x)=>`<g class="dx-label ${cls}"><path d="M${lx} ${y+(y<y2?8:-22)}L${x2} ${y2}"/><circle cx="${x2}" cy="${y2}" r="4"/><text x="${x}" y="${y}" text-anchor="${anchor}">${text}</text></g>`;
+  const outline='M96 150Q98 104 158 100L812 96Q928 102 940 172L940 348Q928 418 812 424L158 420Q98 416 96 370Z';
+  return `<svg class="dx-svg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Underside of the vehicle. As the page scrolls, the driveshaft and rear differential break away and an electric drive unit and battery pack are installed at the rear, leaving no mechanical link between the axles.">
+  <g class="dx-cam">
+    <g class="dx-under">
+      <path class="dx-perim" d="${outline}"/>
+      <rect class="dx-rail" x="132" y="176" width="760" height="12" rx="6"/><rect class="dx-rail" x="132" y="332" width="760" height="12" rx="6"/>
+      ${[352,470,588].map(x=>`<rect class="dx-rail" x="${x}" y="176" width="10" height="168" rx="5"/>`).join('')}
+      <rect class="dx-cradle" x="150" y="146" width="204" height="228" rx="28"/><rect class="dx-cradle" x="676" y="158" width="172" height="204" rx="26"/>
+      <rect class="dx-hatch" x="836" y="176" width="92" height="168" rx="12"/>
+      <line class="dx-half" x1="230" y1="124" x2="230" y2="396"/><line class="dx-half" x1="760" y1="124" x2="760" y2="396"/>
+      ${tire(170,78)}${tire(170,396)}${tire(700,78)}${tire(700,396)}
+      <g class="dx-stock"><rect x="172" y="166" width="116" height="106" rx="12"/>${[196,220,244,268].map(x=>`<circle cx="${x}" cy="200" r="9"/>`).join('')}<circle cx="262" cy="246" r="13"/><rect x="180" y="278" width="100" height="72" rx="16"/><circle cx="230" cy="314" r="21"/><circle cx="230" cy="314" r="8"/></g>
+    </g>
+    <g class="dx-old dx-old-a"><path class="dx-shaft" d="M282 314L326 288Q344 262 372 260L530 260"/><rect class="dx-joint" x="318" y="276" width="18" height="18" rx="5" transform="rotate(-32 327 285)"/><rect class="dx-joint" x="520" y="246" width="20" height="28" rx="6"/></g>
+    <g class="dx-old dx-old-b"><path class="dx-shaft" d="M540 260L708 260"/><rect class="dx-joint" x="690" y="250" width="18" height="20" rx="5"/></g>
+    <g class="dx-old dx-old-c"><rect class="dx-joint" x="708" y="246" width="24" height="28" rx="6"/><ellipse class="dx-diff" cx="760" cy="260" rx="38" ry="34"/><circle class="dx-diff" cx="760" cy="260" r="19"/>${[0,60,120,180,240,300].map(a=>`<circle class="dx-bolt" cx="${760+28*Math.cos(a*Math.PI/180)}" cy="${260+28*Math.sin(a*Math.PI/180)}" r="2.6"/>`).join('')}</g>
+    <g class="dx-cut"><path pathLength="1" d="M352 226L352 296"/><path pathLength="1" d="M700 226L700 296"/></g>
+    <g class="dx-final dx-zones"><rect class="dx-zone-f" x="122" y="128" width="262" height="264" rx="44"/><rect class="dx-zone-r" x="658" y="128" width="286" height="264" rx="44"/></g>
+    <g class="dx-new dx-edu"><rect class="dx-gold" x="714" y="194" width="92" height="36" rx="18"/><line class="dx-fin" x1="732" y1="196" x2="732" y2="228"/><line class="dx-fin" x1="788" y1="196" x2="788" y2="228"/><rect class="dx-gold" x="722" y="226" width="76" height="68" rx="14"/><circle class="dx-gold-in" cx="760" cy="260" r="20"/><circle class="dx-gold-in" cx="760" cy="260" r="7"/><rect class="dx-gold-lt" x="728" y="292" width="64" height="28" rx="6"/>${[740,750,760,770,780].map(x=>`<line class="dx-fin" x1="${x}" y1="297" x2="${x}" y2="315"/>`).join('')}</g>
+    <g class="dx-new dx-pack"><rect class="dx-gold-lt" x="840" y="182" width="84" height="156" rx="10"/>${[221,260,299].map(y=>`<line class="dx-fin" x1="846" y1="${y}" x2="918" y2="${y}"/>`).join('')}${[201,240,279,318].map(y=>`<circle class="dx-term" cx="856" cy="${y}" r="3.5"/><circle class="dx-term" cx="908" cy="${y}" r="3.5"/>`).join('')}</g>
+    <path class="dx-hv" pathLength="1" d="M840 306C822 306 814 306 792 306"/>
+    <g class="dx-new dx-chip dx-chip-a"><rect x="810" y="208" width="22" height="22" rx="5"/><path d="M815 204v4M821 204v4M827 204v4M815 230v4M821 230v4M827 230v4"/></g>
+    <g class="dx-new dx-chip dx-chip-b"><rect x="870" y="150" width="24" height="24" rx="5"/><path d="M875 146v4M882 146v4M889 146v4M875 174v4M882 174v4M889 174v4"/></g>
+    <g class="dx-final dx-flow"><path d="M230 204V132M230 318V388M760 228V132M760 292V388"/><path class="dx-road" d="M230 60H760M230 462H760"/><text x="495" y="50">COUPLED ONLY THROUGH THE ROAD</text><text class="dx-nolink" x="520" y="266">NO MECHANICAL LINK</text></g>
+    <g class="dx-shell"><path class="dx-shell-body" d="${outline}"/><path class="dx-shell-line" d="M300 190H850M300 225H850M300 260H850M300 295H850M300 330H850M150 128Q230 190 310 128M150 392Q230 330 310 392M680 126Q760 188 840 126M680 394Q760 332 840 394"/></g>
+    ${label('dx-l-stock',150,46,'ENGINE · 1.6 L',214,166)}${label('dx-l-stock',170,494,'eVT TRANSMISSION',222,350)}
+    ${label('dx-l-old',450,206,'DRIVESHAFT',450,254)}${label('dx-l-old',628,338,'REAR DIFFERENTIAL',740,290)}
+    ${label('dx-l-new',706,374,'DRIVE UNIT',736,322,'end',690)}${label('dx-l-new',884,376,'BATTERY PACK',884,340)}
+  </g></svg>`;
+}
+function dissectSection(){
+  const caps=DX_PHASES.map((ph,i)=>`<div class="dx-cap" data-cap="${i}"><span class="dx-count">${i+1} / ${DX_PHASES.length}</span><h4>${esc(ph.title)}</h4><p>${esc(ph.text)}</p></div>`).join('');
+  const tabs=DX_PHASES.map((ph,i)=>`<button type="button" data-dx-go="${i}">${esc(ph.tab)}</button>`).join('');
+  return `<section class="dx" id="start-dissect" aria-label="Scroll-driven conversion from stock Cherokee to P4"><div class="dx-stage">
+    <div class="dx-top"><span class="dx-kicker">The conversion · scroll to take it apart</span><div class="dx-tabs">${tabs}<i class="dx-bar"><b></b></i></div></div>
+    <div class="dx-canvas">${dissectSVG()}<div class="dx-badge">P4</div></div>
+    <div class="dx-bottom"><div class="dx-caps">${caps}</div><p class="dx-note">Simplified illustration, not to scale. Part names follow the competition's program constraints [confirm the exact removal list against the delivered vehicle].</p></div>
+  </div></section>`;
+}
+// Scroll position inside the section drives every part of the drawing.
+function dissectUpdate(){
+  const sec=$('#start-dissect');if(!sec||!sec.offsetParent)return;
+  const stage=sec.querySelector('.dx-stage'),top=parseFloat(getComputedStyle(stage).top)||0,r=sec.getBoundingClientRect();
+  const p=Math.max(0,Math.min(1,(top-r.top)/Math.max(1,r.height-stage.offsetHeight)));
+  const seg=(a,b)=>{const x=Math.max(0,Math.min(1,(p-a)/(b-a)));return x*x*(3-2*x)};
+  const q=s=>sec.querySelector(s),all=s=>[...sec.querySelectorAll(s)],set=(el,o,t)=>{if(!el)return;if(o!=null)el.style.opacity=o;if(t!=null)el.style.transform=t};
+  // camera: whole car, then the middle of the driveline, then the rear axle, then back out
+  const narrow=window.innerWidth<700,z=narrow?1.55:1,views=[[500,260,1],[545,262,1.45*z],[narrow?772:790,260,1.75*z]];
+  const mix=(a,b,t)=>a.map((v,i)=>v+(b[i]-v)*t);
+  let cam=views[0];
+  if(p>=.34&&p<.60)cam=mix(views[0],views[1],seg(.34,.44));else if(p>=.60&&p<.82)cam=mix(views[1],views[2],seg(.60,.68));else if(p>=.82)cam=mix(views[2],views[0],seg(.82,.92));
+  set(q('.dx-cam'),null,`translate(${500-cam[0]*cam[2]}px,${260-cam[1]*cam[2]}px) scale(${cam[2]})`);
+  // body shell lifts away
+  const lift=seg(.02,.14);set(q('.dx-shell'),1-lift,`scale(${1+.06*lift})`);set(q('.dx-under'),.3+.7*lift);
+  all('.dx-old').forEach(el=>el.style.opacity=(.3+.7*lift)*(1-seg(.52,.62)));
+  // stock labels, then the cut, then the pieces break away
+  all('.dx-l-stock').forEach(el=>set(el,seg(.16,.24)*(1-seg(.34,.40))+seg(.92,.98)));
+  all('.dx-l-old').forEach(el=>set(el,seg(.18,.26)*(1-seg(.44,.50))));
+  sec.classList.toggle('dx-cutting',p>.36);
+  all('.dx-cut path').forEach(el=>{el.style.strokeDashoffset=1-seg(.36,.44);el.style.opacity=1-seg(.50,.58)});
+  const fall=seg(.44,.62);
+  q('.dx-old-a').style.transform=`translate(${-46*fall}px,${150*fall}px) rotate(${-16*fall}deg)`;
+  q('.dx-old-b').style.transform=`translate(${10*fall}px,${190*fall}px) rotate(${12*fall}deg)`;
+  q('.dx-old-c').style.transform=`translate(${70*fall}px,${170*fall}px) rotate(${34*fall}deg)`;
+  // new hardware arrives
+  const edu=seg(.62,.72),pack=seg(.66,.76),chip=seg(.76,.82);
+  set(q('.dx-edu'),edu,`translate(0,${-200*(1-edu)}px)`);set(q('.dx-pack'),pack,`translate(${190*(1-pack)}px,0)`);
+  q('.dx-hv').style.strokeDashoffset=1-seg(.74,.80);
+  all('.dx-chip').forEach(el=>set(el,chip,`scale(${.4+.6*chip})`));
+  all('.dx-l-new').forEach(el=>set(el,seg(.72,.80)));
+  // the finished P4
+  set(q('.dx-zones'),seg(.86,.94));set(q('.dx-flow'),seg(.90,.98));set(sec.querySelector('.dx-badge'),seg(.90,.98),`scale(${.7+.3*seg(.90,.98)})`);
+  sec.classList.toggle('dx-live',p>.9);
+  // captions and progress
+  let phase=0;DX_PHASES.forEach((ph,i)=>{if(p>=ph.at)phase=i});
+  all('.dx-cap').forEach((el,i)=>el.classList.toggle('on',i===phase));all('[data-dx-go]').forEach((el,i)=>el.classList.toggle('on',i===phase));
+  sec.querySelector('.dx-bar b').style.width=(p*100)+'%';
+}
+function dissectGo(i){
+  const sec=$('#start-dissect'),stage=sec.querySelector('.dx-stage'),top=parseFloat(getComputedStyle(stage).top)||0,range=sec.offsetHeight-stage.offsetHeight;
+  const mid=i+1<DX_PHASES.length?(DX_PHASES[i].at+DX_PHASES[i+1].at)/2:.97;
+  window.scrollTo({top:sec.getBoundingClientRect().top+window.scrollY-top+range*(i===0?0:mid),behavior:'smooth'});
 }
 function laneSystem(){
   const cards=LANES.map((l,i)=>{
@@ -402,16 +493,13 @@ function openStarter(id){
 function renderStart(){
   const A=DATA.constraints.architecture,openCount=DATA.starter_tasks.filter(t=>t.status==='Open').length;
   const pp=P_POSITIONS.map(([k,v])=>`<li class="${k==='P4'?'hot':''}"><b>${k}</b><span>${esc(v)}${k==='P4'?' (this is ours)':''}</span></li>`).join('');
-  const steps=P4_STEPS.map(([h,p],i)=>`<article class="p4-step" data-step="${i+1}"><span class="p4-num">Step ${i+1} of ${P4_STEPS.length}</span><h4>${esc(h)}</h4><p>${esc(p)}</p></article>`).join('');
-  const dots=P4_STEPS.map(([h],i)=>`<button type="button" data-p4-go="${i+1}" aria-label="Step ${i+1}: ${esc(h)}">${i+1}</button>`).join('');
   $('#page-start').innerHTML=`
   <section class="start-intro"><div><span class="section-kicker">New here? Start on this page</span><h2>We are turning a hybrid Jeep Cherokee into a P4.</h2><p>Scroll down to see what that means, who leads each part of the work, and which piece you can take ownership of this week.</p></div>
-    <div class="start-jumps"><button type="button" data-jump="start-p4"><b>1</b><span>Understand the car<small>What P4 means, in four steps</small></span></button><button type="button" data-jump="start-team"><b>2</b><span>Meet the leads<small>Who owns what</small></span></button><button type="button" data-jump="start-tasks"><b>3</b><span>Claim a task<small>${openCount} open right now</small></span></button></div></section>
+    <div class="start-jumps"><button type="button" data-jump="start-p4"><b>1</b><span>Understand the car<small>What P4 means, and how the car comes apart</small></span></button><button type="button" data-jump="start-team"><b>2</b><span>Meet the leads<small>Who owns what</small></span></button><button type="button" data-jump="start-tasks"><b>3</b><span>Claim a task<small>${openCount} open right now</small></span></button></div></section>
   <section class="start-section" id="start-p4"><div class="start-head reveal"><span class="section-kicker">The idea</span><h3>What does P4 mean?</h3><p>Hybrid layouts are named by where the electric motor sits along the driveline. The P stands for position, and the number counts outward from the engine.</p></div>
     <div class="pp-wrap reveal">${pPositionsSVG()}<ul class="pp-list">${pp}</ul></div></section>
-  <section class="start-section"><div class="start-head reveal"><span class="section-kicker">The conversion</span><h3>From stock Cherokee to P4, in four steps</h3><p>Keep scrolling: the drawing changes as each step comes into view.</p></div>
-    <div class="p4-story"><figure class="p4-fig" data-step="1">${p4CarSVG()}<figcaption><span class="p4-dots">${dots}</span><span class="subtle">Simplified top view, front of the vehicle on the left. Part names follow the competition's program constraints [confirm the exact removal list against the delivered vehicle].</span></figcaption></figure><div class="p4-steps">${steps}</div></div>
-    <div class="callout reveal"><strong>Why it matters for your work.</strong>${esc(A.summary)}</div></section>
+  ${dissectSection()}
+  <section class="start-section" style="margin-top:26px"><div class="callout reveal"><strong>Why it matters for your work.</strong>${esc(A.summary)}</div></section>
   ${laneSystem()}
   <section class="start-section"><div class="start-head reveal"><span class="section-kicker">The limits</span><h3>The numbers every design has to respect</h3><p>These come from the competition's controlled documents. A design that breaks one cannot be submitted.</p></div><div class="reveal">${requirementBand()}</div></section>
   <section class="start-section" id="start-team"><div class="reveal">${orgChart()}</div></section>
@@ -420,11 +508,10 @@ function renderStart(){
 }
 // Scroll behaviour for the Start page: reveal sections, and step the P4 drawing.
 function initScroll(){
-  const fig=$('.p4-fig');if(!fig)return;
-  const setStep=n=>{fig.dataset.step=n;$$('[data-p4-go]').forEach(b=>b.classList.toggle('active',b.dataset.p4Go===String(n)));$$('.p4-step').forEach(s=>s.classList.toggle('active',s.dataset.step===String(n)))};
-  setStep(1);
+  let ticking=false;const onScroll=()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;dissectUpdate()})};
+  window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);dissectUpdate();
   document.addEventListener('click',e=>{
-    const go=e.target.closest('[data-p4-go]');if(go){const el=$(`.p4-step[data-step="${go.dataset.p4Go}"]`);setStep(go.dataset.p4Go);el.scrollIntoView({behavior:'smooth',block:'center'})}
+    const go=e.target.closest('[data-dx-go]');if(go)dissectGo(+go.dataset.dxGo);
     const jump=e.target.closest('[data-jump]');if(jump){const el=document.getElementById(jump.dataset.jump);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-70,behavior:'smooth'})}
     const lane=e.target.closest('[data-lane-jump]');if(lane){drawStarters(lane.dataset.laneJump);const el=$('#start-tasks');window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-70,behavior:'smooth'})}
     const chip=e.target.closest('[data-starter-lane]');if(chip)drawStarters(chip.dataset.starterLane);
@@ -435,8 +522,6 @@ function initScroll(){
   document.documentElement.classList.add('can-reveal');
   const reveal=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');reveal.unobserve(en.target)}}),{threshold:.12});
   $$('.reveal').forEach(el=>reveal.observe(el));
-  const stepper=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)setStep(en.target.dataset.step)}),{rootMargin:'-45% 0px -45% 0px'});
-  $$('.p4-step').forEach(el=>stepper.observe(el));
 }
 
 /* ---------- Risk register ---------- */
@@ -601,7 +686,7 @@ function renderUpdate(){
   $('#page-update').innerHTML=heading('Maintain the system in under ten minutes','The repository is the version-controlled baseline. Planner can hold daily checklists; Box or Teams holds controlled requirements and submissions.')+`<div class="grid-2"><div><div class="panel"><h3>Normal weekly update</h3><div class="update-steps"><div class="update-step"><h3>Pull the latest repository</h3><p>In GitHub Desktop, click Fetch origin, then Pull origin if offered.</p></div><div class="update-step"><h3>Edit the smallest source file</h3><p>Use <code>data/task_status.csv</code> for status; <code>schedule.csv</code> for dates and owners; <code>deliverables.json</code> only when official requirements change.</p></div><div class="update-step"><h3>Build and validate</h3><p>From Repository → Open in Command Prompt, run the build. It stops on unknown owners, bad dates, mismatched deadlines, and unsafe public files.</p><div class="code">python build.py</div></div><div class="update-step"><h3>Preview the site</h3><p>Open <code>docs/index.html</code>. Check Now, the changed card, the owner filter, and the mobile layout.</p></div><div class="update-step"><h3>Commit and push</h3><p>Use a specific summary such as “Update PCM tool-check owner and status.” Push origin and wait about a minute for Pages.</p></div></div></div><div class="panel"><h3>Controlled-system links to add</h3><p class="panel-note">Add approved URLs in <code>data/links.json</code>. Never add local file paths or public links to sensitive material.</p><div class="link-list">${linkCards}</div></div></div><div><div class="panel"><h3>Which file do I edit?</h3><div class="table-wrap"><table class="compact"><thead><tr><th>Change</th><th>File</th></tr></thead><tbody><tr><td>Status, health, percent, next action</td><td><code>data/task_status.csv</code></td></tr><tr><td>Task date, label, accountable owner</td><td><code>data/schedule.csv</code></td></tr><tr><td>Official artifacts and completion checklist</td><td><code>data/deliverables.json</code></td></tr><tr><td>Names and team roles</td><td><code>data/people.csv</code> and <code>data/roles.csv</code></td></tr><tr><td>First-win choices</td><td><code>data/onboarding.csv</code></td></tr><tr><td>Public-safe risks and decisions</td><td><code>data/risks.csv</code> and <code>data/decisions.csv</code></td></tr></tbody></table></div></div><div class="panel"><h3>Weekly operating cadence</h3><ul class="checklist"><li><strong>Before meeting:</strong> owners update only exceptions and next actions.</li><li><strong>Leadership review, 30 min:</strong> due-soon, Yellow/Red, decisions, role gaps, capacity.</li><li><strong>Work sessions:</strong> solve the technical problem with the needed people only.</li><li><strong>Friday onboarding:</strong> first wins, tool access, show-and-tell.</li><li><strong>Within 24 hours:</strong> record decisions, date changes, and owners.</li></ul></div><div class="panel"><h3>Change-control rule</h3><p>When a new revision or scorecard arrives, log the revision, compare it with the current card, identify affected tasks, obtain lead approval, update the baseline, rebuild, and commit with the source revision in the message.</p></div></div></div>`;
 }
 
-function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('active',p.id===`page-${name}`));requestAnimationFrame(drawOrgLines);$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(push)history.replaceState(null,'',`#${name}`);window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'})}
+function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('active',p.id===`page-${name}`));requestAnimationFrame(drawOrgLines);requestAnimationFrame(dissectUpdate);$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(push)history.replaceState(null,'',`#${name}`);window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'})}
 
 $('#baseline').textContent=`Baseline ${fmt(DATA.site.baseline_date)}`;$('#official').textContent=`Official schedule ${fmt(DATA.site.official_schedule_as_of)}`;$('#privacy').textContent=DATA.site.privacy_notice;
 renderStart();renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
