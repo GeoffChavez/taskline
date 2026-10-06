@@ -297,6 +297,38 @@ def validate(bundle):
                 f"{person_name(people, owner)} holds {role.get('role')} but files no lead_status.csv check-in"
             )
 
+    org = bundle["org_chart"]
+    tier_ids = {tier.get("id") for tier in org.get("tiers", [])}
+    seat_ids = set()
+    if not org.get("seats"):
+        problems.append("org_chart.json: at least one seat is required")
+    for index, seat in enumerate(org.get("seats", []), start=1):
+        where = f"org_chart.json seat {index} ({seat.get('title', '?')})"
+        seat_id = seat.get("id", "")
+        if not seat_id:
+            problems.append(f"{where}: missing id")
+        elif seat_id in seat_ids:
+            problems.append(f"{where}: duplicate id '{seat_id}'")
+        seat_ids.add(seat_id)
+        if seat.get("tier") not in tier_ids:
+            problems.append(f"{where}: unknown tier '{seat.get('tier')}'")
+        if not seat.get("title") or not seat.get("name"):
+            problems.append(f"{where}: title and name are required")
+        key = (seat.get("key") or "").strip()
+        if key and key not in person_keys:
+            problems.append(f"{where}: unknown people key '{key}'")
+        if not seat.get("responsibilities"):
+            problems.append(f"{where}: at least one responsibility is required")
+        photo = (seat.get("photo") or "").strip()
+        if photo and not (ROOT / "docs" / photo).is_file():
+            problems.append(f"{where}: photo 'docs/{photo}' does not exist")
+        if any("[confirm" in line for line in seat.get("responsibilities", [])):
+            warnings.append(f"Org chart: {seat.get('title')} still carries a [confirm ...] placeholder")
+    for seat in org.get("seats", []):
+        parent = (seat.get("reports_to") or "").strip()
+        if parent and parent not in seat_ids:
+            problems.append(f"org_chart.json seat '{seat.get('id')}': reports_to '{parent}' is not a seat id")
+
     for path in (ROOT / "docs").rglob("*"):
         if path.is_file() and path.suffix.lower() in SENSITIVE_EXTENSIONS:
             problems.append(f"docs/{path.relative_to(ROOT / 'docs')}: source/submission files cannot be published")
@@ -334,6 +366,7 @@ def load_bundle():
         "links": read_json("links.json"),
         "constraints": read_json("constraints.json"),
         "lead_status": read_csv("lead_status.csv"),
+        "org_chart": read_json("org_chart.json"),
     }
 
 
@@ -443,6 +476,7 @@ def build_payload(bundle):
         "links": bundle["links"],
         "constraints": bundle["constraints"],
         "lead_status": bundle["lead_status"],
+        "org_chart": bundle["org_chart"],
         "task_counts": dict(task_counts),
     }
 
@@ -467,7 +501,8 @@ def main():
             f"Validation passed: {len(bundle['tasks'])} tasks, "
             f"{len(bundle['deliverables'])} deliverables, {len(bundle['roles'])} roles, "
             f"{len(bundle['onboarding_guides'])} tool guides, {len(bundle['projects'])} projects, "
-            f"{len(bundle['constraints']['groups'])} constraint groups, {len(bundle['lead_status'])} lead check-ins."
+            f"{len(bundle['constraints']['groups'])} constraint groups, {len(bundle['lead_status'])} lead check-ins, "
+            f"{len(bundle['org_chart']['seats'])} org chart seats."
         )
         return
 

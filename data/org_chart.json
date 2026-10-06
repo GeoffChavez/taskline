@@ -1,0 +1,184 @@
+{
+  "as_of": "2026-10-05",
+  "source": "Student Leadership Team Organization Chart slide, plus the team baseline in this repository",
+  "note": "Responsibilities describe the standing job of each seat. Deliverables, check-ins and formal roles on each card are pulled live from the other data files.",
+  "tiers": [
+    {"id": "leadership", "label": "Leadership"},
+    {"id": "technical", "label": "Technical teams"}
+  ],
+  "seats": [
+    {
+      "id": "pm",
+      "tier": "leadership",
+      "title": "Project Management",
+      "name": "Geoffrey Chavez",
+      "key": "geo",
+      "lane": "pgm",
+      "summary": "Owns the integrated view of the program and the cadence the team runs on.",
+      "responsibilities": [
+        "Owns the integrated view of the program and the operating cadence",
+        "Runs the Friday general meeting and the lead check-in round",
+        "Keeps this execution hub current: owners, dates and decisions recorded within 24 hours of a change",
+        "Re-baselines the plan within two business days of every new official revision",
+        "Takes over any blocker that sits in the lead check-in for two consecutive weeks",
+        "Own technical scope this semester: embedded systems, sensor to decision to output on a microcontroller"
+      ]
+    },
+    {
+      "id": "apm",
+      "tier": "leadership",
+      "title": "Associate Project Manager",
+      "name": "Henry Hall",
+      "key": "",
+      "lane": "pgm",
+      "confirm": true,
+      "summary": "Responsibilities not yet written into the team baseline.",
+      "responsibilities": [
+        "[confirm responsibilities - this seat is on the organization chart but is not yet described in the team baseline]"
+      ]
+    },
+    {
+      "id": "vehicle-lead",
+      "tier": "leadership",
+      "title": "Vehicle Track Technical Lead",
+      "name": "Anthony Whitehurst",
+      "key": "ant",
+      "lane": "vse",
+      "summary": "Leads Vehicle Systems Engineering and oversees every Stellantis-track technical deliverable.",
+      "responsibilities": [
+        "Leads Vehicle Systems Engineering and owns integrated vehicle engineering",
+        "Oversees all Stellantis-track technical deliverables; the four technical team leads report into this seat",
+        "Reads the Vehicle Design Rules end to end and keeps the one-page summary of what binds the team",
+        "Reviews the cross-team mass budget",
+        "Team customer for the rear eAxle packaging Senior Design project",
+        "Owns two strategic drivers: make engineering decisions traceable, and build capability while delivering"
+      ]
+    },
+    {
+      "id": "pit-lead",
+      "tier": "leadership",
+      "title": "AI & Innovation Track Product Development",
+      "name": "Ayaan Gulwani",
+      "key": "aya",
+      "lane": "biz",
+      "summary": "Leads the Product Innovation Track: value chain, wedges, customer interviews and the studio reviews.",
+      "responsibilities": [
+        "Leads the Product Innovation Track workstream",
+        "Owns the value chain, the wedge hypotheses and the customer interviews",
+        "Reports which Product Innovation Track items are scored and what format each review takes",
+        "Builds the evidence-based customer and business portfolio the studio reviews are judged on"
+      ]
+    },
+    {
+      "id": "ec",
+      "tier": "leadership",
+      "title": "Entrepreneurship & Commercialization",
+      "name": "TBD",
+      "key": "",
+      "lane": "biz",
+      "open": true,
+      "summary": "Open seat.",
+      "responsibilities": [
+        "[confirm scope once the seat is filled]"
+      ]
+    },
+    {
+      "id": "marcom",
+      "tier": "leadership",
+      "title": "MarCom Manager",
+      "name": "Krupskaia Molina",
+      "key": "mar",
+      "lane": "biz",
+      "summary": "Owns the team's graded communications work: identity gates, blogs, videos and the team webpage.",
+      "responsibilities": [
+        "Owns the team's graded marketing and communications deliverables",
+        "Carries the team identity through the four MarCom gates: program identity, visual identity, brand assets and external promotion strategy",
+        "Keeps the LinkedIn analytics log and the outreach log",
+        "Organizes team photos, video and headshots for the team webpage"
+      ]
+    },
+    {
+      "id": "pcm",
+      "tier": "technical",
+      "title": "Powertrain Simulation and Control",
+      "name": "Rony Herrera",
+      "key": "ron",
+      "lane": "pcm",
+      "reports_to": "vehicle-lead",
+      "summary": "Leads Propulsion Controls and Modeling: the toolchain, the virtual vehicle and the onboarding guide.",
+      "responsibilities": [
+        "Leads Propulsion Controls and Modeling; owns the toolchain and the vehicle simulation",
+        "Runs the MATLAB and Simulink cohort and writes the onboarding guide new members follow",
+        "Checks the hardware plan against the rule that propulsion controls and battery controls sit on separate dedicated controllers",
+        "Team customer for the powertrain simulation and supervisory control Senior Design project"
+      ]
+    },
+    {
+      "id": "instrumentation",
+      "tier": "technical",
+      "title": "Instrumentation / CAN Communication",
+      "name": "Mingpeng Chen",
+      "key": "min",
+      "lane": "vhi",
+      "reports_to": "vehicle-lead",
+      "summary": "Owns instrumentation and CAN, and the measurement plan behind simulation and baseline testing.",
+      "responsibilities": [
+        "Owns vehicle instrumentation and CAN communication",
+        "Writes the measurement plan behind the December simulation and the spring baseline test campaign: signal list and test matrix",
+        "Owns the instrumentation and harness rows of the mass budget",
+        "Team customer for the instrumentation, CAN and data acquisition Senior Design project"
+      ]
+    },
+    {
+      "id": "rear-axle",
+      "tier": "technical",
+      "title": "Rear Axle Design",
+      "name": "Francisco Calva",
+      "key": "fra",
+      "lane": "vhi",
+      "reports_to": "vehicle-lead",
+      "summary": "CAD Custodian and owner of rear eAxle benchmarking and packaging.",
+      "responsibilities": [
+        "CAD Custodian: owns the controlled NX and Teamcenter workflow and the eight-step workflow diagram",
+        "Owns the rear eAxle benchmark and packaging",
+        "Owns the rear drivetrain rows of the mass budget",
+        "Runs the NX track in the Friday workshops",
+        "Chases the university IT ticket for Teamcenter and the NX licence",
+        "Owns one strategic driver: preserve configuration and institutional memory"
+      ]
+    },
+    {
+      "id": "hv-battery",
+      "tier": "technical",
+      "title": "HV Battery Pack Design",
+      "name": "David Escobar",
+      "key": "dav",
+      "lane": "hvb",
+      "reports_to": "vehicle-lead",
+      "summary": "Leads the High Voltage Battery lane: pack targets, cell and module modelling, and HV work readiness.",
+      "responsibilities": [
+        "Leads the High Voltage Battery lane",
+        "Runs the pack configuration sweep and the per-cell C-rate check",
+        "Models cells and modules in NX",
+        "Owns the high-voltage work permit and the Battery Build Book",
+        "Owns the pack and enclosure rows of the mass budget",
+        "Team customer for the pack enclosure, battery disconnect unit and pack thermal Senior Design projects"
+      ]
+    },
+    {
+      "id": "innovation-pd",
+      "tier": "technical",
+      "title": "Innovation Product Development",
+      "name": "Omar Escobedo",
+      "key": "",
+      "lane": "biz",
+      "reports_to": "pit-lead",
+      "confirm": true,
+      "summary": "Contributes to the Product Innovation Track.",
+      "responsibilities": [
+        "Contributes to the Product Innovation Track",
+        "[confirm specific responsibilities - not yet written into the team baseline]"
+      ]
+    }
+  ]
+}

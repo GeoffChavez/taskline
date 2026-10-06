@@ -42,6 +42,7 @@ GitHub Pages updates after the pushed commit is processed.
 | Official artifact summary and definition of done | `data/deliverables.json` |
 | People | `data/people.csv` |
 | Required and delivery-critical roles | `data/roles.csv` |
+| Leadership organization chart: seats, names, and standing responsibilities | `data/org_chart.json` |
 | Strategic drivers | `data/strategic_drivers.csv` |
 | New-member first wins | `data/onboarding.csv` |
 | Step-by-step instructions for each first win | `data/onboarding_details.json` |
