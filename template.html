@@ -112,26 +112,30 @@ dialog{border-radius:20px;box-shadow:0 30px 90px #0c1d1866}.modal-head{backgroun
 @media(max-width:620px){.reqgrid{grid-template-columns:1fr}.reqtile{border-right:0!important;border-bottom:1px solid var(--line)!important}.reqtile:last-child{border-bottom:0!important}}
 
 /* Leadership organization chart (data/org_chart.json) */
-.org-tier{margin-top:6px}.org-tier+.org-tier{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);position:relative}
-.org-tier+.org-tier::before{content:"";position:absolute;top:-1px;left:50%;width:1px;height:22px;background:var(--line);transform:translateY(-100%)}
-.org-tier-label{display:block;margin-bottom:10px;color:#80671f;font-size:.65rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.org-chart{position:relative}.org-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.org-lines path{fill:none;stroke:#8fa099;stroke-width:1.5}
+.org-tier{position:relative}.org-tier+.org-tier{margin-top:30px}
+.org-tier-label{display:inline-block;position:relative;margin-bottom:22px;padding-right:8px;color:#80671f;font-size:.65rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.org-tier:first-of-type .org-tier-label{margin-bottom:10px}
 .org-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px}
-.org-card{display:flex;flex-direction:column;align-items:flex-start;gap:7px;text-align:left;width:100%;min-height:100%;padding:15px 14px 13px;background:var(--card);border:1px solid rgba(53,72,67,.16);border-top:4px solid var(--seat,var(--green));border-radius:13px;color:var(--ink);cursor:pointer;transition:transform .15s,box-shadow .15s}
+.org-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;width:100%;min-height:100%;padding:9px 9px 12px;background:var(--card);border:1px solid rgba(53,72,67,.2);border-bottom:4px solid var(--seat,var(--green));border-radius:12px;color:var(--ink);cursor:pointer;transition:transform .15s,box-shadow .15s}
 .org-card:hover,.org-card:focus-visible{transform:translateY(-2px);box-shadow:var(--shadow);outline:2px solid var(--seat,var(--green));outline-offset:1px}
-.org-card.open{background:transparent;border-style:dashed;border-top-style:solid}
-.org-photo{width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--seat,var(--green));color:#fff;display:grid;place-items:center;font-weight:700;font-size:1rem;letter-spacing:.02em;flex:none}
-.org-card.open .org-photo{background:transparent;color:var(--muted);border:1.5px dashed var(--muted)}
-.org-title{font-size:.62rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);line-height:1.35;overflow-wrap:break-word;max-width:100%}
-.org-name{font-family:var(--display);font-size:1.08rem;font-weight:600;line-height:1.2}
-.org-meta{font-size:.74rem;line-height:1.4;color:#495956;margin-top:auto}
-.org-more{font-size:.72rem;font-weight:700;color:var(--seat,var(--green))}
+.org-face{display:block;width:100%;aspect-ratio:4/3;border-radius:7px;overflow:hidden;background:#e6e9e3;margin-bottom:5px}
+.org-face img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.org-initials{display:grid;place-items:center;width:100%;height:100%;font-family:var(--display);font-size:1.7rem;font-weight:600;color:#fff;background:var(--seat,var(--green))}
+.org-card.open{border-style:dashed;border-bottom-style:solid}.org-card.open .org-initials{background:transparent;color:var(--muted)}.org-card.open .org-face{background:transparent;border:1.5px dashed #a9b4af}
+.org-title{font-size:.62rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--seat,var(--muted));line-height:1.35;overflow-wrap:break-word;max-width:100%;min-height:2.7em;display:grid;place-items:center}
+.org-name{font-family:var(--display);font-size:1.05rem;font-weight:600;line-height:1.2}
+.org-meta{display:none;font-size:.72rem;line-height:1.4;color:#495956}.org-chart.no-lines .org-meta{display:block}
+.org-more{margin-top:auto;padding-top:4px;font-size:.7rem;font-weight:700;color:#495956}
+.org-chart.no-lines .org-tier+.org-tier{margin-top:22px}.org-chart.no-lines .org-tier-label{margin-bottom:10px}
 .seat-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .seat-row{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:baseline;width:100%;text-align:left;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);cursor:pointer}
 .seat-row:hover,.seat-row:focus-visible{border-color:var(--green);outline:0}
 .seat-row time{font-size:.76rem;font-weight:700;color:#36574e}.seat-row.past{opacity:.62}.seat-row small{display:block;color:var(--muted);font-size:.72rem}
 .seat-checkin{border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin:7px 0;background:#fff}.seat-checkin.blocked{border-left:4px solid var(--red)}.seat-checkin b{display:block;margin-bottom:3px}.seat-checkin p{margin:3px 0;font-size:.84rem}
 .seat-confirm{border-left:3px solid var(--gold);background:#f7efd2;padding:10px 13px;border-radius:3px 10px 10px 3px;color:#473f2e;font-size:.84rem}
-@media(max-width:560px){.org-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.org-title{letter-spacing:.02em}.seat-row{grid-template-columns:1fr}}
+@media(max-width:560px){.org-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.org-title{letter-spacing:.02em;min-height:0}.seat-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -197,7 +201,7 @@ function renderNow(){
   const missingLinks=Object.values(DATA.links).filter(l=>!l.url).length;
   const urgent=DATA.tasks.filter(t=>DATA.statuses[t.id]).sort((a,b)=>a.start.localeCompare(b.start)).slice(0,12);
   const nextD=DATA.deliverables.filter(d=>d.due>=today).sort((a,b)=>a.due.localeCompare(b.due))[0];
-  $('#page-now').innerHTML=heading('What needs attention now','Start here. This is the short meeting agenda: the rules that bind every design, then deadlines, ownership gaps, health, and the next concrete action.')+requirementBand()+`
+  $('#page-now').innerHTML=heading('What needs attention now','Start here. This is the short meeting agenda: the rules that bind every design, then deadlines, ownership gaps, health, and the next concrete action.')+orgChart()+requirementBand()+`
   <div class="kpis"><div class="kpi good"><b>${due30}</b><span>official deliverables due in 30 days</span></div><div class="kpi warn"><b>${openRoles}</b><span>required roles open or awaiting confirmation</span></div><div class="kpi bad"><b>${red}</b><span>reported red work items</span></div><div class="kpi warn"><b>${missingLinks}</b><span>controlled-system links still to add</span></div></div>
   <div class="callout"><strong>Next official deliverable: ${esc(nextD.title)} · ${fmt(nextD.due)}</strong>Accountable owner: ${esc(person(nextD.owner).name)}. Content-complete gate: ${fmt(nextD.gates[0].date)}. Open the Deliverables page for artifacts and acceptance checks.</div>
   <div class="grid-2"><div class="panel"><span class="section-kicker">Start here</span><h3>Leadership action list</h3><p class="panel-note">Only the decision-ready facts: work, owner, health, and the one next action.</p><div class="action-list">${urgent.slice(0,8).map(t=>{const s=taskStatus(t),owners=t.owners.split(' ');return `<div class="action-item"><div><span class="task-title">${esc(t.task)}</span><div class="subtle">${fmt(t.start)} · ${esc(s.status)}</div></div>${personHTML(owners[0])}${pill(s.health,s.health)}<div class="action-next">${esc(s.next_action)}</div></div>`}).join('')}</div></div>
@@ -237,13 +241,29 @@ function seatFacts(s){
 }
 function orgChart(){
   const O=DATA.org_chart;if(!O)return '';
-  const short=s=>date(s).toLocaleDateString('en-US',{month:'short',day:'numeric'});
-  const card=s=>{const f=seatFacts(s),parent=O.seats.find(x=>x.id===s.reports_to);
-    const meta=s.open?'Open seat':s.confirm?'Responsibilities to confirm':f.next?`${f.owned.length} accountable deliverable${f.owned.length===1?'':'s'} · next ${short(f.next.due)}`:f.owned.length?`${f.owned.length} accountable deliverable${f.owned.length===1?'':'s'}`:'No deliverable mapped';
-    const face=s.photo?`<img class="org-photo" src="${esc(s.photo)}" alt="">`:`<span class="org-photo" aria-hidden="true">${s.open?'?':esc(initials(s.name))}</span>`;
-    return `<button type="button" class="org-card${s.open?' open':''}" style="--seat:${laneColor(s.lane||'pgm')}" data-seat="${esc(s.id)}">${face}<span class="org-title">${esc(s.title)}</span><span class="org-name">${esc(s.name)}</span><span class="org-meta">${esc(meta)}${parent?`<br>Reports to ${esc(parent.name)}`:''}</span><span class="org-more">Tasks and responsibilities &rsaquo;</span></button>`};
+  const card=s=>{const parent=O.seats.find(x=>x.id===s.reports_to);
+    const face=s.photo?`<img src="${esc(s.photo)}" alt="" loading="lazy">`:`<span class="org-initials" aria-hidden="true">${s.open?'?':esc(initials(s.name))}</span>`;
+    return `<button type="button" class="org-card${s.open?' open':''}" style="--seat:${laneColor(s.lane||'pgm')}" data-seat="${esc(s.id)}" data-tier="${esc(s.tier)}" data-parent="${esc(s.reports_to||'')}"><span class="org-face">${face}</span><span class="org-title">${esc(s.title)}</span><span class="org-name">${esc(s.name)}</span>${parent?`<span class="org-meta">Reports to ${esc(parent.name)}</span>`:''}<span class="org-more">View role &rsaquo;</span></button>`};
   const tiers=O.tiers.map(t=>`<div class="org-tier"><span class="org-tier-label">${esc(t.label)}</span><div class="org-grid">${O.seats.filter(s=>s.tier===t.id).map(card).join('')}</div></div>`).join('');
-  return `<div class="panel"><h3>Student leadership team</h3><p class="panel-note">Select a lead to see what the seat is responsible for, the deliverables they are accountable for, and what they owe the next meeting. Chart as of ${fmt(O.as_of)}. Edit <code>data/org_chart.json</code> to change a seat.</p>${tiers}</div>`;
+  return `<div class="panel"><span class="section-kicker">Who leads what</span><h3>Student leadership team organization chart</h3><p class="panel-note">Select a lead to see what the seat is responsible for, the deliverables they are accountable for, and what they owe the next meeting. Chart as of ${fmt(O.as_of)}.</p><div class="org-chart"><svg class="org-lines" aria-hidden="true"></svg>${tiers}</div></div>`;
+}
+// Draws the connector lines once the cards have a position. Skipped (and "Reports to" text shown) when a tier wraps onto two rows.
+function drawOrgLines(){
+  $$('.org-chart').forEach(chart=>{
+    const svg=chart.querySelector('.org-lines');if(!chart.offsetParent)return;
+    const box=chart.getBoundingClientRect(),pos=el=>{const r=el.getBoundingClientRect();return {id:el.dataset.seat,parent:el.dataset.parent,x:r.left+r.width/2-box.left,top:r.top-box.top,bottom:r.bottom-box.top}};
+    const tiers=DATA.org_chart.tiers.map(t=>[...chart.querySelectorAll(`[data-tier="${t.id}"]`)].map(pos));
+    const oneRow=tiers.every(c=>c.length&&c.every(p=>Math.abs(p.top-c[0].top)<2));
+    chart.classList.toggle('no-lines',!oneRow||tiers.length<2);
+    if(!oneRow||tiers.length<2){svg.innerHTML='';return}
+    const top=tiers[0],kids=tiers.slice(1).flat(),y1=Math.max(...top.map(p=>p.bottom))+14,y2=Math.min(...kids.map(p=>p.top))-11;
+    let d=`M${top[0].x} ${y1}H${top[top.length-1].x}`+top.map(p=>`M${p.x} ${p.bottom}V${y1}`).join('');
+    const groups={};kids.forEach(k=>{(groups[k.parent]=groups[k.parent]||[]).push(k)});
+    Object.entries(groups).forEach(([pid,g])=>{const p=top.find(x=>x.id===pid);
+      if(p&&g.length>1){const xs=g.map(k=>k.x).concat(p.x);d+=`M${p.x} ${y1}V${y2}M${Math.min(...xs)} ${y2}H${Math.max(...xs)}`+g.map(k=>`M${k.x} ${y2}V${k.top}`).join('')}
+      else g.forEach(k=>{d+=`M${k.x} ${y1}V${k.top}`})});
+    svg.innerHTML=`<path d="${d}"/>`;
+  });
 }
 function openSeat(id){
   const O=DATA.org_chart,s=O.seats.find(x=>x.id===id);if(!s)return;
@@ -318,13 +338,14 @@ function renderUpdate(){
   $('#page-update').innerHTML=heading('Maintain the system in under ten minutes','The repository is the version-controlled baseline. Planner can hold daily checklists; Box or Teams holds controlled requirements and submissions.')+`<div class="grid-2"><div><div class="panel"><h3>Normal weekly update</h3><div class="update-steps"><div class="update-step"><h3>Pull the latest repository</h3><p>In GitHub Desktop, click Fetch origin, then Pull origin if offered.</p></div><div class="update-step"><h3>Edit the smallest source file</h3><p>Use <code>data/task_status.csv</code> for status; <code>schedule.csv</code> for dates and owners; <code>deliverables.json</code> only when official requirements change.</p></div><div class="update-step"><h3>Build and validate</h3><p>From Repository → Open in Command Prompt, run the build. It stops on unknown owners, bad dates, mismatched deadlines, and unsafe public files.</p><div class="code">python build.py</div></div><div class="update-step"><h3>Preview the site</h3><p>Open <code>docs/index.html</code>. Check Now, the changed card, the owner filter, and the mobile layout.</p></div><div class="update-step"><h3>Commit and push</h3><p>Use a specific summary such as “Update PCM tool-check owner and status.” Push origin and wait about a minute for Pages.</p></div></div></div><div class="panel"><h3>Controlled-system links to add</h3><p class="panel-note">Add approved URLs in <code>data/links.json</code>. Never add local file paths or public links to sensitive material.</p><div class="link-list">${linkCards}</div></div></div><div><div class="panel"><h3>Which file do I edit?</h3><div class="table-wrap"><table class="compact"><thead><tr><th>Change</th><th>File</th></tr></thead><tbody><tr><td>Status, health, percent, next action</td><td><code>data/task_status.csv</code></td></tr><tr><td>Task date, label, accountable owner</td><td><code>data/schedule.csv</code></td></tr><tr><td>Official artifacts and completion checklist</td><td><code>data/deliverables.json</code></td></tr><tr><td>Names and team roles</td><td><code>data/people.csv</code> and <code>data/roles.csv</code></td></tr><tr><td>First-win choices</td><td><code>data/onboarding.csv</code></td></tr><tr><td>Public-safe risks and decisions</td><td><code>data/risks.csv</code> and <code>data/decisions.csv</code></td></tr></tbody></table></div></div><div class="panel"><h3>Weekly operating cadence</h3><ul class="checklist"><li><strong>Before meeting:</strong> owners update only exceptions and next actions.</li><li><strong>Leadership review, 30 min:</strong> due-soon, Yellow/Red, decisions, role gaps, capacity.</li><li><strong>Work sessions:</strong> solve the technical problem with the needed people only.</li><li><strong>Friday onboarding:</strong> first wins, tool access, show-and-tell.</li><li><strong>Within 24 hours:</strong> record decisions, date changes, and owners.</li></ul></div><div class="panel"><h3>Change-control rule</h3><p>When a new revision or scorecard arrives, log the revision, compare it with the current card, identify affected tasks, obtain lead approval, update the baseline, rebuild, and commit with the source revision in the message.</p></div></div></div>`;
 }
 
-function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('active',p.id===`page-${name}`));$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(push)history.replaceState(null,'',`#${name}`);window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'})}
+function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('active',p.id===`page-${name}`));requestAnimationFrame(drawOrgLines);$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(push)history.replaceState(null,'',`#${name}`);window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'})}
 
 $('#baseline').textContent=`Baseline ${fmt(DATA.site.baseline_date)}`;$('#official').textContent=`Official schedule ${fmt(DATA.site.official_schedule_as_of)}`;$('#privacy').textContent=DATA.site.privacy_notice;
 renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
 document.addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b){e.preventDefault();showPage(b.dataset.page)}});
 document.addEventListener('click',e=>{const d=e.target.closest('[data-deliverable]');if(d)openDeliverable(d.dataset.deliverable);const t=e.target.closest('[data-task]');if(t)openTask(t.dataset.task);const g=e.target.closest('[data-guide]');if(g)openGuide(g.dataset.guide);const w=e.target.closest('[data-onboarding]');if(w)openOnboardingJob(w.dataset.onboarding);const p=e.target.closest('[data-project]');if(p)openProject(p.dataset.project);const o=e.target.closest('[data-seat]');if(o)openSeat(o.dataset.seat);if(e.target.closest('[data-close]'))$('#detail').close()});
 $('#detail').addEventListener('click',e=>{if(e.target===$('#detail'))$('#detail').close()});
+window.addEventListener('resize',drawOrgLines);window.addEventListener('load',drawOrgLines);requestAnimationFrame(drawOrgLines);
 const initial=location.hash.slice(1);if(['now','deliverables','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
 </script>
 </body>

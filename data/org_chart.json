@@ -9,6 +9,7 @@
   "seats": [
     {
       "id": "pm",
+      "photo": "img/leads/geo.jpg",
       "tier": "leadership",
       "title": "Project Management",
       "name": "Geoffrey Chavez",
@@ -26,6 +27,7 @@
     },
     {
       "id": "apm",
+      "photo": "img/leads/apm.jpg",
       "tier": "leadership",
       "title": "Associate Project Manager",
       "name": "Henry Hall",
@@ -39,6 +41,7 @@
     },
     {
       "id": "vehicle-lead",
+      "photo": "img/leads/ant.jpg",
       "tier": "leadership",
       "title": "Vehicle Track Technical Lead",
       "name": "Anthony Whitehurst",
@@ -56,6 +59,7 @@
     },
     {
       "id": "pit-lead",
+      "photo": "img/leads/aya.jpg",
       "tier": "leadership",
       "title": "AI & Innovation Track Product Development",
       "name": "Ayaan Gulwani",
@@ -84,6 +88,7 @@
     },
     {
       "id": "marcom",
+      "photo": "img/leads/mar.jpg",
       "tier": "leadership",
       "title": "MarCom Manager",
       "name": "Krupskaia Molina",
@@ -99,6 +104,7 @@
     },
     {
       "id": "pcm",
+      "photo": "img/leads/ron.jpg",
       "tier": "technical",
       "title": "Powertrain Simulation and Control",
       "name": "Rony Herrera",
@@ -115,6 +121,7 @@
     },
     {
       "id": "instrumentation",
+      "photo": "img/leads/min.jpg",
       "tier": "technical",
       "title": "Instrumentation / CAN Communication",
       "name": "Mingpeng Chen",
@@ -131,6 +138,7 @@
     },
     {
       "id": "rear-axle",
+      "photo": "img/leads/fra.jpg",
       "tier": "technical",
       "title": "Rear Axle Design",
       "name": "Francisco Calva",
@@ -149,6 +157,7 @@
     },
     {
       "id": "hv-battery",
+      "photo": "img/leads/dav.jpg",
       "tier": "technical",
       "title": "HV Battery Pack Design",
       "name": "David Escobar",
@@ -167,6 +176,7 @@
     },
     {
       "id": "innovation-pd",
+      "photo": "img/leads/oma.jpg",
       "tier": "technical",
       "title": "Innovation Product Development",
       "name": "Omar Escobedo",
