@@ -2,7 +2,7 @@ role_id,role,owner_key,status,backup_key,decision_due,notes
 faculty,Lead Faculty Advisor,,Open,,2026-09-17,Confirm faculty ownership and approval path
 student_lead,Student Team Lead,,Confirm,,2026-09-17,Required for Fall Workshop presentation team
 pm,Project Manager,geo,Filled,,2026-09-17,Owns integrated view and operating cadence
-marcom,Marketing and Communications Manager,,Open,,2026-09-17,Blocks webpage and promotion gates if left open
+marcom,Marketing and Communications Manager,mar,Filled,,2026-09-17,Krupskaia Molina; owns webpage and MarCom gates
 pit,Product Innovation Track Lead,aya,Filled,,2026-09-17,Owns PIT workstream
 vse,Vehicle Systems Engineering Lead,ant,Filled,,2026-09-17,Owns integrated vehicle engineering
 vhi,Vehicle Hardware Integration Lead,fra,Confirm,,2026-09-17,Confirm title and authority

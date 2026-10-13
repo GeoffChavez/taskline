@@ -6,8 +6,14 @@ signed-good-faith-agreements,Not started,gray,0,Confirm signers and routing path
 student-leadership-council-applications,Not started,gray,0,Identify candidates and application owner,2026-09-03
 case-study-reflection,Not started,gray,0,Reserve the three-person workshop response team,2026-09-03
 integrated-year-1-workplan,In progress,yellow,20,Validate owners dependencies academic conflicts and top five risks with leads,2026-09-03
-university-it-ticket-teamcenter-nx-licence,Verify,yellow,0,Record ticket owner number response date and fallback decision trigger,2026-09-03
-cad-workflow-diagram-8-required-steps,Not started,gray,0,Choose Teamcenter or interim controlled workflow and draft eight-step diagram,2026-09-03
+university-it-ticket-teamcenter-nx-licence,Verify,yellow,0,[confirm ticket number and IT response] — this is the evidence the video needs for the Teamcenter barrier,2026-10-13
+cad-workflow-diagram-8-required-steps,Verify,green,90,"Rev B covers all eight steps and names the custodian; rename to EICY1_STLA_CSLA_CADWorkflow.pdf, fix typos, state OEM read-only permission explicitly",2026-10-13
 off-road-benchmarking-spreadsheet,Not started,gray,0,Assign one production vehicle per contributor using public sources,2026-09-03
 pcm-onboarding-guide,Not started,gray,0,Create install Git and first-simulation acceptance checklist,2026-09-03
-marcom-manager-named,Blocked,red,0,Appoint interim MarCom owner until permanent manager is confirmed,2026-09-03
+marcom-manager-named,Done,green,100,Krupskaia Molina named MarCom Manager,2026-10-13
+cad-data-management-readiness-2,In progress,yellow,50,"Absolute 15 Oct 4 PM; freeze 14 Oct. Progress = workflow drafted, onboarding guide half-written, video unconfirmed",2026-10-13
+cad-onboarding-guide-2-pages,In progress,red,50,"Three of six required sections still headings only (file management, change tracking, design release) and team file location blank; fill, export PDF, two-page check",2026-10-13
+cad-demonstration-video-5-min,Verify,gray,0,[confirm recording status] — must show the seven required items and state the Teamcenter barriers; progress held at 0 until shown,2026-10-13
+team-webpage-content,In progress,yellow,25,"Due 15 Oct end of day; shoot photo, video and headshots 13 Oct; reconcile names and titles; collect bios and LinkedIn URLs",2026-10-13
+photo-session-2026-10-13,In progress,yellow,0,"Waivers signed by anyone not on the team before the shot; full-team photo, 10-second horizontal 1080p video, same-background headshots",2026-10-13
+team-roster-reconciliation,In progress,yellow,0,"Resolve every name and title mismatch between people.csv, the org chart and the roster before the webpage submission",2026-10-13

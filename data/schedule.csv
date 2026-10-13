@@ -22,6 +22,8 @@ student-leadership-council-applications,Program & project management,pgm,Student
 fall-workshop-atlanta,Program & project management,pgm,"Fall Workshop, Atlanta",24–26 September,bar,2026-09-24,2026-09-26,geo ant
 case-study-reflection,Program & project management,pgm,Case study → reflection,case 10 Sept · update 20 Sept,bar,2026-09-10,2026-10-08,geo
 fall-workshop-case-study-reflection,Program & project management,pgm,Fall Workshop Case Study Reflection,graded · 8 Oct,milestone,2026-10-08,,geo
+leadership-advisor-sponsor-review-2026-10-13,Program & project management,pgm,Leadership review with advisors and sponsors,photos · CAD readiness · roster · webpage,milestone,2026-10-13,,geo
+team-roster-reconciliation,Program & project management,pgm,Team roster reconciliation,one name per person before the webpage submission,bar,2026-10-13,2026-10-14,geo mar
 integrated-year-1-workplan,Program & project management,pgm,Integrated Year 1 Workplan,build,bar,2026-09-15,2026-11-05,geo nat
 integrated-year-1-workplan-2,Program & project management,pgm,Integrated Year 1 Workplan,graded · 12 Nov,milestone,2026-11-12,,geo
 integrated-master-schedule,Program & project management,pgm,Integrated Master Schedule,"PM materials, dependencies, dates",bar,2026-09-08,2026-11-12,nat
@@ -33,6 +35,7 @@ friday-workshops-nx-track,Onboarding & workshops,vhi,Friday workshops — NX tra
 nx-onboarding-documents-materials,Onboarding & workshops,vhi,NX onboarding documents & materials,is the deliverable,bar,2026-09-08,2026-10-10,jef dor fra ant
 senior-design-scope-lock,Onboarding & workshops,vhi,Senior design scope lock,"3 sessions, Fridays 1–2",bar,2026-09-04,2026-09-18,geo
 photo-video-and-headshots,Onboarding & workshops,vhi,"Photo, video and headshots","one session, everyone",milestone,2026-09-11,,geo
+photo-session-2026-10-13,Onboarding & workshops,vhi,"Photo session — team photo, 10-second video, headshots",13 Oct · waivers first,milestone,2026-10-13,,mar geo
 fall-workshop-teach-backs,Onboarding & workshops,vhi,Fall Workshop teach-backs,15 min from every attendee,milestone,2026-10-02,,ant geo
 off-road-benchmarking-spreadsheet,VSE — vehicle systems engineering,vse,Off-road benchmarking spreadsheet,one vehicle per new member,bar,2026-09-08,2026-10-10,ant new
 off-road-performance-targets,VSE — vehicle systems engineering,vse,Off-Road Performance Targets,build,bar,2026-09-15,2026-10-23,ant ron dav fra
@@ -40,16 +43,18 @@ freeze-red-team,VSE — vehicle systems engineering,vse,Freeze & red team,T−5 
 off-road-performance-target-development,VSE — vehicle systems engineering,vse,Off-Road Performance Target Development,graded · LARGE · 29 Oct,milestone,2026-10-29,,ant
 three-architecture-matrix,VSE — vehicle systems engineering,vse,Three-architecture matrix,build &times;3,bar,2026-10-02,2027-03-15,ant ron
 final-technical-report-itec-digest,VSE — vehicle systems engineering,vse,Final Technical Report — ITEC digest,build,bar,2026-10-15,2026-12-12,ant
-final-technical-report,VSE — vehicle systems engineering,vse,Final Technical Report,graded · 19 Dec,milestone,2026-12-19,,ant
+final-technical-report,VSE — vehicle systems engineering,vse,Final Technical Report,graded · 31 Mar · Box + ASME (19 Dec is the GM-track date),milestone,2027-03-31,,ant
+final-technical-report-abstract,VSE — vehicle systems engineering,vse,Final Technical Report — abstract,end of day · 11 Jan · ASME website,milestone,2027-01-11,,ant
 facilities-safety-readiness,VSE — vehicle systems engineering,vse,Facilities & Safety Readiness,build,bar,2026-11-15,2027-01-14,ant dav
 facilities-safety-readiness-2,VSE — vehicle systems engineering,vse,Facilities & Safety Readiness,graded · 21 Jan,milestone,2027-01-21,,ant
 integrated-vehicle-architecture-selection,VSE — vehicle systems engineering,vse,Integrated Vehicle Architecture Selection,graded · X-LARGE · 1 Apr,milestone,2027-04-01,,ant
 university-it-ticket-teamcenter-nx-licence,VHI — CAD readiness and hardware,vhi,University IT ticket — Teamcenter / NX licence,external clock,tbd,2026-09-03,2026-10-10,fra
-cad-workflow-diagram-8-required-steps,VHI — CAD readiness and hardware,vhi,CAD workflow diagram — 8 required steps,40% of the deliverable,bar,2026-09-08,2026-09-18,fra
-cad-onboarding-guide-2-pages,VHI — CAD readiness and hardware,vhi,CAD onboarding guide — 2 pages,40% of the deliverable,bar,2026-09-08,2026-09-20,dor jef
-cad-demonstration-video-5-min,VHI — CAD readiness and hardware,vhi,CAD demonstration video — 5 min,20% of the deliverable,bar,2026-09-15,2026-09-22,fra ant
+cad-workflow-diagram-8-required-steps,VHI — CAD readiness and hardware,vhi,CAD workflow diagram — 8 required steps,40% · re-baselined from 18 Sept,bar,2026-09-08,2026-10-14,fra
+cad-onboarding-guide-2-pages,VHI — CAD readiness and hardware,vhi,CAD onboarding guide — 2 pages,40% · re-baselined from 20 Sept,bar,2026-09-08,2026-10-14,dor jef
+cad-demonstration-video-5-min,VHI — CAD readiness and hardware,vhi,CAD demonstration video — 5 min,20% · re-baselined from 22 Sept,bar,2026-09-15,2026-10-14,fra ant
 freeze-red-team-2,VHI — CAD readiness and hardware,vhi,Freeze & red team,before Atlanta,freeze,2026-09-22,2026-09-26,ant
 cad-data-management-readiness,VHI — CAD readiness and hardware,vhi,CAD Data Management Readiness,submit early · 26 Sept,milestone,2026-09-26,,fra
+cad-submission-freeze,VHI — CAD readiness and hardware,vhi,CAD submission freeze,T−1 · three files exported and named,milestone,2026-10-14,,fra
 cad-data-management-readiness-2,VHI — CAD readiness and hardware,vhi,CAD Data Management Readiness,graded · ABSOLUTE · 15 Oct 4 pm,milestone,2026-10-15,,fra
 mass-budget-v1,VHI — CAD readiness and hardware,vhi,Mass budget v1,three named owners,bar,2026-09-08,2026-09-18,fra dav min
 rear-eaxle-benchmark-packaging,VHI — CAD readiness and hardware,vhi,Rear eAxle benchmark & packaging,feeds all three architectures,bar,2026-09-15,2026-12-18,fra
@@ -73,10 +78,10 @@ battery-performance-target-development,HVB — high voltage battery,hvb,Battery 
 hv-work-permit-battery-build-book,HVB — high voltage battery,hvb,HV work permit + Battery Build Book,rule H-7.3 requires it in writing,bar,2026-10-01,2026-12-15,dav dor
 marcom-manager-named,"PIT, MarCom & business",biz,MarCom Manager named,target,milestone,2026-09-17,,geo mar
 gate-1-team-program-identity,"PIT, MarCom & business",biz,Gate 1: Team Program Identity,graded · 1 Oct (suggested),milestone,2026-10-01,,mar
-green-garage-blog-1,"PIT, MarCom & business",biz,Green Garage Blog 1,graded · ABSOLUTE · 8 Oct,milestone,2026-10-08,,mar
+green-garage-blog-1,"PIT, MarCom & business",biz,Green Garage Blog 1,graded · ABSOLUTE · 5 Nov (moved from 8 Oct on 9 Oct dashboard),milestone,2026-11-05,,mar
 team-webpage-content,"PIT, MarCom & business",biz,Team Webpage Content,end of day · 15 Oct,milestone,2026-10-15,,mar geo
 gate-2-visual-identity,"PIT, MarCom & business",biz,Gate 2: Visual Identity,graded · 22 Oct (suggested),milestone,2026-10-22,,mar
-social-media-video-1,"PIT, MarCom & business",biz,Social Media Video 1,graded · 5 Nov,milestone,2026-11-05,,mar
+social-media-video-1,"PIT, MarCom & business",biz,Social Media Video 1,graded · 3 Dec (moved from 5 Nov on 9 Oct dashboard),milestone,2026-12-03,,mar
 gate-3-brand-assets,"PIT, MarCom & business",biz,Gate 3: Brand Assets,graded · 12 Nov (suggested),milestone,2026-11-12,,mar
 studio-1-check-in-business-portfolio-review,"PIT, MarCom & business",biz,Studio 1 Check-In: Business Portfolio Review,graded · 12 Nov,milestone,2026-11-12,,aya
 gate-4-external-promotion-strategy,"PIT, MarCom & business",biz,Gate 4: External Promotion Strategy,graded · 3 Dec (suggested),milestone,2026-12-03,,mar
@@ -96,9 +101,9 @@ social-media-data-submission,"PIT, MarCom & business",biz,Social Media Data,end 
 outreach-data-submission,"PIT, MarCom & business",biz,Outreach Data,end of day · 7 May,milestone,2027-05-07,,mar
 asset-library-submission,"PIT, MarCom & business",biz,Asset Library,end of day · 7 May,milestone,2027-05-07,,mar
 marcom-gate1-program-identity-milestone,"PIT, MarCom & business",biz,Gate 1: Team Program Identity,Small - Absolute,milestone,2026-10-01,2026-10-01,mar
-marcom-ggb1-milestone,"PIT, MarCom & business",biz,Green Garage Blog 1,Small - Absolute,milestone,2026-10-08,2026-10-08,mar
+marcom-ggb1-milestone,"PIT, MarCom & business",biz,Green Garage Blog 1,Small - Absolute,milestone,2026-11-05,2026-11-05,mar
 marcom-gate2-visual-identity-milestone,"PIT, MarCom & business",biz,Gate 2: Visual Identity,Small - Absolute,milestone,2026-10-22,2026-10-22,mar
-marcom-smv1-milestone,"PIT, MarCom & business",biz,Social Media Video 1,Small - Absolute,milestone,2026-11-05,2026-11-05,mar
+marcom-smv1-milestone,"PIT, MarCom & business",biz,Social Media Video 1,Small - Absolute,milestone,2026-12-03,2026-12-03,mar
 marcom-gate3-brand-assets-milestone,"PIT, MarCom & business",biz,Gate 3: Brand Assets,Small - Absolute,milestone,2026-11-12,2026-11-12,mar
 marcom-gate4-external-promotion-milestone,"PIT, MarCom & business",biz,Gate 4: External Promotion Strategy,Small - Absolute,milestone,2026-12-03,2026-12-03,mar
 marcom-ggb2-milestone,"PIT, MarCom & business",biz,Green Garage Blog 2,Small - Absolute,milestone,2027-01-21,2027-01-21,mar
