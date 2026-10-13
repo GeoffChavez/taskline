@@ -3,14 +3,23 @@
   "what": "The one hour everybody attends. Two tracks in the same room &mdash; MATLAB on one side, NX on the other. Not a lecture: install, unblock, and put an artifact on the table.",
   "note": "Every session ends with a named thing that exists: a screenshot, a modelled part, a table, a decoded signal."
  },
- "senior-design-block-a": {
-  "what": "Scope, advisor sign-off, and weekly progress against the signed one-page scope."
+ "me1-senior-design": {
+  "what": "Rear eAxle selection, packaging, mounting, halfshafts, off-road geometry and the mass budget. Meets as a track inside the Friday General Meeting."
  },
- "ee-senior-design": {
-  "what": "Controls, instrumentation, embedded and CAN scopes."
+ "me2-senior-design": {
+  "what": "Pack enclosure structure, mounting, cooling plate, thermal simulation, sealing and serviceability."
  },
- "me-senior-design-2": {
-  "what": "Rear axle, pack structure, thermal."
+ "ee1-senior-design": {
+  "what": "Contactor and precharge, busbars and conductors, fusing, HV interlock and the safety documentation."
+ },
+ "general-mechanical": {
+  "what": "All mechanical members: NX work, packaging and the shared mechanical questions across ME1 and ME2."
+ },
+ "leadership-meeting": {
+  "what": "Weekly lead check-in: done, in flight, blocked, next commitment. Decisions recorded on this hub within 24 hours."
+ },
+ "ee2-senior-design": {
+  "what": "Sensor conditioning, CAN and message database, data logging, controller architecture and fault injection. Advisor: Dr. Shahverdi."
  },
  "advisor-sync-dr-wang": {
   "what": "Siemens licence route, Teamcenter feasibility, NX training material, and instrumentation guidance.",
@@ -796,8 +805,21 @@
   "size": "Small",
   "dl": "Relative",
   "time": "4:00 pm local",
-  "subs": [{"a":"Micro-Learning 1","f":"1-minute video or 1-page infographic plus submitted link","l":"Size and hosting are marked TBD in Rev 2","fn":"EIC Y1 - Submission Name - TEAM Acronym","oem":"TBD in Rev 2"}],
-  "content": ["State one technical critical assumption", "Explain the engineering feasibility question, bottleneck, or pain point", "State how the team plans to validate it", "Confirm hosting, size, and OEM-data rules before submission"],
+  "subs": [
+   {
+    "a": "Micro-Learning 1",
+    "f": "1-minute video or 1-page infographic plus submitted link",
+    "l": "Size and hosting are marked TBD in Rev 2",
+    "fn": "EIC Y1 - Submission Name - TEAM Acronym",
+    "oem": "TBD in Rev 2"
+   }
+  ],
+  "content": [
+   "State one technical critical assumption",
+   "Explain the engineering feasibility question, bottleneck, or pain point",
+   "State how the team plans to validate it",
+   "Confirm hosting, size, and OEM-data rules before submission"
+  ],
   "note": "Rev 2 still marks platform, size, and OEM handling as draft. Treat that as an open clarification, not permission to guess."
  },
  "green-garage-blog-2": {
@@ -806,8 +828,21 @@
   "size": "Small",
   "dl": "Absolute",
   "time": "4:00 pm local",
-  "subs": [{"a":"Green Garage Blog 2","f":"Organizer blog template plus JPG or PNG images","l":"300-word minimum; 50 MB per file","fn":"EIC Y1 - GGB2 - TEAM","oem":"No"}],
-  "content": ["Use the current organizer template", "Include at least three high-quality team-produced images", "Provide platform-specific social copy", "Complete fact, consent, brand, and accessibility review"],
+  "subs": [
+   {
+    "a": "Green Garage Blog 2",
+    "f": "Organizer blog template plus JPG or PNG images",
+    "l": "300-word minimum; 50 MB per file",
+    "fn": "EIC Y1 - GGB2 - TEAM",
+    "oem": "No"
+   }
+  ],
+  "content": [
+   "Use the current organizer template",
+   "Include at least three high-quality team-produced images",
+   "Provide platform-specific social copy",
+   "Complete fact, consent, brand, and accessibility review"
+  ],
   "note": "Build from real milestones and student work; do not wait until January to begin collecting approved photos and story leads."
  },
  "open-exploration-problem-space-portfolio": {
@@ -816,8 +851,29 @@
   "size": "Medium",
   "dl": "Absolute",
   "time": "4:00 pm local",
-  "subs": [{"a":"Team Identity and Network Map","f":"PPTX","l":"5 slides; 100 MB","fn":"TeamName_IdentityMap_v1.pptx","oem":"No"},{"a":"Virtual problem-space portfolio","f":"Shared URL","l":"Up to 10 problem spaces","fn":"Shared link","oem":"No"}],
-  "content": ["Team charter, roles, goals, and decision method", "Identity, branding, and one-sentence mission", "Network map with accessible experts and warm-introduction paths", "Team SWOT and unfair-advantage synthesis", "Problem-space cards naming user, context, and pain point"],
+  "subs": [
+   {
+    "a": "Team Identity and Network Map",
+    "f": "PPTX",
+    "l": "5 slides; 100 MB",
+    "fn": "TeamName_IdentityMap_v1.pptx",
+    "oem": "No"
+   },
+   {
+    "a": "Virtual problem-space portfolio",
+    "f": "Shared URL",
+    "l": "Up to 10 problem spaces",
+    "fn": "Shared link",
+    "oem": "No"
+   }
+  ],
+  "content": [
+   "Team charter, roles, goals, and decision method",
+   "Identity, branding, and one-sentence mission",
+   "Network map with accessible experts and warm-introduction paths",
+   "Team SWOT and unfair-advantage synthesis",
+   "Problem-space cards naming user, context, and pain point"
+  ],
   "note": "The shared portfolio is visible to the cohort. Do not place private contact data or restricted information on the public board."
  },
  "social-media-video-2": {
@@ -826,8 +882,21 @@
   "size": "Small",
   "dl": "Absolute",
   "time": "4:00 pm local",
-  "subs": [{"a":"Social Media Video 2","f":"DOCX caption, MP4 video, JPG or PNG cover","l":"90-second video; confirm current file limits","fn":"EIC Y1 - SMV2 - TEAM","oem":"No"}],
-  "content": ["Use the current caption template", "Export MP4, not MOV", "Include an approved cover image", "Complete brand, caption, consent, and accessibility checks"],
+  "subs": [
+   {
+    "a": "Social Media Video 2",
+    "f": "DOCX caption, MP4 video, JPG or PNG cover",
+    "l": "90-second video; confirm current file limits",
+    "fn": "EIC Y1 - SMV2 - TEAM",
+    "oem": "No"
+   }
+  ],
+  "content": [
+   "Use the current caption template",
+   "Export MP4, not MOV",
+   "Include an approved cover image",
+   "Complete brand, caption, consent, and accessibility checks"
+  ],
   "note": "Assign story, producer, editor, reviewer, and release owner before filming."
  },
  "studio-2-check-in-customer-business-portfolio": {
@@ -836,8 +905,22 @@
   "size": "Small",
   "dl": "Absolute",
   "time": "4:00 pm local",
-  "subs": [{"a":"Customer discovery and business portfolios","f":"Shared link plus live review","l":"30-minute working session","fn":"Shared link","oem":"No"}],
-  "content": ["Show the outreach pipeline and independent-sourcing progress", "Show behavior-focused interview guide and raw logs", "Update the assumptions register and business model from evidence", "Show current DFV scale, scores, rankings, and wedge classification", "Bring explicit questions and weak areas for coaching"],
+  "subs": [
+   {
+    "a": "Customer discovery and business portfolios",
+    "f": "Shared link plus live review",
+    "l": "30-minute working session",
+    "fn": "Shared link",
+    "oem": "No"
+   }
+  ],
+  "content": [
+   "Show the outreach pipeline and independent-sourcing progress",
+   "Show behavior-focused interview guide and raw logs",
+   "Update the assumptions register and business model from evidence",
+   "Show current DFV scale, scores, rankings, and wedge classification",
+   "Bring explicit questions and weak areas for coaching"
+  ],
   "note": "This is a working review, not a polished final pitch. Keep history visible instead of overwriting earlier assumptions."
  },
  "micro-learning-2": {
@@ -846,8 +929,21 @@
   "size": "Small",
   "dl": "Absolute",
   "time": "4:00 pm local",
-  "subs": [{"a":"Micro-Learning 2","f":"1-minute video or 1-page infographic plus submitted link","l":"Top 3 insights; hosting and size marked TBD in Rev 2","fn":"EIC Y1 - Submission Name - TEAM Acronym","oem":"TBD in Rev 2"}],
-  "content": ["Cover functional capability, brand promise fit, and strategic advancement", "State whether each assumption was validated or invalidated", "Include the supporting insight and approved quote", "Confirm platform, size, and OEM-data guidance"],
+  "subs": [
+   {
+    "a": "Micro-Learning 2",
+    "f": "1-minute video or 1-page infographic plus submitted link",
+    "l": "Top 3 insights; hosting and size marked TBD in Rev 2",
+    "fn": "EIC Y1 - Submission Name - TEAM Acronym",
+    "oem": "TBD in Rev 2"
+   }
+  ],
+  "content": [
+   "Cover functional capability, brand promise fit, and strategic advancement",
+   "State whether each assumption was validated or invalidated",
+   "Include the supporting insight and approved quote",
+   "Confirm platform, size, and OEM-data guidance"
+  ],
   "note": "Coordinate publication while interviews are fresh and protect interviewee privacy and permissions."
  },
  "studio-2-customer-discovery-wedge-validation": {
@@ -856,29 +952,65 @@
   "size": "X-Large",
   "dl": "Relative",
   "time": "4:00 pm local",
-  "subs": [{"a":"Customer Discovery Portfolio and Gate 1 brief","f":"Shared links plus PDF","l":"1-2 page brief; 50 MB","fn":"EIC Y1 - Gate 1 Recommendation - TEAM Acronym.pdf","oem":"No"},{"a":"Year 1 presentation","f":"PPTX","l":"30-minute presentation plus 10-minute Q&A; 100 MB","fn":"EIC Y1 - PIT Y1 Presentation - TEAM Acronym.pptx","oem":"No"}],
-  "content": ["Maintain a traceable assumptions and hypothesis register", "Complete 8-10 behavior-focused interviews with raw logs", "Maintain the outreach pipeline with at least half independently sourced", "Update BMC, competitor comparison, SWOT, and DFV analysis for at least three wedges", "Make and defend a Proceed, Pivot, Narrow, or Stop recommendation with evidence"],
+  "subs": [
+   {
+    "a": "Customer Discovery Portfolio and Gate 1 brief",
+    "f": "Shared links plus PDF",
+    "l": "1-2 page brief; 50 MB",
+    "fn": "EIC Y1 - Gate 1 Recommendation - TEAM Acronym.pdf",
+    "oem": "No"
+   },
+   {
+    "a": "Year 1 presentation",
+    "f": "PPTX",
+    "l": "30-minute presentation plus 10-minute Q&A; 100 MB",
+    "fn": "EIC Y1 - PIT Y1 Presentation - TEAM Acronym.pptx",
+    "oem": "No"
+   }
+  ],
+  "content": [
+   "Maintain a traceable assumptions and hypothesis register",
+   "Complete 8-10 behavior-focused interviews with raw logs",
+   "Maintain the outreach pipeline with at least half independently sourced",
+   "Update BMC, competitor comparison, SWOT, and DFV analysis for at least three wedges",
+   "Make and defend a Proceed, Pivot, Narrow, or Stop recommendation with evidence"
+  ],
   "note": "The people presenting the recommendation need direct experience with the interviews and evidence."
  },
  "social-media-data-submission": {
   "what": "Year 1 social performance data and named account administrators.",
   "org": "Ashley Kronsell Oller / Lis&eacute; Badeaux",
   "time": "End of day",
-  "content": ["Reconcile monthly platform metrics", "Identify approved Year 1 and Year 2 administrators", "Verify source screenshots or exports", "Submit through the current controlled request"],
+  "content": [
+   "Reconcile monthly platform metrics",
+   "Identify approved Year 1 and Year 2 administrators",
+   "Verify source screenshots or exports",
+   "Submit through the current controlled request"
+  ],
   "note": "This is a Team Leadership Requirement. Keep private account details out of the public repository."
  },
  "outreach-data-submission": {
   "what": "Year 1 outreach activity data reconciled from the same-day event log.",
   "org": "Ashley Kronsell Oller / Lis&eacute; Badeaux",
   "time": "End of day",
-  "content": ["Reconcile event name, date, location, audience, and attendance", "Resolve duplicate or missing entries", "Verify evidence and approvals", "Submit through the current controlled request"],
+  "content": [
+   "Reconcile event name, date, location, audience, and attendance",
+   "Resolve duplicate or missing entries",
+   "Verify evidence and approvals",
+   "Submit through the current controlled request"
+  ],
   "note": "This is a Team Leadership Requirement. Collect same-day data throughout the year."
  },
  "asset-library-submission": {
   "what": "Approved Year 1 communications asset library for program use and future continuity.",
   "org": "Ashley Kronsell Oller / Lis&eacute; Badeaux",
   "time": "End of day",
-  "content": ["Organize approved logos, photos, videos, templates, and captions", "Confirm filenames, ownership, consent, and release status", "Remove duplicates and drafts", "Submit in the organizer-approved controlled location"],
+  "content": [
+   "Organize approved logos, photos, videos, templates, and captions",
+   "Confirm filenames, ownership, consent, and release status",
+   "Remove duplicates and drafts",
+   "Submit in the organizer-approved controlled location"
+  ],
   "note": "This is a Team Leadership Requirement. Keep source media and permissions in controlled storage."
  },
  "budget-purchase-log": {

@@ -1,8 +1,11 @@
 id,group,lane,task,label,type,start,end,owners
-general-meeting-all-members,Standing meetings,pgm,General meeting — all members,Fridays 12–1 pm,bar,2026-09-04,2026-12-12,geo
-senior-design-block-a,Standing meetings,pgm,Senior design — block A,2–3 pm,bar,2026-09-04,2026-12-12,ant
-ee-senior-design,Standing meetings,pgm,EE senior design,Thursdays 11 am–12 pm,bar,2026-09-03,2026-12-10,ron min
-me-senior-design-2,Standing meetings,pgm,ME senior design #2,time as posted,bar,2026-09-04,2026-12-12,fra
+general-meeting-all-members,Standing meetings,pgm,General Meeting — all members,Fridays 12–1 pm · B13 Garage · ME1 meets inside,bar,2026-09-04,2026-12-11,geo
+me1-senior-design,Standing meetings,vhi,ME1 — Rear eAxle & driveline integration,Fridays 12–1 pm · B13 Garage · inside the General Meeting,bar,2026-10-16,2026-12-11,fra
+me2-senior-design,Standing meetings,hvb,ME2 — Pack enclosure & thermal,Fridays 2–3 pm · B13 Garage,bar,2026-10-16,2026-12-11,ant
+ee1-senior-design,Standing meetings,hvb,EE1 — HV distribution & protection,Fridays 3–4 pm · B13 Garage,bar,2026-10-16,2026-12-11,dor
+general-mechanical,Standing meetings,vhi,General Mechanical,Tuesdays 2–3 pm · B13 Garage,bar,2026-10-13,2026-12-08,geo
+leadership-meeting,Standing meetings,pgm,Leadership Meeting,Tuesdays 3:30–4:30 pm · B13 Garage,bar,2026-10-13,2026-12-08,geo
+ee2-senior-design,Standing meetings,pcm,EE2 — Instrumentation & controls (Dr. Shahverdi),Tuesdays 4:30–5:30 pm · B13 Garage,bar,2026-10-13,2026-12-08,min ron
 advisor-sync-dr-wang,Standing meetings,pgm,Advisor sync — Dr. Wang,time to confirm,tbd,2026-09-08,2026-12-12,geo
 off-road-targets-read-the-requirement,Deliverable research — report back 11 Sept,vse,Off-Road Targets — read the requirement,report specifics,bar,2026-09-02,2026-09-11,ron
 off-road-targets-battery-and-mass-angle,Deliverable research — report back 11 Sept,vse,Off-Road Targets — battery and mass angle,report specifics,bar,2026-09-02,2026-09-11,dav
