@@ -27,7 +27,7 @@ When a higher source changes, update affected cards and tasks, rebuild, and reco
 1. In GitHub Desktop, **Fetch origin**, then **Pull origin** if offered.
 2. Edit the smallest relevant file in `data/`.
 3. Open **Repository -> Open in Command Prompt**.
-4. Run `python build.py`.
+4. Run `python build.py`. It also rebuilds `docs/schedule.html`, the printable Gantt and monthly calendar; open it and use **Print or save as PDF** (landscape, Letter, no margins).
 5. Open `docs/index.html` and check the changed page.
 6. Commit with a specific message and **Push origin**.
 
@@ -53,6 +53,7 @@ GitHub Pages updates after the pushed commit is processed.
 | Controlled-system links | `data/links.json` |
 | Site identity and source dates | `data/site.json` |
 | Supporting task detail | `data/details.json` |
+| Points per deliverable and which schedule tasks make up its work window (drives the printable Gantt) | `data/deliverables.json` fields `points` and `work_tasks` |
 
 The first key in the `owners` field of `schedule.csv` is the accountable owner. Additional keys are contributors. Every key must exist in `data/people.csv`.
 

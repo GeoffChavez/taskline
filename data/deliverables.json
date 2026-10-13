@@ -29,6 +29,10 @@
       "Connect the learning to Vehicle Track, PIT, staffing, resources, and dependencies",
       "Name project-management gaps, adjustments, owners, and timing",
       "Complete independent compliance and quality review"
+    ],
+    "points": 10,
+    "work_tasks": [
+      "case-study-reflection"
     ]
   },
   {
@@ -76,6 +80,12 @@
       "Give a new member access, file-management, change, release, and contact instructions",
       "Demonstrate the working environment, OEM protection, tracking, and release archive",
       "Keep OEM-sensitive video and source data outside the public repository"
+    ],
+    "points": 20,
+    "work_tasks": [
+      "cad-workflow-diagram-8-required-steps",
+      "cad-onboarding-guide-2-pages",
+      "cad-demonstration-video-5-min"
     ]
   },
   {
@@ -116,6 +126,11 @@
       "Set measurable targets for geometry, gearing, tires, mass, tractive capability, travel, and chosen metrics",
       "Explain downstream effects on propulsion, battery, suspension, steering, packaging, and feasibility",
       "Record sources and identify the Off-Road Systems Lead"
+    ],
+    "points": 45,
+    "work_tasks": [
+      "off-road-performance-targets",
+      "freeze-red-team"
     ]
   },
   {
@@ -154,6 +169,11 @@
       "Include the four or five highest-priority risks and issues with owners, responses, and triggers or dates",
       "Include priority university stakeholders, engagement timing, owner, and next request",
       "State maintenance location, data steward, and review cadence"
+    ],
+    "points": 25,
+    "work_tasks": [
+      "integrated-year-1-workplan",
+      "integrated-master-schedule"
     ]
   },
   {
@@ -192,6 +212,11 @@
       "Explain the Git repository and version-control workflow",
       "Show how to install, run, and reproduce a virtual-vehicle simulation",
       "Provide multiple walkthrough time slots and approved attendee contacts in the private submission"
+    ],
+    "points": 15,
+    "work_tasks": [
+      "pcm-onboarding-guide",
+      "onboard-training-runs-from-the-guide"
     ]
   },
   {
@@ -231,6 +256,11 @@
       "Assess C-rate, voltage sag, energy duration, thermal, and operating constraints",
       "Build a formula-driven configuration matrix with traceable cell inputs and visible constraint flags",
       "Identify the Battery Systems Lead and protect OEM-sensitive inputs and outputs"
+    ],
+    "points": 55,
+    "work_tasks": [
+      "battery-performance-targets",
+      "freeze-red-team-4"
     ]
   },
   {
@@ -269,6 +299,11 @@
       "Report energy consumption and torque-split or control behavior",
       "Compare results with published Cherokee EPA information",
       "Explain assumptions, limitations, and differences from real-world testing"
+    ],
+    "points": 25,
+    "work_tasks": [
+      "virtual-vehicle-simulation-epa-cycles",
+      "freeze-red-team-3"
     ]
   },
   {
@@ -302,6 +337,10 @@
       "Explain engineering method, evidence, and relationship to prior work",
       "Submit to ITEC under the organizer-confirmed track",
       "Include confirmation evidence in the EcoCAR submission"
+    ],
+    "points": 25,
+    "work_tasks": [
+      "final-technical-report-itec-digest"
     ]
   },
   {
@@ -340,6 +379,10 @@
       "Include required procedures, training records, emergency information, and revision history",
       "Show workspace, storage, HV area, lifting and safety equipment, and binder location",
       "Explain maintenance ownership and how onboarding uses the binder"
+    ],
+    "points": 30,
+    "work_tasks": [
+      "facilities-safety-readiness"
     ]
   },
   {
@@ -379,7 +422,8 @@
       "Prepare a one-page executive letter or email",
       "Prepare a stand-alone five-slide value brief",
       "Plan at least two approved public communications with responsibilities and timing"
-    ]
+    ],
+    "points": 15
   },
   {
     "id": "pm-stakeholder-proof",
@@ -411,7 +455,8 @@
       "Assign resulting actions, owners, and target dates",
       "Provide approved communication evidence or documented future publication plan",
       "Schedule the next engagement"
-    ]
+    ],
+    "points": 5
   },
   {
     "id": "stla-architecture",
@@ -460,6 +505,10 @@
       "Show modeling assumptions, results, battery concepts, power flow, and integration tradeoffs",
       "Assess facilities, expertise, staffing, procurement, implementation, and validation feasibility",
       "Complete one PHA per architecture and prepare evidence for the live review"
+    ],
+    "points": 150,
+    "work_tasks": [
+      "three-architecture-matrix"
     ]
   },
   {
@@ -500,7 +549,8 @@
       "Show next 30-day priorities and credible path to competition",
       "Present priority risks and issues with owners and actions",
       "State decisions, resource concerns, stakeholder asks, and required-by dates"
-    ]
+    ],
+    "points": 20
   },
   {
     "id": "stla-baseline-testing",
@@ -547,6 +597,10 @@
       "Document acquisition settings, storage, processing, data quality, and problems",
       "Collect required communications and vibration baselines as current guidance allows",
       "Retain raw data for the full competition and keep it outside the public repository"
+    ],
+    "points": 35,
+    "work_tasks": [
+      "baseline-vehicle-testing-characterization"
     ]
   },
   {
@@ -592,7 +646,8 @@
       "Record the short horizontal team video",
       "Provide professional bios and LinkedIn URLs for required leadership roles",
       "Provide approved get-involved, contact, meeting, and social information"
-    ]
+    ],
+    "points": null
   },
   {
     "id": "marcom-gate1-program-identity",
@@ -623,7 +678,8 @@
       "Three strategic goals mixing technical and non-technical priorities",
       "Team overview of 150-300 words covering AVTC history, purpose and student value",
       "Confirm the Target Audiences scoring row with organizers - Rev 3 gives no content subsection"
-    ]
+    ],
+    "points": 5
   },
   {
     "id": "marcom-ggb1",
@@ -656,7 +712,8 @@
       "Named technical reviewer approves before submission",
       "Social copy for LinkedIn/Facebook and Instagram, 500 characters preferred",
       "Photo waivers for anyone not on the team"
-    ]
+    ],
+    "points": 10
   },
   {
     "id": "marcom-gate2-visual-identity",
@@ -687,7 +744,8 @@
       "Visual style, brand do's and don'ts, social media style guide",
       "PNG logo files included separately in the folder",
       "EIC logo may be recoloured but not restructured; university name must appear"
-    ]
+    ],
+    "points": 5
   },
   {
     "id": "marcom-smv1",
@@ -718,7 +776,8 @@
       "Named technical reviewer approves before submission",
       "Cover image at 1080x1920",
       "Caption with hook, body, call to action and three to five hashtags"
-    ]
+    ],
+    "points": 10
   },
   {
     "id": "marcom-gate3-brand-assets",
@@ -748,7 +807,8 @@
       "Report template with cover, contents, heading hierarchy, headers, footers and page numbers",
       "Letterhead with logo, university affiliation and contact details",
       "Consistent with the approved Visual Identity Guide"
-    ]
+    ],
+    "points": 5
   },
   {
     "id": "marcom-gate4-external-promotion",
@@ -779,7 +839,8 @@
       "Target audience table for sponsors, university leadership, prospective students and K-12 youth",
       "Social media platform strategy table, one row per audience-platform pair",
       "In-person engagement plan with at least one opportunity per audience"
-    ]
+    ],
+    "points": 5
   },
   {
     "id": "marcom-ggb2",
@@ -809,7 +870,8 @@
       "Same requirements as GGB1",
       "Topic assigned by organizers - still TBD in Rev 3",
       "Named technical reviewer approves before submission"
-    ]
+    ],
+    "points": 10
   },
   {
     "id": "marcom-smv2",
@@ -838,7 +900,8 @@
       "Same requirements as SMV1",
       "Topic assigned by organizers - still TBD in Rev 3",
       "Safety rules observed on camera"
-    ]
+    ],
+    "points": 10
   },
   {
     "id": "marcom-year-end-logs",
@@ -868,7 +931,8 @@
       "Outreach event data logged as events happen",
       "Approved photos and video filed in the Team Asset Library",
       "Start logging now - these cannot be reconstructed in May"
-    ]
+    ],
+    "points": null
   },
   {
     "id": "pit-studio1-checkin",
@@ -898,7 +962,8 @@
       "Candidate wedge hypotheses with rationale",
       "Outreach pipeline status for Studio 2",
       "Keep the shared link open to organizers and faculty"
-    ]
+    ],
+    "points": 10
   },
   {
     "id": "pit-studio1",
@@ -928,7 +993,8 @@
       "Business Model Canvas for two incumbents at different value chain stages",
       "Feasibility screening and engineering personas",
       "Two to three engineering-based candidate wedge hypotheses with validation plans"
-    ]
+    ],
+    "points": 25
   },
   {
     "id": "pit-microlearning1",
@@ -955,7 +1021,8 @@
       "One technical critical assumption underlying the wedge hypothesis",
       "Published to the shared cohort platform",
       "Link submitted to organizers"
-    ]
+    ],
+    "points": 10
   },
   {
     "id": "pit-open-exploration",
@@ -992,7 +1059,8 @@
       "Network map with warm-intro pathways marked",
       "Team SWOT and the unfair advantage synthesis",
       "Up to ten problem space cards - user, context, pain point; breadth over depth"
-    ]
+    ],
+    "points": 25
   },
   {
     "id": "pit-studio2-checkin",
@@ -1022,7 +1090,8 @@
       "Interview guide and discovery logs",
       "Updated assumptions register and business model canvas",
       "In-progress DFV scores for three candidate wedges"
-    ]
+    ],
+    "points": 10
   },
   {
     "id": "pit-microlearning2",
@@ -1049,7 +1118,8 @@
       "Three user critical assumptions validated or invalidated through interviews",
       "Supporting insight and quote for each",
       "Published to the shared cohort platform"
-    ]
+    ],
+    "points": 10
   },
   {
     "id": "pit-studio2",
@@ -1087,6 +1157,10 @@
       "DFV analysis force-ranking three candidate wedges",
       "Market sizing and Porter's Five Forces for the winning wedge",
       "Explicit Proceed, Pivot, Narrow or Stop recommendation"
+    ],
+    "points": 60,
+    "work_tasks": [
+      "pit-customer-discovery-gate-1"
     ]
   }
 ]

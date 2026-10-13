@@ -555,6 +555,8 @@ def main():
         f"{len(bundle['projects'])} projects, {len(bundle['constraints']['groups'])} constraint groups, "
         f"{len(bundle['lead_status'])} lead check-ins."
     )
+    import print_schedule
+    print_schedule.main()
     if warnings:
         print(f"Review {len(warnings)} warning(s) above before publishing.")
 
