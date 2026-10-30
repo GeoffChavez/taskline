@@ -1,12 +1,93 @@
 {
-  "as_of": "2026-10-05",
-  "source": "Student Leadership Team Organization Chart slide, plus the team baseline in this repository",
+  "as_of": "2026-10-30",
+  "source": "Team roster and headshots provided 30 Oct 2026, plus the team baseline in this repository",
   "note": "Responsibilities describe the standing job of each seat. Deliverables, check-ins and formal roles on each card are pulled live from the other data files.",
   "tiers": [
-    {"id": "leadership", "label": "Leadership"},
-    {"id": "technical", "label": "Technical teams"}
+    {
+      "id": "faculty",
+      "label": "Faculty advisors"
+    },
+    {
+      "id": "leadership",
+      "label": "Leadership"
+    },
+    {
+      "id": "technical",
+      "label": "Technical teams"
+    }
   ],
   "seats": [
+    {
+      "id": "fac-shahverdi",
+      "photo": "img/faculty/shahverdi.jpg",
+      "tier": "faculty",
+      "title": "Faculty Advisor",
+      "name": "Dr. Masood Shahverdi",
+      "key": "",
+      "lane": "pgm",
+      "summary": "Faculty advisor · power electronics and motors; meets EE2 Tuesdays.",
+      "responsibilities": [
+        "Faculty advisor to the team",
+        "Advises power electronics and motors",
+        "Meets EE2 (Instrumentation and Controls) Tuesdays 4:30–5:30 pm"
+      ]
+    },
+    {
+      "id": "fac-wang",
+      "photo": "img/faculty/wang.jpg",
+      "tier": "faculty",
+      "title": "Faculty Advisor",
+      "name": "Dr. Curtis Wang",
+      "key": "",
+      "lane": "pgm",
+      "summary": "Faculty advisor · embedded systems.",
+      "responsibilities": [
+        "Faculty advisor to the team",
+        "Advises embedded systems"
+      ]
+    },
+    {
+      "id": "fac-blekhman",
+      "photo": "img/faculty/blekhman.jpg",
+      "tier": "faculty",
+      "title": "Faculty Advisor",
+      "name": "Dr. David Blekhman",
+      "key": "",
+      "lane": "pgm",
+      "summary": "Faculty advisor · hydrogen fuel.",
+      "responsibilities": [
+        "Faculty advisor to the team",
+        "Advises hydrogen fuel"
+      ]
+    },
+    {
+      "id": "fac-martin",
+      "photo": "img/faculty/martin.jpg",
+      "tier": "faculty",
+      "title": "Faculty Advisor",
+      "name": "Dr. Silvia Martin",
+      "key": "",
+      "lane": "pgm",
+      "summary": "Faculty advisor.",
+      "responsibilities": [
+        "Faculty advisor to the team",
+        "[confirm advising area]"
+      ]
+    },
+    {
+      "id": "fac-bachman",
+      "photo": "img/faculty/bachman.jpg",
+      "tier": "faculty",
+      "title": "Faculty Advisor",
+      "name": "Dr. Chris Bachman",
+      "key": "",
+      "lane": "pgm",
+      "summary": "Faculty advisor · mechanical, batteries and funding.",
+      "responsibilities": [
+        "Faculty advisor to the team",
+        "Advises mechanical design, batteries and funding"
+      ]
+    },
     {
       "id": "pm",
       "photo": "img/leads/geo.jpg",
@@ -31,7 +112,7 @@
       "tier": "leadership",
       "title": "Associate Project Manager",
       "name": "Henry Hall",
-      "key": "",
+      "key": "hen",
       "lane": "pgm",
       "confirm": true,
       "summary": "Responsibilities not yet written into the team baseline.",
@@ -61,7 +142,7 @@
       "id": "pit-lead",
       "photo": "img/leads/aya.jpg",
       "tier": "leadership",
-      "title": "AI & Innovation Track Product Development",
+      "title": "Product Innovation Track Lead",
       "name": "Ayaan Gulwani",
       "key": "aya",
       "lane": "biz",
@@ -106,7 +187,7 @@
       "id": "pcm",
       "photo": "img/leads/ron.jpg",
       "tier": "technical",
-      "title": "Powertrain Simulation and Control",
+      "title": "Powertrain Simulation and Control Lead",
       "name": "Rony Herrera",
       "key": "ron",
       "lane": "pcm",
@@ -123,7 +204,7 @@
       "id": "instrumentation",
       "photo": "img/leads/min.jpg",
       "tier": "technical",
-      "title": "Instrumentation / CAN Communication",
+      "title": "Instrumentation Lead",
       "name": "Mingpeng Chen",
       "key": "min",
       "lane": "vhi",
@@ -140,7 +221,7 @@
       "id": "rear-axle",
       "photo": "img/leads/fra.jpg",
       "tier": "technical",
-      "title": "Rear Axle Design",
+      "title": "Vehicle Hardware and Integration Lead",
       "name": "Francisco Calva",
       "key": "fra",
       "lane": "vhi",
@@ -159,7 +240,7 @@
       "id": "hv-battery",
       "photo": "img/leads/dav.jpg",
       "tier": "technical",
-      "title": "HV Battery Pack Design",
+      "title": "HV Battery Pack Lead",
       "name": "David Escobar",
       "key": "dav",
       "lane": "hvb",
@@ -178,9 +259,9 @@
       "id": "innovation-pd",
       "photo": "img/leads/oma.jpg",
       "tier": "technical",
-      "title": "Innovation Product Development",
+      "title": "Product Innovation Track Co-Lead",
       "name": "Omar Escobedo",
-      "key": "",
+      "key": "oma",
       "lane": "biz",
       "reports_to": "pit-lead",
       "confirm": true,
@@ -188,6 +269,39 @@
       "responsibilities": [
         "Contributes to the Product Innovation Track",
         "[confirm specific responsibilities - not yet written into the team baseline]"
+      ]
+    },
+    {
+      "id": "jefrey",
+      "photo": "img/leads/jef.jpg",
+      "tier": "technical",
+      "title": "Vehicle Systems Integration",
+      "name": "Jefrey Caal",
+      "key": "jef",
+      "lane": "vse",
+      "reports_to": "vehicle-lead",
+      "summary": "Vehicle systems integration, NX onboarding and backup CAD Custodian.",
+      "responsibilities": [
+        "Vehicle systems integration",
+        "Co-leads the NX track and NX onboarding materials",
+        "Co-author of the CAD onboarding guide",
+        "Backup CAD Custodian"
+      ]
+    },
+    {
+      "id": "pit-member",
+      "photo": "img/leads/bri.jpg",
+      "tier": "technical",
+      "title": "Product Innovation",
+      "name": "Brian Ta",
+      "key": "bri",
+      "lane": "biz",
+      "reports_to": "pit-lead",
+      "confirm": true,
+      "summary": "Contributes to the Product Innovation Track.",
+      "responsibilities": [
+        "Contributes to the Product Innovation Track",
+        "[confirm specific responsibilities]"
       ]
     }
   ]

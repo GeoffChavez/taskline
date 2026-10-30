@@ -1,13 +1,16 @@
 key,name,role,color
 ant,Anthony Whitehurst,VSE Lead,#0B6273
-fra,Francisco Calva,CAD Custodian · VHI,#3F6E0F
-ron,Rony Herrera,PCM Lead,#5B3E8C
-dav,David Escobar,Battery Systems Lead,#A8500B
-min,Mingpeng Chen,Vehicle Test Lead,#1F6B57
-jef,Jeff,NX Onboarding Lead,#5E7A16
+fra,Francisco Calva,Vehicle Hardware and Integration Lead · CAD Custodian,#3F6E0F
+ron,Rony Herrera,Powertrain Simulation and Control Lead,#5B3E8C
+dav,David Escobar,HV Battery Pack Lead,#A8500B
+min,Mingpeng Chen,Instrumentation Lead,#1F6B57
+jef,Jefrey Caal,Vehicle Systems Integration,#5E7A16
 dor,Dorian Celis-Fuentes,CAD onboarding guide,#7A4A12
 nat,Nathan Fernandez,Integrated Master Schedule,#2B5E7A
-aya,Ayaan Moosa,PIT Lead,#8A2B4E
+aya,Ayaan Gulwani,Product Innovation Track Lead,#8A2B4E
 geo,Geoffrey Chavez,Project Manager,#25554A
 mar,Krupskaia Molina,MarCom Manager,#95261C
+hen,Henry Hall,Associate Project Manager,#3B5F55
+oma,Omar Escobedo,Product Innovation Track Co-Lead,#7A2E52
+bri,Brian Ta,Product Innovation,#6E3A5C
 new,New members,onboarding cohort,#6E7E77
