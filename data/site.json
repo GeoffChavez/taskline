@@ -2,7 +2,7 @@
   "title": "Cal State LA EcoCAR - Year 1 Execution Hub",
   "subtitle": "One public-safe view of commitments, owners, dates, readiness, and contribution paths.",
   "baseline_date": "2026-09-03",
-  "official_schedule_as_of": "2026-10-09",
+  "official_schedule_as_of": "2026-10-30",
   "track": "Stellantis",
   "repository_url": "https://github.com/GeoffChavez/taskline",
   "pages_url": "https://geoffchavez.github.io/taskline/",
@@ -12,5 +12,11 @@
     "EIC Team Dashboard for official dates",
     "Approved team baseline in this repository",
     "Weekly execution status"
-  ]
+  ],
+  "claims": {
+    "mode": "anyone",
+    "limit_per_person": 2,
+    "form": "claim-task.yml",
+    "note": "First valid claim wins. mode: anyone | members (owners, members and collaborators only)."
+  }
 }

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suspension Analysis Guide</title>
+<style>
+:root{--ink:#162521;--muted:#5e6b67;--paper:#f7f5ef;--card:#fff;--line:#d9ddd8;--gold:#ffce00;--green:#25554a;--vhi:#3f6e0f;--red:#a62c2c;--soft:#eef2ef;--display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;--mono:Consolas,"SFMono-Regular",Menlo,monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:16px}
+a{color:var(--green)}
+.top{background:var(--ink);color:#fff;border-bottom:6px solid var(--gold)}
+.top .in{max-width:1080px;margin:0 auto;padding:30px 20px 26px}
+.top a{color:var(--gold);font-weight:700;text-decoration:none;font-size:.85rem}
+.kicker{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.12;margin:8px 0 10px}
+.lede{max-width:760px;color:#d8e1dd;font-size:1.05rem;margin:0}
+main{max-width:1080px;margin:0 auto;padding:26px 20px 70px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.toc a{padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;text-decoration:none;font-size:.82rem;font-weight:700;color:var(--ink)}
+.toc a:hover{background:var(--gold);border-color:var(--gold)}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin:0 0 18px;box-shadow:0 10px 28px rgba(20,42,35,.06)}
+h2{font-family:var(--display);font-weight:600;font-size:1.65rem;margin:0 0 6px;line-height:1.2}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p{margin:8px 0}
+.note{font-size:.88rem;color:var(--muted)}
+.callout{border-left:5px solid var(--gold);background:#fbf6dd;padding:14px 18px;border-radius:0 12px 12px 0;margin:14px 0}
+.callout.red{border-color:var(--red);background:#f8e9e7}
+.callout b{display:block;margin-bottom:2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.calc{border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0;background:#fcfcfa}
+.calc-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px}
+.num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;font-size:.85rem;flex:0 0 auto}
+.calc-head h3{margin:0;font-size:1.12rem}
+.task{margin-left:auto;font-size:.74rem;font-weight:800;padding:4px 9px;border-radius:999px;background:#e8efe0;color:var(--vhi)}
+.eq{font-family:var(--mono);background:var(--ink);color:#f3f0e4;border-radius:10px;padding:12px 16px;margin:10px 0;font-size:.92rem;overflow-x:auto;white-space:pre}
+.eq .c{color:#9fb3ac}
+dl.io{display:grid;grid-template-columns:150px 1fr;gap:4px 14px;margin:8px 0;font-size:.92rem}
+dl.io dt{font-weight:800;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;padding-top:3px}
+dl.io dd{margin:0}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:10px 0}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+.tag{display:inline-block;font-size:.7rem;font-weight:800;padding:2px 7px;border-radius:999px}
+.pub{background:#e3efe9;color:var(--green)}.asm{background:#fbf0d1;color:#8a5a00}.ph{background:#f8e2df;color:var(--red)}
+.ex{font-size:.86rem;background:#fff8dc;border:1px dashed #d4b44a;border-radius:10px;padding:10px 14px;margin:8px 0}
+.ex b{color:#7a5b00}
+ol.steps{padding-left:22px}ol.steps li{margin:6px 0}
+code{font-family:var(--mono);font-size:.88em;background:var(--soft);padding:1px 5px;border-radius:5px}
+svg{max-width:100%;height:auto;display:block}
+.fig{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.fig figcaption{font-size:.82rem;color:var(--muted);margin-top:6px}
+figure{margin:0}
+.wrap{overflow-x:auto}
+footer{max-width:1080px;margin:0 auto;padding:0 20px 40px;color:var(--muted);font-size:.82rem}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}section{padding:20px 16px}dl.io{grid-template-columns:1fr}.task{margin-left:0}}
+@media print{.toc,.top a{display:none}section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <a href="../index.html">&larr; Back to the taskline</a>
+  <div class="kicker" style="margin-top:14px">Vehicle hardware and integration &middot; Mentor: Geoffrey Chavez</div>
+  <h1>Suspension analysis: hand calculations first, then MATLAB and Simulink</h1>
+  <p class="lede">We are adding up to 182&nbsp;kg to a stock Jeep Cherokee, most of it at the rear. This guide shows how that mass changes the stock suspension, how to work out each effect by hand, and how to build models that check the hand calculations.</p>
+</div></header>
+
+<main>
+<nav class="toc" aria-label="On this page">
+  <a href="#why">Why this matters</a><a href="#inputs">Inputs</a><a href="#calcs">The eight hand calcs</a><a href="#matlab">MATLAB</a><a href="#simulink">Simulink</a><a href="#halfcar">Half-car</a><a href="#tasks">Claim a task</a>
+</nav>
+
+<section id="why">
+  <h2>Why this matters, and what is in scope</h2>
+  <p>The competition rules list <strong>different springs and dampers, including active suspension</strong> as <em>permitted</em>. That means it is allowed but probably not scored, and it may carry extra rules. So we are not redesigning the suspension.</p>
+  <p>What we do have to answer is what our added mass does to the <strong>stock</strong> suspension. The pack, rear drive unit, mounts, wiring and cooling can total 182&nbsp;kg, much of it behind the rear axle line. On the same springs, that mass:</p>
+  <div class="grid2">
+    <ul>
+      <li><b>Lowers the rear.</b> Ground clearance and departure angle feed our off-road targets.</li>
+      <li><b>Lowers the ride frequency and damping ratio.</b> The car gets floatier and less controlled at the rear.</li>
+    </ul>
+    <ul>
+      <li><b>Moves load onto the rear axle.</b> That sets how much torque our rear drive unit can put down.</li>
+      <li><b>Changes the halfshaft angles.</b> Our new halfshafts have to stay inside the CV joint limits through full travel.</li>
+    </ul>
+  </div>
+  <div class="callout"><b>The working rule</b>Do every calculation by hand once, then check it in MATLAB. A model is trusted only when it agrees with a hand calculation, or the difference is explained. Report the difference as a percent error.</div>
+</section>
+
+<section id="inputs">
+  <h2>The inputs, and which ones we still need</h2>
+  <p>Everything starts from this table. It lives in <code>matlab/suspension/susp_params.m</code>, with a source next to each value. Task <b>ST-17</b> exists to fill the red rows.</p>
+  <div class="wrap"><table>
+    <thead><tr><th>Input</th><th>Symbol</th><th>Value</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Curb mass</td><td>m</td><td>1,948&nbsp;kg (fleet guide); the taskline constraints say 1,972&nbsp;kg</td><td><span class="tag asm">confirm which</span></td></tr>
+      <tr><td>Wheelbase</td><td>L</td><td>2.870&nbsp;m</td><td><span class="tag pub">published</span></td></tr>
+      <tr><td>Rear track</td><td>t</td><td>1.633&nbsp;m</td><td><span class="tag pub">published</span></td></tr>
+      <tr><td>Front weight fraction</td><td>w<sub>f</sub></td><td>about 0.57</td><td><span class="tag asm">assumed: corner scales</span></td></tr>
+      <tr><td>Added-mass allowance</td><td>&ndash;</td><td>182&nbsp;kg (&plusmn;25)</td><td><span class="tag pub">competition rule</span></td></tr>
+      <tr><td>CG height</td><td>h</td><td>[measure or confirm]</td><td><span class="tag ph">needed</span></td></tr>
+      <tr><td>Rear spring rate</td><td>k<sub>s</sub></td><td>[measure or confirm]</td><td><span class="tag ph">needed</span></td></tr>
+      <tr><td>Rear spring and damper motion ratios</td><td>MR, MR<sub>d</sub></td><td>[measure]</td><td><span class="tag ph">needed</span></td></tr>
+      <tr><td>Rear damper coefficient</td><td>c<sub>d</sub></td><td>[confirm]</td><td><span class="tag ph">needed</span></td></tr>
+      <tr><td>Unsprung mass per rear corner</td><td>m<sub>u</sub></td><td>[estimate + source]</td><td><span class="tag ph">needed</span></td></tr>
+      <tr><td>Tire vertical stiffness</td><td>k<sub>t</sub></td><td>[confirm: tire data]</td><td><span class="tag ph">needed</span></td></tr>
+      <tr><td>Added components: mass and position</td><td>m<sub>i</sub>, x<sub>i</sub></td><td>From the pack, drive unit and mount designs</td><td><span class="tag ph">needed</span></td></tr>
+      <tr><td>Halfshaft length, joint offset, CV limit</td><td>&ndash;</td><td>From CAD and the joint datasheet</td><td><span class="tag ph">needed</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Ways to get the red rows: corner scales (weight split), measuring the spring's wire diameter, coil diameter and active coils (spring rate), wheel and spring travel on a jack (motion ratio), Stellantis or Mopar service data, and the tire maker's data. Static measurements only, done under a lead's supervision.</p>
+  <div class="ex"><b>About the yellow example boxes below.</b> They use round <em>teaching</em> numbers for a generic mid-size SUV (<code>susp_params('example')</code>), so you can follow the arithmetic today. They are <strong>not Cherokee data</strong>. Never copy them into a report.</div>
+</section>
+
+<section id="calcs">
+  <h2>The eight hand calculations, in order</h2>
+  <p>Each one uses results from the ones before it. Do them on paper first, with units on every line.</p>
+
+  <div class="calc"><div class="calc-head"><span class="num">1</span><h3>Corner weights and CG shift</h3><span class="task">ST-18</span></div>
+  <div class="eq">W<sub>r</sub> = m&middot;g&middot;(1 &minus; w<sub>f</sub>)                 <span class="c">rear axle load, stock</span>
+x<sub>cg</sub> = (1 &minus; w<sub>f</sub>)&middot;L                     <span class="c">CG behind the front axle</span>
+x<sub>cg,new</sub> = (m&middot;x<sub>cg</sub> + &Sigma; m<sub>i</sub>x<sub>i</sub>) / (m + &Sigma; m<sub>i</sub>)
+W<sub>r,new</sub> = (m + &Sigma; m<sub>i</sub>)&middot;g&middot;x<sub>cg,new</sub> / L</div>
+  <dl class="io"><dt>Tells you</dt><dd>How much extra load each rear corner carries, and whether the total stays inside 182&nbsp;kg. Subtract anything removed, such as the stock rear driveline.</dd></dl>
+  <div class="ex"><b>Example:</b> 2,000&nbsp;kg at 57/43 with 182&nbsp;kg added near the rear axle. Rear axle load goes from 8,437&nbsp;N to 10,140&nbsp;N, and the rear share from 43.0% to 47.4%.</div></div>
+
+  <div class="calc"><div class="calc-head"><span class="num">2</span><h3>Motion ratio, wheel rate and ride rate</h3><span class="task">ST-19</span></div>
+  <div class="eq">MR  = spring travel / wheel travel         <span class="c">measure both on a jack</span>
+K<sub>w</sub>  = k<sub>s</sub> &middot; MR&sup2;                        <span class="c">wheel rate</span>
+K<sub>r</sub>  = K<sub>w</sub>&middot;k<sub>t</sub> / (K<sub>w</sub> + k<sub>t</sub>)                <span class="c">ride rate: spring and tire in series</span></div>
+  <dl class="io"><dt>Watch out</dt><dd>MR is squared because the spring both moves less and pushes through a lever. Some books define MR the other way up. We always use spring travel over wheel travel.</dd></dl>
+  <div class="ex"><b>Example:</b> 50&nbsp;N/mm spring, MR&nbsp;0.85, tire 250&nbsp;N/mm. Wheel rate 36.1&nbsp;N/mm, ride rate 31.6&nbsp;N/mm.</div></div>
+
+  <div class="calc"><div class="calc-head"><span class="num">3</span><h3>Static ride-height drop and ground clearance</h3><span class="task">ST-19</span></div>
+  <div class="eq">&Delta;z = &Delta;W<sub>corner</sub> / K<sub>r</sub>                   <span class="c">&Delta;W<sub>corner</sub> = (W<sub>r,new</sub> &minus; W<sub>r</sub>)/2</span></div>
+  <dl class="io"><dt>Tells you</dt><dd>How many millimetres the rear sits lower. Subtract it from the rear ground clearance, then redo the departure angle with the lower tail.</dd></dl>
+  <div class="ex"><b>Example:</b> 852&nbsp;N more per corner on 31.6&nbsp;N/mm gives a 27&nbsp;mm drop.</div></div>
+
+  <div class="calc"><div class="calc-head"><span class="num">4</span><h3>Ride frequency and damping ratio</h3><span class="task">ST-20</span></div>
+  <div class="eq">m<sub>s</sub> = W<sub>corner</sub>/g &minus; m<sub>u</sub>                      <span class="c">sprung mass on one corner</span>
+f   = (1/2&pi;)&middot;&radic;(K<sub>r</sub> / m<sub>s</sub>)                 <span class="c">ride frequency, Hz</span>
+c<sub>w</sub> = c<sub>d</sub>&middot;MR<sub>d</sub>&sup2;                          <span class="c">damping at the wheel</span>
+&zeta;   = c<sub>w</sub> / (2&middot;&radic;(K<sub>r</sub>&middot;m<sub>s</sub>))             <span class="c">damping ratio</span></div>
+  <dl class="io"><dt>Tells you</dt><dd>Same springs with more mass means a lower frequency and less damping. Passenger SUVs usually sit somewhere around 1 to 1.5&nbsp;Hz at the rear, so compare stock with converted and say what changed. Do not judge it against a single magic number.</dd></dl>
+  <div class="ex"><b>Example:</b> rear ride frequency 1.45 to 1.31&nbsp;Hz; damping ratio 0.37 to 0.33.</div></div>
+
+  <div class="calc"><div class="calc-head"><span class="num">5</span><h3>Load transfer</h3><span class="task">ST-21</span></div>
+  <div class="eq">&Delta;W<sub>long</sub> = m&middot;a<sub>x</sub>&middot;h / L                <span class="c">front to rear under acceleration</span>
+&Delta;W<sub>lat</sub>  = m&middot;a<sub>y</sub>&middot;h / t                <span class="c">inside to outside in a turn (whole car)</span></div>
+  <dl class="io"><dt>Tells you</dt><dd>How the corner loads move when the car launches, brakes or turns. Splitting the lateral transfer between front and rear needs roll stiffness (calculation 7).</dd></dl>
+  <div class="ex"><b>Example:</b> 0.4&nbsp;g launch moves 2,088&nbsp;N to the rear; 0.6&nbsp;g cornering moves 5,516&nbsp;N to the outside.</div></div>
+
+  <div class="calc"><div class="calc-head"><span class="num">6</span><h3>Rear-axle traction limit</h3><span class="task">ST-21</span></div>
+  <div class="eq">a<sub>max</sub>/g = &mu;&middot;(W<sub>r</sub>/W) / (1 &minus; &mu;&middot;h/L)        <span class="c">rear-drive only, at the slip limit</span>
+T<sub>max</sub>  = &mu;&middot;(W<sub>r</sub> + m&middot;a<sub>max</sub>&middot;h/L)&middot;r<sub>loaded</sub></div>
+  <dl class="io"><dt>Tells you</dt><dd>The most torque the rear tires can use before they spin. Compare it with the rear drive unit's torque at the axle. Any torque above this limit is wasted, so it informs the control strategy.</dd></dl>
+  <div class="ex"><b>Example:</b> &mu;&nbsp;0.8 gives 0.47&nbsp;g with the rear axle alone, which is 3,326&nbsp;N&middot;m at the rear axle.</div></div>
+
+  <div class="calc"><div class="calc-head"><span class="num">7</span><h3>Roll gradient (stretch goal)</h3><span class="task">ST-21</span></div>
+  <div class="eq">&phi;/a<sub>y</sub> = m<sub>s</sub>&middot;g&middot;h<sub>ra</sub> / (K<sub>&phi;f</sub> + K<sub>&phi;r</sub> &minus; m<sub>s</sub>&middot;g&middot;h<sub>ra</sub>)   <span class="c">deg/g after unit conversion</span>
+K<sub>&phi;</sub> = &frac12;&middot;K<sub>w</sub>&middot;t&sup2; + K<sub>bar</sub>                         <span class="c">per axle, N&middot;m/rad</span></div>
+  <dl class="io"><dt>Needs</dt><dd>Anti-roll bar rates and roll-centre heights (h<sub>ra</sub> is the CG height above the roll axis). Leave it as a placeholder until those are sourced.</dd></dl></div>
+
+  <div class="calc"><div class="calc-head"><span class="num">8</span><h3>Halfshaft angle through travel</h3><span class="task">ST-22</span></div>
+  <div class="eq">&theta;(z) = atan( (z<sub>0</sub> &minus; &Delta;z + z) / L<sub>shaft</sub> )      <span class="c">z from full droop to full bump</span></div>
+  <dl class="io"><dt>Tells you</dt><dd>Whether the CV joints stay inside their angle limit at full droop and full bump, from the new, lower ride height. Plot the angle against travel, with the joint limit as a line.</dd></dl>
+  <div class="ex"><b>Example:</b> a 0.55&nbsp;m shaft over &plusmn;100&nbsp;mm of travel runs from &minus;11&deg; at full droop to +9.6&deg; at full bump. The 27&nbsp;mm drop makes droop the worst case. That is inside an example &plusmn;20&deg; limit.</div></div>
+</section>
+
+<section id="matlab">
+  <h2>Checking the hand calcs in MATLAB</h2>
+  <p>The files are in the repository under <code>matlab/suspension/</code>. They run in MATLAB with no toolboxes, and they also run in the free GNU Octave.</p>
+  <div class="eq">cd matlab/suspension
+susp_handcalcs('example')        <span class="c">% all eight calcs, teaching numbers</span>
+quarter_car_ode('example')       <span class="c">% quarter-car model and percent error vs calc 4</span>
+susp_handcalcs('cherokee')       <span class="c">% stops and lists what ST-17 still has to measure</span></div>
+  <ol class="steps">
+    <li>Do the calculation by hand.</li>
+    <li>Put your inputs in <code>susp_params.m</code>, with a source in the comment.</li>
+    <li>Run <code>susp_handcalcs</code> and compare. If they disagree, find out which one is wrong before going on.</li>
+  </ol>
+  <div class="callout"><b>What the model teaches you</b>On the example set, the quarter-car body frequency lands within about 2% of hand calc 4, but the damping ratio comes out about 23% lower. The hand calc treats the wheel as fixed under the body. In the model the wheel moves, so the damper strokes less than the body does. Explaining a difference like that is the skill an employer is looking for.</div>
+</section>
+
+<section id="simulink">
+  <h2>Building it in Simulink: the quarter-car model</h2>
+  <div class="grid2">
+    <figure class="fig">
+      <svg viewBox="0 0 300 330" role="img" aria-label="Quarter-car diagram: body mass on a spring and damper, wheel mass on a tire spring, road below">
+        <rect x="80" y="20" width="140" height="56" rx="6" fill="#25554a"/><text x="150" y="53" fill="#fff" font-size="15" text-anchor="middle" font-family="Segoe UI,Arial">body  m&#x209B;</text>
+        <path d="M120 76 v10 l-12 6 l24 10 l-24 10 l24 10 l-24 10 l12 6 v10" fill="none" stroke="#162521" stroke-width="2.5"/>
+        <text x="86" y="128" font-size="13" text-anchor="end" font-family="Segoe UI,Arial" fill="#162521">K&#x1D464;</text>
+        <path d="M180 76 v24 M168 100 h24 v34 M168 100 v34 M174 116 h12 M180 116 v32" fill="none" stroke="#162521" stroke-width="2.5"/>
+        <text x="206" y="126" font-size="13" font-family="Segoe UI,Arial" fill="#162521">c&#x1D464;</text>
+        <rect x="95" y="148" width="110" height="46" rx="6" fill="#a8500b"/><text x="150" y="176" fill="#fff" font-size="15" text-anchor="middle" font-family="Segoe UI,Arial">wheel  m&#x1D64;</text>
+        <path d="M150 194 v10 l-12 6 l24 10 l-24 10 l24 10 l-12 6 v12" fill="none" stroke="#162521" stroke-width="2.5"/>
+        <text x="172" y="232" font-size="13" font-family="Segoe UI,Arial" fill="#162521">k&#x209C;  (tire)</text>
+        <path d="M30 280 h90 v-14 h150" fill="none" stroke="#5e6b67" stroke-width="3"/><text x="150" y="304" font-size="13" text-anchor="middle" font-family="Segoe UI,Arial" fill="#5e6b67">road z&#x1D63; (20 mm step)</text>
+        <path d="M250 30 v40" stroke="#5e6b67" stroke-width="1.5" marker-end="url(#a)"/><text x="258" y="54" font-size="12" font-family="Segoe UI,Arial" fill="#5e6b67">z&#x209B;</text>
+        <path d="M250 152 v36" stroke="#5e6b67" stroke-width="1.5" marker-end="url(#a)"/><text x="258" y="174" font-size="12" font-family="Segoe UI,Arial" fill="#5e6b67">z&#x1D64;</text>
+        <defs><marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5e6b67"/></marker></defs>
+      </svg>
+      <figcaption>One rear corner: the body sits on the suspension, and the wheel sits on the tire.</figcaption>
+    </figure>
+    <div>
+      <h3 style="margin-top:0">The two equations</h3>
+      <div class="eq">m<sub>s</sub>&middot;z&#776;<sub>s</sub> = &minus;F<sub>s</sub>
+m<sub>u</sub>&middot;z&#776;<sub>u</sub> =  F<sub>s</sub> &minus; F<sub>t</sub>
+F<sub>s</sub> = K<sub>w</sub>(z<sub>s</sub>&minus;z<sub>u</sub>) + c<sub>w</sub>(&#380;<sub>s</sub>&minus;&#380;<sub>u</sub>)
+F<sub>t</sub> = k<sub>t</sub>(z<sub>u</sub>&minus;z<sub>r</sub>)</div>
+      <p class="note">Measured from where the car sits at rest, so gravity drops out. Each acceleration goes through two Integrator blocks to give velocity, then position.</p>
+    </div>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 980 230" role="img" aria-label="Simulink signal flow for the quarter car">
+      <style>.b{fill:#fff;stroke:#162521;stroke-width:1.6}.t{font:13px Segoe UI,Arial;fill:#162521;text-anchor:middle}.s{font:11px Segoe UI,Arial;fill:#5e6b67;text-anchor:middle}.l{stroke:#162521;stroke-width:1.5;fill:none;marker-end:url(#h)}.g{fill:#fbf6dd}</style>
+      <defs><marker id="h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#162521"/></marker></defs>
+      <rect class="b g" x="10" y="20" width="110" height="44" rx="6"/><text class="t" x="65" y="40">Fs = Kw&#xb7;&#x394;z</text><text class="s" x="65" y="56">+ cw&#xb7;&#x394;v</text>
+      <rect class="b" x="160" y="20" width="90" height="44" rx="6"/><text class="t" x="205" y="40">Gain</text><text class="s" x="205" y="56">&#x2212;1/ms</text>
+      <rect class="b" x="290" y="20" width="80" height="44" rx="6"/><text class="t" x="330" y="40">&#x222B;</text><text class="s" x="330" y="56">zs_dot</text>
+      <rect class="b" x="410" y="20" width="80" height="44" rx="6"/><text class="t" x="450" y="40">&#x222B;</text><text class="s" x="450" y="56">zs</text>
+      <rect class="b" x="540" y="20" width="110" height="44" rx="6"/><text class="t" x="595" y="40">To Workspace</text><text class="s" x="595" y="56">zs_out</text>
+      <path class="l" d="M120 42 H158"/><path class="l" d="M250 42 H288"/><path class="l" d="M370 42 H408"/><path class="l" d="M490 42 H538"/>
+      <rect class="b g" x="10" y="150" width="110" height="44" rx="6"/><text class="t" x="65" y="170">Fs &#x2212; Ft</text><text class="s" x="65" y="186">Ft = kt&#xb7;(zu&#x2212;zr)</text>
+      <rect class="b" x="160" y="150" width="90" height="44" rx="6"/><text class="t" x="205" y="170">Gain</text><text class="s" x="205" y="186">1/mu</text>
+      <rect class="b" x="290" y="150" width="80" height="44" rx="6"/><text class="t" x="330" y="170">&#x222B;</text><text class="s" x="330" y="186">zu_dot</text>
+      <rect class="b" x="410" y="150" width="80" height="44" rx="6"/><text class="t" x="450" y="170">&#x222B;</text><text class="s" x="450" y="186">zu</text>
+      <rect class="b" x="540" y="150" width="110" height="44" rx="6"/><text class="t" x="595" y="170">Step (road)</text><text class="s" x="595" y="186">zr = 20 mm</text>
+      <path class="l" d="M120 172 H158"/><path class="l" d="M250 172 H288"/><path class="l" d="M370 172 H408"/>
+      <path class="l" d="M450 64 V100 H65 V64" stroke-dasharray="5 4"/><path class="l" d="M450 150 V118 H80 V66" stroke-dasharray="5 4"/>
+      <path class="l" d="M540 186 H520 V215 H40 V196"/>
+      <path class="l" d="M490 172 H515 V208 H90 V196"/>
+      <text class="s" x="270" y="112" style="text-anchor:start">feedback: positions and velocities form &#x394;z, &#x394;v</text>
+      <text class="t" x="820" y="80" style="text-anchor:start;font-weight:700">Blocks used</text>
+      <text class="s" x="820" y="102" style="text-anchor:start">Integrator &#xd7; 4</text><text class="s" x="820" y="120" style="text-anchor:start">Gain &#xd7; 5</text><text class="s" x="820" y="138" style="text-anchor:start">Sum &#xd7; 5</text><text class="s" x="820" y="156" style="text-anchor:start">Step &#xd7; 1</text><text class="s" x="820" y="174" style="text-anchor:start">To Workspace &#xd7; 2</text>
+    </svg>
+    <figcaption>Signal flow. The top row is the body, the bottom row is the wheel. The positions and velocities they produce feed back into the forces.</figcaption>
+  </figure>
+
+  <h3>Build it by hand once</h3>
+  <ol class="steps">
+    <li>Open a blank model. Set the solver to <code>ode45</code>, the stop time to 4&nbsp;s and the max step to 1e-3.</li>
+    <li>In the Command Window, define <code>ms</code>, <code>mu</code>, <code>Kw</code>, <code>cw</code>, <code>kt</code> and <code>zr_step</code>. Block dialogs hold <strong>names, not numbers</strong>, the same rule as the vehicle model.</li>
+    <li>Body row: a Sum block for F<sub>s</sub>, a Gain of <code>-1/ms</code>, then two Integrators (z&#775;<sub>s</sub>, then z<sub>s</sub>).</li>
+    <li>Wheel row: a Sum block for F<sub>s</sub> &minus; F<sub>t</sub>, a Gain of <code>1/mu</code>, then two Integrators.</li>
+    <li>Feed back: Sum blocks make z<sub>s</sub>&minus;z<sub>u</sub> and &#380;<sub>s</sub>&minus;&#380;<sub>u</sub>. Gains of <code>Kw</code> and <code>cw</code> turn them into F<sub>s</sub>. A Step block is the road, and a Gain of <code>kt</code> on z<sub>u</sub>&minus;z<sub>r</sub> gives F<sub>t</sub>.</li>
+    <li>Log z<sub>s</sub> and z<sub>u</sub> with To Workspace blocks, run the model, and plot.</li>
+    <li>Read the body frequency and the decay off the plot, then compare with hand calc 4 and with <code>quarter_car_ode</code>.</li>
+  </ol>
+  <p>Then run <code>build_quarter_car_slx('example')</code>, which builds the same model from a script and overlays it on the ode45 answer. The two should sit on top of each other.</p>
+  <div class="callout red"><b>Status: the Simulink build script has not been run yet</b>It uses documented Simulink commands but has not been run in Simulink. Getting it to run, and noting the MATLAB release, is part of ST-23. The hand-calc and ode45 scripts have been run in GNU Octave on the example set.</div>
+</section>
+
+<section id="halfcar">
+  <h2>Next model: half-car bounce and pitch</h2>
+  <p>The quarter-car cannot show the body pitching. A half-car model uses the whole side of the car (front corner, rear corner and the body between them). It has two body states, bounce z and pitch &theta;, plus two wheel states.</p>
+  <div class="eq">m&middot;z&#776;      = &minus;F<sub>f</sub> &minus; F<sub>r</sub>
+I<sub>yy</sub>&middot;&theta;&#776;   = a&middot;F<sub>f</sub> &minus; b&middot;F<sub>r</sub> + F<sub>x</sub>&middot;h         <span class="c">F<sub>x</sub>&middot;h = launch or braking moment</span>
+z<sub>f</sub> = z &minus; a&middot;&theta;,  z<sub>r</sub> = z + b&middot;&theta;               <span class="c">a, b = CG to front, rear axle</span></div>
+  <p>Drive it with a launch force at the rear axle (our rear drive unit) and plot pitch angle and both axle loads. <strong>Check:</strong> once the response settles, the axle loads must match hand calc 5. That's task <b>ST-24</b>. You also need a pitch inertia I<sub>yy</sub>, which is <span class="tag ph">[confirm]</span>: estimate it and state how. After that, the Vehicle Dynamics Blockset and Simscape Multibody are the routes to full suspension geometry.</p>
+</section>
+
+<section id="tasks">
+  <h2>Claim a task</h2>
+  <p>Each step above is a task on the taskline with a definition of done. Open it on the <a href="../index.html#start">Start here page</a> and press <b>Claim</b>. The first valid claim wins.</p>
+  <div class="wrap"><table>
+    <thead><tr><th>ID</th><th>Task</th><th>Uses</th></tr></thead>
+    <tbody>
+      <tr><td>ST-17</td><td>Measure the stock rear suspension inputs</td><td>Inputs table</td></tr>
+      <tr><td>ST-18</td><td>Corner weights and CG shift</td><td>Calc 1</td></tr>
+      <tr><td>ST-19</td><td>Wheel rate, ride-height drop, ground clearance</td><td>Calcs 2, 3</td></tr>
+      <tr><td>ST-20</td><td>Ride frequency and damping ratio</td><td>Calc 4</td></tr>
+      <tr><td>ST-21</td><td>Load transfer and rear-axle traction</td><td>Calcs 5, 6, 7</td></tr>
+      <tr><td>ST-22</td><td>Halfshaft angle through travel</td><td>Calc 8</td></tr>
+      <tr><td>ST-23</td><td>Quarter-car model in Simulink</td><td>Checks calc 4</td></tr>
+      <tr><td>ST-24</td><td>Half-car pitch model</td><td>Checks calc 5</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Why it's worth your time: suspension and vehicle-dynamics hand calculations, checked against a Simulink model, are the same workflow used in chassis, test and controls jobs at automotive and aerospace companies.</p>
+</section>
+</main>
+<footer>Cal State LA EcoCAR &middot; Charging Eagles &middot; Team-authored learning guide. Formulas are standard textbook relations; example numbers are for teaching only. Mentor: Geoffrey Chavez.</footer>
+</body>
+</html>

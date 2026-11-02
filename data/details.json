@@ -111,7 +111,7 @@
  },
  "integrated-year-1-workplan-2": {
   "what": "The team&rsquo;s current Year 1 baseline, developed with the student leaders who own the work.",
-  "org": "Vincent Lombardi",
+  "org": "Lucas Shoults",
   "size": "Medium",
   "dl": "Relative",
   "subs": [
@@ -566,7 +566,7 @@
   "what": "Model a cell to datasheet dimensions, array it into a module, then measure the envelope and do the configuration math."
  },
  "sponsored-cell-specs-module-options": {
-  "what": "External dependency. The 19 November battery workbook cannot start without them.",
+  "what": "External dependency. The battery workbook (now due 3 December) cannot start without them.",
   "note": "If they have not arrived by early October, escalate that week. This is the single dependency most likely to move a date we do not control."
  },
  "per-cell-c-rate-check": {
@@ -645,7 +645,7 @@
    "A minimum of three high-quality, high-resolution team-produced photos",
    "Social media copy for LinkedIn / Facebook and Instagram to promote the story"
   ],
-  "note": "A blog template is provided on Box and must be used. This is the most urgent MarCom item and the seat is unfilled."
+  "note": "A blog template is provided on Box and must be used. Moved to 12 November on the 30 October dashboard."
  },
  "team-webpage-content": {
   "what": "The official documented team description on file for the whole competition series.",
@@ -800,27 +800,21 @@
   "note": "Whoever presents Gate 1 must have done the interviews themselves. That constraint drives how we split the track with the CBE side."
  },
  "micro-learning-1": {
-  "what": "One short insight on a technical critical assumption behind the team&rsquo;s wedge hypothesis and how it will be validated.",
+  "what": "Studio 1 post-reflection. Renamed from Micro-Learning 1 on the 30 October Team Dashboard.",
   "org": "Lucas Shoults",
   "size": "Small",
-  "dl": "Relative",
+  "dl": "Absolute",
   "time": "4:00 pm local",
   "subs": [
    {
-    "a": "Micro-Learning 1",
-    "f": "1-minute video or 1-page infographic plus submitted link",
-    "l": "Size and hosting are marked TBD in Rev 2",
-    "fn": "EIC Y1 - Submission Name - TEAM Acronym",
-    "oem": "TBD in Rev 2"
+    "a": "Studio 1 Post-Reflection",
+    "f": "[confirm]",
+    "l": "[confirm]",
+    "fn": "[confirm]",
+    "oem": "[confirm]"
    }
   ],
-  "content": [
-   "State one technical critical assumption",
-   "Explain the engineering feasibility question, bottleneck, or pain point",
-   "State how the team plans to validate it",
-   "Confirm hosting, size, and OEM-data rules before submission"
-  ],
-  "note": "Rev 2 still marks platform, size, and OEM handling as draft. Treat that as an open clarification, not permission to guess."
+  "note": "Requirements for the renamed item are not in the repo yet. Re-read the latest PIT requirement and update this card."
  },
  "green-garage-blog-2": {
   "what": "The second team story for the official AVTC Green Garage Blog.",
@@ -924,27 +918,21 @@
   "note": "This is a working review, not a polished final pitch. Keep history visible instead of overwriting earlier assumptions."
  },
  "micro-learning-2": {
-  "what": "Three user-critical assumptions validated or invalidated through Studio 2 interviews.",
+  "what": "Studio 2 mid-reflection. Renamed from Micro-Learning 2 on the 30 October Team Dashboard.",
   "org": "Lucas Shoults",
   "size": "Small",
   "dl": "Absolute",
   "time": "4:00 pm local",
   "subs": [
    {
-    "a": "Micro-Learning 2",
-    "f": "1-minute video or 1-page infographic plus submitted link",
-    "l": "Top 3 insights; hosting and size marked TBD in Rev 2",
-    "fn": "EIC Y1 - Submission Name - TEAM Acronym",
-    "oem": "TBD in Rev 2"
+    "a": "Studio 2 Mid-Reflection",
+    "f": "[confirm]",
+    "l": "[confirm]",
+    "fn": "[confirm]",
+    "oem": "[confirm]"
    }
   ],
-  "content": [
-   "Cover functional capability, brand promise fit, and strategic advancement",
-   "State whether each assumption was validated or invalidated",
-   "Include the supporting insight and approved quote",
-   "Confirm platform, size, and OEM-data guidance"
-  ],
-  "note": "Coordinate publication while interviews are fresh and protect interviewee privacy and permissions."
+  "note": "Requirements for the renamed item are not in the repo yet. Re-read the latest PIT requirement and update this card."
  },
  "studio-2-customer-discovery-wedge-validation": {
   "what": "Customer discovery, evidence-driven wedge ranking, Gate 1 recommendation, and live Year 1 defense.",
@@ -1016,5 +1004,8 @@
  "budget-purchase-log": {
   "what": "Committed, spent, remaining, by category. Date, requester, vendor, item, amount, status, and where the receipt lives.",
   "note": "Anyone should be able to ask \"how much do we have left for the battery\" and get an answer in under a minute."
+ },
+ "offroad-bootcamp": {
+  "what": "Stellantis-track hands-on event. Dates tentative on the 30 October Team Dashboard."
  }
 }

@@ -5,14 +5,14 @@
     "lane": "pgm",
     "due": "2026-10-08",
     "due_time": "4:00 PM local",
-    "scoring": "Small - Relative",
+    "scoring": "Small - Absolute",
     "owner": "geo",
     "contributors": [
       "ant",
       "aya"
     ],
     "schedule_id": "fall-workshop-case-study-reflection",
-    "source": "General Deliverables Rev 2, C-1; Team Dashboard 2026-10-09",
+    "source": "General Deliverables Rev 2, C-1; Team Dashboard 2026-10-30",
     "purpose": "Apply workshop learning to the team's real Year 1 operating practices.",
     "artifacts": [
       {
@@ -49,7 +49,7 @@
       "ant"
     ],
     "schedule_id": "cad-data-management-readiness-2",
-    "source": "STLA Technical Deliverables Rev 0, B; Team Dashboard 2026-10-09",
+    "source": "STLA Technical Deliverables Rev 0, B; Team Dashboard 2026-10-30",
     "purpose": "Demonstrate controlled CAD storage, change tracking, release, archive, and onboarding.",
     "artifacts": [
       {
@@ -102,7 +102,7 @@
       "fra"
     ],
     "schedule_id": "off-road-performance-target-development",
-    "source": "STLA Technical Deliverables Rev 0, C; Team Dashboard 2026-10-09",
+    "source": "STLA Technical Deliverables Rev 0, C; Team Dashboard 2026-10-30",
     "purpose": "Set quantitative, traceable off-road targets before architecture selection.",
     "artifacts": [
       {
@@ -137,7 +137,7 @@
     "id": "pm-workplan",
     "title": "Integrated Year 1 Workplan",
     "lane": "pgm",
-    "due": "2026-11-12",
+    "due": "2026-11-17",
     "due_time": "4:00 PM local",
     "scoring": "Medium - Relative",
     "owner": "geo",
@@ -151,7 +151,7 @@
       "mar"
     ],
     "schedule_id": "integrated-year-1-workplan-2",
-    "source": "General Deliverables Rev 2, C-2; Team Dashboard 2026-10-09",
+    "source": "General Deliverables Rev 2, C-2; Team Dashboard 2026-10-30",
     "purpose": "Provide the credible cross-functional baseline the team actually uses.",
     "artifacts": [
       {
@@ -188,7 +188,7 @@
       "dav"
     ],
     "schedule_id": "pcm-tool-check",
-    "source": "STLA Technical Deliverables Rev 0, D; Team Dashboard 2026-10-09",
+    "source": "STLA Technical Deliverables Rev 0, D; Team Dashboard 2026-10-30",
     "purpose": "Prove the team can onboard a new PCM member and reproduce the software workflow.",
     "artifacts": [
       {
@@ -207,23 +207,37 @@
       }
     ],
     "done": [
-      "Introduce the swimlane and required software",
-      "Document download and installation steps",
-      "Explain the Git repository and version-control workflow",
-      "Show how to install, run, and reproduce a virtual-vehicle simulation",
+      "Guide has all five sections: PCM swimlane intro, required software, Git repo guide, virtual vehicle install and run, software development workflow",
+      "Rehearse the live walkthrough end to end - it is 80 of the 100 scorecard points",
+      "Show the virtual vehicle model running live and the development workflow in action",
       "Provide multiple walkthrough time slots and approved attendee contacts in the private submission"
     ],
     "points": 15,
     "work_tasks": [
       "pcm-onboarding-guide",
       "onboard-training-runs-from-the-guide"
-    ]
+    ],
+    "scorecard": {
+      "source": "EIC Y1 PCM Tool Check Scorecard (Absolute)",
+      "items": [
+        [
+          "Onboarding guide",
+          "Guide has all five sections: intro to the PCM swimlane, required software, Git repo guide, how to install and run the virtual vehicle model, software development workflow",
+          20
+        ],
+        [
+          "Virtual walkthrough",
+          "Team walks an organizer through the guide live, including the virtual vehicle model and the development workflow. Judged on thoroughness and completeness",
+          80
+        ]
+      ]
+    }
   },
   {
     "id": "stla-battery-targets",
     "title": "Battery Performance Target Development",
     "lane": "hvb",
-    "due": "2026-11-19",
+    "due": "2026-12-03",
     "due_time": "4:00 PM local",
     "scoring": "Large - Absolute",
     "owner": "dav",
@@ -232,7 +246,7 @@
       "ant"
     ],
     "schedule_id": "battery-performance-target-development",
-    "source": "STLA Technical Deliverables Rev 0, E; Team Dashboard 2026-10-09",
+    "source": "STLA Technical Deliverables Rev 0, E; Team Dashboard 2026-10-30",
     "purpose": "Translate vehicle demand into battery requirements and evaluate viable pack configurations.",
     "artifacts": [
       {
@@ -275,7 +289,7 @@
       "min"
     ],
     "schedule_id": "virtual-vehicle-simulation",
-    "source": "STLA Technical Deliverables Rev 0, F; Team Dashboard 2026-10-09",
+    "source": "STLA Technical Deliverables Rev 0, F; Team Dashboard 2026-10-30",
     "purpose": "Run and interpret the standard EPA cycles in the provided virtual vehicle model.",
     "artifacts": [
       {
@@ -320,7 +334,7 @@
       "fra"
     ],
     "schedule_id": "final-technical-report",
-    "source": "STLA Technical Deliverables Rev 0, G; Team Dashboard 2026-10-09",
+    "source": "STLA Technical Deliverables Rev 0, G; Team Dashboard 2026-10-30",
     "purpose": "Submit a relevant engineering digest to IEEE ITEC and retain proof.",
     "artifacts": [
       {
@@ -355,7 +369,7 @@
       "dav"
     ],
     "schedule_id": "facilities-safety-readiness-2",
-    "source": "STLA Technical Deliverables Rev 0, H; Team Dashboard 2026-10-09",
+    "source": "STLA Technical Deliverables Rev 0, H; Team Dashboard 2026-10-30",
     "purpose": "Establish the living safety binder, facilities readiness, and onboarding connection.",
     "artifacts": [
       {
@@ -398,7 +412,7 @@
       "aya"
     ],
     "schedule_id": "university-stakeholder-meeting-preparation",
-    "source": "General Deliverables Rev 2, C-3; Team Dashboard 2026-10-09",
+    "source": "General Deliverables Rev 2, C-3; Team Dashboard 2026-10-30",
     "purpose": "Secure an executive relationship and a concrete university support path.",
     "artifacts": [
       {
@@ -438,7 +452,7 @@
       "aya"
     ],
     "schedule_id": "stakeholder-meeting-proof-of-execution",
-    "source": "General Deliverables Rev 2, C-3; Team Dashboard 2026-10-09",
+    "source": "General Deliverables Rev 2, C-3; Team Dashboard 2026-10-30",
     "purpose": "Document the executive meeting, commitments, actions, and communication evidence.",
     "artifacts": [
       {
@@ -462,7 +476,7 @@
     "id": "stla-architecture",
     "title": "Integrated Vehicle Architecture Selection",
     "lane": "vse",
-    "due": "2027-04-01",
+    "due": "2027-03-25",
     "due_time": "4:00 PM local",
     "scoring": "X-Large - Mixed",
     "owner": "ant",
@@ -474,7 +488,7 @@
       "geo"
     ],
     "schedule_id": "integrated-vehicle-architecture-selection",
-    "source": "STLA Technical Deliverables Rev 0, I; Team Dashboard 2026-10-09",
+    "source": "STLA Technical Deliverables Rev 0, I; Team Dashboard 2026-10-30",
     "purpose": "Compare three genuinely distinct, feasible integrated vehicle architectures and recommend one.",
     "artifacts": [
       {
@@ -525,7 +539,7 @@
       "mar"
     ],
     "schedule_id": "project-status-update-assurance-review",
-    "source": "General Deliverables Rev 2, C-4; Team Dashboard 2026-10-09",
+    "source": "General Deliverables Rev 2, C-4; Team Dashboard 2026-10-30",
     "purpose": "Turn live project controls into an evidence-based executive status briefing.",
     "artifacts": [
       {
@@ -566,7 +580,7 @@
       "dav"
     ],
     "schedule_id": "baseline-vehicle-testing-characterization-2",
-    "source": "STLA Technical Deliverables Rev 0, J; Team Dashboard 2026-10-09",
+    "source": "STLA Technical Deliverables Rev 0, J; Team Dashboard 2026-10-30",
     "purpose": "Create repeatable test plans and durable baseline data before vehicle modification.",
     "artifacts": [
       {
@@ -615,7 +629,7 @@
       "geo"
     ],
     "schedule_id": "team-webpage-content",
-    "source": "MARCOM Team Webpage Requirements; Team Dashboard 2026-10-09",
+    "source": "MARCOM Team Webpage Requirements; Team Dashboard 2026-10-30",
     "purpose": "Provide approved public team description, leadership profiles, media, contact, and social links.",
     "artifacts": [
       {
@@ -661,7 +675,7 @@
       "geo"
     ],
     "schedule_id": "marcom-gate1-program-identity-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Establish the strategic foundation every later communication is built on.",
     "artifacts": [
       {
@@ -685,7 +699,7 @@
     "id": "marcom-ggb1",
     "title": "Green Garage Blog 1",
     "lane": "biz",
-    "due": "2026-11-05",
+    "due": "2026-11-12",
     "due_time": "4:00 PM local",
     "scoring": "Small - Absolute",
     "owner": "mar",
@@ -694,7 +708,7 @@
       "ant"
     ],
     "schedule_id": "marcom-ggb1-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Publish a technical story on the official AVTC platform.",
     "artifacts": [
       {
@@ -706,14 +720,94 @@
       }
     ],
     "done": [
-      "Use the Green Garage Blog template from Box",
-      "Minimum three high-resolution team-produced photos - HEIC is rejected",
-      "At least one quote supporting the story",
+      "Use the Green Garage Blog template from Box and submit as a Word document",
+      "Intro, body, conclusion and a call to action, with at least one quote",
+      "Three high-resolution team photos with captions, placed in the story and uploaded as JPG or PNG - HEIC is rejected",
       "Named technical reviewer approves before submission",
-      "Social copy for LinkedIn/Facebook and Instagram, 500 characters preferred",
+      "Third-person social copy for LinkedIn/Facebook and for Instagram",
       "Photo waivers for anyone not on the team"
     ],
-    "points": 10
+    "points": 10,
+    "scorecard": {
+      "source": "EIC Y1 Green Garage Blog Scorecard (Absolute)",
+      "items": [
+        [
+          "Content",
+          "Covers the assigned topic",
+          5
+        ],
+        [
+          "Content",
+          "Has an intro, body, conclusion and a call to action",
+          10
+        ],
+        [
+          "Content",
+          "Professionally written",
+          10
+        ],
+        [
+          "Content",
+          "Includes at least one quote",
+          5
+        ],
+        [
+          "Format",
+          "Uses the provided blog template",
+          5
+        ],
+        [
+          "Format",
+          "Submitted as a Word document",
+          5
+        ],
+        [
+          "Imagery",
+          "Three photos included",
+          5
+        ],
+        [
+          "Imagery",
+          "Photos are high-resolution and engaging",
+          10
+        ],
+        [
+          "Imagery",
+          "Photos support the story",
+          10
+        ],
+        [
+          "Imagery",
+          "Every photo has a caption",
+          5
+        ],
+        [
+          "Imagery",
+          "Photos placed in the story and also uploaded as JPG or PNG in the blog folder",
+          5
+        ],
+        [
+          "Technical review",
+          "Reviewed by the right technical team member",
+          10
+        ],
+        [
+          "Social media",
+          "Post description for LinkedIn / Facebook",
+          5
+        ],
+        [
+          "Social media",
+          "Post description for Instagram",
+          5
+        ],
+        [
+          "Social media",
+          "Posts are professional and written in third person",
+          5
+        ]
+      ]
+    }
   },
   {
     "id": "marcom-gate2-visual-identity",
@@ -727,7 +821,7 @@
       "geo"
     ],
     "schedule_id": "marcom-gate2-visual-identity-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Lock the visual system every later asset inherits.",
     "artifacts": [
       {
@@ -759,7 +853,7 @@
       "geo"
     ],
     "schedule_id": "marcom-smv1-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Team-generated content published from the official EcoCAR accounts.",
     "artifacts": [
       {
@@ -791,7 +885,7 @@
       "geo"
     ],
     "schedule_id": "marcom-gate3-brand-assets-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Produce the templates Gate 4 and every later document must be written in.",
     "artifacts": [
       {
@@ -823,7 +917,7 @@
       "aya"
     ],
     "schedule_id": "marcom-gate4-external-promotion-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Turn the brand into a plan for reaching each audience.",
     "artifacts": [
       {
@@ -855,7 +949,7 @@
       "ant"
     ],
     "schedule_id": "marcom-ggb2-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Second published technical story.",
     "artifacts": [
       {
@@ -885,7 +979,7 @@
       "geo"
     ],
     "schedule_id": "marcom-smv2-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Second team-generated video.",
     "artifacts": [
       {
@@ -915,7 +1009,7 @@
       "geo"
     ],
     "schedule_id": "marcom-year-end-logs-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Year-long records that must be kept continuously, not assembled at the end.",
     "artifacts": [
       {
@@ -946,7 +1040,7 @@
       "geo"
     ],
     "schedule_id": "pit-studio1-checkin-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Formative mid-Studio review with organizers and faculty.",
     "artifacts": [
       {
@@ -971,13 +1065,13 @@
     "lane": "biz",
     "due": "2026-12-03",
     "due_time": "4:00 PM local",
-    "scoring": "Medium - Absolute",
+    "scoring": "Medium - Relative",
     "owner": "aya",
     "contributors": [
       "geo"
     ],
     "schedule_id": "pit-studio1-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Build the analytical foundation the Gate 1 recommendation rests on.",
     "artifacts": [
       {
@@ -998,29 +1092,29 @@
   },
   {
     "id": "pit-microlearning1",
-    "title": "Micro-Learning 1: Market and Wedge Understanding",
+    "title": "Studio 1: Post-Reflection",
     "lane": "biz",
     "due": "2027-01-14",
     "due_time": "4:00 PM local",
-    "scoring": "Small - Relative",
+    "scoring": "Small - Absolute",
     "owner": "aya",
     "contributors": [],
     "schedule_id": "pit-microlearning1-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
-    "purpose": "Contribute one technical insight to the cohort library.",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
+    "purpose": "Reflection checkpoint for Studio 1. [confirm scope in the latest General Deliverable Requirements revision]",
     "artifacts": [
       {
-        "name": "Insight artifact",
-        "format": "1 minute video or one-page infographic",
-        "limit": "Size limit still TBD in Rev 3",
-        "filename": "EIC Y1 - Micro-Learning 1 - CSLA",
-        "oem": "TBD"
+        "name": "Reflection",
+        "format": "[confirm in latest revision]",
+        "limit": "[confirm in latest revision]",
+        "filename": "EIC Y1 - Studio 1 Post-Reflection - CSLA [confirm naming]",
+        "oem": "[confirm]"
       }
     ],
     "done": [
-      "One technical critical assumption underlying the wedge hypothesis",
-      "Published to the shared cohort platform",
-      "Link submitted to organizers"
+      "Renamed from “Micro-Learning 1: Market and Wedge Understanding” on the 30 Oct 2026 Team Dashboard — re-read the latest PIT requirement before starting",
+      "Write the definition of done from the current requirement and scorecard, not from the old Micro-Learning text",
+      "Named reviewer checks it against the scorecard before submission"
     ],
     "points": 10
   },
@@ -1036,7 +1130,7 @@
       "geo"
     ],
     "schedule_id": "pit-open-exploration-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Map the team's advantages and curate a living portfolio of problem spaces.",
     "artifacts": [
       {
@@ -1074,7 +1168,7 @@
       "geo"
     ],
     "schedule_id": "pit-studio2-checkin-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Catch weak methodology before it is baked into Gate 1.",
     "artifacts": [
       {
@@ -1095,7 +1189,7 @@
   },
   {
     "id": "pit-microlearning2",
-    "title": "Micro-Learning 2: Customer Discovery",
+    "title": "Studio 2: Mid-Reflection",
     "lane": "biz",
     "due": "2027-03-18",
     "due_time": "4:00 PM local",
@@ -1103,21 +1197,21 @@
     "owner": "aya",
     "contributors": [],
     "schedule_id": "pit-microlearning2-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
-    "purpose": "Turn fieldwork into a shared cohort resource.",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
+    "purpose": "Reflection checkpoint for Studio 2. [confirm scope in the latest General Deliverable Requirements revision]",
     "artifacts": [
       {
-        "name": "Insight artifact",
-        "format": "1 minute video or one-page infographic",
-        "limit": "Size limit still TBD in Rev 3",
-        "filename": "EIC Y1 - Micro-Learning 2 - CSLA",
-        "oem": "TBD"
+        "name": "Reflection",
+        "format": "[confirm in latest revision]",
+        "limit": "[confirm in latest revision]",
+        "filename": "EIC Y1 - Studio 2 Mid-Reflection - CSLA [confirm naming]",
+        "oem": "[confirm]"
       }
     ],
     "done": [
-      "Three user critical assumptions validated or invalidated through interviews",
-      "Supporting insight and quote for each",
-      "Published to the shared cohort platform"
+      "Renamed from “Micro-Learning 2: Customer Discovery” on the 30 Oct 2026 Team Dashboard — re-read the latest PIT requirement before starting",
+      "Write the definition of done from the current requirement and scorecard, not from the old Micro-Learning text",
+      "Named reviewer checks it against the scorecard before submission"
     ],
     "points": 10
   },
@@ -1133,7 +1227,7 @@
       "geo"
     ],
     "schedule_id": "pit-studio2-milestone",
-    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-09",
+    "source": "General Deliverable Requirements Rev 3 (2026-09-04); Team Dashboard 2026-10-30",
     "purpose": "Evidence-backed venture decision, defended live at the Competition Finale.",
     "artifacts": [
       {

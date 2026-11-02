@@ -11,3 +11,7 @@ submissions/
 private/
 *.mf4
 *.mat
+claim_result.md
+*.slxc
+slprj/
+matlab/**/quarter_car.slx

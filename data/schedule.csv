@@ -27,9 +27,9 @@ case-study-reflection,Program & project management,pgm,Case study → reflection
 fall-workshop-case-study-reflection,Program & project management,pgm,Fall Workshop Case Study Reflection,graded · 8 Oct,milestone,2026-10-08,,geo
 leadership-advisor-sponsor-review-2026-10-13,Program & project management,pgm,Leadership review with advisors and sponsors,photos · CAD readiness · roster · webpage,milestone,2026-10-13,,geo
 team-roster-reconciliation,Program & project management,pgm,Team roster reconciliation,one name per person before the webpage submission,bar,2026-10-13,2026-10-14,geo mar
-integrated-year-1-workplan,Program & project management,pgm,Integrated Year 1 Workplan,build,bar,2026-09-15,2026-11-05,geo nat
-integrated-year-1-workplan-2,Program & project management,pgm,Integrated Year 1 Workplan,graded · 12 Nov,milestone,2026-11-12,,geo
-integrated-master-schedule,Program & project management,pgm,Integrated Master Schedule,"PM materials, dependencies, dates",bar,2026-09-08,2026-11-12,nat
+integrated-year-1-workplan,Program & project management,pgm,Integrated Year 1 Workplan,build,bar,2026-09-15,2026-11-10,geo nat
+integrated-year-1-workplan-2,Program & project management,pgm,Integrated Year 1 Workplan,graded · 17 Nov (moved from 12 Nov on 30 Oct dashboard),milestone,2026-11-17,,geo
+integrated-master-schedule,Program & project management,pgm,Integrated Master Schedule,"PM materials, dependencies, dates",bar,2026-09-08,2026-11-17,nat
 university-stakeholder-meeting-preparation,Program & project management,pgm,University stakeholder meeting — preparation,graded · 28 Jan,milestone,2027-01-28,,geo
 stakeholder-meeting-proof-of-execution,Program & project management,pgm,Stakeholder meeting — proof of execution,graded · 18 Mar,milestone,2027-03-18,,geo
 project-status-update-assurance-review,Program & project management,pgm,Project Status Update & Assurance Review,graded · 8 Apr,milestone,2027-04-08,,geo
@@ -53,7 +53,8 @@ final-technical-report,VSE — vehicle systems engineering,vse,Final Technical R
 final-technical-report-abstract,VSE — vehicle systems engineering,vse,Final Technical Report — abstract,end of day · 11 Jan · ASME website,milestone,2027-01-11,,ant
 facilities-safety-readiness,VSE — vehicle systems engineering,vse,Facilities & Safety Readiness,build,bar,2026-11-15,2027-01-14,ant dav
 facilities-safety-readiness-2,VSE — vehicle systems engineering,vse,Facilities & Safety Readiness,graded · 21 Jan,milestone,2027-01-21,,ant
-integrated-vehicle-architecture-selection,VSE — vehicle systems engineering,vse,Integrated Vehicle Architecture Selection,graded · X-LARGE · 1 Apr,milestone,2027-04-01,,ant
+integrated-vehicle-architecture-selection,VSE — vehicle systems engineering,vse,Integrated Vehicle Architecture Selection,graded · X-LARGE · 25 Mar (moved EARLIER from 1 Apr on 30 Oct dashboard),milestone,2027-03-25,,ant
+offroad-bootcamp,VSE — vehicle systems engineering,vse,Offroad Bootcamp,dates tentative · Chelsea Proving Ground,milestone,2027-03-31,,ant
 university-it-ticket-teamcenter-nx-licence,VHI — CAD readiness and hardware,vhi,University IT ticket — Teamcenter / NX licence,external clock,tbd,2026-09-03,2026-10-10,fra
 cad-workflow-diagram-8-required-steps,VHI — CAD readiness and hardware,vhi,CAD workflow diagram — 8 required steps,40% · re-baselined from 18 Sept,bar,2026-09-08,2026-10-14,fra
 cad-onboarding-guide-2-pages,VHI — CAD readiness and hardware,vhi,CAD onboarding guide — 2 pages,40% · re-baselined from 20 Sept,bar,2026-09-08,2026-10-14,dor jef
@@ -78,13 +79,13 @@ virtual-vehicle-simulation,PCM — propulsion controls & modeling,pcm,Virtual Ve
 nx-cohort-cell-module-modeling,HVB — high voltage battery,hvb,NX cohort & cell / module modeling,team-set,bar,2026-09-04,2026-10-15,dav
 sponsored-cell-specs-module-options,HVB — high voltage battery,hvb,Sponsored cell specs & module options,ship date unknown,tbd,2026-09-15,2026-11-01,dav
 per-cell-c-rate-check,HVB — high voltage battery,hvb,Per-cell C-rate check,before Atlanta,milestone,2026-09-23,,dav
-battery-performance-targets,HVB — high voltage battery,hvb,Battery Performance Targets,build,bar,2026-10-01,2026-11-13,dav
-freeze-red-team-4,HVB — high voltage battery,hvb,Freeze & red team,T−5,freeze,2026-11-13,2026-11-19,dav
-battery-performance-target-development,HVB — high voltage battery,hvb,Battery Performance Target Development,graded · LARGE · 19 Nov,milestone,2026-11-19,,dav
+battery-performance-targets,HVB — high voltage battery,hvb,Battery Performance Targets,build,bar,2026-10-01,2026-11-26,dav
+freeze-red-team-4,HVB — high voltage battery,hvb,Freeze & red team,T−5,freeze,2026-11-26,2026-12-03,dav
+battery-performance-target-development,HVB — high voltage battery,hvb,Battery Performance Target Development,graded · LARGE · 3 Dec (moved from 19 Nov on 30 Oct dashboard),milestone,2026-12-03,,dav
 hv-work-permit-battery-build-book,HVB — high voltage battery,hvb,HV work permit + Battery Build Book,rule H-7.3 requires it in writing,bar,2026-10-01,2026-12-15,dav dor
 marcom-manager-named,"PIT, MarCom & business",biz,MarCom Manager named,target,milestone,2026-09-17,,geo mar
 gate-1-team-program-identity,"PIT, MarCom & business",biz,Gate 1: Team Program Identity,graded · 1 Oct (suggested),milestone,2026-10-01,,mar
-green-garage-blog-1,"PIT, MarCom & business",biz,Green Garage Blog 1,graded · ABSOLUTE · 5 Nov (moved from 8 Oct on 9 Oct dashboard),milestone,2026-11-05,,mar
+green-garage-blog-1,"PIT, MarCom & business",biz,Green Garage Blog 1,graded · ABSOLUTE · 12 Nov (moved from 5 Nov on 30 Oct dashboard),milestone,2026-11-12,,mar
 team-webpage-content,"PIT, MarCom & business",biz,Team Webpage Content,end of day · 15 Oct,milestone,2026-10-15,,mar geo
 gate-2-visual-identity,"PIT, MarCom & business",biz,Gate 2: Visual Identity,graded · 22 Oct (suggested),milestone,2026-10-22,,mar
 social-media-video-1,"PIT, MarCom & business",biz,Social Media Video 1,graded · 3 Dec (moved from 5 Nov on 9 Oct dashboard),milestone,2026-12-03,,mar
@@ -96,18 +97,18 @@ social-media-data-collection,"PIT, MarCom & business",biz,Social media data coll
 outreach-data-collection,"PIT, MarCom & business",biz,Outreach data collection,logged the same day,bar,2026-09-15,2027-04-30,mar
 pit-customer-discovery-gate-1,"PIT, MarCom & business",biz,PIT: customer discovery & Gate 1,"Studio 2 · 15 Apr, X-Large",tbd,2026-12-04,2027-04-15,aya
 budget-purchase-log,"PIT, MarCom & business",biz,Budget & purchase log,held all year,bar,2026-09-25,2027-06-30,mar
-micro-learning-1,"PIT, MarCom & business",biz,Micro-Learning 1: Market & Wedge Understanding,graded · 14 Jan,milestone,2027-01-14,,aya
+micro-learning-1,"PIT, MarCom & business",biz,Studio 1: Post-Reflection,graded · 14 Jan · renamed from Micro-Learning 1 on 30 Oct dashboard,milestone,2027-01-14,,aya
 green-garage-blog-2,"PIT, MarCom & business",biz,Green Garage Blog 2,graded · 21 Jan,milestone,2027-01-21,,mar
 open-exploration-problem-space-portfolio,"PIT, MarCom & business",biz,Open Exploration: Problem Space Portfolio,graded · 4 Feb,milestone,2027-02-04,,aya
 social-media-video-2,"PIT, MarCom & business",biz,Social Media Video 2,graded · 11 Feb,milestone,2027-02-11,,mar
 studio-2-check-in-customer-business-portfolio,"PIT, MarCom & business",biz,Studio 2 Check-In: Customer / Business Portfolio Review,graded · 18 Feb,milestone,2027-02-18,,aya
-micro-learning-2,"PIT, MarCom & business",biz,Micro-Learning 2: Customer Discovery,graded · 18 Mar,milestone,2027-03-18,,aya
+micro-learning-2,"PIT, MarCom & business",biz,Studio 2: Mid-Reflection,graded · 18 Mar · renamed from Micro-Learning 2 on 30 Oct dashboard,milestone,2027-03-18,,aya
 studio-2-customer-discovery-wedge-validation,"PIT, MarCom & business",biz,Studio 2: Customer Discovery and Wedge Validation,graded · X-Large · 15 Apr,milestone,2027-04-15,,aya
 social-media-data-submission,"PIT, MarCom & business",biz,Social Media Data,end of day · 7 May,milestone,2027-05-07,,mar geo
 outreach-data-submission,"PIT, MarCom & business",biz,Outreach Data,end of day · 7 May,milestone,2027-05-07,,mar
 asset-library-submission,"PIT, MarCom & business",biz,Asset Library,end of day · 7 May,milestone,2027-05-07,,mar
 marcom-gate1-program-identity-milestone,"PIT, MarCom & business",biz,Gate 1: Team Program Identity,Small - Absolute,milestone,2026-10-01,2026-10-01,mar
-marcom-ggb1-milestone,"PIT, MarCom & business",biz,Green Garage Blog 1,Small - Absolute,milestone,2026-11-05,2026-11-05,mar
+marcom-ggb1-milestone,"PIT, MarCom & business",biz,Green Garage Blog 1,Small - Absolute,milestone,2026-11-12,2026-11-12,mar
 marcom-gate2-visual-identity-milestone,"PIT, MarCom & business",biz,Gate 2: Visual Identity,Small - Absolute,milestone,2026-10-22,2026-10-22,mar
 marcom-smv1-milestone,"PIT, MarCom & business",biz,Social Media Video 1,Small - Absolute,milestone,2026-12-03,2026-12-03,mar
 marcom-gate3-brand-assets-milestone,"PIT, MarCom & business",biz,Gate 3: Brand Assets,Small - Absolute,milestone,2026-11-12,2026-11-12,mar
@@ -116,9 +117,9 @@ marcom-ggb2-milestone,"PIT, MarCom & business",biz,Green Garage Blog 2,Small - A
 marcom-smv2-milestone,"PIT, MarCom & business",biz,Social Media Video 2,Small - Absolute,milestone,2027-02-11,2027-02-11,mar
 marcom-year-end-logs-milestone,"PIT, MarCom & business",biz,"Social Media Data, Outreach Data and Asset Library",Leadership requirement,milestone,2027-05-07,2027-05-07,mar
 pit-studio1-checkin-milestone,"PIT, MarCom & business",biz,Studio 1 Check-In: Business Portfolio Review,Small - Absolute,milestone,2026-11-12,2026-11-12,aya
-pit-studio1-milestone,"PIT, MarCom & business",biz,Studio 1: SDV Business Understanding and Wedge Hypothesis Formation,Medium - Absolute,milestone,2026-12-03,2026-12-03,aya
-pit-microlearning1-milestone,"PIT, MarCom & business",biz,Micro-Learning 1: Market and Wedge Understanding,Small - Relative,milestone,2027-01-14,2027-01-14,aya
+pit-studio1-milestone,"PIT, MarCom & business",biz,Studio 1: SDV Business Understanding and Wedge Hypothesis Formation,Medium - Relative,milestone,2026-12-03,2026-12-03,aya
+pit-microlearning1-milestone,"PIT, MarCom & business",biz,Studio 1: Post-Reflection,Small - Absolute,milestone,2027-01-14,2027-01-14,aya
 pit-open-exploration-milestone,"PIT, MarCom & business",biz,Open Exploration: Problem Space Portfolio,Medium - Absolute,milestone,2027-02-04,2027-02-04,aya
 pit-studio2-checkin-milestone,"PIT, MarCom & business",biz,Studio 2 Check-in: Customer / Business Portfolio Review,Small - Absolute,milestone,2027-02-18,2027-02-18,aya
-pit-microlearning2-milestone,"PIT, MarCom & business",biz,Micro-Learning 2: Customer Discovery,Small - Absolute,milestone,2027-03-18,2027-03-18,aya
+pit-microlearning2-milestone,"PIT, MarCom & business",biz,Studio 2: Mid-Reflection,Small - Absolute,milestone,2027-03-18,2027-03-18,aya
 pit-studio2-milestone,"PIT, MarCom & business",biz,Studio 2: Customer Discovery and Wedge Validation,X-Large - Relative,milestone,2027-04-15,2027-04-15,aya

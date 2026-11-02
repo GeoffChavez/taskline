@@ -36,8 +36,6 @@ SHORT = {
     "University Stakeholder Executive Meeting - Proof of Execution": "Stakeholder Exec Meeting: Proof of Execution",
     "Social Media Data, Outreach Data and Asset Library": "Social Media Data, Outreach Data, Asset Library",
     "Final Technical Report (Box and ASME submission)": "Final Technical Report (Box + ASME)",
-    "Micro-Learning 1: Market and Wedge Understanding": "Micro-Learning 1",
-    "Micro-Learning 2: Customer Discovery": "Micro-Learning 2",
 }
 TRACK_NAMES = {"biz": None}
 
