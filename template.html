@@ -486,7 +486,7 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
 @media(max-width:620px){.sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sponsor{min-height:80px}}
 
 @media(min-width:901px){.nav{gap:2px}.nav button,.nav a.nav-print{padding:9px 10px;font-size:.79rem}.nav-group{padding:0 2px}.nav-sep{margin:0 3px}}
-@media(min-width:901px) and (max-width:1340px){.nav-group{display:none}}
+@media(min-width:901px) and (max-width:1560px){.nav-group{display:none}.nav-sep{margin:0 2px}}
 .nav button.nav-hot{background:var(--gold);color:#000}.nav button.nav-hot:hover{background:#000;color:#fff}.nav button.nav-hot.active{background:#000;color:var(--gold)}
 .lec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-bottom:20px}
 .lec-card{display:flex;flex-direction:column;gap:8px;padding:28px;border-radius:var(--radius);background:#000;color:#fff;text-decoration:none;min-height:260px;transition:transform .18s,box-shadow .18s}
@@ -518,6 +518,53 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
 .cw-box{font:600 .72rem var(--display);color:#5f6368;background:#f4f4f5;border-radius:999px;padding:5px 10px;white-space:nowrap}
 @media(max-width:620px){.cw-card{padding:20px 18px}.cw-row{grid-template-columns:1fr;gap:4px}.cw-file{grid-template-columns:40px 1fr}.cw-file .cw-box,.cw-file .btn{grid-column:2}}
 
+
+.mission{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:0;background:#000;color:#fff;border-radius:var(--radius);overflow:hidden;margin-bottom:16px}
+.mission-text{padding:40px 40px 36px;display:flex;flex-direction:column;gap:12px;justify-content:center}.mission-text .section-kicker{color:var(--gold)}
+.mission-text h3{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.mission-text p{margin:0;color:#d4d4d8;font-size:1.02rem}
+.mission img{width:100%;height:100%;min-height:280px;object-fit:cover;display:block}
+.mission-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:10px}.mc{background:#fff8d6;border-radius:20px;padding:20px 22px}.mc span{display:block;font:700 .7rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:#000;margin-bottom:6px}.mc p{margin:0;font-size:.93rem}
+.hs{position:relative;display:grid;gap:0;margin-top:6px}
+.hs:before{content:"";position:absolute;left:122px;top:8px;bottom:8px;width:3px;background:#000;border-radius:3px}
+.hs-item{display:grid;grid-template-columns:100px 44px minmax(0,1fr);gap:0;padding:0 0 26px}
+.hs-year{font:800 1rem var(--display);text-align:right;padding-top:2px;letter-spacing:-.01em}
+.hs-dot{position:relative}.hs-dot:after{content:"";position:absolute;left:14px;top:4px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid #000;box-sizing:border-box}
+.hs-item.hs-win .hs-dot:after,.hs-item.hs-now .hs-dot:after{background:var(--gold);width:20px;height:20px;left:12px;top:2px}
+.hs-body{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 22px}
+.hs-item.hs-win .hs-body{border-color:var(--gold);box-shadow:inset 4px 0 0 var(--gold)}.hs-item.hs-now .hs-body{background:#000;color:#fff;border-color:#000}
+.hs-tag{font:700 .68rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:#4a4f55}.hs-item.hs-now .hs-tag{color:var(--gold)}
+.hs-body h3{margin:4px 0 6px;font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:-.02em}.hs-body p{margin:0;font-size:.95rem}.hs-item.hs-now .hs-body p{color:#d4d4d8}
+.hs-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}.hs-photos.n1{grid-template-columns:minmax(0,1fr)}.hs-photos.n1 img{aspect-ratio:21/9}
+.hs-photos figure{margin:0}.hs-photos img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;background:#f4f4f5}
+.hs-photos figcaption{font-size:.74rem;color:var(--muted);margin-top:4px}.hs-item.hs-now figcaption{color:#bdbdc2}
+.map-wrap{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.9fr);gap:18px;align-items:start}
+.map{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#f4f4f5}.map img{display:block;width:100%;height:auto}
+.pin{position:absolute;width:0;height:0;padding:0;border:0;background:transparent;cursor:pointer}
+.pin i{position:absolute;left:-8px;top:-8px;width:16px;height:16px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.pin.stla i{background:var(--gold);border-color:#000}.pin.gm i{background:#000}
+.pin.us i{left:-14px;top:-14px;width:28px;height:28px;border-width:4px;animation:pinpulse 2.4s ease-out infinite}
+.pin.us:after{content:"Cal State LA";position:absolute;left:20px;top:-14px;white-space:nowrap;font:800 .85rem var(--display);background:#000;color:var(--gold);padding:4px 10px;border-radius:999px}
+@keyframes pinpulse{0%{box-shadow:0 0 0 0 rgba(255,206,0,.7)}70%{box-shadow:0 0 0 18px rgba(255,206,0,0)}100%{box-shadow:0 0 0 0 rgba(255,206,0,0)}}
+@media(prefers-reduced-motion:reduce){.pin.us i{animation:none}}
+.pin-tip{display:none;position:absolute;left:12px;top:12px;z-index:5;width:max-content;max-width:240px;background:#000;color:#fff;font-size:.78rem;line-height:1.35;padding:8px 10px;border-radius:10px;text-align:left}.pin-tip b{display:block;font-family:var(--display)}
+.pin:hover .pin-tip,.pin:focus-visible .pin-tip{display:block}.pin:focus-visible i{outline:3px solid var(--gold);outline-offset:2px}
+.map-legend{display:flex;gap:16px;flex-wrap:wrap;font:600 .85rem var(--display)}.map-legend span{display:inline-flex;align-items:center;gap:7px}
+.lg.stla,.lg.gm{display:inline-block;width:14px;height:14px;border-radius:50%}.lg.stla{background:var(--gold);border:2.5px solid #000}.lg.gm{background:#000}
+.map-note{font-size:.9rem;background:#fff8d6;border-radius:14px;padding:10px 12px;margin:10px 0}
+.map-lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.map-lists h4{margin:0 0 6px;font:800 .9rem var(--display)}
+.map-lists ul{list-style:none;margin:0;padding:0}.map-lists li{padding:4px 0;border-bottom:1px solid #f0f0f2;font-size:.8rem;line-height:1.3}.map-lists li b{display:block;font-size:.84rem}.map-lists li span{color:var(--muted)}
+.map-lists li.us{background:#fff3c4;border-radius:8px;padding:4px 6px}
+.yrs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.yr{border:1px solid var(--line);border-radius:20px;padding:18px}.yr.on{background:#000;color:#fff;border-color:#000}
+.yr b{font:800 1.3rem var(--display)}.yr.on b{color:var(--gold)}.yr-d{display:block;font-size:.8rem;color:var(--muted)}.yr.on .yr-d{color:#bdbdc2}
+.yr h4{margin:10px 0 4px;font:700 1rem var(--display)}.yr p{margin:0;font-size:.85rem;color:#3c4043}.yr.on p{color:#d4d4d8}
+.gantt-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.gantt-frame{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#e9e9e6}
+.gantt-frame iframe{display:block;width:100%;height:860px;border:0}
+@media(max-width:900px){.mission-cards{grid-template-columns:1fr}.mission{grid-template-columns:1fr}.map-wrap{grid-template-columns:1fr}.yrs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.hs:before{left:18px}.hs-item{grid-template-columns:40px minmax(0,1fr)}.hs-year{grid-column:2;text-align:left;margin-bottom:4px}.hs-dot{grid-column:1;grid-row:1/3}.hs-dot:after{left:10px}.hs-item.hs-win .hs-dot:after,.hs-item.hs-now .hs-dot:after{left:8px}.hs-body{grid-column:2}.mission-text{padding:26px 22px}.pin.us:after{font-size:.7rem;padding:2px 7px;left:16px}.pin i{left:-6px;top:-6px;width:12px;height:12px;border-width:2px}.gantt-frame iframe{height:620px}}
+
 </style>
 </head>
 <body>
@@ -533,6 +580,7 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
 <div class="nav-wrap"><nav class="nav" aria-label="Execution hub sections">
   <span class="nav-group">Join</span>
   <button class="active" data-page="start">Start</button>
+  <button data-page="story">Our story</button>
   <button data-page="meetings">Meetings</button>
   <button class="nav-hot" data-page="lectures">Lectures</button>
   <button data-page="onboarding">Learn</button>
@@ -551,6 +599,7 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
 <main id="main" class="shell">
   <section class="page active" id="page-start"></section>
   <section class="page" id="page-now"></section>
+  <section class="page" id="page-story"></section>
   <section class="page" id="page-meetings"></section>
   <section class="page" id="page-lectures"></section>
   <section class="page" id="page-completed"></section>
@@ -822,6 +871,26 @@ function renderCompleted(){
    subs.map(card).join('')+
    (pastNo.length?`<div class="panel"><h3>Also past, details not added yet</h3><p class="panel-note">Add a <code>submission</code> block to the item in <code>data/deliverables.json</code> to show it here. Keep files in Box; this page shows summaries only.</p><div class="sc-wait">${pastNo.map(d=>`<button type="button" class="seat-row past" data-deliverable="${esc(d.id)}"><time>${fmt(d.due)}</time><span>${esc(d.title)}<small>${d.points?d.points+' pts':'not scored'} &middot; ${esc(person(d.owner).name)}</small></span></button>`).join('')}</div></div>`:'');
 }
+function renderStory(){
+  const H=DATA.site.history||[],U=DATA.site.universities||[];
+  const tl=H.map((h,i)=>`<article class="hs-item${h.win?' hs-win':''}${h.now?' hs-now':''}"><div class="hs-year">${esc(h.years)}</div><div class="hs-dot" aria-hidden="true"></div><div class="hs-body"><span class="hs-tag">${esc(h.tag)}</span><h3>${esc(h.title)}</h3><p>${esc(h.text)}</p>${h.photos&&h.photos.length?`<div class="hs-photos n${h.photos.length}">${h.photos.map(([src,alt])=>`<figure><img src="${esc(src)}" alt="${esc(alt)}" loading="lazy"><figcaption>${esc(alt)}</figcaption></figure>`).join('')}</div>`:''}</div></article>`).join('');
+  const pin=u=>`<button type="button" class="pin ${u.track==='Stellantis'?'stla':'gm'}${u.short==='Cal State LA'?' us':''}" style="left:${u.x}%;top:${u.y}%" aria-label="${esc(u.name)}, ${esc(u.city)}, ${esc(u.track)} track"><i></i><span class="pin-tip"><b>${esc(u.name)}</b>${esc(u.city)} &middot; ${esc(u.track)} track</span></button>`;
+  const list=t=>U.filter(u=>u.track===t).map(u=>`<li class="${u.short==='Cal State LA'?'us':''}"><b>${esc(u.short)}</b><span>${esc(u.city)}</span></li>`).join('');
+  const years=[['Year 1','2026–27','Design and planning','Targets, toolchains, architecture selection'],['Year 2','2027–28','Simulation','Requirements, controls in the loop, battery design'],['Year 3','2028–29','On the vehicle','Integrate the rear drive and the pack'],['Year 4','2029–30','Refine and compete','Validate, calibrate, final competition']];
+  $('#page-story').innerHTML=heading('Our story','Cal State LA has been building vehicles that win since 1990.')+
+  `<section class="mission"><div class="mission-text"><span class="section-kicker">The mission</span><h3>A fire command vehicle that gets the chief where the road ends.</h3><p>We&rsquo;re converting a 2026 Jeep Cherokee Hybrid into an off-road fire command center. We work directly with local fire departments to learn their real problems and constraints, then solve them with engineering.</p></div><img src="img/cherokee-concept.jpg" alt="Red 2026 Jeep Cherokee Hybrid concept render styled as a fire command vehicle" loading="lazy"></section>
+  <div class="mission-cards"><div class="mc"><span>What firefighters told us</span><p>Command vehicles carry a chief, radios and gear to incidents past the end of maintained roads, often alone, and sit at the scene for hours with no grid power.</p></div><div class="mc"><span>What the vehicle must do</span><p>Arrive reliably on dirt and two-track, carry crew and equipment, stay road-legal and quick on the highway, and recover itself if it gets stuck.</p></div><div class="mc"><span>What we&rsquo;re engineering</span><p>A rear electric drive for traction from zero speed, a team-built high-voltage battery, skid plates and recovery points, and scene power for radios and lights.</p></div></div>
+  <p class="subtle">Shaped with the South Pasadena and San Marino fire chiefs. Scene power waits on a rules clarification from the organizers.</p>
+  <h3 class="sc-group" id="story-history">Our history</h3><div class="hs">${tl}</div><p class="subtle">${esc(DATA.site.history_note||'')}</p>
+  <h3 class="sc-group" id="story-map">20 universities, two tracks</h3>
+  <div class="map-wrap"><div class="map"><img src="img/north-america.svg" alt="" aria-hidden="true">${U.map(pin).join('')}</div>
+   <div class="map-side"><div class="map-legend"><span><i class="lg stla"></i>Stellantis track</span><span><i class="lg gm"></i>GM track</span></div><p class="map-note">Cal State LA is the only team on the West Coast. The nearest, Colorado School of Mines, is about 815 miles away in a straight line.</p>
+   <div class="map-lists"><div><h4>Stellantis track</h4><ul>${list('Stellantis')}</ul></div><div><h4>GM track</h4><ul>${list('GM')}</ul></div></div></div></div>
+  <h3 class="sc-group">Four years, one vehicle</h3><div class="yrs">${years.map((y,i)=>`<div class="yr${i===0?' on':''}"><b>${y[0]}</b><span class="yr-d">${y[1]}</span><h4>${y[2]}</h4><p>${y[3]}</p></div>`).join('')}</div>
+  <div class="gantt-head"><h3 class="sc-group" id="story-gantt">Our Year 1 Gantt</h3><a class="btn btn-light btn-sm" href="schedule.html" target="_blank" rel="noopener">Open full screen &rarr;</a></div>
+  <div class="gantt-frame"><iframe src="schedule.html" title="Year 1 Gantt chart"></iframe></div>
+  <p class="subtle">The same Gantt prints from the Print button. Dates come from the EIC Team Dashboard.</p>`;
+}
 function renderStart(){
   const A=DATA.constraints.architecture,openCount=DATA.starter_tasks.filter(t=>t.status==='Open').length;
   const pp=P_POSITIONS.map(([k,v])=>`<li class="${k==='P4'?'hot':''}"><b>${k}</b><span>${esc(v)}${k==='P4'?' (this is ours)':''}</span></li>`).join('');
@@ -1024,12 +1093,12 @@ function renderUpdate(){
 function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('active',p.id===`page-${name}`));requestAnimationFrame(drawOrgLines);requestAnimationFrame(dissectUpdate);$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(push)history.replaceState(null,'',`#${name}`);window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'})}
 
 $('#baseline').textContent=`Baseline ${fmt(DATA.site.baseline_date)}`;$('#official').textContent=`Official schedule ${fmt(DATA.site.official_schedule_as_of)}`;$('#privacy').textContent=DATA.site.privacy_notice;
-renderStart();renderMeetings();renderLectures();renderCompleted();renderScorecards();renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
+renderStart();renderStory();renderMeetings();renderLectures();renderCompleted();renderScorecards();renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
 document.addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b){e.preventDefault();showPage(b.dataset.page)}});
 document.addEventListener('click',e=>{const d=e.target.closest('[data-deliverable]');if(d)openDeliverable(d.dataset.deliverable);const t=e.target.closest('[data-task]');if(t)openTask(t.dataset.task);const g=e.target.closest('[data-guide]');if(g)openGuide(g.dataset.guide);const w=e.target.closest('[data-onboarding]');if(w)openOnboardingJob(w.dataset.onboarding);const p=e.target.closest('[data-project]');if(p)openProject(p.dataset.project);const o=e.target.closest('[data-seat]');if(o)openSeat(o.dataset.seat);if(e.target.closest('[data-close]'))$('#detail').close()});
 $('#detail').addEventListener('click',e=>{if(e.target===$('#detail'))$('#detail').close()});
 window.addEventListener('resize',drawOrgLines);window.addEventListener('load',drawOrgLines);requestAnimationFrame(drawOrgLines);initScroll();
-const initial=location.hash.slice(1);if(['start','meetings','lectures','completed','now','rules','deliverables','scorecards','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
+const initial=location.hash.slice(1);if(['start','story','meetings','lectures','completed','now','rules','deliverables','scorecards','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
 // Hero particle field: short gold, marigold and grey dashes that drift and swirl away from the pointer.
 (function heroField(){
   const c=document.getElementById('hero-field');if(!c||!c.getContext)return;

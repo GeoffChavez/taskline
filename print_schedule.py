@@ -16,12 +16,12 @@ DATA = ROOT / "data"
 OUT = ROOT / "docs" / "schedule.html"
 
 LANES = [
-    ("pgm", "Program & project management", "#25554A"),
-    ("vse", "VSE: vehicle systems engineering", "#0B6273"),
-    ("vhi", "VHI: vehicle hardware & integration", "#3F6E0F"),
-    ("pcm", "PCM: propulsion controls & modeling", "#5B3E8C"),
-    ("hvb", "HVB: high voltage battery", "#A8500B"),
-    ("biz", "PIT, MarCom & business", "#8A2B4E"),
+    ("pgm", "Program & project management", "#000000"),
+    ("vse", "VSE: vehicle systems engineering", "#018389"),
+    ("vhi", "VHI: vehicle hardware & integration", "#626B2E"),
+    ("pcm", "PCM: propulsion controls & modeling", "#25537D"),
+    ("hvb", "HVB: high voltage battery", "#BD3B2E"),
+    ("biz", "PIT, MarCom & business", "#A13273"),
 ]
 LANE_COLOR = {k: c for k, _, c in LANES}
 LANE_NAME = {k: n for k, n, _ in LANES}
@@ -191,11 +191,11 @@ CSS = """
 @page{size:11in 8.5in;margin:0}
 *{box-sizing:border-box}
 :root{--gold:#FFCE00;--ink:#111;--muted:#5d5d5d;--line:#d8d8d8}
-body{margin:0;background:#e9e9e6;font:12px/1.35 Calibri,Carlito,"Segoe UI",Arial,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#e9e9e6;font:12px/1.35 "Open Sans",Calibri,Carlito,"Segoe UI",Arial,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .sheet{width:11in;height:8.5in;padding:.36in .45in .32in;background:#fff;margin:18px auto;display:flex;flex-direction:column;page-break-after:always;break-after:page;overflow:hidden}
 
 header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:4px solid var(--gold);padding-bottom:8px;margin-bottom:10px}
-h1{margin:0;font-size:24px;line-height:1.1}
+h1{margin:0;font-family:Montserrat,"Open Sans",Arial,sans-serif;font-weight:800;letter-spacing:-.02em;font-size:24px;line-height:1.1}
 header p{margin:3px 0 0;color:var(--muted);font-size:11.5px}
 .brand{text-align:right;font-weight:700;font-size:13px}.brand span{font-weight:400;color:var(--muted);font-size:10.5px}
 .gantt{flex:1;display:flex;flex-direction:column}
@@ -220,8 +220,8 @@ header p{margin:3px 0 0;color:var(--muted);font-size:11.5px}
 .legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:10.5px;color:#333;border-top:1px solid var(--line);padding-top:7px;margin-top:8px}
 .legend .muted{color:var(--muted)}
 .lg{display:inline-block;vertical-align:middle;margin-right:5px}
-.lg.bar{position:static;width:22px;height:9px;background:#0B6273;opacity:.3}
-.lg.frz{position:static;width:12px;height:9px;background:#0B6273}
+.lg.bar{position:static;width:22px;height:9px;background:#000000;opacity:.3}
+.lg.frz{position:static;width:12px;height:9px;background:#000000}
 .lg.dia{position:static;width:9px;height:9px;margin:0 7px 0 2px;background:var(--gold);border:1.5px solid #111;transform:rotate(45deg)}
 .lg.today{position:static;width:2px;height:12px;background:#111}
 .lg.sw{width:10px;height:10px;border-radius:2px}
@@ -242,7 +242,7 @@ header p{margin:3px 0 0;color:var(--muted);font-size:11.5px}
 .ev{font-size:9.5px;color:var(--c);line-height:1.2;font-weight:600}
 .toolbar{max-width:11in;margin:14px auto 0;display:flex;justify-content:space-between;align-items:center;font:13px system-ui,sans-serif}
 .toolbar button{font:inherit;padding:7px 14px;border:0;border-radius:6px;background:#111;color:#fff;cursor:pointer}
-.toolbar a{color:#25554A}
+.toolbar a{color:#000000}
 .sheet:last-of-type{break-after:auto;page-break-after:auto}
 @media print{body{background:#fff}.sheet{margin:0}.toolbar.noprint{display:none}}
 """
@@ -257,7 +257,7 @@ def main(today=None):
     biz = gantt_page("Year 1 Gantt: PIT, MarCom and business", ["biz"], deliverables, tasks, people, today, note)
     cals = calendar_pages(deliverables, tasks, people, today)
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Year 1 Schedule — Cal State LA EcoCAR</title><style>{CSS}</style></head><body>
+<title>Year 1 Schedule — Cal State LA EcoCAR</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><style>{CSS}</style></head><body>
 <div class="toolbar noprint"><a href="index.html">&larr; Back to the execution hub</a><span>Print landscape, Letter, margins none · built {today.isoformat()}</span><button onclick="window.print()">Print or save as PDF</button></div>
 {tech}{biz}{"".join(cals)}
 </body></html>"""

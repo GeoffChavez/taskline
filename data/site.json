@@ -46,5 +46,295 @@
       "logo": ""
     }
   ],
-  "sponsors_note": "Add official logo files from each organization's brand kit as docs/img/sponsors/<file>.png and put the path in 'logo'. Until then the name shows as text."
+  "sponsors_note": "Add official logo files from each organization's brand kit as docs/img/sponsors/<file>.png and put the path in 'logo'. Until then the name shows as text.",
+  "universities": [
+    {
+      "name": "California State University, Los Angeles",
+      "short": "Cal State LA",
+      "track": "Stellantis",
+      "city": "Los Angeles, CA",
+      "lat": 34.0668,
+      "lon": -118.1684,
+      "us": true,
+      "x": 13.61,
+      "y": 57.26
+    },
+    {
+      "name": "Colorado School of Mines",
+      "short": "Mines",
+      "track": "Stellantis",
+      "city": "Golden, CO",
+      "lat": 39.751,
+      "lon": -105.2226,
+      "x": 35.61,
+      "y": 44.52
+    },
+    {
+      "name": "Louisiana State University",
+      "short": "LSU",
+      "track": "Stellantis",
+      "city": "Baton Rouge, LA",
+      "lat": 30.4133,
+      "lon": -91.18,
+      "x": 57.86,
+      "y": 76.1
+    },
+    {
+      "name": "The Ohio State University",
+      "short": "Ohio State",
+      "track": "Stellantis",
+      "city": "Columbus, OH",
+      "lat": 40.0067,
+      "lon": -83.0305,
+      "x": 69.16,
+      "y": 42.57
+    },
+    {
+      "name": "Rose-Hulman Institute of Technology",
+      "short": "Rose-Hulman",
+      "track": "Stellantis",
+      "city": "Terre Haute, IN",
+      "lat": 39.483,
+      "lon": -87.324,
+      "x": 62.8,
+      "y": 45.53
+    },
+    {
+      "name": "Texas A&M University",
+      "short": "Texas A&M",
+      "track": "Stellantis",
+      "city": "College Station, TX",
+      "lat": 30.6187,
+      "lon": -96.3365,
+      "x": 49.02,
+      "y": 75.77
+    },
+    {
+      "name": "University of North Carolina at Charlotte",
+      "short": "UNC Charlotte",
+      "track": "Stellantis",
+      "city": "Charlotte, NC",
+      "lat": 35.3071,
+      "lon": -80.7352,
+      "x": 74.09,
+      "y": 56.96
+    },
+    {
+      "name": "University at Buffalo",
+      "short": "Buffalo",
+      "track": "Stellantis",
+      "city": "Buffalo, NY",
+      "lat": 43.0008,
+      "lon": -78.789,
+      "x": 74.41,
+      "y": 31.15
+    },
+    {
+      "name": "University of Tennessee, Knoxville",
+      "short": "Tennessee",
+      "track": "Stellantis",
+      "city": "Knoxville, TN",
+      "lat": 35.9544,
+      "lon": -83.9295,
+      "x": 68.84,
+      "y": 56.1
+    },
+    {
+      "name": "University of Waterloo",
+      "short": "Waterloo",
+      "track": "Stellantis",
+      "city": "Waterloo, ON",
+      "lat": 43.4723,
+      "lon": -80.5449,
+      "x": 71.75,
+      "y": 30.35
+    },
+    {
+      "name": "Embry-Riddle Aeronautical University",
+      "short": "Embry-Riddle",
+      "track": "GM",
+      "city": "Daytona Beach, FL",
+      "lat": 29.1887,
+      "lon": -81.0489,
+      "x": 75.52,
+      "y": 77.07
+    },
+    {
+      "name": "Georgia Tech",
+      "short": "Georgia Tech",
+      "track": "GM",
+      "city": "Atlanta, GA",
+      "lat": 33.7756,
+      "lon": -84.3963,
+      "x": 68.63,
+      "y": 63.38
+    },
+    {
+      "name": "McMaster University",
+      "short": "McMaster",
+      "track": "GM",
+      "city": "Hamilton, ON",
+      "lat": 43.2609,
+      "lon": -79.9192,
+      "x": 72.71,
+      "y": 30.79
+    },
+    {
+      "name": "Mississippi State University",
+      "short": "Mississippi State",
+      "track": "GM",
+      "city": "Starkville, MS",
+      "lat": 33.4552,
+      "lon": -88.7944,
+      "x": 61.48,
+      "y": 65.64
+    },
+    {
+      "name": "Pennsylvania State University",
+      "short": "Penn State",
+      "track": "GM",
+      "city": "University Park, PA",
+      "lat": 40.7982,
+      "lon": -77.8599,
+      "x": 76.57,
+      "y": 37.86
+    },
+    {
+      "name": "University of Alabama",
+      "short": "Alabama",
+      "track": "GM",
+      "city": "Tuscaloosa, AL",
+      "lat": 33.214,
+      "lon": -87.5391,
+      "x": 63.59,
+      "y": 66.14
+    },
+    {
+      "name": "University of Wisconsin–Madison",
+      "short": "Wisconsin",
+      "track": "GM",
+      "city": "Madison, WI",
+      "lat": 43.0766,
+      "lon": -89.4125,
+      "x": 59.13,
+      "y": 34.15
+    },
+    {
+      "name": "Virginia Tech",
+      "short": "Virginia Tech",
+      "track": "GM",
+      "city": "Blacksburg, VA",
+      "lat": 37.2284,
+      "lon": -80.4234,
+      "x": 73.96,
+      "y": 50.59
+    },
+    {
+      "name": "Western Michigan University",
+      "short": "Western Michigan",
+      "track": "GM",
+      "city": "Kalamazoo, MI",
+      "lat": 42.283,
+      "lon": -85.614,
+      "x": 64.78,
+      "y": 35.92
+    },
+    {
+      "name": "West Virginia University",
+      "short": "West Virginia",
+      "track": "GM",
+      "city": "Morgantown, WV",
+      "lat": 39.635,
+      "lon": -79.9545,
+      "x": 73.88,
+      "y": 42.58
+    }
+  ],
+  "history": [
+    {
+      "years": "1990",
+      "title": "Solar Eagle",
+      "tag": "Solar car",
+      "text": "Cal State LA's first solar car. 4th of 29 at GM Sunrayce USA, then top ten at the World Solar Challenge in Australia.",
+      "photos": []
+    },
+    {
+      "years": "1993",
+      "title": "Solar Eagle II",
+      "tag": "Solar car",
+      "text": "Fastest qualifier, so it started from pole. 3rd of 34 at Sunrayce 93, Dallas to Minneapolis.",
+      "photos": []
+    },
+    {
+      "years": "1997",
+      "title": "Solar Eagle III wins Sunrayce 97",
+      "tag": "Solar car · 1st place",
+      "win": true,
+      "text": "First place over 1,230 miles at a record 43.29 mph average, with no breakdowns, finishing about 20 minutes ahead of MIT.",
+      "photos": [
+        [
+          "img/history/solar-eagle-iii-team.jpg",
+          "The Solar Eagle III team with the car"
+        ],
+        [
+          "img/history/solar-eagle-iii.jpg",
+          "Solar Eagle III on the course"
+        ]
+      ]
+    },
+    {
+      "years": "2011–2014",
+      "title": "EcoCAR 2",
+      "tag": "Hybrid · GM + DOE",
+      "text": "Turned a 2013 Chevrolet Malibu into a hybrid. 2nd overall in Year 2, plus the Most Improved Team award.",
+      "photos": []
+    },
+    {
+      "years": "2014–2018",
+      "title": "EcoCAR 3",
+      "tag": "Hybrid · GM + DOE",
+      "text": "Hybridized a Chevrolet Camaro alongside 15 other universities. Won the 2018 Clean Air Award from South Coast AQMD for teaching the public about efficient vehicles.",
+      "photos": [
+        [
+          "img/history/ecocar3-clean-air-award.jpg",
+          "Cal State LA EcoCAR 3 team at the 2018 Clean Air Awards"
+        ],
+        [
+          "img/history/ecocar3-camaro.jpg",
+          "The EcoCAR 3 Camaro with the team"
+        ]
+      ]
+    },
+    {
+      "years": "2023–2026",
+      "title": "Battery Workforce Challenge",
+      "tag": "Battery · DOE + Stellantis",
+      "win": true,
+      "text": "One of 12 schools, teamed with Cerritos College. Built battery hardware for a 2024 RAM ProMaster EV: a 4s5p module in Year 2, a 12s31p module of 372 cells in Year 3, and a Battery Disconnect Unit. 1st place in BDU performance testing (26.5 of 27) and 1st place Manufacturability Award.",
+      "photos": [
+        [
+          "img/history/bwc-year3-team.jpg",
+          "Cal State LA and Cerritos College at the Year 3 competition"
+        ],
+        [
+          "img/history/bwc-year3-all-teams.jpg",
+          "All Battery Workforce Challenge teams, Year 3"
+        ]
+      ]
+    },
+    {
+      "years": "2026–2030",
+      "title": "EcoCAR Innovation Challenge",
+      "tag": "Now · Stellantis track",
+      "now": true,
+      "text": "One of 20 universities. Over four years, a 2026 Jeep Cherokee Hybrid becomes a P4 off-road fire command vehicle.",
+      "photos": [
+        [
+          "img/cherokee-concept.jpg",
+          "Student concept render of the fire command Cherokee"
+        ]
+      ]
+    }
+  ],
+  "history_note": "Photos from the team history deck. [confirm photo credits before wide distribution]"
 }
