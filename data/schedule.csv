@@ -1,11 +1,12 @@
 id,group,lane,task,label,type,start,end,owners
 general-meeting-all-members,Standing meetings,pgm,General Meeting — all members,Fridays 12–1 pm · B13 Garage · ME1 meets inside,bar,2026-09-04,2026-12-11,geo
-me1-senior-design,Standing meetings,vhi,ME1 — Rear eAxle & driveline integration,Fridays 12–1 pm · B13 Garage · inside the General Meeting,bar,2026-10-16,2026-12-11,fra
-me2-senior-design,Standing meetings,hvb,ME2 — Pack enclosure & thermal,Fridays 2–3 pm · B13 Garage,bar,2026-10-16,2026-12-11,ant
-ee1-senior-design,Standing meetings,hvb,EE1 — HV distribution & protection,Fridays 3–4 pm · B13 Garage,bar,2026-10-16,2026-12-11,dor
+me1-senior-design,Standing meetings,hvb,ME1 — HV dune buggy conversion,Fridays 12–1 pm · B13 Garage · inside the General Meeting,bar,2026-10-16,2026-12-11,ant
+me2-senior-design,Standing meetings,vhi,ME2 — RC-scale electric drivetrain,Fridays 2–3 pm · B13 Garage,bar,2026-10-16,2026-12-11,jef
+ee1-senior-design,Standing meetings,vhi,EE1 — Instrumentation & CAN,Fridays 3–4 pm · B13 Garage,bar,2026-10-16,2026-12-11,min
 general-mechanical,Standing meetings,vhi,General Mechanical,Tuesdays 2–3 pm · B13 Garage,bar,2026-10-13,2026-12-08,geo
 leadership-meeting,Standing meetings,pgm,Leadership Meeting,Tuesdays 3:30–4:30 pm · B13 Garage,bar,2026-10-13,2026-12-08,geo
-ee2-senior-design,Standing meetings,pcm,EE2 — Instrumentation & controls (Dr. Shahverdi),Tuesdays 4:30–5:30 pm · B13 Garage,bar,2026-10-13,2026-12-08,min ron
+ee2-senior-design,Standing meetings,pcm,EE2 — Powertrain simulation & controls,Tuesdays 4:30–5:30 pm · B13 Garage,bar,2026-10-13,2026-12-08,ron
+marcom-meeting,Standing meetings,biz,MarCom — General Requirements & media,Wednesdays 3 pm · location to confirm,bar,2026-11-04,2026-12-09,mar bri hen
 advisor-sync-dr-wang,Standing meetings,pgm,Advisor sync — Dr. Wang,time to confirm,tbd,2026-09-08,2026-12-12,geo
 off-road-targets-read-the-requirement,Deliverable research — report back 11 Sept,vse,Off-Road Targets — read the requirement,report specifics,bar,2026-09-02,2026-09-11,ron
 off-road-targets-battery-and-mass-angle,Deliverable research — report back 11 Sept,vse,Off-Road Targets — battery and mass angle,report specifics,bar,2026-09-02,2026-09-11,dav

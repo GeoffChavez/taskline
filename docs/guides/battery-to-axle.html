@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Battery to Axle</title>
+<meta name="description" content="Cal State LA EcoCAR lecture: how a battery pack powers an electric drive unit, from cells to inverter to motor to axle, with the calculations.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--muted:#5f6368;--line:#e6e6e9;--soft:#f7f7f8;--gold:#ffce00;--marigold:#fcb237;--ok:#626b2e;--bad:#bd3b2e;--blue:#25537d;--teal:#018389;
+  --display:"Montserrat",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--ui:"Open Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}html{background:#fff;scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font:16px/1.6 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:#000;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.03em;margin:0}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;justify-content:space-between;padding:10px 20px;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid #ececee}
+.top a.back{font-family:var(--display);font-weight:600;font-size:.85rem;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.top a.back:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;border:1px solid #d6d6da;background:#fff;color:#000;font:600 .85rem var(--display);cursor:pointer}
+.btn.dark{background:#000;color:#fff;border-color:#000}.btn:hover{border-color:#000}.btn.dark:hover{background:var(--gold);color:#000;border-color:var(--gold)}
+.banner{max-width:1080px;margin:18px auto 0;padding:10px 16px;border-radius:14px;font-size:.84rem;font-weight:600}
+.banner.public{background:#f4f4f5;color:#3c4043}.banner.team{background:#000;color:#fff}.banner.team b{color:var(--gold)}
+main{max-width:1080px;margin:0 auto;padding:0 20px 120px}
+.slide{padding:72px 0 40px;border-bottom:1px solid #f0f0f2}
+.kicker{display:inline-flex;align-items:center;gap:8px;font:700 .7rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:#4a4f55}
+.kicker:before{content:"";width:18px;height:3px;border-radius:3px;background:var(--gold)}
+.slide h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:700;line-height:1.06;margin:10px 0 12px;max-width:18ch}
+.slide>p,.lead{font-size:1.12rem;color:var(--muted);max-width:640px;margin:0 0 22px}
+.title-slide{padding-top:96px}.title-slide h1{font-size:clamp(2.8rem,8vw,6rem);font-weight:700;letter-spacing:-.045em;line-height:1;margin:16px 0 18px}
+.hl{background:linear-gradient(transparent 62%,var(--gold) 62%,var(--gold) 92%,transparent 92%)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--soft);border-radius:22px;padding:22px}
+.card h3{font-size:1.15rem;margin-bottom:6px}.card p{margin:6px 0;color:#3c4043;font-size:.95rem}
+.card.white{background:#fff;border:1px solid var(--line)}
+.eq{font:600 1.05rem/1.5 var(--display);background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin:10px 0;letter-spacing:-.005em;overflow-x:auto}
+.eq small{display:block;font:400 .82rem var(--ui);color:var(--muted);margin-top:4px}
+.work{background:#fffbe6;border:1px solid #ffe680;border-radius:18px;padding:16px 20px;margin-top:14px}
+.work h4{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#5c4600;margin-bottom:6px}
+.work ol,.work ul{margin:4px 0 0;padding-left:1.2rem}.work li{margin:4px 0}
+.num{font-family:var(--display);font-weight:700}
+.flag{border-left:4px solid var(--bad);background:#fbeeec;border-radius:4px 16px 16px 4px;padding:14px 18px;margin-top:14px}
+.flag b{display:block;font-family:var(--display)}
+.good{border-left:4px solid var(--ok);background:#f2f3e6;border-radius:4px 16px 16px 4px;padding:14px 18px;margin-top:14px}
+.note{font-size:.84rem;color:var(--muted)}
+svg text{font-family:var(--display)}
+.chain{width:100%;height:auto;display:block;margin:10px 0 6px}
+table{border-collapse:collapse;width:100%;font-size:.86rem;background:#fff}
+th,td{padding:9px 10px;border-bottom:1px solid #ececee;text-align:right;white-space:nowrap}th{font:700 .7rem var(--display);letter-spacing:.06em;text-transform:uppercase;color:#5f6368;background:var(--soft);position:sticky;top:0}
+td:first-child,th:first-child{text-align:left}.twrap{overflow:auto;border:1px solid var(--line);border-radius:16px;max-height:70vh}
+td.ok{color:var(--ok);font-weight:700}td.bad{color:var(--bad);font-weight:700}tr.best td{background:#fffbe6}
+.calc{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(0,1.4fr);gap:18px}
+.inputs{background:var(--soft);border-radius:22px;padding:20px}
+.inputs h4{font-size:.95rem;margin:12px 0 6px}.inputs h4:first-child{margin-top:0}
+.inputs label{display:grid;grid-template-columns:1fr 112px;gap:10px;align-items:center;font-size:.84rem;margin:6px 0}
+.inputs input,.inputs select{width:100%;font:600 .9rem var(--display);padding:7px 10px;border-radius:10px;border:1px solid #d6d6da;background:#fff}
+.inputs select{grid-column:1/-1}
+.outs{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;align-content:start}
+.out{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.out b{display:block;font:700 1.35rem var(--display);letter-spacing:-.02em}.out span{font-size:.76rem;color:var(--muted)}
+.checks{grid-column:1/-1;list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.checks li{display:grid;grid-template-columns:26px 1fr;gap:8px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-size:.88rem}
+.checks li:before{content:"✓";display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ok);color:#fff;font-weight:800;font-size:.75rem}
+.checks li.no:before{content:"✕";background:var(--bad)}.checks li.warn:before{content:"!";background:var(--marigold);color:#000}
+.pick{display:inline-flex;gap:8px;align-items:center;margin:0 0 6px;font:600 .85rem var(--display)}.pick select{font:600 .85rem var(--display);padding:6px 10px;border-radius:999px;border:1px solid #d6d6da}
+.pager{display:none}
+/* Presentation mode */
+body.present{overflow:hidden;background:#fff}
+body.present .banner,body.present .top .hide-present{display:none}
+body.present main{max-width:none;padding:0}
+body.present .slide{display:none;position:fixed;inset:57px 0 0 0;overflow:auto;padding:5vh max(5vw,24px) 80px;border:0;background:#fff}
+body.present .slide.on{display:block}
+body.present .slide h2{font-size:clamp(2.2rem,5vw,4rem)}
+body.present .pager{display:flex;position:fixed;right:20px;bottom:18px;z-index:30;gap:8px;align-items:center;font:600 .8rem var(--display)}
+.progress{position:fixed;left:0;bottom:0;height:4px;background:var(--gold);z-index:31;transition:width .25s;display:none}body.present .progress{display:block}
+@media(max-width:760px){.calc{grid-template-columns:1fr}.slide{padding:52px 0 30px}.top{padding:8px 14px}}
+@media print{.top,.pager,.progress,.inputs{display:none}.slide{break-after:page;padding:20px 0}}
+</style>
+</head>
+<body>
+<div class="top"><a class="back" href="../index.html#onboarding">Charging Eagles hub</a><span class="hide-present note" id="mode-label"></span><button class="btn dark" id="present" type="button">Present ▶</button></div>
+<div class="banner" id="banner"></div>
+<main id="deck">
+
+<section class="slide title-slide" data-title="Title">
+  <span class="kicker">EcoCAR lecture · HVB + PCM</span>
+  <h1>From battery<br>to <span class="hl">axle</span>.</h1>
+  <p class="lead">How a pack of cells turns our Cherokee&rsquo;s rear wheels, with the math to check every step.</p>
+  <svg class="chain" viewBox="0 0 1000 150" aria-label="Battery, inverter, motor, gearbox, axle"><g id="chain-mini"></g></svg>
+  <p class="note">Use the arrow keys after you press Present. Every number below recalculates when you change the cell or the inputs.</p>
+</section>
+
+<section class="slide" data-title="The chain">
+  <span class="kicker">The big picture</span>
+  <h2>Five boxes, one job: push the tires.</h2>
+  <p>Energy flows left to right. Each box changes what kind of energy it is.</p>
+  <svg class="chain" viewBox="0 0 1000 230" aria-label="Power flow diagram"><g id="chain-big"></g></svg>
+  <div class="grid3">
+    <div class="card"><h3>1 · Battery</h3><p>Stores energy as DC. Sets the <b>voltage</b> and how much <b>current</b> you can pull.</p></div>
+    <div class="card"><h3>2 · Inverter</h3><p>Turns DC into three-phase AC. Decides how much <b>current</b> reaches the motor, thousands of times a second.</p></div>
+    <div class="card"><h3>3 · Motor</h3><p>Turns AC into <b>torque</b> and <b>speed</b>. Power = torque &times; speed.</p></div>
+    <div class="card"><h3>4 · Gearbox</h3><p>Trades speed for torque: <span class="num" data-k="ratio"></span>:1 means &times;<span data-k="ratio"></span> torque, &divide;<span data-k="ratio"></span> speed.</p></div>
+    <div class="card"><h3>5 · Axle + tires</h3><p>Half shafts carry torque to the wheels. Torque &divide; tire radius = <b>push</b> on the road.</p></div>
+  </div>
+  <p class="note" style="margin-top:14px">On our drive unit, boxes 2&ndash;4 are one assembly (the inverter is the PIM bolted on top). The team designs box 1.</p>
+</section>
+
+<section class="slide" data-title="Cells to pack">
+  <span class="kicker">Step 1 · The battery</span>
+  <h2>Series adds volts. Parallel adds amps.</h2>
+  <p>A pack is a grid of identical cells. Name it by its shape: <b>S</b> cells in series, <b>P</b> in parallel, written like &ldquo;96s2p&rdquo;.</p>
+  <div class="grid2">
+    <div>
+      <svg viewBox="0 0 460 210" style="width:100%;height:auto" aria-label="3s2p cell grid"><g id="sp-grid"></g></svg>
+      <p class="note">This is 3s2p: three in a row add voltage, two rows side by side add capacity.</p>
+    </div>
+    <div>
+      <div class="eq">V<sub>pack</sub> = S &times; V<sub>cell</sub><small>Voltage adds along a string.</small></div>
+      <div class="eq">Ah<sub>pack</sub> = P &times; Ah<sub>cell</sub><small>Parallel strings share the current.</small></div>
+      <div class="eq">Energy = S &times; P &times; Wh<sub>cell</sub><small>Every cell contributes its watt-hours.</small></div>
+      <div class="eq">Mass = S &times; P &times; m<sub>cell</sub><small>Cells only. Add the enclosure, busbars, BMS and cooling later.</small></div>
+    </div>
+  </div>
+  <div class="work"><h4>Example cell</h4><div class="pick">Using <select class="cell-pick" aria-label="Example cell"></select></div>
+    <p style="margin:0"><span data-k="cellLine"></span></p></div>
+</section>
+
+<section class="slide" data-title="Voltage window">
+  <span class="kicker">Step 1 · The battery</span>
+  <h2>Find how many cells go in series.</h2>
+  <p>The pack must stay inside two windows at the same time: the competition rule and what the drive unit accepts.</p>
+  <div class="grid2">
+    <div class="card white"><h3>Competition rule</h3><p>Pack <span class="num" data-k="rPackMin"></span>&ndash;<span class="num" data-k="rPackMax"></span> V, at most <span class="num" data-k="rEmax"></span> kWh, modules at or below <span class="num" data-k="rMod"></span> V.</p><p class="note">Confirm in the Vehicle Design Rules whether the 400 V limit is at full charge. This lecture assumes it is.</p></div>
+    <div class="card white"><h3>Drive unit DC input</h3><p>Min <span class="num" data-k="mVmin"></span> V &middot; nominal <span class="num" data-k="mVnom"></span> V &middot; max <span class="num" data-k="mVmax"></span> V.</p><p class="note">Below the minimum the drive unit cuts power. Source: <span data-k="mSource"></span>.</p></div>
+  </div>
+  <div class="eq">S<sub>min</sub> = ⌈ V<sub>motor,min</sub> &divide; V<sub>cell,min</sub> ⌉ &nbsp;&nbsp;&nbsp; S<sub>max</sub> = ⌊ V<sub>pack,max</sub> &divide; V<sub>cell,max</sub> ⌋<small>Empty pack must still feed the motor. Full pack must stay under the rule.</small></div>
+  <div class="work"><h4>Worked: <span data-k="cellName"></span></h4><ol>
+    <li>S<sub>min</sub> = ⌈<span data-k="mVmin"></span> &divide; <span data-k="vmin"></span>⌉ = <b data-k="slo"></b></li>
+    <li>S<sub>max</sub> = ⌊<span data-k="rPackMax"></span> &divide; <span data-k="vmax"></span>⌋ = <b data-k="shi"></b></li>
+    <li><span data-k="sVerdict"></span></li></ol></div>
+  <div id="s-conflict"></div>
+</section>
+
+<section class="slide" data-title="Energy cap">
+  <span class="kicker">Step 1 · The battery</span>
+  <h2>Then fill the energy cap with parallel strings.</h2>
+  <p>Pick S, then add parallel strings until the next one would break the energy limit.</p>
+  <div class="eq">P = ⌊ E<sub>max</sub> &divide; (S &times; Wh<sub>cell</sub>) ⌋</div>
+  <div class="work"><h4>Worked: <span data-k="cellName"></span>, S = <span data-k="S"></span></h4><ol>
+    <li>One string holds <span data-k="S"></span> &times; <span data-k="wh"></span> Wh = <b data-k="stringWh"></b> Wh</li>
+    <li>P = ⌊<span data-k="rEmaxWh"></span> &divide; <span data-k="stringWh"></span>⌋ = <b data-k="P"></b></li>
+    <li>Pack: <b data-k="cfg"></b> &rarr; <b data-k="E"></b> kWh, <b data-k="kg"></b> kg of cells, <b data-k="Vnom"></b> V nominal (<span data-k="Vmin"></span>&ndash;<span data-k="Vmax"></span> V)</li>
+    <li>Modules: at most <b data-k="modS"></b> cells in series per module to stay &le; <span data-k="rMod"></span> V &rarr; about <b data-k="nMod"></b> modules</li></ol></div>
+  <p class="note">This lecture picks the largest S that fits, because more voltage means less current for the same power. That is a choice, not a rule.</p>
+</section>
+
+<section class="slide" data-title="Power and C-rate">
+  <span class="kicker">Step 1 · The battery</span>
+  <h2>Power is volts times amps. Small packs need high C-rates.</h2>
+  <p>A cell&rsquo;s C-rate says how hard it can be pushed: 10C on a 2 Ah cell is 20 A. Small pack, big motor, means every cell works hard.</p>
+  <div class="grid2">
+    <div><div class="eq">P = V &times; I</div><div class="eq">I<sub>pack</sub> = P &times; C &times; Ah<sub>cell</sub></div><div class="eq">C needed = P<sub>motor</sub> &divide; E<sub>pack</sub><small>Power-to-energy ratio. 1 kW from a 1 kWh pack is 1C.</small></div></div>
+    <div class="work" style="margin-top:10px"><h4>Worked: what the motor asks for</h4><ul>
+      <li>Peak <b data-k="mPk"></b> kW from <b data-k="E"></b> kWh &rarr; <b data-k="needCpk"></b>C</li>
+      <li>Continuous <b data-k="mCont"></b> kW &rarr; <b data-k="needCcont"></b>C</li>
+      <li>At <span data-k="mVnom"></span> V, peak power is <b data-k="iMotorPk"></b> A of DC current</li>
+      <li>This cell offers <b data-k="ccont"></b>C continuous and <b data-k="cpeak"></b>C peak (<span data-k="pulse"></span>)</li></ul></div>
+  </div>
+  <div id="c-verdict"></div>
+</section>
+
+<section class="slide" data-title="Voltage sag">
+  <span class="kicker">Step 1 · The battery</span>
+  <h2>Pull hard and the voltage sags.</h2>
+  <p>Every cell has internal resistance. Current through it costs voltage and makes heat. Sag can drop the pack below what the motor accepts.</p>
+  <div class="grid2">
+    <div><div class="eq">R<sub>pack</sub> = S &times; R<sub>cell</sub> &divide; P</div><div class="eq">V<sub>loaded</sub> = V<sub>nom</sub> &minus; I &times; R<sub>pack</sub></div><div class="eq">Heat = I&sup2; &times; R<sub>pack</sub></div><div class="eq">I<sub>max</sub> above the motor floor = (V<sub>nom</sub> &minus; V<sub>motor,min</sub>) &divide; R<sub>pack</sub></div></div>
+    <div class="work" style="margin-top:10px"><h4>Worked: <span data-k="cfg"></span></h4><ul>
+      <li>R<sub>pack</sub> = <span data-k="S"></span> &times; <span data-k="rm"></span> m&Omega; &divide; <span data-k="P"></span> = <b data-k="Rm"></b> m&Omega;</li>
+      <li>At full continuous current (<span data-k="icont"></span> A): <b data-k="vsagCont"></b> V, heat <b data-k="heatCont"></b> kW</li>
+      <li>Current limit to stay &ge; <span data-k="mVmin"></span> V: <b data-k="ilim"></b> A</li>
+      <li>Usable power: <b data-k="pCont"></b> kW continuous, <b data-k="pPk"></b> kW peak</li></ul></div>
+  </div>
+  <p class="note">Datasheet resistance is measured at 1 kHz AC, which reads lower than real DC resistance. Real sag will be worse. These numbers are at nominal voltage; an emptier pack sags from a lower start.</p>
+</section>
+
+<section class="slide" data-title="Inverter">
+  <span class="kicker">Step 2 · The inverter</span>
+  <h2>DC in, three-phase AC out.</h2>
+  <p>The inverter switches the DC on and off very fast (PWM) across three phases, building AC at whatever frequency and strength the motor needs.</p>
+  <div class="grid2">
+    <svg viewBox="0 0 460 200" style="width:100%;height:auto" aria-label="Three-phase sine waves"><g id="phases"></g></svg>
+    <div><div class="eq">P<sub>DC</sub> = P<sub>shaft</sub> &divide; &eta;<small>&eta; = inverter &times; motor efficiency. Get it from the efficiency map, not a guess.</small></div>
+      <div class="eq">I<sub>DC</sub> = P<sub>DC</sub> &divide; V<sub>pack</sub><small>Same power, lower voltage &rarr; more current.</small></div></div>
+  </div>
+  <div class="work"><h4>Worked: peak power at the drive unit&rsquo;s voltage limits</h4><ul>
+    <li><span data-k="mPk"></span> kW at <span data-k="mVnom"></span> V nominal: <b data-k="iMotorPk"></b> A</li>
+    <li><span data-k="mPk"></span> kW at <span data-k="mVmin"></span> V minimum: <b data-k="iMotorPkLow"></b> A</li></ul><p class="note" style="margin:6px 0 0">Shown with &eta; = 1 (ideal). Real current is higher by 1/&eta;.</p></div>
+</section>
+
+<section class="slide" data-title="Motor">
+  <span class="kicker">Step 3 · The motor</span>
+  <h2>Flat torque, then flat power.</h2>
+  <p>Up to base speed the motor gives full torque. Above it, power stays flat and torque falls. The meeting point is the corner.</p>
+  <div class="grid2">
+    <svg viewBox="0 0 460 260" style="width:100%;height:auto" aria-label="Torque and power versus speed"><g id="tp-curve"></g></svg>
+    <div><div class="eq">P = T &times; &omega; &nbsp;&nbsp; &omega; = 2&pi; &times; rpm &divide; 60</div><div class="eq">Corner speed = P<sub>peak</sub> &divide; T<sub>peak</sub></div>
+    <div class="work"><h4>Worked: <span data-k="mName"></span></h4><ul>
+      <li>Peak axle torque <span data-k="mTpk"></span> N&middot;m &divide; <span data-k="ratio"></span> = <b data-k="mTmotor"></b> N&middot;m at the motor</li>
+      <li>At base speed <span data-k="mBase"></span> rpm: <b data-k="pBase"></b> kW</li>
+      <li>Corner for <span data-k="mPk"></span> kW: <b data-k="cornerMotor"></b> motor rpm</li></ul></div></div>
+  </div>
+  <div id="motor-check"></div>
+</section>
+
+<section class="slide" data-title="Gearbox and axle">
+  <span class="kicker">Steps 4 + 5 · Gearbox, axle, tires</span>
+  <h2>Gears multiply torque. Tires turn it into push.</h2>
+  <div class="grid2">
+    <div><div class="eq">rpm<sub>axle</sub> = rpm<sub>motor</sub> &divide; G</div><div class="eq">T<sub>axle</sub> = T<sub>motor</sub> &times; G</div><div class="eq">Speed = &omega;<sub>axle</sub> &times; r<sub>tire</sub></div><div class="eq">Push = T<sub>axle</sub> &divide; r<sub>tire</sub></div>
+    <div class="eq">r<sub>tire</sub> from a size like 245/65R17 = (17 &times; 25.4 &divide; 2 + 245 &times; 0.65) mm</div></div>
+    <div class="work" style="margin-top:10px"><h4>Worked: tire <span data-k="tire"></span></h4><ul>
+      <li>r = <b data-k="rmm"></b> mm</li>
+      <li>Max <span data-k="mAxleMax"></span> axle rpm &times; <span data-k="ratio"></span> = <b data-k="mMotorMaxCalc"></b> motor rpm (spec says <span data-k="mMotorMax"></span>)</li>
+      <li>Top speed from the rear unit: <b data-k="vtopKmh"></b> km/h (<b data-k="vtopMph"></b> mph)</li>
+      <li>Peak push at the rear tires: <b data-k="Fpk"></b> kN, about <b data-k="accel"></b> m/s&sup2; on a <span data-k="vehKg"></span> kg vehicle</li></ul>
+      <p class="note" style="margin:6px 0 0">The tire size is a placeholder. Use the delivered Cherokee&rsquo;s tire. Traction may limit push before the motor does.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Mass budget">
+  <span class="kicker">The catch</span>
+  <h2>Everything has to fit in one weight allowance.</h2>
+  <p>The rules allow <span class="num" data-k="rMass"></span> kg on top of the stock vehicle for the pack, enclosure, drive unit, mounts, wiring, cooling and instruments.</p>
+  <div class="work"><h4>Worked: <span data-k="cfg"></span></h4><ul>
+    <li>Allowance <span data-k="rMass"></span> kg &minus; drive unit <span data-k="mKg"></span> kg &minus; cells <span data-k="kg"></span> kg = <b data-k="massLeft"></b> kg left</li>
+    <li>That remainder covers the enclosure, busbars, BMS, contactors, fuses, cooling, mounts and wiring.</li></ul></div>
+  <p class="note">Parts removed from the stock car (like the rear differential) may give mass back. Confirm the credit with the Vehicle Track lead before relying on it.</p>
+</section>
+
+<section class="slide" data-title="Calculator">
+  <span class="kicker">Try it</span>
+  <h2>Build a pack, see what the motor gets.</h2>
+  <div class="calc">
+    <div class="inputs">
+      <h4>Cell</h4><select class="cell-pick" aria-label="Cell"></select>
+      <label>Series S<input id="in-S" type="number" min="1" step="1"></label>
+      <label>Parallel P<input id="in-P" type="number" min="1" step="1"></label>
+      <button class="btn" type="button" id="auto" style="margin:4px 0 6px">Auto-pick S and P</button>
+      <h4>Drive unit</h4>
+      <label>Peak power (kW)<input id="in-mPk" type="number" step="1"></label>
+      <label>Continuous power (kW)<input id="in-mCont" type="number" step="1"></label>
+      <label>Min DC voltage (V)<input id="in-mVmin" type="number" step="1"></label>
+      <label>Max DC voltage (V)<input id="in-mVmax" type="number" step="1"></label>
+      <label>Gear ratio G<input id="in-ratio" type="number" step="0.1"></label>
+      <label>Peak axle torque (N&middot;m)<input id="in-mTpk" type="number" step="1"></label>
+      <label>Max axle speed (rpm)<input id="in-mAxleMax" type="number" step="1"></label>
+      <label>Efficiency &eta; (0&ndash;1)<input id="in-eta" type="number" step="0.01" min="0.5" max="1"></label>
+      <h4>Vehicle</h4>
+      <label>Tire size<input id="in-tire" type="text"></label>
+      <label>Vehicle mass (kg)<input id="in-veh" type="number" step="1"></label>
+    </div>
+    <div class="outs" id="outs"></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Catalog sweep">
+  <span class="kicker">The comparison</span>
+  <h2 id="sweep-title">Every cell, the same rules.</h2>
+  <p id="sweep-lead"></p>
+  <div class="twrap"><table id="sweep"></table></div>
+  <p class="note">Each row uses the largest S under <span data-k="rPackMax"></span> V and as many parallel strings as fit under <span data-k="rEmax"></span> kWh. Usable power keeps the sagged voltage at or above <span data-k="mVmin"></span> V, using datasheet (1 kHz) resistance at nominal voltage. It is a first pass, not a final design.</p>
+  <div id="sweep-take"></div>
+</section>
+
+<section class="slide" data-title="Your turn">
+  <span class="kicker">Your turn</span>
+  <h2>Own one configuration.</h2>
+  <div class="grid3">
+    <div class="card"><h3>1 · Pick a cell</h3><p>One from the catalog, or the team&rsquo;s 9th cell. Get the datasheet from EcoCAR Box.</p></div>
+    <div class="card"><h3>2 · Work it by hand</h3><p>S range, P, energy, mass, current, sag, usable power. Show units at every step.</p></div>
+    <div class="card"><h3>3 · Check it here</h3><p>Match the calculator. If it doesn&rsquo;t match, find out why. That&rsquo;s the learning.</p></div>
+    <div class="card"><h3>4 · Get it checked</h3><p>A second member re-does your arithmetic. Then claim the pack configuration task on the hub.</p></div>
+  </div>
+  <div class="flag"><b>Analysis only.</b>Anything above 60 V DC can kill. No energized high-voltage work without the permit, a written procedure and qualified people.</div>
+  <p style="margin-top:18px"><a class="btn dark" href="../index.html#start">Claim a task on the hub &rarr;</a></p>
+</section>
+</main>
+<div class="pager"><button class="btn" id="prev" type="button">&larr;</button><span id="count"></span><button class="btn" id="next" type="button">&rarr;</button><button class="btn" id="exit" type="button">Exit</button></div>
+<div class="progress" id="progress"></div>
+<script>
+const LECTURE={"mode": "public", "mode_label": "Public copy · practice numbers", "banner": "Practice numbers are made up so this page can be public. The real cell catalog and drive unit specs are in EcoCAR Box; the team copy of this lecture uses them.", "rules": {"pack_vmin": 200, "pack_vmax": 400, "e_max_wh": 5000, "module_vmax": 50, "mass_allow_kg": 182, "vehicle_mass_kg": 2154}, "tire": "245/65R17", "cells": [{"id": "PRACTICE-1", "name": "Practice cell (made-up)", "chem": "NMC", "form": "21700", "vnom": 3.6, "vmax": 4.2, "vmin": 2.8, "ah": 4.0, "wh": 14.4, "ccont": 20, "cpeak": 40, "rmohm": 8, "g": 70, "pulse": "short pulse"}], "motor": {"name": "Practice motor (made-up)", "source": "made-up practice numbers", "peak_kw": 150, "cont_kw": 70, "v_min": 250, "v_nom": 350, "v_max": 450, "ratio": 10, "t_peak_nm": 1500, "motor_base_rpm": 9500, "axle_rpm_max": 1500, "motor_max_rpm": 15000, "mass_kg": 90}};
+(function(){
+const D=LECTURE,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const st={cell:0,S:null,P:null,m:{...D.motor},tire:D.tire,veh:D.rules.vehicle_mass_kg,eta:1};
+const f=(x,d=0)=>x==null||!isFinite(x)?'—':Number(x).toLocaleString('en-US',{maximumFractionDigits:d,minimumFractionDigits:d});
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const rad=rpm=>rpm*2*Math.PI/60;
+function tireR(s){const m=String(s).match(/(\d{3})\s*\/\s*(\d{2})\s*R\s*(\d{2})/i);return m?(+m[3]*25.4/2+ +m[1]*(+m[2])/100)/1000:NaN}
+function sRange(c,m){return{lo:Math.ceil(m.v_min/c.vmin),hi:Math.floor(D.rules.pack_vmax/c.vmax)}}
+function autoSP(c,m){const r=sRange(c,m);const S=r.hi;return{S,P:Math.max(1,Math.floor(D.rules.e_max_wh/(S*c.wh)))}}
+function pack(c,S,P){const R=S*c.rmohm/1000/P;return{S,P,vnom:S*c.vnom,vmax:S*c.vmax,vmin:S*c.vmin,ah:P*c.ah,wh:S*P*c.wh,kg:S*P*c.g/1000,icont:P*c.ah*c.ccont,ipk:P*c.ah*c.cpeak,R}}
+function usable(pk,I,floor){const lim=Math.max(0,(pk.vnom-floor)/pk.R),i=Math.min(I,lim);return{i,lim,v:pk.vnom-i*pk.R,kw:(pk.vnom-i*pk.R)*i/1000,limited:lim<I}}
+function calc(){
+  const c=D.cells[st.cell],m=st.m,sr=sRange(c,m);
+  if(st.S==null){const a=autoSP(c,m);st.S=a.S;st.P=a.P}
+  const pk=pack(c,st.S,st.P),uc=usable(pk,pk.icont,m.v_min),up=usable(pk,pk.ipk,m.v_min);
+  const r=tireR(st.tire),Tm=m.t_peak_nm/m.ratio,pBase=m.t_peak_nm*rad(m.motor_base_rpm/m.ratio)/1000,corner=m.peak_kw*1000/m.t_peak_nm*60/(2*Math.PI)*m.ratio;
+  const modS=Math.floor(D.rules.module_vmax/c.vmax);
+  const v={cellName:c.id+' '+c.name,cellLine:`${c.id} · ${c.name} (${c.chem}, ${c.form}): ${f(c.vnom,2)} V nominal (${f(c.vmin,2)}–${f(c.vmax,2)} V), ${f(c.ah,2)} Ah, ${f(c.wh,2)} Wh, ${f(c.ccont,1)}C continuous / ${f(c.cpeak)}C peak, ~${f(c.rmohm)} mΩ, ${f(c.g,1)} g.`,
+    vnom:f(c.vnom,2),vmax:f(c.vmax,2),vmin:f(c.vmin,2),ah:f(c.ah,2),wh:f(c.wh,2),ccont:f(c.ccont,1),cpeak:f(c.cpeak),rm:f(c.rmohm),pulse:c.pulse||'short pulse',
+    rPackMin:f(D.rules.pack_vmin),rPackMax:f(D.rules.pack_vmax),rEmax:f(D.rules.e_max_wh/1000,1),rEmaxWh:f(D.rules.e_max_wh),rMod:f(D.rules.module_vmax),rMass:f(D.rules.mass_allow_kg),
+    mVmin:f(m.v_min),mVnom:f(m.v_nom),mVmax:f(m.v_max),mSource:D.motor.source,mName:D.motor.name,mPk:f(m.peak_kw),mCont:f(m.cont_kw),ratio:f(m.ratio,m.ratio%1?1:0),
+    mTpk:f(m.t_peak_nm),mTmotor:f(Tm),mBase:f(m.motor_base_rpm),pBase:f(pBase),cornerMotor:f(corner),mAxleMax:f(m.axle_rpm_max),mMotorMax:f(m.motor_max_rpm),mMotorMaxCalc:f(m.axle_rpm_max*m.ratio),mKg:f(m.mass_kg),
+    slo:sr.lo,shi:sr.hi,sVerdict:sr.lo<=sr.hi?`Any S from ${sr.lo} to ${sr.hi} works. This lecture uses S = ${sr.hi}.`:`Conflict: S must be at least ${sr.lo} and at most ${sr.hi}. Use S = ${sr.hi} and stop discharging at ${f(m.v_min/sr.hi,2)} V per cell instead of ${f(c.vmin,2)} V. That leaves some capacity unused.`,
+    S:pk.S,P:pk.P,cfg:`${pk.S}s${pk.P}p`,stringWh:f(pk.S*c.wh),E:f(pk.wh/1000,2),kg:f(pk.kg,1),Vnom:f(pk.vnom),Vmin:f(pk.vmin),Vmax:f(pk.vmax),modS,nMod:Math.ceil(pk.S/modS),
+    needCpk:f(m.peak_kw*1000/pk.wh),needCcont:f(m.cont_kw*1000/pk.wh),iMotorPk:f(m.peak_kw*1000/m.v_nom),iMotorPkLow:f(m.peak_kw*1000/m.v_min),
+    Rm:f(pk.R*1000),icont:f(pk.icont),vsagCont:f(pk.vnom-pk.icont*pk.R),heatCont:f(pk.icont**2*pk.R/1000,1),ilim:f(uc.lim),pCont:f(uc.kw),pPk:f(up.kw),
+    tire:st.tire,rmm:f(r*1000),vtopKmh:f(rad(m.axle_rpm_max)*r*3.6),vtopMph:f(rad(m.axle_rpm_max)*r*2.23694),Fpk:f(m.t_peak_nm/r/1000,2),accel:f(m.t_peak_nm/r/st.veh,2),vehKg:f(st.veh),
+    massLeft:f(D.rules.mass_allow_kg-m.mass_kg-pk.kg,1)};
+  $$('[data-k]').forEach(el=>{const k=el.dataset.k;if(k in v)el.innerHTML=esc(v[k])});
+  $('#s-conflict').innerHTML=sr.lo>sr.hi?`<div class="flag"><b>This cell can&rsquo;t use its full voltage range here.</b>At the empty end it falls below the drive unit&rsquo;s ${f(m.v_min)} V before it hits its own ${f(c.vmin,2)} V cutoff, and at the full end it would pass ${f(D.rules.pack_vmax)} V with more cells.</div>`:'';
+  const cOk=c.ccont*1>=m.cont_kw*1000/pk.wh,pOk=c.cpeak*1>=m.peak_kw*1000/pk.wh;
+  $('#c-verdict').innerHTML=`<div class="${cOk&&pOk?'good':'flag'}"><b>${cOk?'Continuous: the cell can keep up.':'Continuous: the cell can&rsquo;t keep up.'} ${pOk?'Peak: OK.':'Peak: not enough.'}</b>${f(c.ccont,1)}C available vs ${f(m.cont_kw*1000/pk.wh)}C needed continuous; ${f(c.cpeak)}C vs ${f(m.peak_kw*1000/pk.wh)}C at peak. Voltage sag (next slide) cuts this further.</div>`;
+  const mismatch=Math.abs(pBase-m.peak_kw)/m.peak_kw>.1;
+  $('#motor-check').innerHTML=mismatch?`<div class="flag"><b>These numbers don&rsquo;t add up yet.</b>Peak torque ${f(m.t_peak_nm)} N·m at the listed base speed (${f(m.motor_base_rpm)} motor rpm, ${f(m.motor_base_rpm/m.ratio)} axle rpm) gives ${f(pBase)} kW, not ${f(m.peak_kw)} kW. To make ${f(m.peak_kw)} kW at that torque, the corner would sit near ${f(corner)} motor rpm. Ask the organizers which number is the base speed before using it in a model.</div>`:`<div class="good"><b>Consistent.</b>Peak torque at base speed gives about ${f(pBase)} kW, close to the ${f(m.peak_kw)} kW rating.</div>`;
+  // calculator outputs
+  const pDC=m.peak_kw/st.eta,checks=[
+    [pk.vmax<=D.rules.pack_vmax,`Full pack ${f(pk.vmax)} V ≤ ${f(D.rules.pack_vmax)} V rule`],
+    [pk.vnom>=D.rules.pack_vmin,`Nominal ${f(pk.vnom)} V ≥ ${f(D.rules.pack_vmin)} V rule`],
+    [pk.wh<=D.rules.e_max_wh,`Energy ${f(pk.wh/1000,2)} kWh ≤ ${f(D.rules.e_max_wh/1000,1)} kWh`],
+    [pk.vmin>=m.v_min,`Empty pack ${f(pk.vmin)} V ≥ drive unit min ${f(m.v_min)} V`,'warn'],
+    [pk.vmax<=m.v_max,`Full pack ${f(pk.vmax)} V ≤ drive unit max ${f(m.v_max)} V`],
+    [uc.kw>=m.cont_kw/st.eta,`Usable continuous ${f(uc.kw)} kW vs ${f(m.cont_kw/st.eta)} kW asked`,'no'],
+    [up.kw>=pDC,`Usable peak ${f(up.kw)} kW vs ${f(pDC)} kW asked`,'no'],
+    [D.rules.mass_allow_kg-m.mass_kg-pk.kg>0,`Mass left after drive unit and cells: ${f(D.rules.mass_allow_kg-m.mass_kg-pk.kg,1)} kg`]];
+  $('#outs').innerHTML=[[`${pk.S}s${pk.P}p`,'configuration'],[`${f(pk.vnom)} V`,`nominal (${f(pk.vmin)}–${f(pk.vmax)} V)`],[`${f(pk.wh/1000,2)} kWh`,'energy'],[`${f(pk.kg,1)} kg`,'cells only'],
+    [`${f(pk.icont)} A`,'continuous current'],[`${f(pk.R*1000)} mΩ`,'pack resistance'],[`${f(uc.kw)} kW`,'usable continuous'],[`${f(up.kw)} kW`,'usable peak'],
+    [`${f(m.peak_kw*1000/pk.wh)}C`,'needed for peak'],[`${f(rad(m.axle_rpm_max)*r*3.6)} km/h`,'top speed, rear unit'],[`${f(m.t_peak_nm/r/1000,2)} kN`,'peak push'],[`${f(m.t_peak_nm/m.ratio)} N·m`,'motor torque']]
+    .map(([b,s])=>`<div class="out"><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join('')+`<ul class="checks">${checks.map(([ok,t,soft])=>`<li class="${ok?'':(soft||'no')}">${esc(t)}</li>`).join('')}</ul>`;
+  sweep();
+}
+function sweep(){
+  const m=st.m,rows=D.cells.map((c,i)=>{const a=autoSP(c,m),pk=pack(c,a.S,a.P),uc=usable(pk,pk.icont,m.v_min),up=usable(pk,pk.ipk,m.v_min),sr=sRange(c,m);return{c,i,pk,uc,up,sr}});
+  const best=rows.reduce((b,r)=>r.uc.kw>b.uc.kw?r:b,rows[0]);
+  const cell=(ok,t)=>`<td class="${ok?'ok':'bad'}">${t}</td>`;
+  $('#sweep').innerHTML=`<thead><tr><th>Cell</th><th>Chem</th><th>S range</th><th>Config</th><th>kWh</th><th>Cell kg</th><th>V nom</th><th>V empty</th><th>I cont (A)</th><th>Usable cont kW</th><th>Usable peak kW</th><th>Mass left kg</th></tr></thead><tbody>${rows.map(r=>`<tr class="${r===best?'best':''}"><td><b>${esc(r.c.id)}</b></td><td>${esc(r.c.chem)}</td>${cell(r.sr.lo<=r.sr.hi,`${r.sr.lo}–${r.sr.hi}`)}<td>${r.pk.S}s${r.pk.P}p</td><td>${f(r.pk.wh/1000,2)}</td><td>${f(r.pk.kg,1)}</td><td>${f(r.pk.vnom)}</td>${cell(r.pk.vmin>=m.v_min,f(r.pk.vmin))}<td>${f(r.pk.icont)}</td>${cell(r.uc.kw>=m.cont_kw,f(r.uc.kw))}${cell(r.up.kw>=m.peak_kw,f(r.up.kw))}<td>${f(D.rules.mass_allow_kg-m.mass_kg-r.pk.kg,1)}</td></tr>`).join('')}</tbody>`;
+  const anyPk=rows.filter(r=>r.up.kw>=m.peak_kw),anyC=rows.filter(r=>r.uc.kw>=m.cont_kw);
+  $('#sweep-take').innerHTML=D.cells.length>1?`<div class="${anyPk.length?'good':'flag'}"><b>What the table says.</b>${anyC.length?`${anyC.map(r=>r.c.id).join(', ')} can hold the ${f(m.cont_kw)} kW continuous rating.`:`No cell holds the ${f(m.cont_kw)} kW continuous rating.`} ${anyPk.length?`${anyPk.map(r=>r.c.id).join(', ')} can reach ${f(m.peak_kw)} kW peak.`:`None reaches the ${f(m.peak_kw)} kW peak; the best is ${f(Math.max(...rows.map(r=>r.up.kw)))} kW.`} Under the ${f(D.rules.e_max_wh/1000,1)} kWh cap the pack, not the motor, sets the rear axle&rsquo;s power. How much power the car actually needs is EE2&rsquo;s question.</div>`:'';
+}
+// ---------- drawings ----------
+function chain(el,big){const boxes=[['Battery','DC'],['Inverter','DC → AC'],['Motor','AC → torque'],['Gearbox',`${D.motor.ratio}:1`],['Axle','torque → push']];const w=big?170:160,h=big?110:90,gap=(1000-w*5)/4,y=big?40:20;
+  el.innerHTML=boxes.map(([a,b],i)=>{const x=i*(w+gap),c=i===0?'#ffce00':i===4?'#000':'#f4f4f5',t=i===4?'#fff':'#000';return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="22" fill="${c}" stroke="${i===0||i===4?'none':'#e0e0e3'}"/><text x="${x+w/2}" y="${y+h/2-4}" text-anchor="middle" font-size="${big?22:20}" font-weight="700" fill="${t}">${a}</text><text x="${x+w/2}" y="${y+h/2+20}" text-anchor="middle" font-size="${big?15:13}" font-weight="600" fill="${i===4?'#cfcfd4':'#5f6368'}">${b}</text>${i<4?`<path d="M${x+w+8} ${y+h/2}h${gap-22}" stroke="#000" stroke-width="3"/><path d="M${x+w+gap-14} ${y+h/2-7}l9 7-9 7" fill="none" stroke="#000" stroke-width="3"/>`:''}`}).join('')+(big?`<text x="0" y="200" font-size="15" fill="#5f6368" font-weight="600">Energy flows → (and back ← when braking: regeneration)</text>`:'')}
+function spGrid(el){let o='';for(let r=0;r<2;r++)for(let s=0;s<3;s++){const x=70+s*120,y=40+r*90;o+=`<rect x="${x}" y="${y}" width="80" height="50" rx="10" fill="${'#ffce00'}" stroke="#000" stroke-width="2"/><text x="${x+40}" y="${y+31}" text-anchor="middle" font-size="16" font-weight="700">cell</text>${s<2?`<path d="M${x+80} ${y+25}h40" stroke="#000" stroke-width="3"/>`:''}`}
+  o+=`<path d="M70 65h-30v90h30M430 65h-30M430 65v90h-30" fill="none" stroke="#000" stroke-width="3"/><text x="230" y="22" text-anchor="middle" font-size="14" fill="#5f6368" font-weight="600">series → adds volts</text><text x="20" y="114" font-size="14" fill="#5f6368" font-weight="600" transform="rotate(-90 20 114)" text-anchor="middle">parallel</text>`;el.innerHTML=o}
+function phases(el){const cols=['#000','#ffce00','#8a8a8d'];el.innerHTML=cols.map((c,k)=>{let d='';for(let x=0;x<=420;x+=4){const y=100-70*Math.sin(x/420*4*Math.PI-k*2*Math.PI/3);d+=(x?'L':'M')+(20+x)+' '+y.toFixed(1)}return `<path d="${d}" fill="none" stroke="${c}" stroke-width="4"/>`}).join('')+'<path d="M20 100h420" stroke="#e0e0e3"/><text x="440" y="194" text-anchor="end" font-size="13" fill="#5f6368" font-weight="600">three phases, 120° apart</text>'}
+function tpCurve(el){const m=st.m,x0=50,y0=220,W=390,H=180,nmax=m.motor_max_rpm,corner=m.peak_kw*1000/m.t_peak_nm*60/(2*Math.PI)*m.ratio,X=n=>x0+n/nmax*W;
+  let tq='',pw='';for(let n=0;n<=nmax;n+=nmax/80){const T=n<=corner?1:corner/n,P=n<=corner?n/corner:1;tq+=(n?'L':'M')+X(n).toFixed(1)+' '+(y0-T*H).toFixed(1);pw+=(n?'L':'M')+X(n).toFixed(1)+' '+(y0-P*H*.85).toFixed(1)}
+  el.innerHTML=`<path d="M${x0} 30V${y0}H${x0+W}" fill="none" stroke="#bdbdc2" stroke-width="1.5"/><path d="${tq}" fill="none" stroke="#000" stroke-width="4"/><path d="${pw}" fill="none" stroke="#ffce00" stroke-width="4"/><path d="M${X(corner)} 34V${y0}" stroke="#bd3b2e" stroke-dasharray="4 5"/><text x="${X(corner)+6}" y="48" font-size="12" fill="#bd3b2e" font-weight="700">corner</text><text x="${x0+6}" y="${y0-H-8}" font-size="13" font-weight="700">torque</text><text x="${x0+W-4}" y="${y0-H*.85-10}" text-anchor="end" font-size="13" font-weight="700" fill="#a18528">power</text><text x="${x0+W}" y="${y0+20}" text-anchor="end" font-size="12" fill="#5f6368" font-weight="600">motor speed →</text>`}
+// ---------- wiring ----------
+const ids={mPk:'peak_kw',mCont:'cont_kw',mVmin:'v_min',mVmax:'v_max',ratio:'ratio',mTpk:'t_peak_nm',mAxleMax:'axle_rpm_max'};
+function syncInputs(){$('#in-S').value=st.S;$('#in-P').value=st.P;for(const[k,p]of Object.entries(ids))$('#in-'+k).value=st.m[p];$('#in-eta').value=st.eta;$('#in-tire').value=st.tire;$('#in-veh').value=st.veh}
+$$('.cell-pick').forEach(s=>{s.innerHTML=D.cells.map((c,i)=>`<option value="${i}">${esc(c.id)} · ${esc(c.name)}</option>`).join('');s.addEventListener('change',e=>{st.cell=+e.target.value;st.S=null;$$('.cell-pick').forEach(o=>o.value=st.cell);calc();syncInputs()})});
+$('#auto').addEventListener('click',()=>{st.S=null;calc();syncInputs()});
+$$('.inputs input').forEach(i=>i.addEventListener('input',()=>{const n=+$('#in-S').value,p=+$('#in-P').value;if(n>0)st.S=n;if(p>0)st.P=p;for(const[k,pp]of Object.entries(ids)){const v=+$('#in-'+k).value;if(v>0)st.m[pp]=v}const e=+$('#in-eta').value;if(e>0&&e<=1)st.eta=e;st.tire=$('#in-tire').value;const vv=+$('#in-veh').value;if(vv>0)st.veh=vv;calc();tpCurve($('#tp-curve'))}));
+chain($('#chain-mini'),false);chain($('#chain-big'),true);spGrid($('#sp-grid'));phases($('#phases'));
+$('#banner').className='banner '+D.mode;$('#banner').innerHTML=D.banner;$('#mode-label').textContent=D.mode_label;
+$('#sweep-title').textContent=D.mode==='team'?'All eight catalog cells, the same rules.':'Every cell, the same rules.';
+$('#sweep-lead').textContent=D.mode==='team'?'Add the team’s 9th cell to the data block at the bottom of this file to see it here.':'This public copy has one made-up practice cell. The team copy runs all eight catalog cells.';
+calc();syncInputs();tpCurve($('#tp-curve'));
+// ---------- presentation mode ----------
+const slides=$$('.slide');let cur=0;
+function show(i){cur=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,k)=>s.classList.toggle('on',k===cur));$('#count').textContent=`${cur+1} / ${slides.length}`;$('#progress').style.width=((cur+1)/slides.length*100)+'%';slides[cur].scrollTop=0}
+function present(on){document.body.classList.toggle('present',on);$('#present').textContent=on?'Scroll view':'Present ▶';if(on)show(cur)}
+$('#present').addEventListener('click',()=>present(!document.body.classList.contains('present')));$('#exit').addEventListener('click',()=>present(false));
+$('#prev').addEventListener('click',()=>show(cur-1));$('#next').addEventListener('click',()=>show(cur+1));
+document.addEventListener('keydown',e=>{if(!document.body.classList.contains('present'))return;if(e.target.closest('input,select'))return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(cur+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(cur-1)}if(e.key==='Escape')present(false)});
+})();
+</script>
+</body>
+</html>

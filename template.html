@@ -427,6 +427,55 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
 }
 @media(prefers-reduced-motion:reduce){.btn,.dcard,.starter-card,.sys-card,.tool-card,.project-card,.win,.org-card,.start-jumps button{transition:none}}
 
+/* ---- Scorecards ---- */
+.btn-sm{min-height:38px;padding:0 16px;font-size:.82rem}
+.sc-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#f7f7f8;border-radius:var(--radius);margin-bottom:30px;overflow:hidden}
+.sc-summary div{padding:20px 22px;border-right:1px solid #e9e9ec}.sc-summary div:last-child{border-right:0}
+.sc-summary b{display:block;font-family:var(--display);font-size:2.3rem;font-weight:700;letter-spacing:-.03em;line-height:1}.sc-summary span{color:var(--muted);font-size:.85rem}
+.sc-group{font-family:var(--display);font-weight:700;font-size:1.4rem;letter-spacing:-.02em;margin:34px 0 14px}
+.sc-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;margin-bottom:16px;overflow:hidden}
+.sc-card:before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:4px;border-radius:0 4px 4px 0;background:var(--lane)}
+.sc-card.is-past-card{opacity:.72}
+.sc-card-head{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:10px}
+.sc-card-head h3{margin:8px 0 2px;font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em}.sc-card-head p{margin:0;color:var(--muted);font-size:.86rem}
+.sc-secs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:10px}
+.sc-sec{background:#f7f7f8;border-radius:16px;padding:16px 16px 10px}
+.sc-sec-head{display:flex;justify-content:space-between;gap:10px;align-items:baseline}.sc-sec-head b{font-family:var(--display);font-size:.95rem}.sc-sec-head span{font-family:var(--display);font-weight:700;font-size:.85rem;white-space:nowrap}
+.sc-bar{height:6px;border-radius:6px;background:#e6e6e9;margin:9px 0 8px;overflow:hidden}.sc-bar i{display:block;height:100%;background:var(--gold);border-radius:6px}
+.sc-items{list-style:none;margin:0;padding:0}.sc-items li{display:grid;grid-template-columns:1fr auto;gap:10px;padding:7px 0;border-top:1px solid #ececee;font-size:.84rem;line-height:1.45}
+.sc-items li:first-child{border-top:0}.sc-items b{font-family:var(--display);font-size:.82rem;white-space:nowrap}
+.sc-note{font-size:.74rem;color:var(--muted);margin:10px 0 0}
+.sc-wait{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px}
+/* ---- Meetings ---- */
+.wk{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.wk-day{background:#f7f7f8;border-radius:var(--radius);padding:18px}
+.wk-day h4{margin:0 0 12px;font-family:var(--display);font-weight:700;font-size:1.2rem}
+.wk-slot{display:block;position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px 12px 18px;margin-bottom:8px;text-decoration:none;color:var(--ink);transition:transform .18s,box-shadow .18s}
+.wk-slot:before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:4px;border-radius:0 4px 4px 0;background:var(--lane)}
+.wk-slot:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.wk-slot time{display:block;font-family:var(--display);font-weight:700;font-size:.82rem;color:#4a4f55}.wk-slot b{display:block;font-family:var(--display);font-size:1rem}
+.wk-slot small{display:block;color:var(--muted);font-size:.78rem;line-height:1.4}.wk-slot .wk-where{margin-top:3px;color:#8a8a8d}
+.mt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.mt-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;scroll-margin-top:90px}
+.mt-card:target{box-shadow:0 0 0 3px var(--gold)}
+.mt-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 10px;align-items:center}.mt-card,.wk-day,.sc-card{min-width:0}
+.mt-name{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.03em}.mt-name:before{content:"";width:12px;height:12px;border-radius:50%;background:var(--lane)}
+.mt-when{font-family:var(--display);font-weight:600;font-size:.78rem;background:#f4f4f5;border-radius:999px;padding:5px 11px;white-space:nowrap}
+.mt-card h4{margin:10px 0 4px;font-family:var(--display);font-size:1.05rem;font-weight:700}.mt-card p{margin:6px 0;color:#3c4043;font-size:.92rem}
+.mt-focus{margin:10px 0 14px;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}.mt-focus li{background:#fff6cc;border-radius:999px;padding:5px 11px;font-size:.78rem;font-weight:600}
+.mt-people{display:flex;flex-wrap:wrap;gap:10px 18px;padding-top:12px;border-top:1px solid #f0f0f2}
+.mt-person{display:flex;gap:10px;align-items:center}.mt-person .avatar{width:40px;height:40px;margin:0}.mt-person b{display:block;font-size:.88rem}.mt-person small{display:block;color:var(--muted);font-size:.74rem}
+.mt-note{font-size:.8rem!important;color:#5c4600!important;background:#fff8d6;border-radius:12px;padding:8px 12px;margin-top:12px!important}
+/* ---- Vehicle band + lecture link ---- */
+.vehicle-band figure{margin:0;position:relative;border-radius:28px;overflow:hidden;background:#000}
+.vehicle-band img{display:block;width:100%;aspect-ratio:1600/633;object-fit:cover}
+.vehicle-band figure:before{content:"";position:absolute;inset:0 0 auto 0;height:28%;background:linear-gradient(#000,transparent);z-index:1;pointer-events:none}
+.vehicle-band figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:60px 30px 24px;background:linear-gradient(transparent,rgba(0,0,0,.82));color:#fff;display:flex;flex-direction:column;gap:2px}
+.vehicle-band figcaption .section-kicker{color:var(--gold)}.vehicle-band figcaption b{font-family:var(--display);font-size:clamp(1.4rem,3vw,2.2rem);letter-spacing:-.03em}.vehicle-band figcaption span:last-child{color:#d4d4d8;font-size:.9rem}
+.lecture-link{display:grid;gap:3px;margin-top:16px;padding:22px 24px;border-radius:var(--radius);background:#000;color:#fff;text-decoration:none;transition:transform .18s}
+.lecture-link:hover{transform:translateY(-2px)}.lecture-link .section-kicker{color:var(--gold)}.lecture-link b{font-family:var(--display);font-size:1.3rem;letter-spacing:-.02em}.lecture-link span:not(.section-kicker){color:#cfcfd4;font-size:.9rem}.lecture-link i{font-style:normal;font-family:var(--display);font-weight:700;color:var(--gold);margin-top:6px}
+@media(max-width:620px){.sc-summary{grid-template-columns:1fr}.sc-summary div{border-right:0;border-bottom:1px solid #e9e9ec}.sc-card{padding:20px 18px}.sc-card-head{flex-direction:column}.vehicle-band figure{border-radius:20px}.vehicle-band figcaption{padding:40px 18px 16px}.mt-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -442,12 +491,14 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
 <div class="nav-wrap"><nav class="nav" aria-label="Execution hub sections">
   <span class="nav-group">Join</span>
   <button class="active" data-page="start">Start</button>
+  <button data-page="meetings">Meetings</button>
   <button data-page="onboarding">Learn</button>
   <button data-page="team">Team</button>
   <button data-page="rules">Rules</button>
   <span class="nav-sep" aria-hidden="true"></span><span class="nav-group">Lead</span>
   <button data-page="now">This week</button>
   <button data-page="deliverables">Deliverables</button>
+  <button data-page="scorecards">Scorecards</button>
   <button data-page="timeline">Timeline</button>
   <a class="nav-print" href="schedule.html">Print</a>
   <button data-page="controls">Risks</button>
@@ -456,6 +507,8 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
 <main id="main" class="shell">
   <section class="page active" id="page-start"></section>
   <section class="page" id="page-now"></section>
+  <section class="page" id="page-meetings"></section>
+  <section class="page" id="page-scorecards"></section>
   <section class="page" id="page-deliverables"></section>
   <section class="page" id="page-timeline"></section>
   <section class="page" id="page-team"></section>
@@ -664,15 +717,47 @@ function meetingsSection(){
   const where=[...new Set(rows.map(r=>r.where).filter(Boolean))].join(' · ');
   return `<section class="start-section" id="start-meet"><div class="start-head reveal"><span class="section-kicker">Come say hi</span><h3>When we meet</h3><p>${esc(where||'On campus')}. Drop in to any meeting; the Friday general meeting is the easiest first step.${last?` Fall schedule runs through ${fmt(last)}.`:''}</p></div><div class="meet-grid">${cols}</div></section>`;
 }
+function scoreHTML(sc){
+  const ded=sc.method==='deduct';
+  return `<p class="subtle">${esc(sc.source)} &middot; ${ded?'each part starts full; points come off for anything missing':'points out of 100'}</p><div class="sc-secs">${sc.sections.map(x=>`<div class="sc-sec"><div class="sc-sec-head"><b>${esc(x.name)}</b><span>${x.points} pts</span></div><div class="sc-bar"><i style="width:${x.points}%"></i></div><ul class="sc-items">${x.items.map(([pt,t])=>`<li><span>${esc(t)}</span><b>${ded?'&minus;':''}${pt}</b></li>`).join('')}</ul></div>`).join('')}</div>${sc.note?`<p class="sc-note">${esc(sc.note)}</p>`:''}`;
+}
+function renderScorecards(){
+  const all=[...DATA.deliverables].sort((a,b)=>a.due.localeCompare(b.due));
+  const out=all.filter(d=>d.scorecard),up=out.filter(d=>!isPast(d.due)),past=out.filter(d=>isPast(d.due));
+  const waiting=all.filter(d=>!d.scorecard&&!isPast(d.due)&&d.points);
+  const card=d=>`<article class="sc-card${isPast(d.due)?' is-past-card':''}" style="--lane:${laneColor(d.lane)}"><header class="sc-card-head"><div><span class="pill">${esc(laneName[d.lane]||d.lane)}</span><h3>${esc(d.title)}</h3><p>${fmt(d.due)} &middot; ${esc(d.due_time)} &middot; ${d.points?d.points+' competition points':'not scored'} &middot; ${esc(person(d.owner).name)}</p></div><button type="button" class="btn btn-light btn-sm" data-deliverable="${esc(d.id)}">Open card</button></header>${scoreHTML(d.scorecard)}</article>`;
+  const tot=up.reduce((a,d)=>a+(d.points||0),0);
+  $('#page-scorecards').innerHTML=heading('Scorecards','Everything the judges grade, in one place.')+
+   `<div class="sc-summary"><div><b>${out.length}</b><span>scorecards out</span></div><div><b>${up.length}</b><span>still ahead &middot; ${tot} pts</span></div><div><b>${waiting.length}</b><span>not released yet</span></div></div>`+
+   (up.length?`<h3 class="sc-group">Coming up</h3>${up.map(card).join('')}`:'')+
+   (waiting.length?`<div class="panel"><h3>Not released yet</h3><p class="panel-note">Scorecards usually land in EcoCAR Box about a month before the due date. Add one to <code>data/deliverables.json</code> when it appears.</p><div class="sc-wait">${waiting.map(d=>`<button type="button" class="seat-row" data-deliverable="${esc(d.id)}"><time>${fmt(d.due)}</time><span>${esc(d.title)}<small>${d.points} pts &middot; ${esc(person(d.owner).name)}</small></span></button>`).join('')}</div></div>`:'')+
+   (past.length?`<h3 class="sc-group">Already submitted</h3><p class="subtle" style="margin-top:-6px">Kept for feedback and next year.</p>${past.map(card).join('')}`:'');
+}
+function meetingRows(){
+  return DATA.tasks.filter(t=>t.group==='Standing meetings'&&t.type==='bar'&&t.label).map(t=>{const parts=t.label.split(' · ');const m=parts[0].match(/^(\w+?)s?\s+(.+)$/);const d=(DATA.details[t.id]||{}).team||{};return m?{id:t.id,day:m[1],time:m[2],where:parts[1]||'',note:parts.slice(2).join(' · '),name:d.short||t.task.split(' — ')[0],title:t.task.split(' — ')[1]||'',lane:t.lane,end:t.end,team:d}:null}).filter(Boolean);
+}
+function renderMeetings(){
+  const rows=meetingRows(),order=['Monday','Tuesday','Wednesday','Thursday','Friday'];
+  const startMin=x=>{const m=x.match(/(\d+)(?::(\d+))?/);if(!m)return 9999;let h=+m[1];if(h<8)h+=12;return h*60+(+(m[2]||0))};
+  const days=order.filter(d=>rows.some(r=>r.day===d)),last=rows.map(r=>r.end).sort().pop();
+  const week=`<div class="wk">${days.map(d=>`<div class="wk-day"><h4>${esc(d)}</h4>${rows.filter(r=>r.day===d).sort((a,b)=>startMin(a.time)-startMin(b.time)).map(r=>`<a class="wk-slot" href="#meet-${esc(r.id)}" style="--lane:${laneColor(r.lane)}"><time>${esc(r.time)}</time><b>${esc(r.name)}</b>${r.title?`<small>${esc(r.title)}</small>`:''}<small class="wk-where">${esc([r.where,r.note].filter(Boolean).join(' · '))}</small></a>`).join('')}</div>`).join('')}</div>`;
+  const face=p=>`<span class="mt-person"><i class="avatar has-photo"><img src="${esc(p.photo)}" alt="" loading="lazy"></i><span><b>${esc(p.name)}</b><small>${esc(p.role)}</small></span></span>`;
+  const pref=['ee1-senior-design','ee2-senior-design','me1-senior-design','me2-senior-design','marcom-meeting','general-meeting-all-members','leadership-meeting','general-mechanical'];
+  const teams=rows.filter(r=>r.team&&r.team.people).sort((a,b)=>pref.indexOf(a.id)-pref.indexOf(b.id)).map(r=>`<article class="mt-card" id="meet-${esc(r.id)}" style="--lane:${laneColor(r.lane)}"><div class="mt-top"><span class="mt-name">${esc(r.name)}</span><span class="mt-when">${esc(r.day)}s &middot; ${esc(r.time)}</span></div>${r.title?`<h4>${esc(r.title)}</h4>`:''}<p>${esc(r.team.what)}</p>${r.team.focus&&r.team.focus.length?`<ul class="mt-focus">${r.team.focus.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}<div class="mt-people">${r.team.people.map(face).join('')}</div>${r.team.note?`<p class="mt-note">${esc(r.team.note)}</p>`:''}</article>`).join('');
+  $('#page-meetings').innerHTML=heading('Meetings','Drop in to any of these. Friday&rsquo;s General Meeting is the easiest first step.')+week+`<p class="subtle" style="margin:12px 0 0">Fall schedule runs through ${fmt(last)}. Most meetings are in the B13 Garage.</p><h3 class="sc-group">Who meets, and what they do</h3><div class="mt-grid">${teams}</div>`;
+}
+function vehicleBand(){
+  return `<section class="start-section vehicle-band reveal"><figure><img src="img/cherokee-concept.jpg" alt="Red 2026 Jeep Cherokee Hybrid concept render with gold stripes, styled as an off-road fire command vehicle" loading="lazy"><figcaption><span class="section-kicker">Our vehicle</span><b>2026 Jeep Cherokee Hybrid</b><span>Off-road fire command center &middot; student concept render</span></figcaption></figure></section>`;
+}
 function renderStart(){
   const A=DATA.constraints.architecture,openCount=DATA.starter_tasks.filter(t=>t.status==='Open').length;
   const pp=P_POSITIONS.map(([k,v])=>`<li class="${k==='P4'?'hot':''}"><b>${k}</b><span>${esc(v)}${k==='P4'?' (this is ours)':''}</span></li>`).join('');
   $('#page-start').innerHTML=`
   <section class="start-intro"><div><span class="section-kicker">Welcome</span><h2>We&rsquo;re turning a Jeep Cherokee into a P4 hybrid.</h2><p>Here&rsquo;s the car, the people, and a task with your name on it.</p></div>
-    <div class="start-jumps"><button type="button" data-jump="start-p4"><b>1</b><span>Learn the car<small>What P4 means</small></span></button><button type="button" data-jump="start-team"><b>2</b><span>Meet the leads<small>Who does what</small></span></button><button type="button" data-jump="start-tasks"><b>3</b><span>Claim a task<small>${openCount} open right now</small></span></button><button type="button" data-jump="start-meet"><b>4</b><span>Come to a meeting<small>Tuesdays and Fridays</small></span></button></div></section>
-  ${meetingsSection()}
+    <div class="start-jumps"><button type="button" data-jump="start-p4"><b>1</b><span>Learn the car<small>What P4 means</small></span></button><button type="button" data-jump="start-team"><b>2</b><span>Meet the leads<small>Who does what</small></span></button><button type="button" data-jump="start-tasks"><b>3</b><span>Claim a task<small>${openCount} open right now</small></span></button><button type="button" data-page="meetings"><b>4</b><span>Come to a meeting<small>Tue, Wed and Fri</small></span></button></div></section>
+  ${vehicleBand()}
   <section class="start-section" id="start-p4"><div class="start-head reveal"><span class="section-kicker">The idea</span><h3>What does P4 mean?</h3><p>Hybrids are named by where the electric motor sits. P4 puts it on the axle the engine doesn&rsquo;t drive.</p></div>
-    <div class="pp-wrap reveal">${pPositionsSVG()}<ul class="pp-list">${pp}</ul></div></section>
+    <div class="pp-wrap reveal">${pPositionsSVG()}<ul class="pp-list">${pp}</ul></div><a class="lecture-link reveal" href="guides/battery-to-axle.html"><span class="section-kicker">Go deeper</span><b>Battery &rarr; inverter &rarr; motor &rarr; axle</b><span>A short lecture with the math, and a calculator you can play with.</span><i>Open the lecture &rarr;</i></a></section>
   ${dissectSection()}
   <section class="start-section" style="margin-top:26px"><div class="callout reveal"><strong>Why it matters for your work.</strong>${esc(A.summary)}</div></section>
   ${laneSystem()}
@@ -740,7 +825,7 @@ function renderDeliverables(){
   $('#d-lane').addEventListener('change',draw);$('#d-owner').addEventListener('change',draw);draw();
 }
 
-function openDeliverable(id){const d=DATA.deliverables.find(x=>x.id===id);if(!d)return;const contributors=d.contributors.map(k=>person(k).name).join(', ');$('#detail-content').innerHTML=`<div class="modal-head"><button class="close" data-close>Close</button><span class="pill">${esc(laneName[d.lane])}</span><h2>${esc(d.title)}</h2><p>${fmt(d.due)} · ${esc(d.due_time)} · ${esc(d.scoring)}</p></div><div class="modal-body"><div class="modal-section"><h3>Accountability</h3>${personHTML(d.owner)}<p class="subtle">Contributors: ${esc(contributors||'None named')}</p></div><div class="modal-section"><h3>Internal quality gates</h3><div class="gates">${d.gates.map(g=>`<div class="gate"><b>${esc(g.label)}</b><span>${fmt(g.date)}</span></div>`).join('')}</div></div><div class="modal-section"><h3>Required artifacts</h3>${d.artifacts.map(a=>`<div class="artifact"><b>${esc(a.name)} · ${esc(a.format)}</b><span class="subtle">${esc(a.limit)} · OEM data: ${esc(a.oem)}</span><code>${esc(a.filename)}</code></div>`).join('')}</div>${d.scorecard?`<div class="modal-section"><h3>How it&rsquo;s scored</h3><p class="subtle">${esc(d.scorecard.source)} &middot; points out of 100</p><div class="score-list">${d.scorecard.items.map(([sec,item,pts])=>`<div class="score-row"><span class="score-sec">${esc(sec)}</span><span class="score-item">${esc(item)}<i style="width:${pts}%"></i></span><b>${pts}</b></div>`).join('')}</div></div>`:''}<div class="modal-section"><h3>Definition of done</h3><ul class="checklist">${d.done.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="modal-section"><h3>Controlled source reference</h3><p>${esc(d.source)}</p><p class="subtle">This is a public-safe summary. Re-open the latest controlled source and scorecard before work begins and before final submission.</p></div></div>`;$('#detail').showModal()}
+function openDeliverable(id){const d=DATA.deliverables.find(x=>x.id===id);if(!d)return;const contributors=d.contributors.map(k=>person(k).name).join(', ');$('#detail-content').innerHTML=`<div class="modal-head"><button class="close" data-close>Close</button><span class="pill">${esc(laneName[d.lane])}</span><h2>${esc(d.title)}</h2><p>${fmt(d.due)} · ${esc(d.due_time)} · ${esc(d.scoring)}</p></div><div class="modal-body"><div class="modal-section"><h3>Accountability</h3>${personHTML(d.owner)}<p class="subtle">Contributors: ${esc(contributors||'None named')}</p></div><div class="modal-section"><h3>Internal quality gates</h3><div class="gates">${d.gates.map(g=>`<div class="gate"><b>${esc(g.label)}</b><span>${fmt(g.date)}</span></div>`).join('')}</div></div><div class="modal-section"><h3>Required artifacts</h3>${d.artifacts.map(a=>`<div class="artifact"><b>${esc(a.name)} · ${esc(a.format)}</b><span class="subtle">${esc(a.limit)} · OEM data: ${esc(a.oem)}</span><code>${esc(a.filename)}</code></div>`).join('')}</div>${d.scorecard?`<div class="modal-section"><h3>How it&rsquo;s scored</h3>${scoreHTML(d.scorecard)}</div>`:''}<div class="modal-section"><h3>Definition of done</h3><ul class="checklist">${d.done.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="modal-section"><h3>Controlled source reference</h3><p>${esc(d.source)}</p><p class="subtle">This is a public-safe summary. Re-open the latest controlled source and scorecard before work begins and before final submission.</p></div></div>`;$('#detail').showModal()}
 
 function renderTimeline(){
   const start=date('2026-09-01'),end=date('2027-06-30'),span=(end-start)/86400000,pct=s=>Math.max(0,Math.min(100,(date(s)-start)/86400000/span*100));
@@ -821,6 +906,7 @@ function renderOnboarding(){
   const projects=DATA.projects.map(p=>{const linked=p.task_ids.map(id=>DATA.tasks.find(t=>t.id===id)).filter(Boolean).sort((a,b)=>a.start.localeCompare(b.start)),next=linked.find(t=>t.start>=DATA.today)||linked[linked.length-1];return `<button class="project-card" style="--lane:${laneColor(p.lane)}" data-project="${esc(p.id)}"><span class="project-status">${pill(p.status,p.status.includes('Needs')?'yellow':'green')}<span class="subtle">${esc(laneName[p.lane])}</span></span><h4>${esc(p.title)}</h4><p>${esc(p.outcome)}</p><div class="project-now"><b>Now</b>${esc(p.now)}</div>${next?`<div class="subtle" style="margin-top:9px">Next mapped date · ${fmt(next.start)}</div>`:''}</button>`}).join('');
   $('#page-onboarding').innerHTML=heading('Get started','Set up your tools, then ship a small first win. Every card opens a step-by-step guide.')+`
   <div class="steps">${steps.map(s=>`<div class="step"><b>${s[0]}</b><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('')}</div>
+  <a class="lecture-link" href="guides/battery-to-axle.html"><span class="section-kicker">Lecture</span><b>Battery &rarr; inverter &rarr; motor &rarr; axle</b><span>How a pack powers our rear drive unit, with the calculations.</span><i>Open the lecture &rarr;</i></a>
   <div class="callout"><strong>Ready for something you own?</strong>After a first win, claim a starter task on the <a href="#start" data-page="start">Start here</a> page. Each one feeds a graded deliverable and comes with a mentor.</div>
   <section class="onboard-section"><div class="onboard-section-head"><div><span class="section-kicker">Tool access</span><h3>Software setup and onramps</h3></div><p>Complete the learning path before using shared production models. Save the listed proof so a mentor can verify your environment quickly.</p></div><div class="tool-grid">${guides}</div></section>
   <section class="onboard-section"><div class="onboard-section-head"><div><span class="section-kicker">Current work</span><h3>Projects we are working on</h3></div><p>Pick the project that matches your interests. The detail view shows its owner, current work, mapped taskline, and a safe contribution path.</p></div><div class="project-grid">${projects}</div></section>
@@ -864,12 +950,12 @@ function renderUpdate(){
 function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('active',p.id===`page-${name}`));requestAnimationFrame(drawOrgLines);requestAnimationFrame(dissectUpdate);$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(push)history.replaceState(null,'',`#${name}`);window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'})}
 
 $('#baseline').textContent=`Baseline ${fmt(DATA.site.baseline_date)}`;$('#official').textContent=`Official schedule ${fmt(DATA.site.official_schedule_as_of)}`;$('#privacy').textContent=DATA.site.privacy_notice;
-renderStart();renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
+renderStart();renderMeetings();renderScorecards();renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
 document.addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b){e.preventDefault();showPage(b.dataset.page)}});
 document.addEventListener('click',e=>{const d=e.target.closest('[data-deliverable]');if(d)openDeliverable(d.dataset.deliverable);const t=e.target.closest('[data-task]');if(t)openTask(t.dataset.task);const g=e.target.closest('[data-guide]');if(g)openGuide(g.dataset.guide);const w=e.target.closest('[data-onboarding]');if(w)openOnboardingJob(w.dataset.onboarding);const p=e.target.closest('[data-project]');if(p)openProject(p.dataset.project);const o=e.target.closest('[data-seat]');if(o)openSeat(o.dataset.seat);if(e.target.closest('[data-close]'))$('#detail').close()});
 $('#detail').addEventListener('click',e=>{if(e.target===$('#detail'))$('#detail').close()});
 window.addEventListener('resize',drawOrgLines);window.addEventListener('load',drawOrgLines);requestAnimationFrame(drawOrgLines);initScroll();
-const initial=location.hash.slice(1);if(['start','now','rules','deliverables','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
+const initial=location.hash.slice(1);if(['start','meetings','now','rules','deliverables','scorecards','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
 // Hero particle field: short gold, marigold and grey dashes that drift and swirl away from the pointer.
 (function heroField(){
   const c=document.getElementById('hero-field');if(!c||!c.getContext)return;

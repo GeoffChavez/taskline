@@ -1,25 +1,152 @@
 {
  "general-meeting-all-members": {
-  "what": "The one hour everybody attends. Two tracks in the same room &mdash; MATLAB on one side, NX on the other. Not a lecture: install, unblock, and put an artifact on the table.",
-  "note": "Every session ends with a named thing that exists: a screenshot, a modelled part, a table, a decoded signal."
+  "what": "Everyone, every week. Updates, demos, and the easiest first step for new members.",
+  "note": "Every session ends with a named thing that exists: a screenshot, a modelled part, a table, a decoded signal.",
+  "team": {
+   "short": "General Meeting",
+   "what": "Everyone, every week. Updates, demos, and the easiest first step for new members.",
+   "people": [
+    {
+     "name": "Geoffrey Chavez",
+     "role": "Project Manager",
+     "photo": "img/leads/geo.jpg"
+    }
+   ],
+   "focus": [
+    "Team updates and show-and-tell",
+    "New members: start here"
+   ]
+  }
  },
  "me1-senior-design": {
-  "what": "Rear eAxle selection, packaging, mounting, halfshafts, off-road geometry and the mass budget. Meets as a track inside the Friday General Meeting."
+  "what": "Converts a Baja dune buggy: the gas engine comes out, an in-house HV battery goes in. A full-power proof of concept before the Jeep.",
+  "team": {
+   "short": "ME1",
+   "what": "Converts a Baja dune buggy: the gas engine comes out, an in-house HV battery goes in. A full-power proof of concept before the Jeep.",
+   "people": [
+    {
+     "name": "Dr. Chris Bachman",
+     "role": "Faculty advisor",
+     "photo": "img/faculty/bachman.jpg"
+    },
+    {
+     "name": "Anthony Whitehurst",
+     "role": "Vehicle Track Technical Lead",
+     "photo": "img/leads/ant.jpg"
+    }
+   ],
+   "focus": [
+    "Remove the gas engine",
+    "Build the HV battery in-house",
+    "Battery → controller → inverter → motor",
+    "Learn the machining and integration risks of high-power motors"
+   ],
+   "note": "High-power motors and high voltage. No energized work without the permit, the procedure and qualified people."
+  }
  },
  "me2-senior-design": {
-  "what": "Pack enclosure structure, mounting, cooling plate, thermal simulation, sealing and serviceability."
+  "what": "The same idea at micro scale on an RC car: batteries, DC/AC conversion and a motor turning real tires.",
+  "team": {
+   "short": "ME2",
+   "what": "The same idea at micro scale on an RC car: batteries, DC/AC conversion and a motor turning real tires.",
+   "people": [
+    {
+     "name": "Dr. Chris Bachman",
+     "role": "Faculty advisor",
+     "photo": "img/faculty/bachman.jpg"
+    },
+    {
+     "name": "Jefrey Caal",
+     "role": "Team liaison",
+     "photo": "img/leads/jef.jpg"
+    }
+   ],
+   "focus": [
+    "Battery → DC/AC → motor → tires",
+    "Small enough to iterate fast"
+   ],
+   "note": "No student lead named yet; Jefrey Caal is the liaison."
+  }
  },
  "ee1-senior-design": {
-  "what": "Contactor and precharge, busbars and conductors, fusing, HV interlock and the safety documentation."
+  "what": "Instrumentation and CAN. This group runs the supervisory ECU microcontroller that will go into the vehicle.",
+  "team": {
+   "short": "EE1",
+   "what": "Instrumentation and CAN. This group runs the supervisory ECU microcontroller that will go into the vehicle.",
+   "people": [
+    {
+     "name": "Dr. Curtis Wang",
+     "role": "Faculty advisor",
+     "photo": "img/faculty/wang.jpg"
+    },
+    {
+     "name": "Mingpeng Chen",
+     "role": "Instrumentation Lead",
+     "photo": "img/leads/min.jpg"
+    }
+   ],
+   "focus": [
+    "Take apart DBC files",
+    "Read and analyze CAN data from real cars",
+    "Build wire harnesses",
+    "Program the TI board from MATLAB/Simulink",
+    "Own the supervisory ECU"
+   ]
+  }
  },
  "general-mechanical": {
-  "what": "All mechanical members: NX work, packaging and the shared mechanical questions across ME1 and ME2."
+  "what": "Mechanical work session.",
+  "team": {
+   "short": "General Mechanical",
+   "what": "Mechanical work session.",
+   "people": [
+    {
+     "name": "Geoffrey Chavez",
+     "role": "Project Manager",
+     "photo": "img/leads/geo.jpg"
+    }
+   ],
+   "focus": []
+  }
  },
  "leadership-meeting": {
-  "what": "Weekly lead check-in: done, in flight, blocked, next commitment. Decisions recorded on this hub within 24 hours."
+  "what": "Leads check in: what got done, what's blocked, what's next.",
+  "team": {
+   "short": "Leadership",
+   "what": "Leads check in: what got done, what's blocked, what's next.",
+   "people": [
+    {
+     "name": "Geoffrey Chavez",
+     "role": "Project Manager",
+     "photo": "img/leads/geo.jpg"
+    }
+   ],
+   "focus": []
+  }
  },
  "ee2-senior-design": {
-  "what": "Sensor conditioning, CAN and message database, data logging, controller architecture and fault injection. Advisor: Dr. Shahverdi."
+  "what": "Powertrain simulation and controls. Works out how much power the P4 Cherokee actually needs.",
+  "team": {
+   "short": "EE2",
+   "what": "Powertrain simulation and controls. Works out how much power the P4 Cherokee actually needs.",
+   "people": [
+    {
+     "name": "Dr. Masood Shahverdi",
+     "role": "Faculty advisor",
+     "photo": "img/faculty/shahverdi.jpg"
+    },
+    {
+     "name": "Rony Herrera",
+     "role": "Powertrain Simulation and Control Lead",
+     "photo": "img/leads/ron.jpg"
+    }
+   ],
+   "focus": [
+    "Analyze the P4 architecture",
+    "Take duty-cycle data from EE1",
+    "Size the power our model says we need"
+   ]
+  }
  },
  "advisor-sync-dr-wang": {
   "what": "Siemens licence route, Teamcenter feasibility, NX training material, and instrumentation guidance.",
@@ -1007,5 +1134,35 @@
  },
  "offroad-bootcamp": {
   "what": "Stellantis-track hands-on event. Dates tentative on the 30 October Team Dashboard."
+ },
+ "marcom-meeting": {
+  "what": "Marketing and communications. Works through the General Deliverable Requirements: blogs, social videos, brand gates.",
+  "team": {
+   "short": "MarCom",
+   "what": "Marketing and communications. Works through the General Deliverable Requirements: blogs, social videos, brand gates.",
+   "people": [
+    {
+     "name": "Krupskaia Molina",
+     "role": "MarCom Manager",
+     "photo": "img/leads/mar.jpg"
+    },
+    {
+     "name": "Brian Ta",
+     "role": "MarCom",
+     "photo": "img/leads/bri.jpg"
+    },
+    {
+     "name": "Henry Hall",
+     "role": "MarCom · Associate PM",
+     "photo": "img/leads/apm.jpg"
+    }
+   ],
+   "focus": [
+    "Green Garage Blogs and social videos",
+    "Brand gates and the team webpage",
+    "Photos, video and outreach logs"
+   ],
+   "note": "Room to confirm."
+  }
  }
 }

@@ -86,7 +86,128 @@
       "cad-workflow-diagram-8-required-steps",
       "cad-onboarding-guide-2-pages",
       "cad-demonstration-video-5-min"
-    ]
+    ],
+    "scorecard": {
+      "source": "EIC Y1 CAD Data Management Readiness Scorecard (Absolute)",
+      "method": "deduct",
+      "note": "Paraphrased summary of the organizer scorecard. The official scorecard in EcoCAR Box is the source of truth.",
+      "sections": [
+        {
+          "name": "CAD workflow diagram",
+          "points": 40,
+          "items": [
+            [
+              4,
+              "Receipt, identification and controlled intake of OEM CAD"
+            ],
+            [
+              4,
+              "Controlled OEM CAD storage location"
+            ],
+            [
+              5,
+              "OEM CAD protected from unauthorized change or sharing"
+            ],
+            [
+              4,
+              "How the team creates parts and assemblies"
+            ],
+            [
+              4,
+              "Modified content kept distinct from prior or released content"
+            ],
+            [
+              5,
+              "Change records, tracking and review/approval"
+            ],
+            [
+              4,
+              "Approval gate and release process"
+            ],
+            [
+              3,
+              "Archive for released vehicle configurations"
+            ],
+            [
+              4,
+              "The whole approach (Teamcenter or otherwise) as one process"
+            ],
+            [
+              3,
+              "CAD Custodian named"
+            ]
+          ]
+        },
+        {
+          "name": "CAD onboarding guide",
+          "points": 40,
+          "items": [
+            [
+              6,
+              "Usable working, controlled, released and archive locations"
+            ],
+            [
+              6,
+              "Access path, approvals and controls"
+            ],
+            [
+              6,
+              "File organization, naming, working vs released"
+            ],
+            [
+              6,
+              "How a member starts, records and follows a change"
+            ],
+            [
+              6,
+              "Approval, release and archive handling"
+            ],
+            [
+              4,
+              "CAD Custodian contact info"
+            ],
+            [
+              6,
+              "A complete orientation a new member can actually use"
+            ]
+          ]
+        },
+        {
+          "name": "CAD demonstration video",
+          "points": 20,
+          "items": [
+            [
+              3,
+              "Teamcenter status or the alternative process"
+            ],
+            [
+              3,
+              "Shows the OEM CAD storage location"
+            ],
+            [
+              3,
+              "Shows or explains OEM CAD protection"
+            ],
+            [
+              3,
+              "Shows the working CAD environment"
+            ],
+            [
+              3,
+              "Shows change tracking or a change record"
+            ],
+            [
+              3,
+              "Shows the release archive"
+            ],
+            [
+              2,
+              "CAD Custodian responsibilities"
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "stla-offroad-targets",
@@ -131,7 +252,82 @@
     "work_tasks": [
       "off-road-performance-targets",
       "freeze-red-team"
-    ]
+    ],
+    "scorecard": {
+      "source": "EIC Y1 Off-Road Performance Target Development Scorecard (Absolute)",
+      "method": "deduct",
+      "note": "Paraphrased summary of the organizer scorecard. The official scorecard in EcoCAR Box is the source of truth.",
+      "sections": [
+        {
+          "name": "Off-road performance target report",
+          "points": 70,
+          "items": [
+            [
+              4,
+              "Benchmark at least three production vehicles with the off-road capability we want"
+            ],
+            [
+              6,
+              "Every benchmark attribute covered: suspension architecture and travel, tires and wheels, ground clearance, approach, breakover and departure angles, wheelbase, turning radius, driveline, crawl ratio or tractive effort, underbody protection, recovery points, other features (3 per missing one)"
+            ],
+            [
+              8,
+              "Objective, comparable engineering data, and a synthesis of the results"
+            ],
+            [
+              15,
+              "Customer, operating environments, use cases, design priorities and tradeoffs (5 per missing topic; 4 if the most important attributes aren't named)"
+            ],
+            [
+              12,
+              "Preliminary targets for clearance, the three angles, crawl/gear ratios, tire size, turning radius, mass, tractive capability, suspension travel (4 per missing one)"
+            ],
+            [
+              5,
+              "Targets are quantitative and measurable, with units"
+            ],
+            [
+              4,
+              "At least one extra team-chosen metric"
+            ],
+            [
+              4,
+              "Short reasoning for why each target was chosen"
+            ],
+            [
+              6,
+              "How targets affect propulsion, EDU integration, battery packaging, suspension, steering, packaging and feasibility (3 per missing one)"
+            ],
+            [
+              6,
+              "Targets connected to future design decisions and their implications"
+            ]
+          ]
+        },
+        {
+          "name": "Benchmarking summary spreadsheet",
+          "points": 30,
+          "items": [
+            [
+              4,
+              "Benchmark vehicles named, at least three"
+            ],
+            [
+              15,
+              "Published or measured metrics for every required attribute (5 per missing one)"
+            ],
+            [
+              8,
+              "Our targets shown side by side with the benchmarks"
+            ],
+            [
+              3,
+              "Sources listed for the benchmark data"
+            ]
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "pm-workplan",
@@ -219,17 +415,29 @@
     ],
     "scorecard": {
       "source": "EIC Y1 PCM Tool Check Scorecard (Absolute)",
-      "items": [
-        [
-          "Onboarding guide",
-          "Guide has all five sections: intro to the PCM swimlane, required software, Git repo guide, how to install and run the virtual vehicle model, software development workflow",
-          20
-        ],
-        [
-          "Virtual walkthrough",
-          "Team walks an organizer through the guide live, including the virtual vehicle model and the development workflow. Judged on thoroughness and completeness",
-          80
-        ]
+      "method": "points",
+      "note": "Paraphrased summary of the organizer scorecard. The official scorecard in EcoCAR Box is the source of truth.",
+      "sections": [
+        {
+          "name": "PCM onboarding guide",
+          "points": 20,
+          "items": [
+            [
+              20,
+              "All five sections: PCM swimlane intro, required software, Git repo guide, virtual vehicle install and run, software development workflow"
+            ]
+          ]
+        },
+        {
+          "name": "Virtual walkthrough",
+          "points": 80,
+          "items": [
+            [
+              80,
+              "Live walkthrough with an organizer: the guide, the virtual vehicle model and the development workflow, judged on thoroughness and completeness"
+            ]
+          ]
+        }
       ]
     }
   },
@@ -730,82 +938,99 @@
     "points": 10,
     "scorecard": {
       "source": "EIC Y1 Green Garage Blog Scorecard (Absolute)",
-      "items": [
-        [
-          "Content",
-          "Covers the assigned topic",
-          5
-        ],
-        [
-          "Content",
-          "Has an intro, body, conclusion and a call to action",
-          10
-        ],
-        [
-          "Content",
-          "Professionally written",
-          10
-        ],
-        [
-          "Content",
-          "Includes at least one quote",
-          5
-        ],
-        [
-          "Format",
-          "Uses the provided blog template",
-          5
-        ],
-        [
-          "Format",
-          "Submitted as a Word document",
-          5
-        ],
-        [
-          "Imagery",
-          "Three photos included",
-          5
-        ],
-        [
-          "Imagery",
-          "Photos are high-resolution and engaging",
-          10
-        ],
-        [
-          "Imagery",
-          "Photos support the story",
-          10
-        ],
-        [
-          "Imagery",
-          "Every photo has a caption",
-          5
-        ],
-        [
-          "Imagery",
-          "Photos placed in the story and also uploaded as JPG or PNG in the blog folder",
-          5
-        ],
-        [
-          "Technical review",
-          "Reviewed by the right technical team member",
-          10
-        ],
-        [
-          "Social media",
-          "Post description for LinkedIn / Facebook",
-          5
-        ],
-        [
-          "Social media",
-          "Post description for Instagram",
-          5
-        ],
-        [
-          "Social media",
-          "Posts are professional and written in third person",
-          5
-        ]
+      "method": "points",
+      "note": "Paraphrased summary of the organizer scorecard. The official scorecard in EcoCAR Box is the source of truth.",
+      "sections": [
+        {
+          "name": "Content",
+          "points": 30,
+          "items": [
+            [
+              5,
+              "Covers the assigned topic"
+            ],
+            [
+              10,
+              "Intro, body, conclusion and a call to action"
+            ],
+            [
+              10,
+              "Professionally written"
+            ],
+            [
+              5,
+              "At least one quote"
+            ]
+          ]
+        },
+        {
+          "name": "Format",
+          "points": 10,
+          "items": [
+            [
+              5,
+              "Uses the provided blog template"
+            ],
+            [
+              5,
+              "Submitted as a Word document"
+            ]
+          ]
+        },
+        {
+          "name": "Imagery",
+          "points": 35,
+          "items": [
+            [
+              5,
+              "Three photos"
+            ],
+            [
+              10,
+              "High-resolution, engaging photos"
+            ],
+            [
+              10,
+              "Photos support the story"
+            ],
+            [
+              5,
+              "Every photo has a caption"
+            ],
+            [
+              5,
+              "Photos in the story and uploaded as JPG/PNG in the blog folder"
+            ]
+          ]
+        },
+        {
+          "name": "Technical review",
+          "points": 10,
+          "items": [
+            [
+              10,
+              "Reviewed by the right technical team member"
+            ]
+          ]
+        },
+        {
+          "name": "Social media",
+          "points": 15,
+          "items": [
+            [
+              5,
+              "LinkedIn / Facebook post description"
+            ],
+            [
+              5,
+              "Instagram post description"
+            ],
+            [
+              5,
+              "Professional tone, third person"
+            ]
+          ]
+        }
       ]
     }
   },
