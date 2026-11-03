@@ -207,6 +207,64 @@
           ]
         }
       ]
+    },
+    "submission": {
+      "status": "Submitted",
+      "score": "[pending from organizers]",
+      "files": [
+        {
+          "name": "CAD management workflow diagram",
+          "file": "EICY1_STLA_CSLA_CADWorkflow.pdf",
+          "format": "PDF, 1 page (Rev H)",
+          "box_url": ""
+        },
+        {
+          "name": "CAD management onboarding guide",
+          "file": "EICY1_STLA_CSLA_CADOnboard.pdf",
+          "format": "PDF, 2 pages",
+          "box_url": ""
+        },
+        {
+          "name": "CAD management demonstration video",
+          "file": "EICY1_STLA_CSLA_CADDemo.mp4",
+          "format": "MP4 · contains OEM data, Box only",
+          "box_url": ""
+        }
+      ],
+      "highlights": [
+        [
+          "Where CAD lives",
+          "Microsoft Teams CAD repository, managed by university IT"
+        ],
+        [
+          "OEM CAD",
+          "Custodian-only channel, plus a read-only reference copy"
+        ],
+        [
+          "Folders per subsystem",
+          "WIP · Latest Released Engineering · Archive"
+        ],
+        [
+          "Tool",
+          "Siemens NX 2206 on the campus network or VPN"
+        ],
+        [
+          "CAD Custodian",
+          "Francisco Calva"
+        ]
+      ],
+      "summary": [
+        "Four-stage workflow: receive and protect OEM data, create and modify, track and approve changes, release and archive.",
+        "Team CAD is split into a vehicle assembly and numbered subsystems, color-coded by how much each may be modified.",
+        "Every change goes check-out, copy to WIP, design and simulation, Engineering Change Request, design review, then release.",
+        "Design review includes the designer, a peer, the sub-team lead, advisors and the CAD Custodian.",
+        "Naming: new parts CSLA-NP-(subsystem)-(name), new assemblies CSLA-NA-…, modified parts and assemblies carry -Rev(A–Z).",
+        "New members install NX, read the workflow, watch the demo, then do a sandbox dry run with the Custodian before getting access."
+      ],
+      "next": [
+        "All architecture-selection CAD follows this process.",
+        "Contact details and license settings are in the guide in Box, not on this public page."
+      ]
     }
   },
   {
@@ -326,6 +384,121 @@
             ]
           ]
         }
+      ]
+    },
+    "submission": {
+      "status": "Submitted",
+      "score": "[pending from organizers]",
+      "files": [
+        {
+          "name": "Off-road performance target report",
+          "file": "EICY1_STLA_CSLA_OffRoadTargets.pdf",
+          "format": "PDF, 10 pages",
+          "box_url": ""
+        },
+        {
+          "name": "Benchmarking summary",
+          "file": "EICY1_STLA_CSLA_ORBenchmark",
+          "format": "PDF copy, 3 pages [confirm the XLSX version went to Box]",
+          "box_url": ""
+        }
+      ],
+      "concept": "Wildfire Command Vehicle: carries a fire chief, radios and gear to incidents beyond maintained roads. Shaped with the South Pasadena and San Marino fire chiefs.",
+      "priorities": [
+        "Arrival reliability",
+        "Payload and cargo",
+        "On-road response",
+        "Energy efficiency",
+        "Scene electrical power"
+      ],
+      "benchmarks": [
+        "Jeep Wrangler 4xe",
+        "Toyota 4Runner TRD Pro",
+        "Lexus LX 700h Overtrail",
+        "Stock 2026 Cherokee (baseline)"
+      ],
+      "targets": [
+        [
+          "Ground clearance",
+          "8.1 in min",
+          "8.1 to 8.5 in"
+        ],
+        [
+          "Approach angle",
+          "20.1° min",
+          "20.1 to 21.0°"
+        ],
+        [
+          "Breakover angle",
+          "none",
+          "19.0 to 20.0° (open)"
+        ],
+        [
+          "Departure angle",
+          "29.9° min",
+          "29.9 to 31.0°"
+        ],
+        [
+          "Curb mass",
+          "2,154 kg max",
+          "2,080 to 2,130 kg (design 2,100)"
+        ],
+        [
+          "Team-added mass",
+          "182 kg available",
+          "108 to 158 kg budget"
+        ],
+        [
+          "Normalized tractive effort",
+          "0.38 g",
+          "0.40 to 0.45 g"
+        ],
+        [
+          "Rear unit tractive force",
+          "derived",
+          "4,250 to 5,850 N"
+        ],
+        [
+          "Rear axle wheel torque",
+          "derived",
+          "about 1,700 to 1,900 N·m"
+        ],
+        [
+          "Tire size",
+          "track 64.3–80 in",
+          "245/65R18 to 265/65R18, all-terrain (open)"
+        ],
+        [
+          "Turning radius",
+          "none",
+          "no worse than 40.3 ft"
+        ],
+        [
+          "Suspension travel",
+          "none",
+          "no less than stock (set in Year 2)"
+        ],
+        [
+          "Underbody protection",
+          "team target",
+          "skid plates: HV battery, rear drive unit, front subframe"
+        ],
+        [
+          "Recovery points",
+          "team target",
+          "rated points front and rear"
+        ]
+      ],
+      "summary": [
+        "Every benchmark vehicle is over the 2,154 kg curb limit (by 217, 320 and 542 kg). Mass is the binding constraint.",
+        "The stock departure angle (29.4°) is a strength to protect: it sits right where the rear drive unit and battery go.",
+        "Ground clearance (8.0 in) and approach angle (19.6°) are the Cherokee's weakest numbers in the set.",
+        "Crawl ratio is undefined on this driveline, so normalized tractive effort is used instead.",
+        "The stock Cherokee has no underbody protection or recovery points; both became team targets."
+      ],
+      "next": [
+        "Rear wheel torque and tractive force feed Architecture Selection (25 Mar).",
+        "Open: eVT313 gear ratios from the organizers, suspension travel from baseline testing, unpublished tire and chassis rules, scene-power clarification."
       ]
     }
   },

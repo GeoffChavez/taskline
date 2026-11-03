@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MATLAB, Simulink, Stateflow</title>
+<meta name="description" content="Cal State LA EcoCAR lecture 2: build the battery-to-axle chain in MATLAB, Simulink and Stateflow, with worked examples.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--muted:#5f6368;--line:#e6e6e9;--soft:#f7f7f8;--gold:#ffce00;--marigold:#fcb237;--ok:#626b2e;--bad:#bd3b2e;--blue:#25537d;--teal:#018389;--plum:#a13273;
+  --display:"Montserrat",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--ui:"Open Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}html{background:#fff;scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font:16px/1.6 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:#000;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.03em;margin:0}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;justify-content:space-between;padding:10px 20px;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid #ececee}
+.top a.back{font-family:var(--display);font-weight:600;font-size:.85rem;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.top a.back:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.toc{display:flex;gap:4px;flex-wrap:wrap}.toc a{font:600 .78rem var(--display);text-decoration:none;padding:7px 12px;border-radius:999px;color:#3c4043}.toc a:hover{background:#f1f1f3}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;border:1px solid #d6d6da;background:#fff;color:#000;font:600 .85rem var(--display);cursor:pointer;text-decoration:none}
+.btn.dark{background:#000;color:#fff;border-color:#000}.btn:hover{border-color:#000}.btn.dark:hover{background:var(--gold);color:#000;border-color:var(--gold)}
+.btn.on{background:var(--gold);border-color:var(--gold)}
+.banner{max-width:1080px;margin:18px auto 0;padding:10px 16px;border-radius:14px;font-size:.84rem;font-weight:600;background:#f4f4f5;color:#3c4043}
+main{max-width:1080px;margin:0 auto;padding:0 20px 120px}
+.slide{padding:72px 0 40px;border-bottom:1px solid #f0f0f2;scroll-margin-top:60px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font:700 .7rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:#4a4f55}
+.kicker:before{content:"";width:18px;height:3px;border-radius:3px;background:var(--gold)}
+.kicker.ml:before{background:var(--blue)}.kicker.sl:before{background:var(--teal)}.kicker.sf:before{background:var(--plum)}
+.slide h2{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:700;line-height:1.06;margin:10px 0 12px;max-width:19ch}
+.slide>p,.lead{font-size:1.1rem;color:var(--muted);max-width:660px;margin:0 0 22px}
+.title-slide{padding-top:96px}.title-slide h1{font-size:clamp(2.6rem,7vw,5.4rem);font-weight:700;letter-spacing:-.045em;line-height:1.02;margin:16px 0 18px}
+.hl{background:linear-gradient(transparent 62%,var(--gold) 62%,var(--gold) 92%,transparent 92%)}
+.part-tag{display:inline-flex;gap:8px;margin-top:8px;flex-wrap:wrap}.part-tag span{font:700 .78rem var(--display);padding:6px 12px;border-radius:999px;color:#fff}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;align-items:start}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--soft);border-radius:22px;padding:20px}.card h3{font-size:1.1rem;margin-bottom:6px}.card p{margin:6px 0;color:#3c4043;font-size:.94rem}
+.code{background:#111113;color:#ececee;border-radius:18px;overflow:hidden;margin:0}
+.code-head{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;background:#1d1d20;font:600 .74rem var(--display);color:#bdbdc2}
+.code-head .dots{display:flex;gap:5px}.code-head .dots i{width:9px;height:9px;border-radius:50%;background:#3a3a3f}.code-head .dots i:first-child{background:var(--gold)}
+.code-head button{background:transparent;border:1px solid #3a3a3f;color:#d4d4d8;border-radius:999px;font:600 .7rem var(--display);padding:3px 10px;cursor:pointer}.code-head button:hover{border-color:var(--gold);color:var(--gold)}
+.code pre{margin:0;padding:14px 16px;overflow-x:auto;font:13.5px/1.6 var(--mono);tab-size:4}
+.code .c{color:#8a8a8d}.code .k{color:var(--gold);font-weight:600}.code .s{color:#b9e3a1}.code .n{color:#9ec5ff}
+.cmd{background:#fff;border:1px solid var(--line);border-radius:16px;margin-top:10px;overflow:hidden}
+.cmd-head{padding:7px 14px;background:var(--soft);font:700 .7rem var(--display);letter-spacing:.08em;text-transform:uppercase;color:#4a4f55}
+.cmd pre{margin:0;padding:12px 16px;font:13px/1.55 var(--mono);color:#111;overflow-x:auto}
+.fig{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;margin:0}
+.fig figcaption{font-size:.8rem;color:var(--muted);padding:8px 6px 2px}
+.fig svg{display:block;width:100%;height:auto}
+.shot{margin:14px 0 0;border:2px dashed #d4d4d8;border-radius:20px;min-height:150px;display:grid;place-items:center;text-align:center;padding:18px;color:#6b6b70;background:#fafafa}
+.shot b{display:block;font-family:var(--display);color:#3c4043}.shot code{font-size:.78rem;background:#f1f1f3;padding:2px 8px;border-radius:8px}
+.shot.has{border:1px solid var(--line);padding:0;background:#fff;overflow:hidden}.shot.has img{display:block;width:100%;height:auto}
+.steps{counter-reset:s;list-style:none;padding:0;margin:10px 0;display:grid;gap:8px}
+.steps li{counter-increment:s;position:relative;padding:12px 14px 12px 52px;background:var(--soft);border-radius:14px;font-size:.94rem}
+.steps li:before{content:counter(s);position:absolute;left:12px;top:11px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#000;color:var(--gold);font:700 .8rem var(--display)}
+.steps code,.card code,p code,li code{font:13px var(--mono);background:#f1f1f3;padding:1px 6px;border-radius:6px}
+.note{font-size:.84rem;color:var(--muted)}
+.flag{border-left:4px solid var(--bad);background:#fbeeec;border-radius:4px 16px 16px 4px;padding:14px 18px;margin-top:14px}.flag b{display:block;font-family:var(--display)}
+.good{border-left:4px solid var(--ok);background:#f2f3e6;border-radius:4px 16px 16px 4px;padding:14px 18px;margin-top:14px}.good b{display:block;font-family:var(--display)}
+.tip{border-left:4px solid var(--gold);background:#fff8d6;border-radius:4px 16px 16px 4px;padding:14px 18px;margin-top:14px}.tip b{display:block;font-family:var(--display)}
+svg text{font-family:var(--display)}
+/* Stateflow simulator */
+.sim{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,.9fr);gap:16px;align-items:start}
+.sim-panel{background:var(--soft);border-radius:22px;padding:18px}
+.sim-panel h4{font-size:.95rem;margin:0 0 8px}
+.sim-btns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.meter{height:14px;border-radius:999px;background:#e6e6e9;overflow:hidden;margin:6px 0 4px}.meter i{display:block;height:100%;background:var(--gold);transition:width .08s linear}
+.kv{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:.88rem}.kv b{font-family:var(--display)}
+.ctr{display:flex;gap:8px;margin:10px 0}.ctr span{flex:1;text-align:center;padding:8px 4px;border-radius:12px;background:#fff;border:1px solid var(--line);font:700 .72rem var(--display)}.ctr span.closed{background:#000;color:var(--gold);border-color:#000}
+.log{font:12px/1.5 var(--mono);background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 10px;height:120px;overflow:auto;color:#3c4043}
+label.chk{display:flex;gap:8px;align-items:center;font-size:.86rem;margin-top:6px}
+.pager{display:none}
+body.present{overflow:hidden}body.present .banner,body.present .toc{display:none}
+body.present main{max-width:none;padding:0}
+body.present .slide{display:none;position:fixed;inset:57px 0 0 0;overflow:auto;padding:4vh max(5vw,24px) 90px;border:0;background:#fff}
+body.present .slide.on{display:block}
+body.present .pager{display:flex;position:fixed;right:20px;bottom:18px;z-index:30;gap:8px;align-items:center;font:600 .8rem var(--display)}
+.progress{position:fixed;left:0;bottom:0;height:4px;background:var(--gold);z-index:31;transition:width .25s;display:none}body.present .progress{display:block}
+@media(max-width:860px){.sim{grid-template-columns:1fr}.toc{display:none}}
+@media(max-width:620px){.slide{padding:52px 0 30px}.top{padding:8px 14px}.code pre{font-size:12.5px}}
+@media print{.top,.pager,.progress,.sim-panel{display:none}.slide{break-after:page;padding:20px 0}}
+</style>
+</head>
+<body>
+<div class="top"><a class="back" href="../index.html#lectures">Charging Eagles hub</a><nav class="toc" aria-label="Parts"><a href="#p-matlab">MATLAB</a><a href="#p-simulink">Simulink</a><a href="#p-stateflow">Stateflow</a><a href="#p-together">Together</a></nav><button class="btn dark" id="present" type="button">Present ▶</button></div>
+<div class="banner">Lecture 2 of 2 · Practice numbers are made up so this page can be public. The code was written without MATLAB: run it in R2026a and fix any API errors you hit. Screenshot boxes are waiting for your team&rsquo;s real ones.</div>
+<main>
+
+<section class="slide title-slide" data-title="Title">
+  <span class="kicker">EcoCAR lecture 2 · PCM + HVB + Instrumentation</span>
+  <h1>Build it in <span class="hl">MATLAB</span>, Simulink and Stateflow.</h1>
+  <p class="lead">Same chain as Lecture 1, battery to axle, now in the tools we use every Friday. Lots of examples, very little theory.</p>
+  <div class="part-tag"><span style="background:var(--blue)">1 · MATLAB: size the pack</span><span style="background:var(--teal)">2 · Simulink: model the chain</span><span style="background:var(--plum)">3 · Stateflow: decide when it&rsquo;s safe</span></div>
+  <p class="note" style="margin-top:22px">Haven&rsquo;t done Lecture 1? <a href="battery-to-axle.html">Start there</a>, it explains the math these models use.</p>
+</section>
+
+<section class="slide" data-title="Three tools">
+  <span class="kicker">The map</span>
+  <h2>Three tools, three jobs.</h2>
+  <svg viewBox="0 0 1000 230" style="width:100%;height:auto" aria-label="MATLAB feeds Simulink, Stateflow lives inside Simulink"><g id="map"></g></svg>
+  <div class="grid3">
+    <div class="card"><h3 style="color:var(--blue)">MATLAB</h3><p>Scripts and math. Holds the numbers (cells, motor, rules), runs the sizing, and plots results.</p></div>
+    <div class="card"><h3 style="color:var(--teal)">Simulink</h3><p>Blocks and wires that run over time. Turns &ldquo;how much torque, how fast&rdquo; into current, voltage and state of charge.</p></div>
+    <div class="card"><h3 style="color:var(--plum)">Stateflow</h3><p>States and arrows inside Simulink. Decides <i>when</i>: is high voltage on? Are we in EV or hybrid? Did something fault?</p></div>
+  </div>
+  <div class="tip"><b>The workflow we use.</b>Parameters live in a MATLAB script &rarr; the Simulink model reads them &rarr; Stateflow charts sit inside the model &rarr; results come back to MATLAB for plots. One script can build, run and plot everything.</div>
+</section>
+
+<!-- ======================= PART 1 MATLAB ======================= -->
+<section class="slide" id="p-matlab" data-title="MATLAB 1">
+  <span class="kicker ml">Part 1 · MATLAB</span>
+  <h2>Put the cell in a struct.</h2>
+  <p>A struct keeps related numbers together, so every script uses the same values.</p>
+  <div class="grid2">
+    <div><div class="code" data-file="practice_params.m"><pre>
+<span class="c">% practice_params.m  - made-up practice numbers, not a real cell</span>
+cellSpec.Vnom  = <span class="n">3.6</span>;     <span class="c">% V, nominal</span>
+cellSpec.Vmax  = <span class="n">4.2</span>;     <span class="c">% V, full</span>
+cellSpec.Vmin  = <span class="n">2.8</span>;     <span class="c">% V, empty</span>
+cellSpec.Ah    = <span class="n">4.0</span>;     <span class="c">% Ah</span>
+cellSpec.Wh    = cellSpec.Vnom * cellSpec.Ah;   <span class="c">% 14.4 Wh</span>
+cellSpec.Ccont = <span class="n">20</span>;      <span class="c">% continuous C-rate</span>
+cellSpec.Rohm  = <span class="n">0.008</span>;   <span class="c">% ohm</span>
+cellSpec.kg    = <span class="n">0.070</span>;   <span class="c">% kg</span>
+
+rules.packVmax = <span class="n">400</span>;     <span class="c">% V, competition rule</span>
+rules.Emax_Wh  = <span class="n">5000</span>;    <span class="c">% Wh, competition rule</span>
+motor.Vmin     = <span class="n">250</span>;     <span class="c">% V, practice motor minimum</span>
+motor.G        = <span class="n">10</span>;      <span class="c">% practice gear ratio</span>
+motor.eta      = <span class="n">0.90</span>;    <span class="c">% practice efficiency</span>
+
+disp(cellSpec)</pre></div></div>
+    <div><div class="cmd"><div class="cmd-head">Command Window</div><pre>&gt;&gt; practice_params
+     Vnom: 3.6000
+     Vmax: 4.2000
+     Vmin: 2.8000
+       Ah: 4
+       Wh: 14.4000
+    Ccont: 20
+     Rohm: 0.0080
+       kg: 0.0700</pre></div>
+      <div class="tip"><b>Don&rsquo;t name it <code>cell</code>.</b><code>cell</code> is a built-in MATLAB function. Naming a variable <code>cell</code> hides it and causes confusing errors later. Same for <code>sum</code>, <code>max</code>, <code>i</code> and <code>j</code>.</div>
+      <figure class="shot" data-src="../img/lecture/matlab-01-params.png"></figure></div>
+  </div>
+</section>
+
+<section class="slide" data-title="MATLAB 2">
+  <span class="kicker ml">Part 1 · MATLAB</span>
+  <h2>Size the pack in six lines.</h2>
+  <p>This is Lecture 1&rsquo;s math, typed once. Change the cell and run it again.</p>
+  <div class="grid2">
+    <div class="code" data-file="pack_sizing.m"><pre>
+<span class="c">% pack_sizing.m  - run practice_params.m first</span>
+Smin = ceil(motor.Vmin / cellSpec.Vmin);       <span class="c">% 90</span>
+Smax = floor(rules.packVmax / cellSpec.Vmax);  <span class="c">% 95</span>
+S    = Smax;                                   <span class="c">% most voltage</span>
+P    = floor(rules.Emax_Wh / (S * cellSpec.Wh));  <span class="c">% 3</span>
+E_kWh = S * P * cellSpec.Wh / <span class="n">1000</span>;            <span class="c">% 4.104</span>
+
+fprintf(<span class="s">'%ds%dp: %.2f kWh, %.0f V nominal\n'</span>, ...
+        S, P, E_kWh, S*cellSpec.Vnom)</pre></div>
+    <div><div class="cmd"><div class="cmd-head">Command Window</div><pre>&gt;&gt; pack_sizing
+95s3p: 4.10 kWh, 342 V nominal</pre></div>
+      <div class="card" style="margin-top:12px"><h3>What each function does</h3>
+        <p><code>ceil</code> rounds up (you can&rsquo;t have 89.3 cells). <code>floor</code> rounds down (a 96th cell would pass 400 V). <code>fprintf</code> prints with a format: <code>%d</code> whole number, <code>%.2f</code> two decimals.</p></div></div>
+  </div>
+</section>
+
+<section class="slide" data-title="MATLAB 3">
+  <span class="kicker ml">Part 1 · MATLAB</span>
+  <h2>Plot it: which S values fit?</h2>
+  <p>Vectors let one line do the math for every S at once. The <code>.*</code> and <code>./</code> mean &ldquo;element by element&rdquo;.</p>
+  <div class="grid2">
+    <div class="code" data-file="voltage_window.m"><pre>
+S      = <span class="n">80</span>:<span class="n">100</span>;                     <span class="c">% try S = 80 ... 100</span>
+Vfull  = S * cellSpec.Vmax;
+Vempty = S * cellSpec.Vmin;
+
+figure
+plot(S, Vfull, S, Vempty, <span class="s">'LineWidth'</span>, <span class="n">2</span>); hold on
+yline(rules.packVmax, <span class="s">'--'</span>, <span class="s">'400 V rule'</span>);
+yline(motor.Vmin, <span class="s">'--'</span>, <span class="s">'Motor minimum'</span>);
+xlabel(<span class="s">'Cells in series, S'</span>); ylabel(<span class="s">'Pack voltage (V)'</span>)
+legend(<span class="s">'Full'</span>, <span class="s">'Empty'</span>, <span class="s">'Location'</span>, <span class="s">'northwest'</span>); grid on</pre></div>
+    <figure class="fig"><svg viewBox="0 0 520 330" aria-label="Pack voltage vs S"><g id="plot-window"></g></svg><figcaption>What the figure shows (drawn here from the same numbers). Valid S is where the full line is under 400 V <i>and</i> the empty line is over 250 V: S = 90 to 95.</figcaption></figure>
+  </div>
+  <figure class="shot" data-src="../img/lecture/matlab-02-voltage-window.png"></figure>
+</section>
+
+<section class="slide" data-title="MATLAB 4">
+  <span class="kicker ml">Part 1 · MATLAB</span>
+  <h2>Turn it into a function you can reuse.</h2>
+  <p>Save this as its own file named <code>packCalc.m</code>. Now anyone can size any pack in one line.</p>
+  <div class="grid2">
+    <div class="code" data-file="packCalc.m"><pre>
+<span class="k">function</span> pk = packCalc(cellSpec, S, P)
+<span class="c">%PACKCALC  Pack numbers from one cell and an S x P layout.</span>
+pk.Vnom  = S * cellSpec.Vnom;
+pk.Vmax  = S * cellSpec.Vmax;
+pk.Vmin  = S * cellSpec.Vmin;
+pk.Ah    = P * cellSpec.Ah;
+pk.E_kWh = S * P * cellSpec.Wh / <span class="n">1000</span>;
+pk.kg    = S * P * cellSpec.kg;
+pk.Icont = P * cellSpec.Ah * cellSpec.Ccont;
+pk.R     = S * cellSpec.Rohm / P;
+<span class="k">end</span></pre></div>
+    <div class="cmd"><div class="cmd-head">Command Window</div><pre>&gt;&gt; pk = packCalc(cellSpec, 95, 3)
+pk =
+     Vnom: 342
+     Vmax: 399
+     Vmin: 266
+       Ah: 12
+    E_kWh: 4.1040
+       kg: 19.9500
+    Icont: 240
+        R: 0.2533</pre></div>
+  </div>
+  <div class="tip"><b>Try it.</b>Run <code>packCalc(cellSpec, 95, 2)</code>. What happens to <code>Icont</code> and <code>R</code>? (Fewer parallel strings: less current, more resistance.)</div>
+</section>
+
+<section class="slide" data-title="MATLAB 5">
+  <span class="kicker ml">Part 1 · MATLAB</span>
+  <h2>Plot the motor&rsquo;s torque and power.</h2>
+  <p><code>min</code> picks whichever limit is lower at each speed: the torque limit, or the power limit. That one line makes the &ldquo;flat torque, then flat power&rdquo; shape.</p>
+  <div class="grid2">
+    <div class="code" data-file="motor_curve.m"><pre>
+Tpk_axle = <span class="n">1500</span>;  Ppk = <span class="n">150e3</span>;    <span class="c">% practice motor</span>
+n  = linspace(<span class="n">0</span>, <span class="n">15000</span>, <span class="n">300</span>);       <span class="c">% motor rpm</span>
+w  = n * <span class="n">2</span>*pi/<span class="n">60</span>;                    <span class="c">% rad/s</span>
+Tm = min(Tpk_axle/motor.G, Ppk ./ max(w, <span class="n">1</span>));
+Pm = Tm .* w;                         <span class="c">% watts</span>
+
+figure
+yyaxis left;  plot(n, Tm, <span class="s">'LineWidth'</span>, <span class="n">2</span>)
+ylabel(<span class="s">'Motor torque (N·m)'</span>)
+yyaxis right; plot(n, Pm/<span class="n">1e3</span>, <span class="s">'LineWidth'</span>, <span class="n">2</span>)
+ylabel(<span class="s">'Power (kW)'</span>)
+xlabel(<span class="s">'Motor speed (rpm)'</span>); grid on</pre></div>
+    <figure class="fig"><svg viewBox="0 0 520 330" aria-label="Torque and power curves"><g id="plot-motor"></g></svg><figcaption>150 N·m flat until about 9,549 rpm (the corner), then 150 kW flat. <code>max(w,1)</code> avoids dividing by zero at standstill.</figcaption></figure>
+  </div>
+  <figure class="shot" data-src="../img/lecture/matlab-03-motor-curve.png"></figure>
+</section>
+
+<!-- ======================= PART 2 SIMULINK ======================= -->
+<section class="slide" id="p-simulink" data-title="Simulink 1">
+  <span class="kicker sl">Part 2 · Simulink</span>
+  <h2>Blocks, wires, and time.</h2>
+  <p>A Simulink model is a diagram that runs. Each block does one thing; each wire carries a signal that changes over time.</p>
+  <figure class="fig"><svg viewBox="0 0 1000 200" aria-label="Constant to Gain to Scope"><g id="sl-hello"></g></svg><figcaption>The smallest useful model: a constant 2 &rarr; a gain of 3 &rarr; a scope that shows 6.</figcaption></figure>
+  <div class="grid3" style="margin-top:14px">
+    <div class="card"><h3>Sources</h3><p>Where signals start: <b>Constant</b>, <b>Step</b>, <b>From Workspace</b> (a drive cycle from MATLAB).</p></div>
+    <div class="card"><h3>Math</h3><p><b>Gain</b> (&times; a number), <b>Product</b> (&times; or &divide; two signals), <b>Sum</b> (+ or &minus;), <b>Integrator</b> (adds up over time).</p></div>
+    <div class="card"><h3>Sinks</h3><p>Where signals end: <b>Scope</b> to look, <b>To Workspace</b> to send results back to MATLAB.</p></div>
+  </div>
+  <ol class="steps" style="margin-top:14px"><li>Type <code>simulink</code>, choose <b>Blank Model</b>.</li><li>Open the <b>Library Browser</b>, drag in Constant, Gain, Scope.</li><li>Drag from the arrow on one block to the next to wire them.</li><li>Double-click the Gain, set it to <code>3</code>. Press <b>Run</b>, double-click the Scope.</li></ol>
+  <figure class="shot" data-src="../img/lecture/simulink-01-hello.png"></figure>
+</section>
+
+<section class="slide" data-title="Simulink 2">
+  <span class="kicker sl">Part 2 · Simulink</span>
+  <h2>The battery-to-axle chain as blocks.</h2>
+  <p>Read it left to right: the drive cycle asks for axle speed and torque, and the model works back to how much current the pack must give.</p>
+  <figure class="fig"><svg viewBox="0 0 1000 400" aria-label="Simulink-style diagram of the chain"><g id="sl-chain"></g></svg><figcaption>Each dashed box becomes a <b>Subsystem</b> (select the blocks, right-click, Create Subsystem). Parameters like <code>G</code>, <code>eta</code>, <code>Voc</code> and <code>Rpack</code> come from the MATLAB workspace.</figcaption></figure>
+  <div class="grid3" style="margin-top:14px">
+    <div class="card"><h3>Motor + gearbox</h3><p>&omega;<sub>motor</sub> = rpm<sub>axle</sub> &times; G &times; 2&pi;/60. T<sub>motor</sub> = T<sub>axle</sub> / G. Power = T &times; &omega;.</p></div>
+    <div class="card"><h3>Inverter</h3><p>P<sub>DC</sub> = P<sub>shaft</sub> / &eta;. One Gain block.</p></div>
+    <div class="card"><h3>Battery</h3><p>I = P<sub>DC</sub> / V. V = V<sub>oc</sub> &minus; I&middot;R. SOC drops by &int;I&nbsp;dt / (Ah &times; 3600).</p></div>
+  </div>
+  <div class="tip"><b>Why the Memory block?</b>Current depends on voltage, and voltage depends on current. Wiring that straight back makes an <i>algebraic loop</i>. The Memory block hands back last step&rsquo;s voltage, which breaks the loop.</div>
+</section>
+
+<section class="slide" data-title="Simulink 3">
+  <span class="kicker sl">Part 2 · Simulink</span>
+  <h2>Or build the whole model from a script.</h2>
+  <p>This is how our team&rsquo;s <code>build_*.m</code> files work: a script makes the blocks and wires, so the model can be rebuilt any time and reviewed in Git.</p>
+  <div class="code" data-file="build_rear_chain.m"><pre>
+<span class="c">% build_rear_chain.m  - run practice_params.m first. Written without MATLAB: check it runs.</span>
+mdl = <span class="s">'rear_chain'</span>;
+<span class="k">if</span> bdIsLoaded(mdl), close_system(mdl, <span class="n">0</span>); <span class="k">end</span>
+new_system(mdl); open_system(mdl);
+pk = packCalc(cellSpec, <span class="n">95</span>, <span class="n">3</span>);
+Voc = pk.Vnom; Rpack = pk.R; AhPack = pk.Ah; G = motor.G; eta = motor.eta;
+
+<span class="c">% practice drive request: axle speed ramps to 1000 rpm, torque 1000 then 300 N·m</span>
+t = (<span class="n">0</span>:<span class="n">0.01</span>:<span class="n">30</span>)';
+axleRpm = [t, min(<span class="n">1000</span>, <span class="n">100</span>*t)];
+axleTq  = [t, <span class="n">1000</span>*(t &lt; <span class="n">8</span>) + <span class="n">300</span>*(t &gt;= <span class="n">8</span>)];
+
+b = @(lib, name) add_block(lib, [mdl <span class="s">'/'</span> name]);
+b(<span class="s">'simulink/Sources/From Workspace'</span>, <span class="s">'AxleRpm'</span>);  set_param([mdl <span class="s">'/AxleRpm'</span>], <span class="s">'VariableName'</span>, <span class="s">'axleRpm'</span>);
+b(<span class="s">'simulink/Sources/From Workspace'</span>, <span class="s">'AxleTq'</span>);   set_param([mdl <span class="s">'/AxleTq'</span>],  <span class="s">'VariableName'</span>, <span class="s">'axleTq'</span>);
+b(<span class="s">'simulink/Math Operations/Gain'</span>, <span class="s">'ToOmega'</span>);      set_param([mdl <span class="s">'/ToOmega'</span>], <span class="s">'Gain'</span>, <span class="s">'G*2*pi/60'</span>);
+b(<span class="s">'simulink/Math Operations/Gain'</span>, <span class="s">'ToMotorTq'</span>);    set_param([mdl <span class="s">'/ToMotorTq'</span>], <span class="s">'Gain'</span>, <span class="s">'1/G'</span>);
+b(<span class="s">'simulink/Math Operations/Product'</span>, <span class="s">'Pshaft'</span>);
+b(<span class="s">'simulink/Math Operations/Gain'</span>, <span class="s">'Inverter'</span>);     set_param([mdl <span class="s">'/Inverter'</span>], <span class="s">'Gain'</span>, <span class="s">'1/eta'</span>);
+b(<span class="s">'simulink/Math Operations/Product'</span>, <span class="s">'Current'</span>);   set_param([mdl <span class="s">'/Current'</span>], <span class="s">'Inputs'</span>, <span class="s">'*/'</span>);
+b(<span class="s">'simulink/Math Operations/Gain'</span>, <span class="s">'IR'</span>);           set_param([mdl <span class="s">'/IR'</span>], <span class="s">'Gain'</span>, <span class="s">'Rpack'</span>);
+b(<span class="s">'simulink/Sources/Constant'</span>, <span class="s">'Voc'</span>);              set_param([mdl <span class="s">'/Voc'</span>], <span class="s">'Value'</span>, <span class="s">'Voc'</span>);
+b(<span class="s">'simulink/Math Operations/Sum'</span>, <span class="s">'Vterm'</span>);         set_param([mdl <span class="s">'/Vterm'</span>], <span class="s">'Inputs'</span>, <span class="s">'+-'</span>);
+b(<span class="s">'simulink/Discrete/Memory'</span>, <span class="s">'LastV'</span>);             set_param([mdl <span class="s">'/LastV'</span>], <span class="s">'InitialCondition'</span>, <span class="s">'Voc'</span>);
+b(<span class="s">'simulink/Math Operations/Gain'</span>, <span class="s">'ToSOC'</span>);        set_param([mdl <span class="s">'/ToSOC'</span>], <span class="s">'Gain'</span>, <span class="s">'-1/(3600*AhPack)'</span>);
+b(<span class="s">'simulink/Continuous/Integrator'</span>, <span class="s">'SOC'</span>);         set_param([mdl <span class="s">'/SOC'</span>], <span class="s">'InitialCondition'</span>, <span class="s">'0.9'</span>);
+<span class="k">for</span> s = {<span class="s">'soc'</span>, <span class="s">'I'</span>, <span class="s">'V'</span>}
+    b(<span class="s">'simulink/Sinks/To Workspace'</span>, [<span class="s">'out_'</span> s{<span class="n">1</span>}]);
+    set_param([mdl <span class="s">'/out_'</span> s{<span class="n">1</span>}], <span class="s">'VariableName'</span>, s{<span class="n">1</span>}, <span class="s">'SaveFormat'</span>, <span class="s">'Timeseries'</span>);
+<span class="k">end</span>
+
+w = @(a, z) add_line(mdl, a, z, <span class="s">'autorouting'</span>, <span class="s">'on'</span>);
+w(<span class="s">'AxleRpm/1'</span>, <span class="s">'ToOmega/1'</span>);   w(<span class="s">'AxleTq/1'</span>, <span class="s">'ToMotorTq/1'</span>);
+w(<span class="s">'ToOmega/1'</span>, <span class="s">'Pshaft/1'</span>);    w(<span class="s">'ToMotorTq/1'</span>, <span class="s">'Pshaft/2'</span>);
+w(<span class="s">'Pshaft/1'</span>, <span class="s">'Inverter/1'</span>);   w(<span class="s">'Inverter/1'</span>, <span class="s">'Current/1'</span>);
+w(<span class="s">'LastV/1'</span>, <span class="s">'Current/2'</span>);     w(<span class="s">'Current/1'</span>, <span class="s">'IR/1'</span>);
+w(<span class="s">'Voc/1'</span>, <span class="s">'Vterm/1'</span>);         w(<span class="s">'IR/1'</span>, <span class="s">'Vterm/2'</span>);
+w(<span class="s">'Vterm/1'</span>, <span class="s">'LastV/1'</span>);       w(<span class="s">'Current/1'</span>, <span class="s">'ToSOC/1'</span>);
+w(<span class="s">'ToSOC/1'</span>, <span class="s">'SOC/1'</span>);         w(<span class="s">'SOC/1'</span>, <span class="s">'out_soc/1'</span>);
+w(<span class="s">'Current/1'</span>, <span class="s">'out_I/1'</span>);     w(<span class="s">'Vterm/1'</span>, <span class="s">'out_V/1'</span>);
+
+set_param(mdl, <span class="s">'StopTime'</span>, <span class="s">'30'</span>, <span class="s">'Solver'</span>, <span class="s">'ode4'</span>, <span class="s">'FixedStep'</span>, <span class="s">'0.01'</span>);
+Simulink.BlockDiagram.arrangeSystem(mdl);
+out = sim(mdl);</pre></div>
+  <p class="note" style="margin-top:10px">Fixed-step <code>ode4</code> at 0.01 s keeps the Memory block&rsquo;s one-step delay small. Save the model with <code>save_system(mdl)</code> once it runs.</p>
+</section>
+
+<section class="slide" data-title="Simulink 4">
+  <span class="kicker sl">Part 2 · Simulink</span>
+  <h2>Read the results, find the problem.</h2>
+  <p>Plot what the model sent back. This launch asks for more than our practice pack can give cleanly.</p>
+  <div class="grid2">
+    <div class="code" data-file="plot_results.m"><pre>
+figure
+subplot(<span class="n">3</span>,<span class="n">1</span>,<span class="n">1</span>); plot(out.I);   ylabel(<span class="s">'Current (A)'</span>); grid on
+yline(pk.Icont, <span class="s">'--'</span>, <span class="s">'continuous limit'</span>);
+subplot(<span class="n">3</span>,<span class="n">1</span>,<span class="n">2</span>); plot(out.V);   ylabel(<span class="s">'Pack V'</span>);      grid on
+yline(motor.Vmin, <span class="s">'--'</span>, <span class="s">'motor minimum'</span>);
+subplot(<span class="n">3</span>,<span class="n">1</span>,<span class="n">3</span>); plot(out.soc); ylabel(<span class="s">'SOC'</span>);         grid on
+xlabel(<span class="s">'Time (s)'</span>)</pre>
+      </div>
+    <figure class="fig"><svg viewBox="0 0 520 420" aria-label="Current, voltage and SOC over time"><g id="plot-sim"></g></svg><figcaption id="sim-cap">Computed in your browser with the same equations and 0.01 s steps. Run the real model and compare.</figcaption></figure>
+  </div>
+  <div class="flag" id="sim-flag"></div>
+  <figure class="shot" data-src="../img/lecture/simulink-02-results.png"></figure>
+</section>
+
+<!-- ======================= PART 3 STATEFLOW ======================= -->
+<section class="slide" id="p-stateflow" data-title="Stateflow 1">
+  <span class="kicker sf">Part 3 · Stateflow</span>
+  <h2>States, arrows, and conditions.</h2>
+  <p>Simulink is good at &ldquo;how much&rdquo;. Stateflow is good at &ldquo;which one&rdquo;: a system that is always in exactly one state, and moves when a condition becomes true.</p>
+  <figure class="fig"><svg viewBox="0 0 1000 230" aria-label="Simple two-state chart"><g id="sf-basic"></g></svg><figcaption>Read an arrow&rsquo;s label as: <code>event [condition] {action}</code>. Here: when the key is on and there&rsquo;s no fault, go to On.</figcaption></figure>
+  <div class="grid3" style="margin-top:14px">
+    <div class="card"><h3>State</h3><p>A rounded box. Its <code>entry:</code> actions run once when you arrive; <code>during:</code> runs every step you stay.</p></div>
+    <div class="card"><h3>Transition</h3><p>An arrow with a condition in square brackets. Checked every step; taken the moment it&rsquo;s true.</p></div>
+    <div class="card"><h3>Default arrow</h3><p>The arrow with a dot on its tail. It picks the state the chart starts in.</p></div>
+  </div>
+  <ol class="steps" style="margin-top:14px"><li>In Simulink, add a <b>Chart</b> from the Stateflow library and double-click it.</li><li>Draw a state, type its name and <code>entry:</code> line.</li><li>Drag from one state&rsquo;s edge to another to make an arrow; click it and type the condition.</li><li>Open the <b>Symbols</b> pane to make each name an input, output or local, then wire the chart&rsquo;s ports.</li></ol>
+</section>
+
+<section class="slide" data-title="Stateflow 2">
+  <span class="kicker sf">Part 3 · Stateflow</span>
+  <h2>Try it: the high-voltage precharge chart.</h2>
+  <p>Before the main contactor closes, a resistor charges the inverter&rsquo;s capacitor slowly so there&rsquo;s no huge inrush. This chart is the logic EE1&rsquo;s supervisory ECU will run. Press the buttons.</p>
+  <div class="sim">
+    <figure class="fig"><svg viewBox="0 0 640 420" aria-label="Precharge state chart"><g id="sf-pre"></g></svg><figcaption>Practice values: pack 342 V, precharge time constant 0.5 s, close at 95%, timeout 3 s. Not team selections.</figcaption></figure>
+    <div class="sim-panel">
+      <h4>Inputs</h4>
+      <div class="sim-btns"><button class="btn" id="b-key" type="button">Key on</button><button class="btn" id="b-iso" type="button">Isolation fault</button><button class="btn" id="b-reset" type="button">Reset</button></div>
+      <label class="chk"><input type="checkbox" id="b-stuck"> Precharge resistor open (broken)</label>
+      <h4 style="margin-top:14px">Outputs</h4>
+      <div class="ctr"><span id="c-neg">NEG</span><span id="c-pre">PRE</span><span id="c-pos">POS</span></div>
+      <div class="kv"><span>Bus voltage</span><b id="v-bus">0 V</b></div>
+      <div class="meter"><i id="m-bus" style="width:0%"></i></div>
+      <div class="kv"><span>Active state</span><b id="v-state">Open</b><span>Time in state</span><b id="v-time">0.0 s</b></div>
+      <h4 style="margin-top:12px">Log</h4><div class="log" id="log"></div>
+    </div>
+  </div>
+  <div class="tip"><b>Things to try.</b>Key on and watch it close. Key off. Then tick &ldquo;resistor open&rdquo; and key on again: the bus never charges, so the timeout sends it to Fault. That&rsquo;s why the timeout exists.</div>
+</section>
+
+<section class="slide" data-title="Stateflow 3">
+  <span class="kicker sf">Part 3 · Stateflow</span>
+  <h2>How to type the precharge chart.</h2>
+  <p>Copy these into the states and arrows exactly. Names in the Symbols pane: inputs <code>hvRequest</code>, <code>vBus</code>, <code>vPack</code>, <code>isoFault</code>, <code>reset</code>; outputs <code>neg</code>, <code>pre</code>, <code>pos</code>.</p>
+  <div class="grid2">
+    <div class="code" data-file="states"><pre>
+<span class="k">Open</span>
+  entry: neg = false; pre = false; pos = false;
+
+<span class="k">Precharge</span>
+  entry: neg = true; pre = true; pos = false;
+
+<span class="k">Closed</span>
+  entry: pos = true; pre = false;
+
+<span class="k">Fault</span>
+  entry: neg = false; pre = false; pos = false;</pre></div>
+    <div class="code" data-file="transitions"><pre>
+<span class="c">% default arrow points at Open</span>
+Open      -&gt; Precharge  [hvRequest &amp;&amp; ~isoFault]
+Precharge -&gt; Closed     [vBus &gt;= <span class="n">0.95</span>*vPack]
+Precharge -&gt; Fault      after(<span class="n">3</span>, sec)
+Closed    -&gt; Open       [~hvRequest]
+Open, Precharge, Closed
+          -&gt; Fault      [isoFault]
+Fault     -&gt; Open       [reset &amp;&amp; ~isoFault &amp;&amp; ~hvRequest]</pre></div>
+  </div>
+  <div class="tip"><b>Order matters.</b>If two arrows leave one state and both are true, Stateflow takes the one with the lower number (shown on the arrow). Put the fault arrow first so safety always wins.</div>
+  <figure class="shot" data-src="../img/lecture/stateflow-01-precharge.png"></figure>
+</section>
+
+<section class="slide" data-title="Stateflow 4">
+  <span class="kicker sf">Part 3 · Stateflow</span>
+  <h2>Bigger chart: the drive mode supervisor.</h2>
+  <p>States can hold states. <b>Driving</b> contains EV, Hybrid and Regen; leaving Driving for Fault exits whichever inner state is active. This is the five-state teaching chart from the P4 onboarding ladder.</p>
+  <figure class="fig"><svg viewBox="0 0 1000 420" aria-label="Mode supervisor chart"><g id="sf-modes"></g></svg><figcaption>Thresholds like <code>pHyb</code>, <code>socLow</code> and <code>vMin</code> are teaching placeholders, not team selections. EE2&rsquo;s duty-cycle work is what sets them for real.</figcaption></figure>
+  <figure class="shot" data-src="../img/lecture/stateflow-02-modes.png"></figure>
+</section>
+
+<!-- ======================= PART 4 TOGETHER ======================= -->
+<section class="slide" id="p-together" data-title="Together">
+  <span class="kicker">Part 4 · Put it together</span>
+  <h2>Stateflow decides. Simulink does.</h2>
+  <p>The precharge chart&rsquo;s <code>pos</code> output gates power in the chain: no closed contactor, no current. One <b>Switch</b> block connects the two.</p>
+  <figure class="fig"><svg viewBox="0 0 1000 250" aria-label="Chart output gating the chain"><g id="together"></g></svg><figcaption>Switch: when <code>pos</code> is true, pass P<sub>DC</sub>; otherwise pass 0. Set its criterion to <code>u2 &gt; Threshold</code> with threshold 0.5.</figcaption></figure>
+  <div class="grid3" style="margin-top:14px">
+    <div class="card"><h3>EE1 · Instrumentation</h3><p>Runs this logic on the TI board. Real <code>vBus</code> and <code>isoFault</code> come in over sensors and CAN.</p></div>
+    <div class="card"><h3>EE2 · Controls</h3><p>Owns the chain model and the mode supervisor. Feeds it real duty-cycle data.</p></div>
+    <div class="card"><h3>HVB</h3><p>Owns <code>packCalc</code> and the pack numbers the whole model reads.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Your turn">
+  <span class="kicker">Your turn</span>
+  <h2>Four exercises, in order.</h2>
+  <ol class="steps">
+    <li><b>MATLAB:</b> change <code>cellSpec</code> to a catalog cell from EcoCAR Box and rerun <code>pack_sizing.m</code>. Does S still fit?</li>
+    <li><b>Simulink:</b> run <code>build_rear_chain.m</code>. Lower the launch torque until the voltage stays above the motor minimum. Write down the torque.</li>
+    <li><b>Stateflow:</b> build the precharge chart in a new model and drive it with Step blocks for <code>hvRequest</code> and <code>isoFault</code>.</li>
+    <li><b>Together:</b> add the Switch so the chain only draws current when <code>pos</code> is true. Screenshot all three and add them to this page.</li>
+  </ol>
+  <div class="tip"><b>Add your screenshots here.</b>Save PNGs with the names shown in the dashed boxes into <code>docs/img/lecture/</code>, commit, and they appear on this page automatically.</div>
+  <p style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn dark" href="../index.html#start">Claim a task on the hub &rarr;</a><a class="btn" href="battery-to-axle.html">Back to Lecture 1</a></p>
+</section>
+</main>
+<div class="pager"><button class="btn" id="prev" type="button">&larr;</button><span id="count"></span><button class="btn" id="next" type="button">&rarr;</button><button class="btn" id="exit" type="button">Exit</button></div>
+<div class="progress" id="progress"></div>
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const C={ink:'#111',muted:'#6b6b70',line:'#e6e6e9',gold:'#ffce00',blue:'#25537d',teal:'#018389',plum:'#a13273',bad:'#bd3b2e',ok:'#626b2e',soft:'#f4f4f5'};
+const f=(x,d=0)=>Number(x).toLocaleString('en-US',{maximumFractionDigits:d,minimumFractionDigits:d});
+// practice numbers (same as the code on the page)
+const cellSpec={Vnom:3.6,Vmax:4.2,Vmin:2.8,Ah:4,Wh:14.4,Ccont:20,Rohm:.008,kg:.07},rules={packVmax:400,Emax_Wh:5000},motor={Vmin:250,G:10,eta:.9};
+const S=95,P=3,Voc=S*cellSpec.Vnom,Rp=S*cellSpec.Rohm/P,AhPack=P*cellSpec.Ah,Icont=P*cellSpec.Ah*cellSpec.Ccont;
+// ---------- svg helpers ----------
+const box=(x,y,w,h,label,o={})=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${o.r??10}" fill="${o.fill||'#fff'}" stroke="${o.stroke||'#111'}" stroke-width="${o.sw||2}"${o.dash?` stroke-dasharray="${o.dash}"`:''}/>`+(label?`<text x="${x+w/2}" y="${y+h/2+(o.sub?-3:5)}" text-anchor="middle" font-size="${o.fs||14}" font-weight="700" fill="${o.tc||'#111'}">${label}</text>`:'')+(o.sub?`<text x="${x+w/2}" y="${y+h/2+15}" text-anchor="middle" font-size="11.5" font-weight="600" fill="${o.subc||C.muted}">${o.sub}</text>`:'');
+const arrowDefs=id=>`<defs><marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker></defs>`;
+const wire=(pts,id,o={})=>`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${o.c||'#111'}" stroke-width="${o.sw||2}" marker-end="url(#${id})"${o.dash?` stroke-dasharray="${o.dash}"`:''}/>`;
+const txt=(x,y,t,o={})=>`<text x="${x}" y="${y}" text-anchor="${o.a||'middle'}" font-size="${o.fs||12}" font-weight="${o.fw||600}" fill="${o.c||C.muted}">${t}</text>`;
+// ---------- map ----------
+$('#map').innerHTML=arrowDefs('am')+box(20,40,250,120,'MATLAB',{fill:C.blue,stroke:C.blue,tc:'#fff',fs:22,sub:'numbers · sizing · plots',subc:'#dbe6f3',r:24})+
+ box(360,20,620,190,'',{fill:'#fff',stroke:C.teal,sw:3,r:28})+txt(400,52,'SIMULINK',{a:'start',fs:16,fw:800,c:C.teal})+txt(400,72,'blocks run over time',{a:'start'})+
+ box(400,92,240,90,'Chain model',{sub:'battery → axle'})+box(700,92,240,90,'Stateflow chart',{fill:C.plum,stroke:C.plum,tc:'#fff',sub:'when is it safe?',subc:'#f3d9e8'})+
+ wire([[270,100],[355,100]],'am')+txt(312,90,'params')+wire([[355,140],[275,140]],'am')+txt(312,160,'results')+wire([[700,137],[645,137]],'am');
+// ---------- plot helper ----------
+function axes(el,o){const W=520,H=o.h||330,L=58,R=o.right?56:18,T=18,B=44,pw=W-L-R,ph=H-T-B;const X=v=>L+(v-o.x0)/(o.x1-o.x0)*pw,Y=v=>T+ph-(v-o.y0)/(o.y1-o.y0)*ph,Y2=o.right?v=>T+ph-(v-o.r0)/(o.r1-o.r0)*ph:null;
+ let g=`<rect x="${L}" y="${T}" width="${pw}" height="${ph}" fill="#fff" stroke="${C.line}"/>`;
+ for(const t of o.xt)g+=`<line x1="${X(t)}" x2="${X(t)}" y1="${T}" y2="${T+ph}" stroke="#f0f0f2"/>`+txt(X(t),T+ph+16,f(t),{fs:11});
+ for(const t of o.yt)g+=`<line x1="${L}" x2="${L+pw}" y1="${Y(t)}" y2="${Y(t)}" stroke="#f0f0f2"/>`+txt(L-6,Y(t)+4,f(t),{a:'end',fs:11});
+ if(o.right)for(const t of o.rt)g+=txt(L+pw+6,Y2(t)+4,f(t),{a:'start',fs:11});
+ g+=txt(L+pw/2,H-6,o.xl,{fs:12,c:'#3c4043'})+`<text x="14" y="${T+ph/2}" transform="rotate(-90 14 ${T+ph/2})" text-anchor="middle" font-size="12" font-weight="600" fill="#3c4043">${o.yl}</text>`+(o.right?`<text x="${W-8}" y="${T+ph/2}" transform="rotate(90 ${W-8} ${T+ph/2})" text-anchor="middle" font-size="12" font-weight="600" fill="#a18528">${o.rl}</text>`:'');
+ return{g,X,Y,Y2,L,T,pw,ph}}
+const path=(xs,ys,X,Y)=>xs.map((x,i)=>(i?'L':'M')+X(x).toFixed(1)+' '+Y(ys[i]).toFixed(1)).join('');
+// voltage window plot
+(()=>{const a=axes(null,{x0:80,x1:100,y0:200,y1:440,xt:[80,85,90,95,100],yt:[200,250,300,350,400],xl:'Cells in series, S',yl:'Pack voltage (V)'});const s=[];for(let i=80;i<=100;i++)s.push(i);
+ let g=a.g+`<rect x="${a.X(90)}" y="${a.T}" width="${a.X(95)-a.X(90)}" height="${a.ph}" fill="#fff3c4"/>`+txt((a.X(90)+a.X(95))/2,a.T+16,'valid S',{fs:12,fw:800,c:'#5c4600'});
+ g+=`<path d="${path(s,s.map(v=>v*4.2),a.X,a.Y)}" fill="none" stroke="${C.blue}" stroke-width="3"/><path d="${path(s,s.map(v=>v*2.8),a.X,a.Y)}" fill="none" stroke="${C.plum}" stroke-width="3"/>`;
+ g+=`<line x1="${a.L}" x2="${a.L+a.pw}" y1="${a.Y(400)}" y2="${a.Y(400)}" stroke="#111" stroke-dasharray="6 5"/>`+txt(a.L+6,a.Y(400)-6,'400 V rule',{a:'start',c:'#111'})+`<line x1="${a.L}" x2="${a.L+a.pw}" y1="${a.Y(250)}" y2="${a.Y(250)}" stroke="#111" stroke-dasharray="6 5"/>`+txt(a.L+a.pw-6,a.Y(250)+16,'Motor minimum',{a:'end',c:'#111'});
+ g+=txt(a.X(84),a.Y(84*4.2)-10,'Full',{c:C.blue,fw:800})+txt(a.X(84),a.Y(84*2.8)-10,'Empty',{c:C.plum,fw:800});
+ $('#plot-window').innerHTML=g})();
+// motor curve plot
+(()=>{const a=axes(null,{x0:0,x1:15000,y0:0,y1:180,xt:[0,5000,10000,15000],yt:[0,50,100,150],xl:'Motor speed (rpm)',yl:'Motor torque (N·m)',right:true,r0:0,r1:180,rt:[0,50,100,150],rl:'Power (kW)'});
+ const n=[],T=[],Pw=[];for(let i=0;i<=300;i++){const r=15000*i/300,w=r*2*Math.PI/60,t=Math.min(1500/10,150e3/Math.max(w,1));n.push(r);T.push(t);Pw.push(t*w/1000)}
+ const corner=150e3/150*60/(2*Math.PI);
+ let g=a.g+`<path d="${path(n,T,a.X,a.Y)}" fill="none" stroke="${C.blue}" stroke-width="3"/><path d="${path(n,Pw,a.X,a.Y2)}" fill="none" stroke="#e0b400" stroke-width="3"/>`+
+ `<line x1="${a.X(corner)}" x2="${a.X(corner)}" y1="${a.T}" y2="${a.T+a.ph}" stroke="${C.bad}" stroke-dasharray="4 5"/>`+txt(a.X(corner)+5,a.T+14,'corner ≈ '+f(corner)+' rpm',{a:'start',c:C.bad,fw:700});
+ g+=txt(a.X(2500),a.Y(150)-8,'torque',{c:C.blue,fw:800})+txt(a.X(13000),a.Y2(150)-8,'power',{c:'#a18528',fw:800});$('#plot-motor').innerHTML=g})();
+// Simulink hello
+$('#sl-hello').innerHTML=arrowDefs('ah')+box(80,60,170,80,'2',{fs:26,sub:'Constant'})+box(410,60,170,80,'×3',{fs:26,sub:'Gain'})+box(740,60,170,80,'6',{fs:26,sub:'Scope',fill:'#fff8d6'})+wire([[250,100],[405,100]],'ah')+wire([[580,100],[735,100]],'ah')+txt(328,90,'signal = 2')+txt(658,90,'signal = 6');
+// Simulink chain diagram
+(()=>{let g=arrowDefs('ac');
+ g+=box(150,20,250,250,'',{fill:'#fafafa',stroke:C.blue,dash:'7 6',r:18})+txt(165,42,'MOTOR + GEARBOX',{a:'start',fs:11,fw:800,c:C.blue});
+ g+=box(425,20,140,250,'',{fill:'#fafafa',stroke:C.teal,dash:'7 6',r:18})+txt(440,42,'INVERTER',{a:'start',fs:11,fw:800,c:C.teal});
+ g+=box(590,20,395,340,'',{fill:'#fafafa',stroke:C.plum,dash:'7 6',r:18})+txt(605,42,'BATTERY',{a:'start',fs:11,fw:800,c:C.plum});
+ g+=box(10,60,110,50,'axleRpm',{fs:12,sub:'From Workspace',fill:'#fff8d6'})+box(10,170,110,50,'axleTq',{fs:12,sub:'From Workspace',fill:'#fff8d6'});
+ g+=box(170,60,110,50,'G·2π/60',{fs:13,sub:'Gain → ω'})+box(170,170,110,50,'1/G',{fs:13,sub:'Gain → T'})+box(310,110,70,60,'×',{fs:22,sub:'Product'});
+ g+=box(445,110,100,60,'1/η',{fs:16,sub:'Gain'});
+ g+=box(610,110,70,60,'÷',{fs:22,sub:'Product'})+box(720,60,120,50,'−1/(3600·Ah)',{fs:12,sub:'Gain'})+box(870,60,70,50,'1/s',{fs:16,sub:'Integrator'});
+ g+=box(720,180,90,50,'Rpack',{fs:13,sub:'Gain'})+box(720,270,90,40,'Voc',{fs:13,sub:'Constant'})+box(845,210,60,60,'+ −',{fs:15,sub:'Sum'})+box(610,290,80,50,'Memory',{fs:12,sub:'last V'});
+ g+=box(870,140,90,40,'soc',{fs:12,sub:'To Workspace',fill:'#fff8d6'})+box(895,300,85,40,'V',{fs:12,sub:'To Workspace',fill:'#fff8d6'});
+ g+=wire([[120,85],[165,85]],'ac')+wire([[120,195],[165,195]],'ac')+wire([[280,85],[295,85],[295,130],[305,130]],'ac')+wire([[280,195],[295,195],[295,150],[305,150]],'ac')+txt(300,78,'ω',{fs:12,c:'#111'})+txt(300,212,'T',{fs:12,c:'#111'});
+ g+=wire([[380,140],[440,140]],'ac')+txt(410,132,'P',{c:'#111'})+wire([[545,140],[605,130]],'ac')+txt(568,114,'P_DC',{c:'#111'});
+ g+=wire([[680,140],[700,140],[700,85],[715,85]],'ac')+wire([[700,140],[700,205],[715,205]],'ac')+txt(690,152,'I',{c:'#111',fw:800});
+ g+=wire([[840,85],[865,85]],'ac')+wire([[940,85],[960,85],[960,110],[915,110],[915,135]],'ac');
+ g+=wire([[810,205],[825,205],[825,250],[840,250]],'ac')+wire([[810,290],[825,290],[825,232],[840,232]],'ac')+wire([[905,240],[940,240],[940,295]],'ac');
+ g+=wire([[940,265],[960,265],[960,370],[650,370],[650,345]],'ac',{c:C.bad})+wire([[610,315],[595,315],[595,150],[605,150]],'ac',{c:C.bad})+txt(790,394,'V fed back through Memory (breaks the algebraic loop)',{c:C.bad,fw:700});
+ $('#sl-chain').innerHTML=g})();
+// sim (same equations as build_rear_chain.m)
+(()=>{const dt=.01,N=3000,t=[],I=[],V=[],SOC=[];let soc=.9,Vp=Voc;for(let k=0;k<=N;k++){const tt=k*dt,rpm=Math.min(1000,100*tt),tq=tt<8?1000:300,w=rpm*motor.G*2*Math.PI/60,pm=tq/motor.G*w,pdc=pm/motor.eta,i=pdc/Vp,v=Voc-i*Rp;Vp=v;soc-=i*dt/(AhPack*3600);if(k%10===0){t.push(tt);I.push(i);V.push(v);SOC.push(soc)}}
+ const pkI=Math.max(...I),minV=Math.min(...V),tMin=t[V.indexOf(minV)],endS=SOC[SOC.length-1];
+ const H=420,L=58,R=18,pw=520-L-R,rowH=105,gap=24;let g='';const X=x=>L+x/30*pw;
+ const rows=[[I,0,600,[0,200,400,600],'Current (A)',C.blue,Icont,'continuous limit'],[V,150,350,[150,250,350],'Pack V',C.plum,motor.Vmin,'motor minimum'],[SOC,.78,.92,[.8,.85,.9],'SOC',C.teal,null,'']];
+ rows.forEach(([d,y0,y1,yt,lab,col,lim,ll],r)=>{const T=14+r*(rowH+gap),Y=v=>T+rowH-(v-y0)/(y1-y0)*rowH;g+=`<rect x="${L}" y="${T}" width="${pw}" height="${rowH}" fill="#fff" stroke="${C.line}"/>`;
+  yt.forEach(v=>g+=`<line x1="${L}" x2="${L+pw}" y1="${Y(v)}" y2="${Y(v)}" stroke="#f0f0f2"/>`+txt(L-6,Y(v)+4,r===2?f(v,2):f(v),{a:'end',fs:10.5}));
+  if(lim!=null)g+=`<line x1="${L}" x2="${L+pw}" y1="${Y(lim)}" y2="${Y(lim)}" stroke="#111" stroke-dasharray="6 5"/>`+txt(L+pw-4,Y(lim)-5,ll,{a:'end',c:'#111',fs:11});
+  g+=`<path d="${path(t,d,X,Y)}" fill="none" stroke="${col}" stroke-width="2.5"/>`+`<text x="14" y="${T+rowH/2}" transform="rotate(-90 14 ${T+rowH/2})" text-anchor="middle" font-size="11.5" font-weight="700" fill="${col}">${lab}</text>`});
+ [0,5,10,15,20,25,30].forEach(v=>g+=txt(X(v),H-22,v,{fs:10.5}));g+=txt(L+pw/2,H-4,'Time (s)',{fs:12,c:'#3c4043'});
+ $('#plot-sim').innerHTML=g;
+ $('#sim-flag').innerHTML=`<b>The model just found a problem.</b>At t = ${f(tMin,1)} s the launch pulls ${f(pkI)} A, which is ${f(pkI/Icont,1)}× this pack&rsquo;s ${f(Icont)} A continuous rating, and the pack sags to ${f(minV)} V, below the motor&rsquo;s ${motor.Vmin} V minimum. SOC ends at ${f(endS*100,1)}% after 30 s. That is exactly what models are for: finding this on a laptop instead of in the car. (Practice numbers.)`;})();
+// Stateflow basic
+$('#sf-basic').innerHTML=arrowDefs('ab')+`<circle cx="60" cy="115" r="6" fill="#111"/>`+wire([[66,115],[155,115]],'ab')+box(160,60,250,110,'Off',{r:26,fs:20,sub:'entry: hv = false;'})+box(620,60,250,110,'On',{r:26,fs:20,fill:'#fff8d6',sub:'entry: hv = true;'})+wire([[410,95],[615,95]],'ab')+txt(512,85,'[keyOn && ~fault]',{c:'#111',fs:14,fw:700})+wire([[615,140],[415,140]],'ab')+txt(512,165,'[~keyOn || fault]',{c:'#111',fs:14,fw:700});
+// Stateflow modes
+(()=>{let g=arrowDefs('amd');g+=`<circle cx="40" cy="80" r="6" fill="#111"/>`+wire([[46,80],[95,80]],'amd')+box(100,40,170,80,'Standby',{r:22,fs:17,sub:'entry: tq = 0;'});
+ g+=box(340,20,460,300,'',{r:28,fill:'#fafafa',stroke:C.plum,sw:2.5})+txt(365,50,'Driving',{a:'start',fs:17,fw:800,c:C.plum});
+ g+=`<circle cx="380" cy="110" r="5" fill="#111"/>`+wire([[385,110],[405,110]],'amd')+box(410,70,150,80,'EV',{r:20,fs:17,sub:'rear motor only'})+box(620,70,150,80,'Hybrid',{r:20,fs:17,sub:'engine + motor'})+box(510,215,160,80,'Regen',{r:20,fs:17,sub:'motor charges pack'});
+ g+=wire([[560,95],[615,95]],'amd')+txt(588,86,'[pedal>pHyb || soc<socLow]',{fs:10.5,c:'#111'})+wire([[615,130],[565,130]],'amd')+txt(588,148,'[pedal<pEV && soc>socHi]',{fs:10.5,c:'#111'});
+ g+=wire([[480,150],[540,210]],'amd')+txt(470,190,'[brake>0 && v>vMin]',{fs:10.5,c:'#111',a:'end'})+wire([[600,210],[650,155]],'amd')+txt(690,195,'[brake==0]',{fs:10.5,c:'#111',a:'start'});
+ g+=wire([[270,70],[335,70]],'amd')+txt(303,60,'[ready && gear==D]',{fs:10.5,c:'#111'})+wire([[335,110],[275,110]],'amd')+txt(303,128,'[gear==P]',{fs:10.5,c:'#111'});
+ g+=box(860,170,120,80,'Fault',{r:22,fs:17,fill:'#fbeeec',stroke:C.bad,sub:'entry: tq = 0;'})+wire([[800,210],[855,210]],'amd',{c:C.bad})+txt(828,200,'[fault]',{fs:11,c:C.bad,fw:800})+wire([[920,250],[920,370],[185,370],[185,125]],'amd',{c:C.bad})+txt(550,392,'[reset && ~fault]  (back to Standby)',{fs:11.5,c:C.bad,fw:700});
+ $('#sf-modes').innerHTML=g})();
+// together
+$('#together').innerHTML=arrowDefs('at')+box(30,30,220,90,'Precharge chart',{r:22,fill:C.plum,stroke:C.plum,tc:'#fff',sub:'Stateflow',subc:'#f3d9e8'})+box(30,150,220,70,'P_DC',{sub:'from the inverter gain'})+box(420,80,170,110,'Switch',{fs:18,sub:'u2 > 0.5 ?'})+box(420,205,170,40,'0',{fs:14,sub:''})+box(740,80,230,110,'Battery subsystem',{sub:'current only if pos'})+wire([[250,75],[340,75],[340,135],[415,135]],'at')+txt(300,66,'pos',{c:C.plum,fw:800,fs:13})+wire([[250,185],[380,185],[380,105],[415,105]],'at')+wire([[505,205],[505,195]],'at')+wire([[590,135],[735,135]],'at')+txt(660,125,'gated P_DC',{c:'#111',fw:700});
+// ---------- precharge simulator ----------
+(()=>{const VPACK=342,TAU=.5,TIMEOUT=3;let state='Open',tIn=0,vBus=0,hv=false,iso=false,stuck=false,reset=false;const out={neg:false,pre:false,pos:false};
+ const enter=s=>{state=s;tIn=0;if(s==='Open'||s==='Fault'){out.neg=out.pre=out.pos=false}if(s==='Precharge'){out.neg=true;out.pre=true;out.pos=false}if(s==='Closed'){out.pos=true;out.pre=false}log('→ '+s)};
+ const logEl=$('#log');const log=m=>{logEl.textContent=`[${new Date().toLocaleTimeString()}] ${m}\n`+logEl.textContent};
+ const draw=()=>{const st=(x,y,n,sub)=>{const on=state===n,fault=n==='Fault';return box(x,y,180,76,n,{r:22,fs:17,sub,fill:on?(fault?'#bd3b2e':'#ffce00'):'#fff',stroke:fault?'#bd3b2e':'#111',sw:on?3:2,tc:on&&fault?'#fff':'#111',subc:on&&fault?'#fbe0dc':C.muted})};
+  let g=arrowDefs('ap')+`<circle cx="30" cy="68" r="6" fill="#111"/>`+wire([[36,68],[55,68]],'ap');
+  g+=st(60,30,'Open','all open')+st(400,30,'Precharge','NEG + PRE')+st(400,250,'Closed','NEG + POS')+st(60,250,'Fault','all open');
+  g+=wire([[240,55],[395,55]],'ap')+txt(318,45,'[hvRequest && ~isoFault]',{fs:11,c:'#111'});
+  g+=wire([[490,106],[490,245]],'ap')+txt(500,175,'[vBus ≥ 0.95·vPack]',{fs:11,c:'#111',a:'start'});
+  g+=wire([[400,270],[245,98]],'ap')+txt(335,215,'[~hvRequest]',{fs:11,c:'#111'});
+  g+=wire([[420,106],[230,250]],'ap',{c:C.bad})+txt(305,150,'after(3, sec)',{fs:11,c:C.bad,fw:700});
+  g+=wire([[100,106],[100,245]],'ap',{c:C.bad})+txt(92,180,'[isoFault]',{fs:11,c:C.bad,fw:700,a:'end'});
+  g+=wire([[175,245],[175,111]],'ap',{c:'#111',dash:'5 4'})+txt(183,190,'[reset && ~isoFault',{fs:10.5,c:'#111',a:'start'})+txt(183,204,'&& ~hvRequest]',{fs:10.5,c:'#111',a:'start'});
+  g+=txt(320,380,'Isolation fault also leaves Precharge and Closed (arrows omitted for clarity)',{fs:11,c:C.muted});
+  $('#sf-pre').innerHTML=g;
+  ['neg','pre','pos'].forEach(k=>$('#c-'+k).classList.toggle('closed',out[k]));$('#v-bus').textContent=f(vBus)+' V';$('#m-bus').style.width=(vBus/VPACK*100)+'%';$('#v-state').textContent=state;$('#v-time').textContent=f(tIn,1)+' s';
+  $('#b-key').textContent=hv?'Key off':'Key on';$('#b-key').classList.toggle('on',hv);$('#b-iso').classList.toggle('on',iso)};
+ let last=performance.now();const step=now=>{const dt=Math.min(.05,(now-last)/1000);last=now;tIn+=dt;
+  // plant: capacitor charges through PRE (unless the resistor is open), instantly via POS, discharges slowly when open
+  if(out.pos)vBus=VPACK;else if(out.pre&&!stuck)vBus+=(VPACK-vBus)*(1-Math.exp(-dt/TAU));else vBus*=Math.exp(-dt/2);
+  // chart (fault arrow checked first)
+  if(state!=='Fault'&&iso)enter('Fault');
+  else if(state==='Open'&&hv&&!iso)enter('Precharge');
+  else if(state==='Precharge'&&vBus>=.95*VPACK)enter('Closed');
+  else if(state==='Precharge'&&tIn>=TIMEOUT){enter('Fault');log('precharge timeout')}
+  else if(state==='Closed'&&!hv)enter('Open');
+  else if(state==='Fault'&&reset&&!iso&&!hv)enter('Open');
+  reset=false;draw();requestAnimationFrame(step)};
+ $('#b-key').onclick=()=>{hv=!hv;log(hv?'key on':'key off')};$('#b-iso').onclick=()=>{iso=!iso;log(iso?'isolation fault!':'isolation fault cleared')};
+ $('#b-reset').onclick=()=>{reset=true;log('reset pressed'+(hv?' (turn the key off first)':''))};$('#b-stuck').onchange=e=>{stuck=e.target.checked;log(stuck?'precharge resistor open':'precharge resistor OK')};
+ draw();log('chart starts in Open');requestAnimationFrame(step)})();
+// ---------- screenshot slots ----------
+$$('.shot').forEach(el=>{const src=el.dataset.src,name=src.split('/').pop();el.innerHTML=`<div><b>Team screenshot goes here</b><span class="note">Save it as <code>docs/img/lecture/${name}</code> and commit.</span></div>`;const im=new Image();im.onload=()=>{el.classList.add('has');el.innerHTML='';im.alt='Team screenshot: '+name;el.appendChild(im)};im.src=src});
+// ---------- copy buttons + file names ----------
+$$('.code').forEach(c=>{const pre=c.querySelector('pre');pre.textContent=pre.textContent.replace(/^\n/,'')===pre.textContent?pre.textContent:pre.textContent;pre.innerHTML=pre.innerHTML.replace(/^\n/,'');const h=document.createElement('div');h.className='code-head';h.innerHTML=`<span class="dots"><i></i><i></i><i></i></span><span>${c.dataset.file||''}</span><button type="button">Copy</button>`;c.prepend(h);h.querySelector('button').onclick=e=>{navigator.clipboard&&navigator.clipboard.writeText(pre.textContent).then(()=>{e.target.textContent='Copied';setTimeout(()=>e.target.textContent='Copy',1200)})}});
+// ---------- present mode ----------
+const slides=$$('.slide');let cur=0;
+function show(i){cur=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,k)=>s.classList.toggle('on',k===cur));$('#count').textContent=`${cur+1} / ${slides.length}`;$('#progress').style.width=((cur+1)/slides.length*100)+'%';slides[cur].scrollTop=0}
+function present(on){document.body.classList.toggle('present',on);$('#present').textContent=on?'Scroll view':'Present ▶';if(on)show(cur)}
+$('#present').onclick=()=>present(!document.body.classList.contains('present'));$('#exit').onclick=()=>present(false);$('#prev').onclick=()=>show(cur-1);$('#next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{if(!document.body.classList.contains('present')||e.target.closest('input,select,button'))return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(cur+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(cur-1)}if(e.key==='Escape')present(false)});
+})();
+</script>
+</body>
+</html>

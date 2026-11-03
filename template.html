@@ -484,6 +484,40 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
 .sponsor img{max-width:100%;max-height:56px;object-fit:contain}
 @media(max-width:900px){.sponsor-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:620px){.sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sponsor{min-height:80px}}
+
+@media(min-width:901px){.nav{gap:2px}.nav button,.nav a.nav-print{padding:9px 10px;font-size:.79rem}.nav-group{padding:0 2px}.nav-sep{margin:0 3px}}
+@media(min-width:901px) and (max-width:1340px){.nav-group{display:none}}
+.nav button.nav-hot{background:var(--gold);color:#000}.nav button.nav-hot:hover{background:#000;color:#fff}.nav button.nav-hot.active{background:#000;color:var(--gold)}
+.lec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-bottom:20px}
+.lec-card{display:flex;flex-direction:column;gap:8px;padding:28px;border-radius:var(--radius);background:#000;color:#fff;text-decoration:none;min-height:260px;transition:transform .18s,box-shadow .18s}
+.lec-card:nth-child(2){background:#fff;color:#000;border:1px solid var(--line)}
+.lec-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.lec-n{font:700 .72rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}.lec-card:nth-child(2) .lec-n{color:#4a4f55}
+.lec-card h3{font-family:var(--display);font-weight:700;font-size:1.7rem;letter-spacing:-.03em;line-height:1.1;margin:0}
+.lec-card p{margin:0;color:#cfcfd4;font-size:.95rem}.lec-card:nth-child(2) p{color:var(--muted)}
+.lec-meta{margin-top:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap}.lec-meta i{font-style:normal;font:700 .7rem var(--display);padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.14)}.lec-card:nth-child(2) .lec-meta i{background:#f1f1f3}
+.lec-meta b{margin-left:auto;font-family:var(--display);color:var(--gold)}.lec-card:nth-child(2) .lec-meta b{color:#000}
+.cw-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-bottom:18px;overflow:hidden}
+.cw-card:before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:4px;border-radius:0 4px 4px 0;background:var(--lane)}
+.cw-head{display:flex;justify-content:space-between;gap:16px;align-items:start;flex-wrap:wrap}
+.cw-head h3{margin:10px 0 2px;font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.025em}.cw-head p{margin:0;color:var(--muted);font-size:.86rem}
+.cw-actions{display:flex;gap:8px;flex-wrap:wrap}
+.cw-concept{font-size:1.05rem;margin:16px 0 4px;max-width:760px}
+.cw-row{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:start;margin-top:12px}
+.cw-label{font:700 .68rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:#4a4f55;padding-top:5px}
+.cw-prio{margin:0;padding:0;list-style:none;counter-reset:p;display:flex;flex-wrap:wrap;gap:6px}.cw-prio li{counter-increment:p;background:#fff6cc;border-radius:999px;padding:5px 12px 5px 8px;font-size:.84rem;font-weight:600}.cw-prio li:before{content:counter(p);display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#000;color:var(--gold);font:700 .7rem var(--display);margin-right:7px}
+.cw-chips{display:flex;flex-wrap:wrap;gap:6px}.cw-chips i{font-style:normal;background:#f4f4f5;border-radius:999px;padding:5px 12px;font-size:.84rem;font-weight:600}
+.cw-hl{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:16px}.cw-hl div{background:#f7f7f8;border-radius:16px;padding:12px 14px}.cw-hl span{display:block;font:700 .66rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:#4a4f55}.cw-hl b{font-family:var(--display);font-size:.98rem}
+.cw-table{margin-top:16px}.cw-table table{min-width:560px}
+.cw-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:20px}
+.cw-two h4{font-family:var(--display);font-size:1rem;margin:0 0 6px}
+.cw-list{margin:0;padding-left:1.1rem}.cw-list li{margin:5px 0;font-size:.92rem}
+.cw-files{display:grid;gap:8px}.cw-file{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:14px}
+.cw-ico{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#000;color:var(--gold);font:800 .72rem var(--display)}
+.cw-file b{display:block;font-size:.88rem}.cw-file small{display:block;color:var(--muted);font-size:.74rem;overflow-wrap:anywhere}
+.cw-box{font:600 .72rem var(--display);color:#5f6368;background:#f4f4f5;border-radius:999px;padding:5px 10px;white-space:nowrap}
+@media(max-width:620px){.cw-card{padding:20px 18px}.cw-row{grid-template-columns:1fr;gap:4px}.cw-file{grid-template-columns:40px 1fr}.cw-file .cw-box,.cw-file .btn{grid-column:2}}
+
 </style>
 </head>
 <body>
@@ -500,6 +534,7 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
   <span class="nav-group">Join</span>
   <button class="active" data-page="start">Start</button>
   <button data-page="meetings">Meetings</button>
+  <button class="nav-hot" data-page="lectures">Lectures</button>
   <button data-page="onboarding">Learn</button>
   <button data-page="team">Team</button>
   <button data-page="rules">Rules</button>
@@ -507,6 +542,7 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
   <button data-page="now">This week</button>
   <button data-page="deliverables">Deliverables</button>
   <button data-page="scorecards">Scorecards</button>
+  <button data-page="completed">Completed</button>
   <button data-page="timeline">Timeline</button>
   <a class="nav-print" href="schedule.html">Print</a>
   <button data-page="controls">Risks</button>
@@ -516,6 +552,8 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
   <section class="page active" id="page-start"></section>
   <section class="page" id="page-now"></section>
   <section class="page" id="page-meetings"></section>
+  <section class="page" id="page-lectures"></section>
+  <section class="page" id="page-completed"></section>
   <section class="page" id="page-scorecards"></section>
   <section class="page" id="page-deliverables"></section>
   <section class="page" id="page-timeline"></section>
@@ -761,6 +799,29 @@ function sponsorsBand(){
 function vehicleBand(){
   return `<section class="start-section vehicle-band reveal"><figure><img src="img/cherokee-concept.jpg" alt="Red 2026 Jeep Cherokee Hybrid concept render with gold stripes, styled as an off-road fire command vehicle" loading="lazy"><figcaption><span class="section-kicker">Our vehicle</span><b>2026 Jeep Cherokee Hybrid</b><span>Off-road fire command center &middot; student concept render</span></figcaption></figure></section>`;
 }
+function renderLectures(){
+  const L=[{n:1,href:'guides/battery-to-axle.html',title:'From battery to axle',sub:'The math: cells, pack voltage and energy, C-rate, voltage sag, inverter, motor, gearbox, tires. With a calculator.',tags:['HVB','PCM'],slides:14},
+           {n:2,href:'guides/matlab-simulink-stateflow.html',title:'Build it in MATLAB, Simulink and Stateflow',sub:'The same chain in our tools: size the pack in a script, model it in Simulink, and run the high-voltage precharge logic in Stateflow.',tags:['PCM','HVB','EE1'],slides:17}];
+  $('#page-lectures').innerHTML=heading('Lectures','Learn the car one layer at a time. Press Present inside any lecture to teach it.')+
+   `<div class="lec-grid">${L.map(l=>`<a class="lec-card" href="${l.href}"><span class="lec-n">Lecture ${l.n}</span><h3>${esc(l.title)}</h3><p>${esc(l.sub)}</p><span class="lec-meta">${l.tags.map(t=>`<i>${esc(t)}</i>`).join('')}<b>${l.slides} slides &rarr;</b></span></a>`).join('')}</div>`+
+   `<div class="callout"><strong>Practice numbers on the public site.</strong>Both lectures use made-up cell and motor numbers. The team copy of Lecture 1, with the real catalog and drive unit specs, is shared in Box or Teams.</div>`;
+}
+function renderCompleted(){
+  const subs=DATA.deliverables.filter(d=>d.submission).sort((a,b)=>b.due.localeCompare(a.due));
+  const pastNo=DATA.deliverables.filter(d=>!d.submission&&isPast(d.due)).sort((a,b)=>b.due.localeCompare(a.due));
+  const files=s=>`<div class="cw-files">${s.files.map(f=>`<div class="cw-file"><span class="cw-ico">${/mp4/i.test(f.file)?'▶':'PDF'}</span><span><b>${esc(f.name)}</b><small>${esc(f.file)} &middot; ${esc(f.format)}</small></span>${f.box_url?`<a class="btn btn-light btn-sm" href="${esc(f.box_url)}" target="_blank" rel="noopener">Open in Box</a>`:`<span class="cw-box">In EcoCAR Box</span>`}</div>`).join('')}</div>`;
+  const card=d=>{const s=d.submission;return `<article class="cw-card" style="--lane:${laneColor(d.lane)}"><header class="cw-head"><div><span class="pill green">&#10003; ${esc(s.status)}</span> <span class="pill">${esc(laneName[d.lane]||d.lane)}</span><h3>${esc(d.title)}</h3><p>Due ${fmt(d.due)} &middot; ${d.points||'—'} competition points &middot; ${esc(person(d.owner).name)} &middot; Score ${esc(s.score)}</p></div><div class="cw-actions"><button type="button" class="btn btn-light btn-sm" data-deliverable="${esc(d.id)}">Requirement card</button>${d.scorecard?`<button type="button" class="btn btn-light btn-sm" data-page="scorecards">Scorecard</button>`:''}</div></header>
+    ${s.concept?`<p class="cw-concept">${esc(s.concept)}</p>`:''}
+    ${s.priorities?`<div class="cw-row"><span class="cw-label">Design priorities</span><ol class="cw-prio">${s.priorities.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div>`:''}
+    ${s.benchmarks?`<div class="cw-row"><span class="cw-label">Benchmarked</span><div class="cw-chips">${s.benchmarks.map(x=>`<i>${esc(x)}</i>`).join('')}</div></div>`:''}
+    ${s.highlights?`<div class="cw-hl">${s.highlights.map(([k,v])=>`<div><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('')}</div>`:''}
+    ${s.targets?`<div class="table-wrap cw-table"><table class="compact"><thead><tr><th>Target</th><th>Competition</th><th>Our target</th></tr></thead><tbody>${s.targets.map(([a,b,c])=>`<tr><td><b>${esc(a)}</b></td><td>${esc(b)}</td><td>${esc(c)}</td></tr>`).join('')}</tbody></table></div>`:''}
+    <div class="cw-two"><div><h4>What we found</h4><ul class="cw-list">${s.summary.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div><h4>What it sets up</h4><ul class="cw-list">${s.next.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><h4 style="margin-top:16px">Files we submitted</h4>${files(s)}</div></div></article>`};
+  $('#page-completed').innerHTML=heading('Completed work','What we&rsquo;ve turned in, so the next person can see how it was done.')+
+   `<div class="sc-summary"><div><b>${subs.length}</b><span>submissions on this page</span></div><div><b>${subs.reduce((a,d)=>a+(d.points||0),0)}</b><span>competition points submitted</span></div><div><b>${pastNo.length}</b><span>past items still to add here</span></div></div>`+
+   subs.map(card).join('')+
+   (pastNo.length?`<div class="panel"><h3>Also past, details not added yet</h3><p class="panel-note">Add a <code>submission</code> block to the item in <code>data/deliverables.json</code> to show it here. Keep files in Box; this page shows summaries only.</p><div class="sc-wait">${pastNo.map(d=>`<button type="button" class="seat-row past" data-deliverable="${esc(d.id)}"><time>${fmt(d.due)}</time><span>${esc(d.title)}<small>${d.points?d.points+' pts':'not scored'} &middot; ${esc(person(d.owner).name)}</small></span></button>`).join('')}</div></div>`:'');
+}
 function renderStart(){
   const A=DATA.constraints.architecture,openCount=DATA.starter_tasks.filter(t=>t.status==='Open').length;
   const pp=P_POSITIONS.map(([k,v])=>`<li class="${k==='P4'?'hot':''}"><b>${k}</b><span>${esc(v)}${k==='P4'?' (this is ours)':''}</span></li>`).join('');
@@ -919,7 +980,7 @@ function renderOnboarding(){
   const projects=DATA.projects.map(p=>{const linked=p.task_ids.map(id=>DATA.tasks.find(t=>t.id===id)).filter(Boolean).sort((a,b)=>a.start.localeCompare(b.start)),next=linked.find(t=>t.start>=DATA.today)||linked[linked.length-1];return `<button class="project-card" style="--lane:${laneColor(p.lane)}" data-project="${esc(p.id)}"><span class="project-status">${pill(p.status,p.status.includes('Needs')?'yellow':'green')}<span class="subtle">${esc(laneName[p.lane])}</span></span><h4>${esc(p.title)}</h4><p>${esc(p.outcome)}</p><div class="project-now"><b>Now</b>${esc(p.now)}</div>${next?`<div class="subtle" style="margin-top:9px">Next mapped date · ${fmt(next.start)}</div>`:''}</button>`}).join('');
   $('#page-onboarding').innerHTML=heading('Get started','Set up your tools, then ship a small first win. Every card opens a step-by-step guide.')+`
   <div class="steps">${steps.map(s=>`<div class="step"><b>${s[0]}</b><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('')}</div>
-  <a class="lecture-link" href="guides/battery-to-axle.html"><span class="section-kicker">Lecture</span><b>Battery &rarr; inverter &rarr; motor &rarr; axle</b><span>How a pack powers our rear drive unit, with the calculations.</span><i>Open the lecture &rarr;</i></a>
+  <a class="lecture-link" href="#lectures" data-page="lectures"><span class="section-kicker">Lectures</span><b>Battery to axle, then MATLAB, Simulink and Stateflow</b><span>Two short lectures: the math first, then building it in our tools.</span><i>Open the Lectures tab &rarr;</i></a>
   <div class="callout"><strong>Ready for something you own?</strong>After a first win, claim a starter task on the <a href="#start" data-page="start">Start here</a> page. Each one feeds a graded deliverable and comes with a mentor.</div>
   <section class="onboard-section"><div class="onboard-section-head"><div><span class="section-kicker">Tool access</span><h3>Software setup and onramps</h3></div><p>Complete the learning path before using shared production models. Save the listed proof so a mentor can verify your environment quickly.</p></div><div class="tool-grid">${guides}</div></section>
   <section class="onboard-section"><div class="onboard-section-head"><div><span class="section-kicker">Current work</span><h3>Projects we are working on</h3></div><p>Pick the project that matches your interests. The detail view shows its owner, current work, mapped taskline, and a safe contribution path.</p></div><div class="project-grid">${projects}</div></section>
@@ -963,12 +1024,12 @@ function renderUpdate(){
 function showPage(name,push=true){$$('.page').forEach(p=>p.classList.toggle('active',p.id===`page-${name}`));requestAnimationFrame(drawOrgLines);requestAnimationFrame(dissectUpdate);$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(push)history.replaceState(null,'',`#${name}`);window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'})}
 
 $('#baseline').textContent=`Baseline ${fmt(DATA.site.baseline_date)}`;$('#official').textContent=`Official schedule ${fmt(DATA.site.official_schedule_as_of)}`;$('#privacy').textContent=DATA.site.privacy_notice;
-renderStart();renderMeetings();renderScorecards();renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
+renderStart();renderMeetings();renderLectures();renderCompleted();renderScorecards();renderNow();renderRules();renderDeliverables();renderTimeline();renderTeam();renderOnboarding();renderControls();renderUpdate();
 document.addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b){e.preventDefault();showPage(b.dataset.page)}});
 document.addEventListener('click',e=>{const d=e.target.closest('[data-deliverable]');if(d)openDeliverable(d.dataset.deliverable);const t=e.target.closest('[data-task]');if(t)openTask(t.dataset.task);const g=e.target.closest('[data-guide]');if(g)openGuide(g.dataset.guide);const w=e.target.closest('[data-onboarding]');if(w)openOnboardingJob(w.dataset.onboarding);const p=e.target.closest('[data-project]');if(p)openProject(p.dataset.project);const o=e.target.closest('[data-seat]');if(o)openSeat(o.dataset.seat);if(e.target.closest('[data-close]'))$('#detail').close()});
 $('#detail').addEventListener('click',e=>{if(e.target===$('#detail'))$('#detail').close()});
 window.addEventListener('resize',drawOrgLines);window.addEventListener('load',drawOrgLines);requestAnimationFrame(drawOrgLines);initScroll();
-const initial=location.hash.slice(1);if(['start','meetings','now','rules','deliverables','scorecards','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
+const initial=location.hash.slice(1);if(['start','meetings','lectures','completed','now','rules','deliverables','scorecards','timeline','team','onboarding','controls','update'].includes(initial))showPage(initial,false);
 // Hero particle field: short gold, marigold and grey dashes that drift and swirl away from the pointer.
 (function heroField(){
   const c=document.getElementById('hero-field');if(!c||!c.getContext)return;

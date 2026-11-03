@@ -227,7 +227,7 @@ body.present .pager{display:flex;position:fixed;right:20px;bottom:18px;z-index:3
       <li>Max <span data-k="mAxleMax"></span> axle rpm &times; <span data-k="ratio"></span> = <b data-k="mMotorMaxCalc"></b> motor rpm (spec says <span data-k="mMotorMax"></span>)</li>
       <li>Top speed from the rear unit: <b data-k="vtopKmh"></b> km/h (<b data-k="vtopMph"></b> mph)</li>
       <li>Peak push at the rear tires: <b data-k="Fpk"></b> kN, about <b data-k="accel"></b> m/s&sup2; on a <span data-k="vehKg"></span> kg vehicle</li></ul>
-      <p class="note" style="margin:6px 0 0">The tire size is a placeholder. Use the delivered Cherokee&rsquo;s tire. Traction may limit push before the motor does.</p></div>
+      <p class="note" style="margin:6px 0 0">245/65R18 is the low end of the team&rsquo;s Off-Road target range (245/65R18 to 265/65R18). Traction may limit push before the motor does.</p></div>
   </div>
 </section>
 
@@ -292,7 +292,7 @@ body.present .pager{display:flex;position:fixed;right:20px;bottom:18px;z-index:3
 <div class="pager"><button class="btn" id="prev" type="button">&larr;</button><span id="count"></span><button class="btn" id="next" type="button">&rarr;</button><button class="btn" id="exit" type="button">Exit</button></div>
 <div class="progress" id="progress"></div>
 <script>
-const LECTURE={"mode": "public", "mode_label": "Public copy · practice numbers", "banner": "Practice numbers are made up so this page can be public. The real cell catalog and drive unit specs are in EcoCAR Box; the team copy of this lecture uses them.", "rules": {"pack_vmin": 200, "pack_vmax": 400, "e_max_wh": 5000, "module_vmax": 50, "mass_allow_kg": 182, "vehicle_mass_kg": 2154}, "tire": "245/65R17", "cells": [{"id": "PRACTICE-1", "name": "Practice cell (made-up)", "chem": "NMC", "form": "21700", "vnom": 3.6, "vmax": 4.2, "vmin": 2.8, "ah": 4.0, "wh": 14.4, "ccont": 20, "cpeak": 40, "rmohm": 8, "g": 70, "pulse": "short pulse"}], "motor": {"name": "Practice motor (made-up)", "source": "made-up practice numbers", "peak_kw": 150, "cont_kw": 70, "v_min": 250, "v_nom": 350, "v_max": 450, "ratio": 10, "t_peak_nm": 1500, "motor_base_rpm": 9500, "axle_rpm_max": 1500, "motor_max_rpm": 15000, "mass_kg": 90}};
+const LECTURE={"mode": "public", "mode_label": "Public copy · practice numbers", "banner": "Practice numbers are made up so this page can be public. The real cell catalog and drive unit specs are in EcoCAR Box; the team copy of this lecture uses them.", "rules": {"pack_vmin": 200, "pack_vmax": 400, "e_max_wh": 5000, "module_vmax": 50, "mass_allow_kg": 182, "vehicle_mass_kg": 2154}, "tire": "245/65R18", "cells": [{"id": "PRACTICE-1", "name": "Practice cell (made-up)", "chem": "NMC", "form": "21700", "vnom": 3.6, "vmax": 4.2, "vmin": 2.8, "ah": 4.0, "wh": 14.4, "ccont": 20, "cpeak": 40, "rmohm": 8, "g": 70, "pulse": "short pulse"}], "motor": {"name": "Practice motor (made-up)", "source": "made-up practice numbers", "peak_kw": 150, "cont_kw": 70, "v_min": 250, "v_nom": 350, "v_max": 450, "ratio": 10, "t_peak_nm": 1500, "motor_base_rpm": 9500, "axle_rpm_max": 1500, "motor_max_rpm": 15000, "mass_kg": 90}};
 (function(){
 const D=LECTURE,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const st={cell:0,S:null,P:null,m:{...D.motor},tire:D.tire,veh:D.rules.vehicle_mass_kg,eta:1};
