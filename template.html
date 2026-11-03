@@ -476,6 +476,14 @@ dialog{border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdr
 .lecture-link:hover{transform:translateY(-2px)}.lecture-link .section-kicker{color:var(--gold)}.lecture-link b{font-family:var(--display);font-size:1.3rem;letter-spacing:-.02em}.lecture-link span:not(.section-kicker){color:#cfcfd4;font-size:.9rem}.lecture-link i{font-style:normal;font-family:var(--display);font-weight:700;color:var(--gold);margin-top:6px}
 @media(max-width:620px){.sc-summary{grid-template-columns:1fr}.sc-summary div{border-right:0;border-bottom:1px solid #e9e9ec}.sc-card{padding:20px 18px}.sc-card-head{flex-direction:column}.vehicle-band figure{border-radius:20px}.vehicle-band figcaption{padding:40px 18px 16px}.mt-grid{grid-template-columns:1fr}}
 
+.sponsor-band{margin-top:56px}
+.sponsor-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:14px}
+.sponsor{display:grid;place-items:center;min-height:96px;padding:16px;border:1px solid var(--line);border-radius:20px;background:#fff;text-align:center;text-decoration:none;color:#000;transition:transform .18s,box-shadow .18s,border-color .18s}
+.sponsor:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#d6d6da}
+.sponsor b{font-family:var(--display);font-weight:700;font-size:.98rem;line-height:1.25;letter-spacing:-.01em}
+.sponsor img{max-width:100%;max-height:56px;object-fit:contain}
+@media(max-width:900px){.sponsor-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:620px){.sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sponsor{min-height:80px}}
 </style>
 </head>
 <body>
@@ -746,6 +754,10 @@ function renderMeetings(){
   const teams=rows.filter(r=>r.team&&r.team.people).sort((a,b)=>pref.indexOf(a.id)-pref.indexOf(b.id)).map(r=>`<article class="mt-card" id="meet-${esc(r.id)}" style="--lane:${laneColor(r.lane)}"><div class="mt-top"><span class="mt-name">${esc(r.name)}</span><span class="mt-when">${esc(r.day)}s &middot; ${esc(r.time)}</span></div>${r.title?`<h4>${esc(r.title)}</h4>`:''}<p>${esc(r.team.what)}</p>${r.team.focus&&r.team.focus.length?`<ul class="mt-focus">${r.team.focus.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}<div class="mt-people">${r.team.people.map(face).join('')}</div>${r.team.note?`<p class="mt-note">${esc(r.team.note)}</p>`:''}</article>`).join('');
   $('#page-meetings').innerHTML=heading('Meetings','Drop in to any of these. Friday&rsquo;s General Meeting is the easiest first step.')+week+`<p class="subtle" style="margin:12px 0 0">Fall schedule runs through ${fmt(last)}. Most meetings are in the B13 Garage.</p><h3 class="sc-group">Who meets, and what they do</h3><div class="mt-grid">${teams}</div>`;
 }
+function sponsorsBand(){
+  const sp=DATA.site.sponsors||[];if(!sp.length)return'';
+  return `<section class="start-section sponsor-band reveal" aria-label="Our sponsors"><span class="section-kicker">Our sponsors</span><div class="sponsor-grid">${sp.map(x=>{const inner=x.logo?`<img src="${esc(x.logo)}" alt="${esc(x.name)}" loading="lazy">`:`<b>${esc(x.name)}</b>`;return x.url?`<a class="sponsor" href="${esc(x.url)}" target="_blank" rel="noopener">${inner}</a>`:`<span class="sponsor">${inner}</span>`}).join('')}</div></section>`;
+}
 function vehicleBand(){
   return `<section class="start-section vehicle-band reveal"><figure><img src="img/cherokee-concept.jpg" alt="Red 2026 Jeep Cherokee Hybrid concept render with gold stripes, styled as an off-road fire command vehicle" loading="lazy"><figcaption><span class="section-kicker">Our vehicle</span><b>2026 Jeep Cherokee Hybrid</b><span>Off-road fire command center &middot; student concept render</span></figcaption></figure></section>`;
 }
@@ -754,7 +766,8 @@ function renderStart(){
   const pp=P_POSITIONS.map(([k,v])=>`<li class="${k==='P4'?'hot':''}"><b>${k}</b><span>${esc(v)}${k==='P4'?' (this is ours)':''}</span></li>`).join('');
   $('#page-start').innerHTML=`
   <section class="start-intro"><div><span class="section-kicker">Welcome</span><h2>We&rsquo;re turning a Jeep Cherokee into a P4 hybrid.</h2><p>Here&rsquo;s the car, the people, and a task with your name on it.</p></div>
-    <div class="start-jumps"><button type="button" data-jump="start-p4"><b>1</b><span>Learn the car<small>What P4 means</small></span></button><button type="button" data-jump="start-team"><b>2</b><span>Meet the leads<small>Who does what</small></span></button><button type="button" data-jump="start-tasks"><b>3</b><span>Claim a task<small>${openCount} open right now</small></span></button><button type="button" data-page="meetings"><b>4</b><span>Come to a meeting<small>Tue, Wed and Fri</small></span></button></div></section>
+    <div class="start-jumps"><button type="button" data-jump="start-p4"><b>1</b><span>Learn the car<small>What P4 means</small></span></button><button type="button" data-jump="start-team"><b>2</b><span>Meet the leads<small>Who does what</small></span></button><button type="button" data-page="meetings"><b>3</b><span>Come to a meeting<small>Tue, Wed and Fri</small></span></button></div></section>
+  ${sponsorsBand()}
   ${vehicleBand()}
   <section class="start-section" id="start-p4"><div class="start-head reveal"><span class="section-kicker">The idea</span><h3>What does P4 mean?</h3><p>Hybrids are named by where the electric motor sits. P4 puts it on the axle the engine doesn&rsquo;t drive.</p></div>
     <div class="pp-wrap reveal">${pPositionsSVG()}<ul class="pp-list">${pp}</ul></div><a class="lecture-link reveal" href="guides/battery-to-axle.html"><span class="section-kicker">Go deeper</span><b>Battery &rarr; inverter &rarr; motor &rarr; axle</b><span>A short lecture with the math, and a calculator you can play with.</span><i>Open the lecture &rarr;</i></a></section>

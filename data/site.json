@@ -18,5 +18,33 @@
     "limit_per_person": 2,
     "form": "claim-task.yml",
     "note": "First valid claim wins. mode: anyone | members (owners, members and collaborators only)."
-  }
+  },
+  "sponsors": [
+    {
+      "name": "Cal State LA",
+      "url": "https://www.calstatela.edu",
+      "logo": ""
+    },
+    {
+      "name": "Stellantis",
+      "url": "https://www.stellantis.com",
+      "logo": ""
+    },
+    {
+      "name": "Argonne National Laboratory",
+      "url": "https://www.anl.gov",
+      "logo": ""
+    },
+    {
+      "name": "U.S. Department of Energy",
+      "url": "https://www.energy.gov",
+      "logo": ""
+    },
+    {
+      "name": "EcoCAR Innovation Challenge",
+      "url": "https://avtcseries.org",
+      "logo": ""
+    }
+  ],
+  "sponsors_note": "Add official logo files from each organization's brand kit as docs/img/sponsors/<file>.png and put the path in 'logo'. Until then the name shows as text."
 }
