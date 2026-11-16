@@ -37,7 +37,7 @@ fs-coordinator-named,Program & project management,pgm,Facilities & Safety Coordi
 ti-board-order,"Training, facilities, purchases & approvals",pgm,TI board ordered,long-lead purchase · order now (ASAP),milestone,2026-11-20,,geo
 siemens-server-access,"Training, facilities, purchases & approvals",pgm,Siemens server access,follows NDA approval · fallback GitLab,tbd,2026-11-16,2027-01-20,hen
 vehicle-delivery-window,"Training, facilities, purchases & approvals",pgm,Vehicle delivery and vehicle-use approval,January 2027,tbd,2027-01-04,2027-01-29,hen
-team-training-spring,"Training, facilities, purchases & approvals",pgm,"Team training: CAN, Simulink, CAD; Makerspace and Circuitspace access",key members · before spring implementation,bar,2027-01-21,2027-03-25,hen
+team-training-spring,"Training, facilities, purchases & approvals",pgm,"Team training: CAN, Simulink, CAD, shop access",key members · Makerspace and Circuitspace · before spring implementation,bar,2027-01-21,2027-03-25,hen
 university-stakeholder-meeting-preparation,Program & project management,pgm,University stakeholder meeting — preparation,graded · 28 Jan,milestone,2027-01-28,,geo
 stakeholder-meeting-proof-of-execution,Program & project management,pgm,Stakeholder meeting — proof of execution,graded · 18 Mar,milestone,2027-03-18,,geo
 project-status-update-assurance-review,Program & project management,pgm,Project Status Update & Assurance Review,graded · 8 Apr,milestone,2027-04-08,,geo
@@ -82,13 +82,13 @@ onboard-training-runs-from-the-guide,PCM — propulsion controls & modeling,pcm,
 pcm-tool-check,PCM — propulsion controls & modeling,pcm,PCM Tool Check,graded · 5 Nov,milestone,2026-11-05,,ron
 organizer-walkthrough-window,PCM — propulsion controls & modeling,pcm,Organizer walkthrough window,"9–20 Nov, published",bar,2026-11-09,2026-11-20,ron
 virtual-vehicle-simulation-epa-cycles,PCM — propulsion controls & modeling,pcm,Virtual Vehicle Simulation — EPA cycles,"UDDS, HWFET, US06",bar,2026-10-15,2026-12-04,ron min
-freeze-red-team-3,PCM — propulsion controls & modeling,pcm,Freeze & red team,T−5,freeze,2026-12-04,2026-12-10,ron
+freeze-red-team-3,PCM — propulsion controls & modeling,pcm,"Team check, fix and finish",team check 9 days before due,freeze,2026-12-01,2026-12-10,ron
 virtual-vehicle-simulation,PCM — propulsion controls & modeling,pcm,Virtual Vehicle Simulation,graded · 10 Dec,milestone,2026-12-10,,ron
 nx-cohort-cell-module-modeling,HVB — high voltage battery,hvb,NX cohort & cell / module modeling,team-set,bar,2026-09-04,2026-10-15,dav
 sponsored-cell-specs-module-options,HVB — high voltage battery,hvb,Sponsored cell specs & module options,ship date unknown,tbd,2026-09-15,2026-11-01,dav
 per-cell-c-rate-check,HVB — high voltage battery,hvb,Per-cell C-rate check,before Atlanta,milestone,2026-09-23,,dav
 battery-performance-targets,HVB — high voltage battery,hvb,Battery Performance Targets,build,bar,2026-10-01,2026-11-26,dav
-freeze-red-team-4,HVB — high voltage battery,hvb,Freeze & red team,T−5,freeze,2026-11-26,2026-12-03,dav
+freeze-red-team-4,HVB — high voltage battery,hvb,"Team check, fix and finish",team check 9 days before due,freeze,2026-11-20,2026-12-03,dav
 battery-performance-target-development,HVB — high voltage battery,hvb,Battery Performance Target Development,graded · LARGE · 3 Dec (moved from 19 Nov on 30 Oct dashboard),milestone,2026-12-03,,dav
 hv-work-permit-battery-build-book,HVB — high voltage battery,hvb,HV work permit + Battery Build Book,rule H-7.3 requires it in writing,bar,2026-10-01,2026-12-15,dav dor
 marcom-manager-named,"PIT, MarCom & business",biz,MarCom Manager named,target,milestone,2026-09-17,,geo mar

@@ -59,6 +59,19 @@ def parse_date(value: str, where: str, problems: list[str], required: bool = Tru
         return None
 
 
+# Academic breaks and campus closures: a countdown step that lands here (or on a weekend) moves earlier.
+BLOCKED_DAYS = [("2026-11-11", "2026-11-11"), ("2026-11-23", "2026-11-28"), ("2026-12-14", "2026-12-19"),
+                ("2026-12-24", "2027-01-03"), ("2027-03-29", "2027-04-04"), ("2027-05-17", "2027-05-22")]
+
+
+def countdown_step(value: str, days: int) -> str:
+    """Team countdown: `days` calendar days before the due date, moved earlier off weekends and blocked days."""
+    current = dt.date.fromisoformat(value) - dt.timedelta(days=days)
+    while current.weekday() >= 5 or any(a <= current.isoformat() <= b for a, b in BLOCKED_DAYS):
+        current -= dt.timedelta(days=1)
+    return current.isoformat()
+
+
 def business_days_before(value: str, count: int) -> str:
     current = dt.date.fromisoformat(value)
     remaining = count
@@ -402,10 +415,10 @@ def build_payload(bundle):
     def with_gates(item):
         copy = dict(item)
         copy["gates"] = [
-            {"label": "Content complete", "date": business_days_before(item["due"], 15)},
-            {"label": "Peer review", "date": business_days_before(item["due"], 10)},
-            {"label": "Freeze / red team", "date": business_days_before(item["due"], 5)},
-            {"label": "Submission ready", "date": business_days_before(item["due"], 2)},
+            {"label": "Start (latest)", "date": countdown_step(item["due"], 28)},
+            {"label": "First draft", "date": countdown_step(item["due"], 14)},
+            {"label": "Team check", "date": countdown_step(item["due"], 9)},
+            {"label": "Ready to submit", "date": countdown_step(item["due"], 2)},
             {"label": "Official due", "date": item["due"]},
         ]
         return copy

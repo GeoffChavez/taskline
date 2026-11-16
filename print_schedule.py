@@ -39,6 +39,28 @@ SHORT = {
 }
 TRACK_NAMES = {"biz": None}
 
+# Academic calendar shown as shaded bands (darker = campus closed). C8 in the Integrated Workplan.
+BANDS = [
+    (date(2026, 11, 23), date(2026, 11, 28), "Fall recess", False),
+    (date(2026, 12, 14), date(2026, 12, 17), "Finals", False),
+    (date(2026, 12, 18), date(2027, 1, 20), "Winter break", False),
+    (date(2026, 12, 24), date(2027, 1, 3), "", True),
+    (date(2027, 3, 29), date(2027, 4, 4), "Spring break", False),
+    (date(2027, 5, 17), date(2027, 5, 22), "Finals", False),
+]
+# Countdown steps that land on a weekend or one of these days move earlier.
+BLOCKED = [(date(2026, 11, 11), date(2026, 11, 11)), (date(2026, 11, 23), date(2026, 11, 28)),
+           (date(2026, 12, 14), date(2026, 12, 19)), (date(2026, 12, 24), date(2027, 1, 3)),
+           (date(2027, 3, 29), date(2027, 4, 4)), (date(2027, 5, 17), date(2027, 5, 22))]
+# Team rows drawn under the vehicle chart: handoff, training, purchases and approvals (schedule.csv ids).
+TEAM_ROWS = ["pm-handoff-henry", "spring-vse-owner-named", "fs-coordinator-named", "ti-board-order",
+             "siemens-server-access", "vehicle-delivery-window", "team-training-spring"]
+# Constraint tags (C# = Integrated Workplan Table 5): id -> (date, number). Deliverable ids or schedule ids.
+TAGS = {"stla-battery-targets": (date(2026, 11, 18), 1), "siemens-server-access": (date(2026, 11, 20), 2),
+        "ti-board-order": (date(2026, 12, 16), 3), "stla-baseline-testing": (date(2027, 1, 12), 4),
+        "vehicle-delivery-window": (date(2027, 1, 8), 5), "stla-facilities": (date(2026, 12, 2), 6),
+        "team-training-spring": (date(2027, 1, 26), 7), "stla-final-technical-report": (date(2027, 3, 22), 9)}
+
 
 def d(s):
     return date.fromisoformat(s)
@@ -50,6 +72,25 @@ def back_business_days(day, n):
         if day.weekday() < 5:
             n -= 1
     return day
+
+
+def settle(day):
+    while day.weekday() >= 5 or any(a <= day <= b for a, b in BLOCKED):
+        day -= timedelta(days=1)
+    return day
+
+
+def countdown(due):
+    """Team countdown: first draft 14 days, team check 9 days, ready to submit 2 days before due."""
+    return {"draft": settle(due - timedelta(days=14)), "check": settle(due - timedelta(days=9)),
+            "ready": settle(due - timedelta(days=2))}
+
+
+def tag(key):
+    if key not in TAGS:
+        return ""
+    day, num = TAGS[key]
+    return f'<b class="ctag" style="left:{x_pct(day):.3f}%">C{num}</b>'
 
 
 def esc(s):
@@ -91,7 +132,9 @@ def gantt_page(title, lanes, deliverables, tasks, people, today, page_note):
         f'<span style="left:{x_pct(a):.3f}%;width:{x_pct(b) - x_pct(a):.3f}%">{a.strftime("%b")}{" " + str(a.year) if a.month in (9, 1) else ""}</span>'
         for a, b in ticks
     )
-    grid = "".join(f'<i class="vline" style="left:{x_pct(a):.3f}%"></i>' for a, _ in ticks[1:])
+    grid = "".join(f'<i class="band{" closed" if dark else ""}" style="left:{x_pct(a):.3f}%;width:{x_pct(b + timedelta(days=1)) - x_pct(a):.3f}%"></i>' for a, b, _, dark in BANDS)
+    grid += "".join(f'<i class="vline" style="left:{x_pct(a):.3f}%"></i>' for a, _ in ticks[1:])
+    band_lbl = "".join(f'<em class="band-lbl" style="left:{x_pct(a + (b - a) / 2):.3f}%">{esc(lab)}</em>' for a, b, lab, _ in BANDS if lab)
     tx = x_pct(today)
     rows = []
     for lane in lanes:
@@ -103,8 +146,9 @@ def gantt_page(title, lanes, deliverables, tasks, people, today, page_note):
             due = d(x["due"])
             work = [tmap[i] for i in x.get("work_tasks", []) if i in tmap]
             starts = [d(t["start"]) for t in work]
-            start = min(starts) if starts else back_business_days(due, 15)
-            freeze = back_business_days(due, 5)
+            start = min(starts) if starts else due - timedelta(days=28)
+            cd = countdown(due)
+            freeze = cd["check"]
             past = due < today
             pts = x.get("points")
             pts_txt = str(pts) if pts else "req."
@@ -114,8 +158,10 @@ def gantt_page(title, lanes, deliverables, tasks, people, today, page_note):
             bar = (
                 f'<i class="bar" style="left:{l:.3f}%;width:{max(r_ - l, .4):.3f}%"></i>'
                 f'<i class="frz" style="left:{f:.3f}%;width:{max(r_ - f, .3):.3f}%"></i>'
-                f'<i class="dia" style="left:{r_:.3f}%"></i>'
+                + (f'<i class="tick" style="left:{x_pct(cd["draft"]):.3f}%"></i>' if not past and cd["draft"] > start else "")
+                + f'<i class="dia" style="left:{r_:.3f}%"></i>'
                 f'<b class="due" style="left:{r_:.3f}%">{due.day} {due.strftime("%b")}</b>'
+                + tag(x["id"])
             )
             rows.append(
                 f'<div class="g-row{" past" if past else ""}" style="--c:{LANE_COLOR[lane]}">'
@@ -123,13 +169,35 @@ def gantt_page(title, lanes, deliverables, tasks, people, today, page_note):
                 f'<div class="g-pts">{esc(pts_txt)}</div>'
                 f'<div class="g-track">{grid}{bar}<i class="today" style="left:{tx:.3f}%"></i></div></div>'
             )
+    if "pgm" in lanes:
+        rows.append('<div class="g-group" style="--c:#474559"><div>Handoff, training, purchases &amp; approvals</div><div></div><div></div></div>')
+        for tid in TEAM_ROWS:
+            t = tmap.get(tid)
+            if not t:
+                continue
+            s = d(t["start"])
+            e = d(t["end"]) if t.get("end") else None
+            if t["type"] == "milestone" or not e:
+                mark = (f'<i class="dia hollow" style="left:{x_pct(s):.3f}%"></i>'
+                        f'<b class="due" style="left:{x_pct(s):.3f}%">{s.day} {s.strftime("%b")}</b>')
+            else:
+                cls = "dash" if t["type"] == "tbd" else "bar solid"
+                mark = (f'<i class="{cls}" style="left:{x_pct(s):.3f}%;width:{x_pct(e) - x_pct(s):.3f}%"></i>'
+                        f'<b class="due" style="left:{x_pct(e):.3f}%">{esc(t["label"].split(" · ")[0]) if t["type"] == "tbd" else str(e.day) + " " + e.strftime("%b")}</b>')
+            owners = " / ".join(first_name(people, k) for k in t["owners"].split())
+            rows.append(
+                f'<div class="g-row" style="--c:#474559">'
+                f'<div class="g-name"><b>{esc(t["task"])}</b><span>{esc(owners)}</span></div>'
+                f'<div class="g-pts"></div>'
+                f'<div class="g-track">{grid}{mark}{tag(tid)}<i class="today" style="left:{tx:.3f}%"></i></div></div>'
+            )
     return f'''<section class="sheet">
 <header><div><h1>{esc(title)}</h1><p>{esc(page_note)}</p></div><div class="brand">Cal State LA EcoCAR<br><span>EcoCAR Innovation Challenge · Stellantis track · Year 1</span></div></header>
-<div class="gantt">
-<div class="g-head"><div>Deliverable · owner</div><div class="g-pts">Pts</div><div class="g-months">{head}<i class="today" style="left:{tx:.3f}%"></i><em class="today-lbl" style="left:{tx:.3f}%">Today {today.day} {today.strftime("%b")}</em></div></div>
+<div class="gantt{" dense" if "pgm" in lanes else ""}">
+<div class="g-head"><div>Deliverable · owner</div><div class="g-pts">Pts</div><div class="g-months">{head}{band_lbl}<i class="today" style="left:{tx:.3f}%"></i><em class="today-lbl" style="left:{tx:.3f}%">Today {today.day} {today.strftime("%b")}</em></div></div>
 {"".join(rows)}
 </div>
-<footer class="legend"><span><i class="lg bar"></i>Work window (planned start to due)</span><span><i class="lg frz"></i>Final 5 business days: freeze, red team, submit</span><span><i class="lg dia"></i>Official due date, 4 PM local unless noted</span><span><i class="lg today"></i>Today</span><span class="muted">Grey rows are past. “req.” = leadership requirement, no points.</span></footer>
+<footer class="legend"><span><i class="lg bar"></i>Work window (planned start to due)</span><span><i class="lg tick"></i>First draft (14 days)</span><span><i class="lg frz"></i>Team check (9 days) to due: fix and finish, submit</span><span><i class="lg band"></i>Break or finals (darker = campus closed)</span><span><b class="lg ctag">C#</b>Constraint, Integrated Workplan Table 5</span><span><i class="lg dia"></i>Official due date, 4 PM local unless noted</span><span><i class="lg today"></i>Today</span><span class="muted">Grey rows are past. “req.” = leadership requirement, no points.</span></footer>
 </section>'''
 
 
@@ -143,7 +211,7 @@ def calendar_pages(deliverables, tasks, people, today):
         if (t["start"], t["lane"]) in due_lane_days:
             continue
         if t["type"] == "freeze":
-            text = f"Freeze & red team starts · {t['lane'].upper()}"
+            text = f"{t['task']} starts · {t['lane'].upper()}"
         else:
             text = t["task"]
         events.setdefault(t["start"], []).append((text, t["label"], t["lane"]))
@@ -206,6 +274,7 @@ header p{margin:3px 0 0;color:var(--muted);font-size:11.5px}
 .g-pts{text-align:right;padding-right:8px;font-variant-numeric:tabular-nums}
 .g-group{height:22px;margin-top:6px;font-weight:700;font-size:11.5px;color:var(--c);border-bottom:1px solid var(--c)}
 .g-row{height:27px;border-bottom:1px solid #eee}
+.gantt.dense .g-row{height:21.5px}.gantt.dense .g-group{height:19px;margin-top:3px}.gantt.dense .bar,.gantt.dense .frz,.gantt.dense .dash{top:6px}.gantt.dense .dia{top:4.5px}.gantt.dense .due{top:3px}.gantt.dense .tick{top:4px}.gantt.dense .ctag{top:4px}
 .g-name{display:flex;justify-content:space-between;gap:6px;padding-right:6px;white-space:nowrap;overflow:hidden}
 .g-name b{font-weight:600;overflow:hidden;text-overflow:ellipsis}.g-name span{color:var(--muted);font-size:10.5px}
 .g-track{position:relative;height:100%}
@@ -215,6 +284,13 @@ header p{margin:3px 0 0;color:var(--muted);font-size:11.5px}
 .dia{position:absolute;top:7px;width:11px;height:11px;margin-left:-5.5px;background:var(--gold);border:1.5px solid #111;transform:rotate(45deg)}
 .due{position:absolute;top:5px;margin-left:10px;font-size:10px;font-weight:700;white-space:nowrap}
 .today{position:absolute;top:0;bottom:0;border-left:2px solid #111;z-index:2}
+.band{position:absolute;top:0;bottom:0;background:#efefef}.band.closed{background:#dcdcdc}
+.band-lbl{position:absolute;bottom:-14px;transform:translateX(-50%);font-style:normal;font-size:8.5px;color:#666;white-space:nowrap}
+.tick{position:absolute;top:6px;height:13px;border-left:2px solid #111;z-index:1}
+.dia.hollow{background:#fff}
+.dash{position:absolute;top:8px;height:9px;border:1.2px dashed #474559;border-radius:2px}
+.bar.solid{opacity:.45}
+.ctag{position:absolute;top:6px;transform:translateX(-50%);background:#111;color:#fff;font-size:8.5px;font-weight:700;padding:0 3px;border-radius:2px;z-index:3;line-height:13px}
 .today-lbl{position:absolute;top:-15px;transform:translateX(-50%);font-style:normal;font-size:9.5px;font-weight:700;background:var(--gold);padding:0 4px;white-space:nowrap}
 .g-row.past .bar,.g-row.past .frz{background:#9a9a9a}.g-row.past .dia{background:#ccc;border-color:#888}.g-row.past b,.g-row.past .g-pts{color:#8a8a8a}
 .legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:10.5px;color:#333;border-top:1px solid var(--line);padding-top:7px;margin-top:8px}
@@ -224,6 +300,9 @@ header p{margin:3px 0 0;color:var(--muted);font-size:11.5px}
 .lg.frz{position:static;width:12px;height:9px;background:#000000}
 .lg.dia{position:static;width:9px;height:9px;margin:0 7px 0 2px;background:var(--gold);border:1.5px solid #111;transform:rotate(45deg)}
 .lg.today{position:static;width:2px;height:12px;background:#111}
+.lg.tick{position:static;width:2px;height:12px;background:#111}
+.lg.band{position:static;width:14px;height:10px;background:#dcdcdc}
+.lg.ctag{position:static;transform:none;margin-right:5px}
 .lg.sw{width:10px;height:10px;border-radius:2px}
 .cal{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid #bbb}
 .dow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:#111;color:#fff;font-weight:700;font-size:11px}
