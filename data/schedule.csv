@@ -28,9 +28,16 @@ case-study-reflection,Program & project management,pgm,Case study → reflection
 fall-workshop-case-study-reflection,Program & project management,pgm,Fall Workshop Case Study Reflection,graded · 8 Oct,milestone,2026-10-08,,geo
 leadership-advisor-sponsor-review-2026-10-13,Program & project management,pgm,Leadership review with advisors and sponsors,photos · CAD readiness · roster · webpage,milestone,2026-10-13,,geo
 team-roster-reconciliation,Program & project management,pgm,Team roster reconciliation,one name per person before the webpage submission,bar,2026-10-13,2026-10-14,geo mar
-integrated-year-1-workplan,Program & project management,pgm,Integrated Year 1 Workplan,build,bar,2026-09-15,2026-11-10,geo nat
+integrated-year-1-workplan,Program & project management,pgm,Integrated Year 1 Workplan,build,bar,2026-09-15,2026-11-10,geo hen
 integrated-year-1-workplan-2,Program & project management,pgm,Integrated Year 1 Workplan,graded · 17 Nov (moved from 12 Nov on 30 Oct dashboard),milestone,2026-11-17,,geo
-integrated-master-schedule,Program & project management,pgm,Integrated Master Schedule,"PM materials, dependencies, dates",bar,2026-09-08,2026-11-17,nat
+integrated-master-schedule,Program & project management,pgm,Integrated Master Schedule,"PM materials, dependencies, dates",bar,2026-09-08,2026-11-17,geo
+pm-handoff-henry,Program & project management,pgm,PM handoff to Henry Hall,official · 11 Dec,milestone,2026-12-11,,geo hen
+spring-vse-owner-named,Program & project management,pgm,Spring VSE owner named,"Rony, Francisco or David · by 11 Dec",milestone,2026-12-11,,geo
+fs-coordinator-named,Program & project management,pgm,Facilities & Safety Coordinator named,senior design member or lead · by 11 Dec,milestone,2026-12-11,,geo
+ti-board-order,"Training, facilities, purchases & approvals",pgm,TI board ordered,long-lead purchase · order now (ASAP),milestone,2026-11-20,,geo
+siemens-server-access,"Training, facilities, purchases & approvals",pgm,Siemens server access,follows NDA approval · fallback GitLab,tbd,2026-11-16,2027-01-20,hen
+vehicle-delivery-window,"Training, facilities, purchases & approvals",pgm,Vehicle delivery and vehicle-use approval,January 2027,tbd,2027-01-04,2027-01-29,hen
+team-training-spring,"Training, facilities, purchases & approvals",pgm,"Team training: CAN, Simulink, CAD; Makerspace and Circuitspace access",key members · before spring implementation,bar,2027-01-21,2027-03-25,hen
 university-stakeholder-meeting-preparation,Program & project management,pgm,University stakeholder meeting — preparation,graded · 28 Jan,milestone,2027-01-28,,geo
 stakeholder-meeting-proof-of-execution,Program & project management,pgm,Stakeholder meeting — proof of execution,graded · 18 Mar,milestone,2027-03-18,,geo
 project-status-update-assurance-review,Program & project management,pgm,Project Status Update & Assurance Review,graded · 8 Apr,milestone,2027-04-08,,geo
@@ -49,7 +56,7 @@ off-road-performance-targets,VSE — vehicle systems engineering,vse,Off-Road Pe
 freeze-red-team,VSE — vehicle systems engineering,vse,Freeze & red team,T−5 working days,freeze,2026-10-23,2026-10-29,ant
 off-road-performance-target-development,VSE — vehicle systems engineering,vse,Off-Road Performance Target Development,graded · LARGE · 29 Oct,milestone,2026-10-29,,ant
 three-architecture-matrix,VSE — vehicle systems engineering,vse,Three-architecture matrix,build &times;3,bar,2026-10-02,2027-03-15,ant ron
-final-technical-report-itec-digest,VSE — vehicle systems engineering,vse,Final Technical Report — ITEC digest,build,bar,2026-10-15,2026-12-12,ant
+final-technical-report-itec-digest,VSE — vehicle systems engineering,vse,Final Technical Report — ASME abstract and paper,build · abstract 11 Jan · report 31 Mar,bar,2026-12-14,2027-03-26,ant
 final-technical-report,VSE — vehicle systems engineering,vse,Final Technical Report,graded · 31 Mar · Box + ASME (19 Dec is the GM-track date),milestone,2027-03-31,,ant
 final-technical-report-abstract,VSE — vehicle systems engineering,vse,Final Technical Report — abstract,end of day · 11 Jan · ASME website,milestone,2027-01-11,,ant
 facilities-safety-readiness,VSE — vehicle systems engineering,vse,Facilities & Safety Readiness,build,bar,2026-11-15,2027-01-14,ant dav

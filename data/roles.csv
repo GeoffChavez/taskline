@@ -1,16 +1,16 @@
 role_id,role,owner_key,status,backup_key,decision_due,notes
-faculty,Lead Faculty Advisor,,Open,,2026-09-17,Confirm faculty ownership and approval path
+faculty,Lead Faculty Advisor,,Filled,,2026-11-13,"Dr. Masood Shahverdi; main faculty oversight, including spring (13 Nov 2026)"
 student_lead,Student Team Lead,,Confirm,,2026-09-17,Required for Fall Workshop presentation team
-pm,Project Manager,geo,Filled,,2026-09-17,Owns integrated view and operating cadence
+pm,Project Manager,geo,Filled,hen,2026-09-17,Geoffrey Chavez until 11 Dec 2026; Henry Hall from 11 Dec. Owns integrated view and operating cadence
 marcom,Marketing and Communications Manager,mar,Filled,,2026-09-17,Krupskaia Molina; owns webpage and MarCom gates
 pit,Product Innovation Track Lead,aya,Filled,,2026-09-17,Owns PIT workstream
-vse,Vehicle Systems Engineering Lead,ant,Filled,,2026-09-17,Owns integrated vehicle engineering
+vse,Vehicle Systems Engineering Lead,ant,Confirm,,2026-12-11,"Anthony Whitehurst through Fall 2026; spring owner Rony Herrera, Francisco Calva or David Escobar, named by 11 Dec"
 vhi,Vehicle Hardware Integration Lead,fra,Filled,,2026-09-17,Vehicle Hardware and Integration Lead (team list 30 Oct 2026)
 pcm,Propulsion Controls and Modeling Lead,ron,Filled,,2026-09-17,Owns PCM toolchain and simulation
 hvb,High Voltage Battery Lead,dav,Filled,,2026-09-17,Also proposed Battery Systems Lead
 cad_custodian,CAD Custodian,fra,Filled,jef,2026-09-17,Required by CAD readiness deliverable
 offroad_lead,Off-Road Systems Lead,ant,Confirm,ron,2026-09-17,Required by off-road target deliverable
 battery_systems_lead,Battery Systems Lead,dav,Confirm,,2026-09-17,Required by battery target deliverable
-facilities_safety,Facilities and Safety Coordinator,,Open,,2026-09-17,Required by facilities readiness deliverable
-systems_architecture,Systems Architecture Lead,ant,Confirm,ron,2026-09-17,Preferably VSE Lead per requirement
+facilities_safety,Facilities and Safety Coordinator,,Open,,2026-12-11,"A senior design member or lead, named by 11 Dec; owns the binder and Facilities and Safety Readiness (21 Jan)"
+systems_architecture,Systems Architecture Lead,ant,Confirm,ron,2026-12-11,Preferably VSE Lead per requirement; moves with the spring VSE owner
 vehicle_test,Vehicle Test Lead,min,Confirm,,2026-09-17,Required by baseline testing deliverable

@@ -511,7 +511,7 @@
     "scoring": "Medium - Relative",
     "owner": "geo",
     "contributors": [
-      "nat",
+      "hen",
       "ant",
       "fra",
       "ron",
@@ -520,7 +520,7 @@
       "mar"
     ],
     "schedule_id": "integrated-year-1-workplan-2",
-    "source": "General Deliverables Rev 2, C-2; Team Dashboard 2026-10-30",
+    "source": "General Deliverables Rev 6, C-2; Team Dashboard 2026-10-30",
     "purpose": "Provide the credible cross-functional baseline the team actually uses.",
     "artifacts": [
       {
@@ -716,22 +716,22 @@
     ],
     "schedule_id": "final-technical-report",
     "source": "STLA Technical Deliverables Rev 0, G; Team Dashboard 2026-10-30",
-    "purpose": "Submit a relevant engineering digest to IEEE ITEC and retain proof.",
+    "purpose": "Submit a relevant engineering paper to ASME (abstract 11 Jan; report 31 Mar) and retain proof.",
     "artifacts": [
       {
-        "name": "ITEC digest and proof",
+        "name": "Final Technical Report and ASME submission proof",
         "format": "PDF",
-        "limit": "6 pages excluding references; 50 MB",
-        "filename": "EICY1_TeamName_ITEC Digest Submission.pdf",
+        "limit": "Confirm in the current STLA Technical Deliverable Requirements",
+        "filename": "Confirm in the current STLA Technical Deliverable Requirements",
         "oem": "No"
       }
     ],
     "done": [
-      "Select a topic relevant to EcoCAR work and suitable for the conference",
-      "Use the conference template and follow current author instructions",
+      "Select a topic relevant to EcoCAR work",
+      "Follow the current ASME author instructions",
       "Explain engineering method, evidence, and relationship to prior work",
-      "Submit to ITEC under the organizer-confirmed track",
-      "Include confirmation evidence in the EcoCAR submission"
+      "Submit the abstract to ASME by 11 Jan and the report by 31 Mar",
+      "Include the ASME confirmation in the EcoCAR Box submission"
     ],
     "points": 25,
     "work_tasks": [
