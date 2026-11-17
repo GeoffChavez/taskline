@@ -97,6 +97,27 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
+def load_links():
+    path = DATA / "dependencies.csv"
+    if not path.exists():
+        return []
+    with open(path, newline="", encoding="utf-8") as f:
+        return [[r["predecessor"], r["successor"]] for r in csv.DictReader(f)]
+
+
+LINK_JS = """<script>
+// Finish-to-start links: a red line drops from the predecessor's due date to the row that waits on it.
+function drawDeps(){document.querySelectorAll('.gantt').forEach(g=>{g.querySelectorAll('.dep,.dep-h,.dep-a').forEach(e=>e.remove());
+const box=g.getBoundingClientRect(),rows=[...g.querySelectorAll('.g-row[data-ids]')],find=id=>rows.find(r=>r.dataset.ids.split(' ').includes(id));
+LINKS.forEach(([a,b])=>{const ra=find(a),rb=find(b);if(!ra||!rb||ra===rb)return;const da=ra.querySelector('.dia')||ra.querySelector('.dash,.bar'),mb=rb.querySelector('.bar,.dash,.dia');if(!da||!mb)return;
+const pa=da.getBoundingClientRect(),pb=mb.getBoundingClientRect(),x=(da.classList.contains('dia')?pa.left+pa.width/2:pa.right)-box.left,y1=pa.top+pa.height/2-box.top,y2=pb.top+pb.height/2-box.top,bx=pb.left-box.left;
+const add=(c,s)=>{const e=document.createElement('i');e.className=c;Object.assign(e.style,s);g.appendChild(e)};
+if(bx>x+8){add('dep',{left:x+'px',top:Math.min(y1,y2)+'px',height:Math.abs(y2-y1)+'px'});add('dep-h',{left:x+'px',top:y2+'px',width:(bx-x-6)+'px'});add('dep-a right',{left:(bx-6)+'px',top:(y2-3.5)+'px'})}
+else{const dn=y2>y1,end=dn?y2-7:y2+7;add('dep',{left:x+'px',top:Math.min(y1,end)+'px',height:Math.abs(end-y1)+'px'});add('dep-a '+(dn?'down':'up'),{left:(x-3.5)+'px',top:(dn?end:end-6)+'px'})}})})}
+window.addEventListener('load',drawDeps);window.addEventListener('beforeprint',drawDeps);
+</script>"""
+
+
 def load():
     deliverables = json.loads((DATA / "deliverables.json").read_text(encoding="utf-8"))
     with open(DATA / "schedule.csv", newline="", encoding="utf-8") as f:
@@ -163,8 +184,9 @@ def gantt_page(title, lanes, deliverables, tasks, people, today, page_note):
                 f'<b class="due" style="left:{r_:.3f}%">{due.day} {due.strftime("%b")}</b>'
                 + tag(x["id"])
             )
+            ids = " ".join([x["id"], x.get("schedule_id", "")] + list(x.get("work_tasks", [])))
             rows.append(
-                f'<div class="g-row{" past" if past else ""}" style="--c:{LANE_COLOR[lane]}">'
+                f'<div class="g-row{" past" if past else ""}" data-ids="{esc(ids)}" style="--c:{LANE_COLOR[lane]}">'
                 f'<div class="g-name"><b>{esc(label)}</b><span>{esc(owner)}</span></div>'
                 f'<div class="g-pts">{esc(pts_txt)}</div>'
                 f'<div class="g-track">{grid}{bar}<i class="today" style="left:{tx:.3f}%"></i></div></div>'
@@ -186,7 +208,7 @@ def gantt_page(title, lanes, deliverables, tasks, people, today, page_note):
                         f'<b class="due" style="left:{x_pct(e):.3f}%">{esc(t["label"].split(" · ")[0]) if t["type"] == "tbd" else str(e.day) + " " + e.strftime("%b")}</b>')
             owners = " / ".join(first_name(people, k) for k in t["owners"].split())
             rows.append(
-                f'<div class="g-row" style="--c:#474559">'
+                f'<div class="g-row" data-ids="{esc(tid)}" style="--c:#474559">'
                 f'<div class="g-name"><b>{esc(t["task"])}</b><span>{esc(owners)}</span></div>'
                 f'<div class="g-pts"></div>'
                 f'<div class="g-track">{grid}{mark}{tag(tid)}<i class="today" style="left:{tx:.3f}%"></i></div></div>'
@@ -197,7 +219,7 @@ def gantt_page(title, lanes, deliverables, tasks, people, today, page_note):
 <div class="g-head"><div>Deliverable · owner</div><div class="g-pts">Pts</div><div class="g-months">{head}{band_lbl}<i class="today" style="left:{tx:.3f}%"></i><em class="today-lbl" style="left:{tx:.3f}%">Today {today.day} {today.strftime("%b")}</em></div></div>
 {"".join(rows)}
 </div>
-<footer class="legend"><span><i class="lg bar"></i>Work window (planned start to due)</span><span><i class="lg tick"></i>First draft (14 days)</span><span><i class="lg frz"></i>Team check (9 days) to due: fix and finish, submit</span><span><i class="lg band"></i>Break or finals (darker = campus closed)</span><span><b class="lg ctag">C#</b>Constraint, Integrated Workplan Table 5</span><span><i class="lg dia"></i>Official due date, 4 PM local unless noted</span><span><i class="lg today"></i>Today</span><span class="muted">Grey rows are past. “req.” = leadership requirement, no points.</span></footer>
+<footer class="legend"><span><i class="lg bar"></i>Work window (planned start to due)</span><span><i class="lg tick"></i>First draft (14 days)</span><span><i class="lg frz"></i>Team check (9 days) to due: fix and finish, submit</span><span><i class="lg band"></i>Break or finals (darker = campus closed)</span><span><b class="lg ctag">C#</b>Constraint, Integrated Workplan Table 5</span><span><i class="lg link"></i>Can&rsquo;t start until the row above/below finishes (data/dependencies.csv)</span><span><i class="lg dia"></i>Official due date, 4 PM local unless noted</span><span><i class="lg today"></i>Today</span><span class="muted">Grey rows are past. “req.” = leadership requirement, no points.</span></footer>
 </section>'''
 
 
@@ -303,6 +325,13 @@ header p{margin:3px 0 0;color:var(--muted);font-size:11.5px}
 .lg.tick{position:static;width:2px;height:12px;background:#111}
 .lg.band{position:static;width:14px;height:10px;background:#dcdcdc}
 .lg.ctag{position:static;transform:none;margin-right:5px}
+.lg.link{position:static;width:0;height:12px;border-left:2px solid #B22222}
+.gantt{position:relative}
+.dep{position:absolute;border-left:1.6px solid #B22222;z-index:4;pointer-events:none}
+.dep-h{position:absolute;border-top:1.6px solid #B22222;z-index:4;pointer-events:none}
+.dep-a{position:absolute;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;z-index:4}
+.dep-a.down{border-top:6px solid #B22222}.dep-a.up{border-bottom:6px solid #B22222}
+.dep-a.right{border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:6px solid #B22222;border-right:0}
 .lg.sw{width:10px;height:10px;border-radius:2px}
 .cal{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid #bbb}
 .dow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:#111;color:#fff;font-weight:700;font-size:11px}
@@ -339,6 +368,7 @@ def main(today=None):
 <title>Year 1 Schedule — Cal State LA EcoCAR</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><style>{CSS}</style></head><body>
 <div class="toolbar noprint"><a href="index.html">&larr; Back to the execution hub</a><span>Print landscape, Letter, margins none · built {today.isoformat()}</span><button onclick="window.print()">Print or save as PDF</button></div>
 {tech}{biz}{"".join(cals)}
+<script>const LINKS={json.dumps(load_links())};</script>{LINK_JS}
 </body></html>"""
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(page, encoding="utf-8")

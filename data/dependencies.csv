@@ -1,0 +1,12 @@
+id,predecessor,successor,type,why,goes_ahead_anyway
+L-01,off-road-performance-target-development,integrated-vehicle-architecture-selection,FS,Off-road targets become the requirements every architecture is scored against,Architecture concepts and modeling start in parallel
+L-02,battery-performance-target-development,integrated-vehicle-architecture-selection,FS,The cell configuration workbook becomes the HV battery section,Architecture concepts start with labeled assumed battery values
+L-03,virtual-vehicle-simulation,integrated-vehicle-architecture-selection,FS,The validated model runs each architecture,Architecture concepts and CAD packaging start in parallel
+L-04,fs-coordinator-named,facilities-safety-readiness-2,FS,The coordinator owns the binder and the walkthrough video,Binder polish starts now with David Escobar
+L-05,facilities-safety-readiness-2,baseline-vehicle-testing-characterization-2,FS,"Lift, HV area and test authorization must exist before driving (Admin Policies D-1, D-4.5)",Test matrix and drive plan are written in parallel
+L-06,vehicle-delivery-window,baseline-vehicle-testing-characterization-2,FS,No vehicle and no vehicle-use approval means no drives,"Training, modeling and CAD continue"
+L-07,spring-vse-owner-named,final-technical-report,FS,The spring VSE owner writes the ASME abstract (11 Jan) and report (31 Mar),Topic research continues with the current VSE team
+L-08,pm-handoff-henry,university-stakeholder-meeting-preparation,FS,The incoming PM owns the first PM deliverable after the handoff,Henry co-runs meetings and picks the university executive now
+L-09,university-stakeholder-meeting-preparation,stakeholder-meeting-proof-of-execution,FS,The meeting happens after the outreach package is submitted,MarCom drafts the public posts in parallel
+L-10,marcom-gate3-brand-assets-milestone,marcom-gate4-external-promotion-milestone,FS,The promotion strategy uses the approved brand assets,Social Media Video 1 runs in parallel
+L-11,pit-studio1-milestone,pit-studio2-milestone,FS,Studio 2 validates the hypothesis chosen in Studio 1,Customer discovery interviews continue between Studios

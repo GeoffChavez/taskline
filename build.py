@@ -262,6 +262,17 @@ def validate(bundle):
         if not project.get("outcome") or not project.get("contribution"):
             problems.append(f"{where}: outcome and contribution are required")
 
+    unique_ids(bundle["dependencies"], "id", "dependencies.csv", problems)
+    for index, row in enumerate(bundle["dependencies"], start=2):
+        where = f"dependencies.csv row {index}"
+        for field in ("predecessor", "successor"):
+            if row.get(field) not in task_ids:
+                problems.append(f"{where}: unknown {field} '{row.get(field)}' (use an id from schedule.csv)")
+        if row.get("type") != "FS":
+            problems.append(f"{where}: type must be FS (finish-to-start)")
+        if not (row.get("why") or "").strip():
+            problems.append(f"{where}: 'why' is required")
+
     unique_ids(bundle["drivers"], "id", "strategic_drivers.csv", problems)
     for index, row in enumerate(bundle["drivers"], start=2):
         if row.get("owner_key") not in person_keys:
@@ -398,6 +409,7 @@ def load_bundle():
         "onboarding_guides": read_json("onboarding_guides.json"),
         "projects": read_json("projects.json"),
         "drivers": read_csv("strategic_drivers.csv"),
+        "dependencies": read_csv("dependencies.csv"),
         "risks": read_csv("risks.csv"),
         "decisions": read_csv("decisions.csv"),
         "links": read_json("links.json"),
@@ -513,6 +525,7 @@ def build_payload(bundle):
         "onboarding_guides": bundle["onboarding_guides"],
         "projects": bundle["projects"],
         "drivers": bundle["drivers"],
+        "dependencies": bundle["dependencies"],
         "risks": bundle["risks"],
         "decisions": bundle["decisions"],
         "links": bundle["links"],

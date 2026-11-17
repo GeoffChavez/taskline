@@ -38,6 +38,7 @@ GitHub Pages updates after the pushed commit is processed.
 | Need to change | File |
 |---|---|
 | Baseline task, date, lane, or owner | `data/schedule.csv` |
+| Which task can't start until another finishes (domino chain, Timeline arrows) | `data/dependencies.csv` |
 | Weekly status, health, progress, or next action | `data/task_status.csv` |
 | Official artifact summary and definition of done | `data/deliverables.json` |
 | People | `data/people.csv` |
